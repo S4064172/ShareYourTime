@@ -1,92 +1,91 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Share Your Time</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">	
-	</head>
-	
-	<body>
+		<head>
+				<title>Share Your Time</title>
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+				<link rel="stylesheet" type="text/css" href="index.css"/>
+				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">	
+		</head>
+
+		<body>
 <!--
-	-prima bozza di nav bar: 
-	-opzioni ai lati e titolo al centro con schermo grande
-	-opzioni a sinistra nascoste da menu a tendina e titolo al "cento"
-	-possibile separare le opzioni in due menu differenti
-	-modifiche di layout
-	-manca l'immagine
+    -prima bozza di nav bar: 
+		  -opzioni ai lati e titolo al centro con schermo grande
+		  -opzioni a sinistra nascoste da menu a tendina e titolo al "cento" (responsive con dimensione md)
+		  -possibile separare le opzioni in due menu differenti
+		  -modifiche di layout
+      -manca l'immagine
+      -i link non funzionano
 -->		
-       <nav class="navbar navbar-expand-sm d-flex justify-content-between bd-highlight mb-3 bg-dark navbar-dark">
+      <nav class="navbar navbar-expand-md d-flex justify-content-between bd-highlight mb-3 bg-dark navbar-dark navbar-shrink fixed-top">
           
         <div class="p-2 bd-highlight">
-	    	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    	    	<span class="navbar-toggler-icon"></span>
-        	</button>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
 
-          	<div class="collapse navbar-collapse navbarTogglerDemo01">
-            	<ul class="navbar-nav mt-2 mt-lg-0">
-              		<li class="nav-item active">
-                		<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              		</li>
-              		<li class="nav-item">
-                		<a class="nav-link" href="#">Link</a>
-              		</li>
-              		<li class="nav-item">
-                		<a class="nav-link disabled" href="#">Disabled</a>
-              		</li>
-            	</ul>
-          	</div>
+          <div class="collapse navbar-collapse navbarTogglerDemo01">
+            <ul class="navbar-nav mt-2 mt-lg-0">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+              </li>
+            </ul>
+          </div>
         </div>
         
         <div class="p-2 bd-highlight">
-        	<a class="navbar-brand mt-2 mt-lg-0" href="#">
-            	<img src="ShareYourTime.jpg" style="width:40px;">ShareYourTime
-          	</a>
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img src="ShareYourTime.jpg" style="width:40px;">
+            ShareYourTime
+          </a>
         </div>
 
         <div class="p-2 bd-highlight">
-        	<div class="collapse navbar-collapse navbarTogglerDemo01">
-            	<form class="form-inline my-2 my-lg-0">
-              		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	            	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            	</form>
-          	</div>
+          <div class="collapse navbar-collapse navbarTogglerDemo01">
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
         </div>
-        
-	  </nav>
-
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>	
-
-	</body>
+			</nav>
+			
+<!--
+    -container:
+      -cambiare colore con immagine di sfondo
+	  -prima bozza di login: 
+      -posizione dx centrale, è responsive con dimensione sm prende tutta la pagina ma cambia posizione 
+      -modifiche di layout
+      -adattare login alle esigenze
+-->		
+      <section class="d-sm-flex justify-content-end align-items-center" id="homeView">
+          <div class="mr-md-3">
+              <form class="form-signin">
+                  <img class="mb-4" src="" alt="" width="72" height="72">
+                  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                  <label for="inputEmail" class="sr-only">Email address</label>
+                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                  <label for="inputPassword" class="sr-only">Password</label>
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+                  <div class="checkbox mb-3">
+                    <label>
+                      <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                  </div>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+              </form>
+          </div>
+			</section>
+				
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>	
+		</body>
 </html>
-
-<!-- 
-	il logo resta al centro anche quando si ridimensiona bruttino
-	<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-					
-				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-					<li class="nav-item active">
-						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Link</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link disabled" href="#">Disabled</a>
-					</li>
-				</ul>
-					
-				<a class="navbar-brand mr-auto mt-2 mt-lg-0" href="#">
-					<img src="bird.jpg" alt="Logo" style="width:40px;">
-					Logo
-				</a>
-					
-					
-				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form>
-			</div>
--->
