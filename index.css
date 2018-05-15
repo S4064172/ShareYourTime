@@ -7,13 +7,16 @@ body, html {
 	width: 100%;
 }
 
-#homeView {
+section{
 	height: 100%; 
 	width: 100%;
+}
+
+#homeView {
 	background-image: url("img/SfondoTime.jpeg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 #search{
@@ -41,7 +44,6 @@ body, html {
   after { clear: both; }
 
 #login {
-	margin: 50px auto;
 	width: 340px;
   }
   
