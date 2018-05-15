@@ -5,12 +5,10 @@ body, html {
 }
 
 #homeView {
-    display: block;
+	height: 100%; 
 	width: 100%;
-	height: 100%;
-	/*background-image: url("index.jpeg");*/
-	background-color: red;
-	background-size: cover;
-	background-repeat: no-repeat;
+	background-image: url("img/SfondoTime.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
