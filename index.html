@@ -6,14 +6,13 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1">
 				<link rel="stylesheet" type="text/css" href="index.css"/>
 				<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">	
-		</head>
+    </head>
 
 		<body>
 <!--
     -prima bozza di nav bar: 
 		  -opzioni ai lati e titolo al centro con schermo grande
 		  -opzioni a sinistra nascoste da menu a tendina e titolo al "cento" (responsive con dimensione md)
-		  -possibile separare le opzioni in due menu differenti
 		  -modifiche di layout
       -i link non funzionano
 -->		
@@ -48,7 +47,7 @@
         <div class="p-2 bd-highlight">
           <div class="collapse navbar-collapse navbarTogglerDemo01">
             <form class="form-inline my-2 my-lg-0" action="">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2" id="search" type="search" placeholder="Search" aria-label="Search">
             </form>
           </div>
         </div>
@@ -57,24 +56,18 @@
 <!--
 	  -prima bozza di login: 
       -posizione dx centrale, è responsive con dimensione sm, da dx centrale passa a centrale centrale
-      -modifiche di layout
-      -adattare login alle esigenze
 -->		
       <section class="d-flex justify-content-sm-end justify-content-center align-items-sm-center align-items-end" id="homeView">
-        <div class="mr-sm-3 mb-3">
-          <form class="form-signin">
-            <img class="mb-4" src="" alt="" width="72" height="72">
-            <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-            <div class="checkbox mb-3">
-              <label>
-                <input type="checkbox" value="remember-me"> Remember me
-              </label>
-            </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-          </form>
+        <div class="mr-sm-3 mb-3" id="login">
+          <form name="form-login">
+            <span class="fontawesome-user"></span>
+            <input type="text" id="user" placeholder="Username">
+       
+            <span class="fontawesome-lock"></span>
+            <input type="password" id"pass" placeholder="Password">
+        
+            <input type="submit" value="Login">
+          </form> 
         </div>
       </section>
       	
