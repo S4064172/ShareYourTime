@@ -10,10 +10,10 @@
 
 	<body>
 <!--
-    -prima bozza di nav bar: 
-	-opzioni ai lati e titolo al centro con schermo grande
-	-opzioni a sinistra nascoste da menu a tendina e titolo al "cento" (responsive con dimensione md)
-  	-modifiche di layout
+  -prima bozza di nav bar: 
+	  -opzioni ai lati e titolo al centro con schermo grande
+	  -opzioni a sinistra nascoste da menu a tendina e titolo al "cento" (responsive con dimensione md)
+    -modifiche di layout
     -i link non funzionano
 -->		
       <nav class="navbar navbar-expand-md d-flex justify-content-between  mb-3 bg-dark navbar-dark navbar-shrink fixed-top">  
@@ -70,10 +70,54 @@
           </form> 
         </div>
       </section>
-        
-      
-      <section>
+
+<!--
+	  -prima bozza di section developer: 
+      -manca lo sfondo
+      -aggiustare lo stile
+-->	
+      <section id="developer">
           
+        <div class="row justify-content-around mt-5 mb-5">
+          <div class="col-sm-4 offset-sm-1">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" id="imgProva" src="img/Dev1.jpg" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Eugenio Brandi</p>
+                <p class="card-text">Università Di Informatica Di Genova</p>  
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOneDev1" aria-expanded="false" aria-controls="collapseOne">
+                    Link utili
+                </button>
+                <div id="collapseOneDev1" class="collapse hide" aria-labelledby="headingOne">
+                  <div class="card-body">
+                    <p class="card-text">GitHub</p>
+                      <p class="card-text">sito personale</p>
+                  </div>
+                </div>                  
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+              <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" id="imgProva" src="img/Dev2.jpg" alt="Card image cap">
+                  <div class="card-body">
+                      <p class="card-text">Andrea Canepa</p>
+                      <p class="card-text">Università Di Informatica Di Genova</p>  
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOneDev2" aria-expanded="false" aria-controls="collapseOne">
+                          Link utili
+                      </button>
+                      <div id="collapseOneDev2" class="collapse hide" aria-labelledby="headingOne">
+                        <div class="card-body">
+                          <p class="card-text">GitHub</p>
+                            <p class="card-text">sito personale</p>
+                        </div>
+                      </div>   
+                  </div>
+              </div>
+          </div>
+        </div>
+
+
       </section>
 <!--
     footer :
