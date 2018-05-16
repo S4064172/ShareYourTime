@@ -15,94 +15,101 @@
 	  	-modifiche di layout (dopo aver definito tutta la pagina!!
       -i link non funzionano
 -->
-	<nav class="navbar navbar-expand-md d-flex justify-content-between  mb-3 bg-dark navbar-dark navbar-shrink fixed-top">  
-    <div class="p-2">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse navbarTogglerDemo01">
-        <ul class="navbar-nav mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-          <li class="nav-item">
-            <form class="form-inline my-2 my-lg-0" action="">
-              <input class="form-control mr-sm-2" id="search" type="search" placeholder="Search" aria-label="Search">
-            </form>    
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="p-2">
-      <a class="navbar-brand mt-2 mt-lg-0" href="#">
-        <img src="img/Time1.png" style="width:40px;">
-        ShareYourTime
-      </a>
-    </div>
-
-    <div class="p-2">
-        <button class="fas fa-sign-in-alt" onclick="display_hidden_fields()">
-            Login
+    <nav class="navbar navbar-expand-md d-flex justify-content-between  mb-3 bg-dark navbar-dark navbar-shrink fixed-top">  
+      <div class="p-2">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-        
-      
-    </div>
-  </nav>
 
-			
+        <div class="collapse navbar-collapse navbarTogglerDemo01">
+          <ul class="navbar-nav mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            <li class="nav-item">
+              <form class="form-inline my-2 my-lg-0" action="">
+                <input class="form-control mr-sm-2" id="search" type="search" placeholder="Search" aria-label="Search">
+              </form>    
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="p-2">
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <img src="img/Time1.png" style="width:40px;">
+          ShareYourTime
+        </a>
+      </div>
+
+      <div class="p-2">
+          <button class="fas fa-sign-in-alt" onclick="display_hidden_fields()">
+              Login
+          </button>
+      </div>
+    </nav>
+
+        
+    <section  id="homeView">
+
+      
+        <div class="row">
+<!--
+      -> descrizine generale sito (bozza per la validazione)
+        - da modificare grafica
+        - da modificare lee scritte
+-->
+          <div class="col-sm-4 offset-lg-6 offset-md-4" id="aboutUs">
+              <h1>ShareYourTime</h1>
+              <p>Condividi il tuo tempo</p>
+              <p>Metti ha dispozionio il tuo tempo per chi ne ha bisogno</p>
+              <p>Cerca nel nostro sito la persona piu adatta alla tue esigenze</p>
+          </div>
+
 <!--
     -> Login a scomparsa:
       - problema compare uno spazio bianco quando il login compare
 -->		
-  <section  id="homeView">
-    
-    <div class="row">
-      <div class="col-2.5 offset-lg-8 offset-md-6 offset-sm-4" id="login" name="changeVisibility" style="display:none">
-          <form name="form-login">
-            <span class="fas fa-user"></span>
-            <input type="text" id="user" placeholder="Username">
-          <br>
-            <span class="fas fa-user-lock"></span>
-            <input type="password" id"pass" placeholder="Password">
-        
-            <input type="submit" value="Login">
-          </form> 
+          <div class="col-2.5 offset-lg-8 offset-md-6 offset-sm-4 offset-2" id="login" name="changeVisibility" style="display:none">
+              <form name="form-login">
+                <span class="fas fa-user"></span>
+                <input type="text" id="user" placeholder="Username">
+              <br>
+                <span class="fas fa-user-lock"></span>
+                <input type="password" id"pass" placeholder="Password">
+            
+                <input type="submit" value="Login">
+              </form> 
+          </div>
+        </div>
       </div>
-    </div>
-    
-    
-  </section>
-        
       
-      <section>
-          
-      </section>
+    </section>
+        
 <!--
     footer :
         -abbozzo di suddivisione del footer
 --> 
-      <footer class="footer d-sm-flex justify-content-between mb-3 bg-dark">
-            <div>
-                div 1
-            </div>
-            <div >
-                div 2 
-            </div>
-            <div >
-                div 3
-            </div>
-        
-      </footer>
+    <footer class="footer d-sm-flex justify-content-between mb-3 bg-dark">
+          <div>
+              div 1
+          </div>
+          <div >
+              div 2 
+          </div>
+          <div >
+              div 3
+          </div>
+      
+    </footer>
 
-      <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 <!---->
 	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
