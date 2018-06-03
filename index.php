@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="navBar/navBar.css"/>
   </head>
 
-	<body class="h">
+	<body>
     <?php
         require ('navBar/navBar.php');
      ?>
@@ -17,36 +17,36 @@
       <div class="container">
         <div class="row">
           <!--
-              -> descrizine generale sito
+          -> descrizine generale sito
           -->
           <div class="col-md-6 offset-lg-6 offset-md-4 offset-sm-2" id="aboutUs">
-              
+
+          </div> 
+        </div>
+      </div>  
+      <!--
+          -> Login a scomparsa
+      -->	
+      <div id="loginModal" class="modal">
+        <span onclick="noneById('loginModal'); enableButtonById('signupB');" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content animate mb-0" action="login.php" method="POST">
+          <div class="imgcontainer">
+            <span onclick="noneById('loginModal'); enableButtonById('signupB');" class="close" title="Close Modal">&times;</span>
+            <img src="img/avatar.png" alt="Avatar" class="avatar">
           </div>
 
-          <!--
-              -> Login a scomparsa
-          -->		
-          <div id="loginModal" class="modal">
-            <span onclick="noneById('loginModal'); enableButtonById('signupB');" class="close" title="Close Modal">&times;</span>
-            <form class="modal-content animate mb-0" action="login.php" method="POST">
-              <div class="imgcontainer">
-                <span onclick="noneById('loginModal'); enableButtonById('signupB');" class="close" title="Close Modal">&times;</span>
-                <img src="img/avatar.png" alt="Avatar" class="avatar">
-              </div>
+          <div class="myContainer">
+            <label for="usernameLogin"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="usernameLogin" minlength="5" maxlength="125" required>
 
-              <div class="myContainer">
-                <label for="usernameLogin"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="usernameLogin" minlength="5" maxlength="125" required>
-        
-                <label for="pswLogin"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="pswLogin" minlength="8" maxlength="125" required>
-                
-                <button type="submit" class="btn btn-success mybutton mt-4">Login</button>
-              </div>
-            </form>
-		    </div>
-      </div>  
-      
+            <label for="pswLogin"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="pswLogin" minlength="8" maxlength="125" required>
+
+            <button type="submit" class="btn btn-success mybutton mt-4">Login</button>
+          </div>
+        </form>
+      </div> 
+
       <!--
             -> Sign in a scomparsa
       -->	
@@ -60,33 +60,30 @@
           <div class="container myContainer">
             <div class="row">
               <div class="col-md-6">
-                  <label for="usernameReg"><b>Username</b></label>
+                <label for="usernameReg"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="usernameReg" minlength="5" maxlength="125" required>
 
                 <label for="pswReg"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="pswReg" minlength="8" maxlength="125" required>
-            
+
                 <label for="confPswReg"><b>Confirm Password</b></label>
                 <input type="password" placeholder="Confirm Password" name="confPswReg" minlength="8" maxlength="125" required>
-              </div>
-              <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
                 <label for="nameReg" class="text-r"><b>Name</b></label>
                 <input type="text" placeholder="Enter Name" name="nameReg" maxlength="125" required>
-            
+
                 <label for="surnameReg" class="text-r"><b>Surname</b></label>
-                  <input type="text" placeholder="Enter Surname" name="surnameReg" maxlength="125" required>
-                
+                <input type="text" placeholder="Enter Surname" name="surnameReg" maxlength="125" required>
+
                 <label for="emailReg" class="text-r"><b>Email</b></label>
-                  <input type="email" placeholder="Enter Email" name="emailReg" maxlength="125" required>
+                <input type="email" placeholder="Enter Email" name="emailReg" maxlength="125" required>
               </div>
             </div>
             <button type="submit" class="btn btn-success mybutton mt-4">Register</button>
           </div>
         </form>
-		  </div>
-
-
-
+      </div>
     </section>
 
      <?php
