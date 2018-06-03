@@ -9,7 +9,7 @@ section {
 	width: 100%;
 }
 
-.container {
+.myContainer {
     padding: 16px;
 }
 
@@ -24,7 +24,15 @@ section {
 	margin-top: 150px;
 }
 
+.text-r {
+	float: right;
+}
 
+@media screen and (max-width: 768px /*sm*/) {
+	.text-r {
+		float: left;
+	}
+}
 /*----------------------------------*/
 
 /* Full-width input fields */
@@ -37,9 +45,6 @@ input[type=text], input[type=password], input[type=email] {
     box-sizing: border-box;
 }
 
-.text-r {
-	float: right;
-}
 
 /* Set a style for all buttons */
 .mybutton {

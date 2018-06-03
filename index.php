@@ -8,16 +8,16 @@
     <link rel="stylesheet" type="text/css" href="navBar/navBar.css"/>
   </head>
 
-	<body>
+	<body class="h">
     <?php
         require ('navBar/navBar.php');
      ?>
         
-    <section  id="homeView">
+    <section  id="homeView" >
       <div class="container">
         <div class="row">
           <!--
-                -> descrizine generale sito
+              -> descrizine generale sito
           -->
           <div class="col-md-6 offset-lg-6 offset-md-4 offset-sm-2" id="aboutUs">
               
@@ -28,13 +28,13 @@
           -->		
           <div id="loginModal" class="modal">
             <span onclick="noneById('loginModal'); enableButtonById('signupB');" class="close" title="Close Modal">&times;</span>
-            <form class="modal-content animate" action="login.php" method="POST">
+            <form class="modal-content animate mb-0" action="login.php" method="POST">
               <div class="imgcontainer">
                 <span onclick="noneById('loginModal'); enableButtonById('signupB');" class="close" title="Close Modal">&times;</span>
                 <img src="img/avatar.png" alt="Avatar" class="avatar">
               </div>
 
-              <div class="container">
+              <div class="myContainer">
                 <label for="usernameLogin"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="usernameLogin" minlength="5" maxlength="125" required>
         
@@ -48,16 +48,16 @@
       </div>  
       
       <!--
-              -> Sign in a scomparsa
+            -> Sign in a scomparsa
       -->	
       <div id="signupModal" class="modal">
         <span onclick="noneById('signupModal'); enableButtonById('loginB');" class="close" title="Close Modal">&times;</span>
-        <form class="modal-content mc-signup animate" action="register.php" method="POST">
+        <form class="modal-content animate w-50 mb-0" action="register.php" method="POST">
           <div class="imgcontainer">
             <span onclick="noneById('signupModal'); enableButtonById('loginB');" class="close" title="Close Modal">&times;</span>
             <img src="img/avatar.png" alt="Avatar" class="avatar">
           </div>
-          <div class="container">
+          <div class="container myContainer">
             <div class="row">
               <div class="col-md-6">
                   <label for="usernameReg"><b>Username</b></label>
