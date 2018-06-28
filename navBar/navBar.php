@@ -26,17 +26,18 @@
             ShareYourTime
         </a>
     </div>
-
     <div>
         <span class="collapse navbar-collapse navbarTogglerDemo01">	
-            <button id="signupB" type="submit" href="#" class="btn btn-primary mr-2 d-block d-sm-inline " onclick="showById('signupModal'); disableButtonById('loginB')">
+            <button type="button" href="#" class="btn btn-primary mr-2 d-block d-sm-inline"  data-toggle="modal" data-target="#signUpModalTarget">
                 <i class="fa fa-user-plus"></i>
                     Sign-Up
             </button>
-            <button id="loginB" type="submit" href="#" class="btn btn-success mt-2 mt-sm-0 ml-2" onclick="showById('loginModal'); disableButtonById('signupB')">
-                <i class="fas fa-sign-in-alt"></i>
+            <button type="button" class="btn btn-primary mt-2 mt-sm-0 ml-2" data-toggle="modal" data-target="#loginModalTarget">
+            <i class="fas fa-sign-in-alt"></i>
                     Login
             </button>
+
+            
         </span>
     </div> 
 </nav>
