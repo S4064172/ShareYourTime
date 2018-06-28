@@ -7,3 +7,15 @@
 button:hover {
     opacity: 0.8;
 }
+
+.btnSize {
+	width: 100px;
+}
+
+.sizeTitle {
+	width: 40px;
+}
+
+a:focus {
+	outline: none;
+}
