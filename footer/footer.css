@@ -1,0 +1,20 @@
+.socialIconDim {
+	width: 40px;
+	height: 40px;	
+}
+
+.myFont {
+	color: white;
+	font: "Verdana";
+	text-align: center;
+}
+
+.bigFont {
+	font-size: 20px;
+}
+
+.logoDim {
+	display: block;
+	margin: auto;	
+	width: 60px;
+}
