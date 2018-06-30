@@ -30,7 +30,7 @@
         <span class="collapse navbar-collapse navbarTogglerSignupLogin">	
             <button type="button" href="#" class="btn btn-primary mr-2 d-block d-sm-inline btnSize"  data-toggle="modal" data-target="#signUpModalTarget">
                 <i class="fa fa-user-plus"></i>
-                    Sign-Up
+                    Registrati
             </button>
             <button type="button" class="btn btn-success mt-2 mt-sm-0 btnSize" data-toggle="modal" data-target="#loginModalTarget">
             <i class="fas fa-sign-in-alt"></i>

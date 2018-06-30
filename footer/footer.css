@@ -3,6 +3,10 @@
 	height: 40px;	
 }
 
+.socialIconDim:hover {
+	opacity: 0.8;
+}
+
 .myFont {
 	color: white;
 	font: "Verdana";

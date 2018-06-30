@@ -2,18 +2,18 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3 mt-3">
-				<p class="text-center myFont">Contatti</p>
-				<p class="font-italic myFont">Email: example@test.com</p>
-				<p class="font-italic myFont">Telefono: 555-1234-4321</p>
+				<p class="text-center myFont"><b>Contatti</b></p>
+				<p class="myFont">Email: <i><b>example(at)test.com</b></i></p>
+				<p class="myFont">Telefono: <i><b>555-1234-4321</b></i></p>
 			</div>
 			<div class="col-lg-5 mt-3">
-				<p class="myFont bigFont">SHAREYOURTIME</p>
+				<p class="myFont bigFont"><b>Share Your Time</b></p>
 				<img class="logoDim" src="img/sandclock.png">
 				<br>
 				<p class="myFont">Copyright &copy; Brandi Eugenio &amp; Canepa Andrea</p>
 			</div>
 			<div class="col-lg-4 mt-3">
-				<p class="font-italic myFont">Social</p>
+				<p class="font-italic myFont"><b>Social</b></p>
 				<ul class="list-inline">
 					<li class="list-inline-item">
 						<a href="https://www.facebook.com">
