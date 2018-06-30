@@ -6,7 +6,6 @@
 .myFont {
 	color: white;
 	font: "Verdana";
-	text-align: center;
 }
 
 .bigFont {
@@ -17,4 +16,8 @@
 	display: block;
 	margin: auto;	
 	width: 60px;
+}
+
+.footerCenter {
+	text-align: center;
 }
