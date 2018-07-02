@@ -8,9 +8,20 @@
 	function connectionToDb() 
 	{
 		include("mysql_credentials.php");	
-		$conn = mysqli_connect($mysql_server, $mysql_user, $mysql_pass, $mysql_db);
-		if ( mysqli_connect_errno($conn) )
-				throw new Exception("Fallita la connessione a MySql" . mysqli_connect_error($conn));
+		$conn = mysqli_connect($mysql_server, $mysql_user, $mysql_pass);
+		if (!$conn) 
+		  die("Impossibile stabilire la connessione");
+
+		return $conn;
+	}
+
+	function selectionDB()
+	{
+		include("mysql_credentials.php");
+		$conn=connectionToDb();
+		$conn_db_selected = mysqli_select_db($conn,$mysql_db);
+		if (!$conn_db_selected) 
+		  die ("Impossibile selezionare il database");
 		return $conn;
 	}
 

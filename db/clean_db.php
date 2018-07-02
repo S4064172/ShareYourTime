@@ -1,16 +1,15 @@
 <?php
-   include("mysql_credentials.php");
-    
-    $conn = mysqli_connect($mysql_server, $mysql_user, $mysql_pass);
-    
-    if (!$conn) 
-        die("Connection failed: " . mysqli_connect_error());
+   	
+    require("connection.php");
+    include("mysql_credentials.php");
+
+    $conn = connectionToDb();
         
-    $sql = "DROP DATABASE $mysql_db";
+    $sql = "DROP DATABASE IF EXISTS $mysql_db";
     
     if (mysqli_query($conn, $sql)) 
         echo "<br>Database rimosso con successo !";
     else 
-        echo "Error creating database: " . mysqli_error($conn);
+        echo "<br>Errore rimozione database";
     
     mysqli_close($conn);
