@@ -1,7 +1,8 @@
 body, html {
-	font-family: Sans-Serif;
+	/*font-family: Sans-Serif;*/
 	height: 100%;
 	width: 100%;
+	font-family: Old Standard TT;
 }
 
 section {
@@ -9,7 +10,7 @@ section {
 	width: 100%;
 }
 
-.myContainer {
+.myContainer-padding {
     padding: 16px;
 }
 
@@ -22,12 +23,6 @@ section {
 
 .text-r {
 	float: right;
-}
-
-@media screen and (max-width: 768px /*sm*/) {
-	.text-r {
-		float: left;
-	}
 }
 
 .mybutton {
@@ -46,6 +41,10 @@ button:hover {
 
 .myModal {
     padding-top: 5px;
+}
+
+.myModal-mt {
+	margin-top: 2.5%;
 }
 
 .imgcontainer {
@@ -76,7 +75,7 @@ img.avatar {
 /*----------------------------------*/
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=email], input[type="tel"] {
+input[type=text], input[type=password], input[type=email], input[type=tel] {
     width: 100%;
     padding: 10px 10px;
     margin: 8px 0;
@@ -124,4 +123,108 @@ input[type=text], input[type=password], input[type=email], input[type="tel"] {
     to {
 		transform: scale(1);
 	}
+}
+
+
+.jumbotron h1, .jumbotron p {
+	font-family: "Verdana";
+	text-align: center;
+}
+
+.jumbotron h1 {
+	color: darkgreen;
+}
+
+.jumbotron p {
+	color: black;	
+	font-family: Old Standard TT;
+	font-size: 16px;
+}
+
+.infoJumbo {
+	font-family: Old Standard TT;
+	margin-top: 10%;
+	float: right;
+	margin-right: 10%;
+	height: 200px;
+	padding: 2%;
+	background-color: rgb(200, 200, 200, 0.8);
+	border-radius: 25px;
+}
+
+.tableTitle {
+	float: right;
+	color: white;
+	margin-right: 10%;
+}
+
+table, th, td {
+	border: 1px solid rgb(100, 100, 100);
+	text-align: center;
+	background-color: rgb(200, 200, 200, 0.8);
+}
+
+th {
+	height: 35px;
+	background-color: rgb(100, 100, 100, 0.8);
+}
+
+tbody tr:hover {
+	opacity: 0.3;
+	cursor: pointer;
+	color: red;
+}
+
+.myTable {
+	width: 100%;
+}
+
+@media screen and (max-width: 768px /*sm*/), screen and (max-width: 900px) {
+	.text-r {
+		float: left;
+	}
+	
+	.myTable {
+		float: left;
+		left: 5%;
+		right: 5%;
+	}
+	
+	.jumbotron {
+		font-size: 10px;
+		float: left;
+		width: 90%;
+	}
+
+	table, thead, tbody, th, tr, td { display: block; }
+
+	/*Nascondo header tabella*/
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	tr { border: 1.5px solid rgb(100,100,100); }
+
+	td {
+		border: none;
+		border-bottom: 1.5px solid rgb(100,100,100);
+		position: relative;
+		padding-left: 50%;
+	}
+
+	td:before {
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		position: absolute;
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+
+	td:nth-of-type(1):before { content: "Lavoro"; }
+	td:nth-of-type(2):before { content: "Data"; }
+	td:nth-of-type(3):before { content: "Luogo"; }
+	td:nth-of-type(4):before { content: "Utente"; }
 }
