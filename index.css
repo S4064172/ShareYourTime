@@ -6,7 +6,6 @@ body, html {
 }
 
 section {
-	min-height: 100%;
 	height: auto; 
 	width: 100%;
 }
@@ -21,59 +20,25 @@ section {
 }
 
 #homeView {
+	min-height: 100%;
 	background-image: url("img/SfondoTime.jpeg");
+	background-attachment: fixed; 
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
-
-
-
-
-
-
-
-/*----------------------------------*/
-
-
-
-
-
-
-.jumbotron h1, .jumbotron p {
-	font-family: "Verdana";
-	text-align: center;
+#DettagliSito{
+	min-height: 50%;
+	background-color: grey;
 }
 
-.jumbotron h1 {
-	color: darkgreen;
+#DettagliSitoTesto{
+	padding-top:10vh;
 }
 
-.jumbotron p {
-	color: black;	
-	font-family: Old Standard TT;
-	font-size: 16px;
-}
-
-.infoJumbo {
-	font-family: Old Standard TT;
-	margin-top: 10%;
-	float: right;
-	margin-right: 10%;
-	min-height: 200px;
-	height: auto;
-	padding: 2%;
-	background-color: rgb(200, 200, 200, 0.8);
-	border-radius: 25px;
-}
-
-@media screen and (max-width: 768px /*sm*/), screen and (max-width: 900px) {
-	
-	.jumbotron {
-		font-size: 10px;
-		float: left;
-		width: 90%;
-	}
-
+.myTitle{
+	font-family: verdana; 
+	font-size: 500%;
+	color:whitesmoke;
 }

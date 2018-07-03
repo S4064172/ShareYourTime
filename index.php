@@ -19,42 +19,16 @@
 
 	
 	<section id="homeView">
+		
 		<div class="myContainer">
-    		<div class="row">
-	        <!--
-    	    	 descrizine generale sito
-        	-->
-				<div class="col-md-6  offset-1 offset-md-6 mt-5" >
-					<div class="myContainer">
-						<div class="jumbotron infoJumbo">
-							<h1><b>Share Your Time</b></h1>
-							<br>
-							<p>
-								Hai un minuto da dedicare agli altri ? <br>
-								Hai esperienza in un particolare settore ? <br>
-								Cerchi di mettere qualche soldo da parte ? <br>
-								Sei la persona giusta per noi !
-							</p>
-						</div>
-					<div>
-				</div> 
-			</div>
-		</div>  
-
-
-		<div class="myContainer">
-    		<div class="row">
-	        <!--
-    	    	 ultimi lavori caricati
-        	-->
-				<div class="col-md-6 offset-md-6 mt-5" >
-					<?php
-						require('last5.html');
-					?>
+			<div cass="row">
+				<div class="col-3 col-md-6 offset-4  offset-sm-6 ">
+					<div style="height:100vh;">
+						<h1 class="text-center myTitle" style="padding-top:30vh">Share Your<br>Time</h1>
+					</div>
 				</div>
 			</div>
-		<div-->
-
+		</div>
 		<!--
 			-> Login a scomparsa
 		-->	
@@ -71,6 +45,20 @@
     
 	</section>
 
+	<section id="DettagliSito">
+		<div class="myContainer">
+			<div class="text-center" id="DettagliSitoTesto">
+				<h1><b>Share Your Time</b></h1>
+				<br>
+				<p>
+					Hai un minuto da dedicare agli altri ? <br>
+					Hai esperienza in un particolare settore ? <br>
+					Cerchi di mettere qualche soldo da parte ? <br>
+					Sei la persona giusta per noi !
+				</p>
+			</div>
+		<div>
+	</section>
      <?php
         require('footer/footer.php');
      ?>
