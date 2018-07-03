@@ -16,12 +16,12 @@
 
 	
 	<section id="homeView">
-		<div class="container">
+		<div class="myContainer">
     		<div class="row">
 	        <!--
     	    	 descrizine generale sito
         	-->
-				<div class="col-md-6 offset-md-6 offset-md-4 offset-md-2 mt-5" >
+				<div class="col-md-6 offset-md-6 mt-5" >
 					<div class="container">
 						<div class="jumbotron infoJumbo">
 							<h1><b>Share Your Time</b></h1>
