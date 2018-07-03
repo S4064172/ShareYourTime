@@ -39,6 +39,11 @@ section {
 	padding-top:10vh;
 }
 
+#TabellaLast5{
+	min-height: 50%;
+	background-color: grey;
+}
+
 .myTitle{
 	font-family: galada; 
 	font-size: 15vh;

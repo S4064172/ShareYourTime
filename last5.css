@@ -29,7 +29,6 @@ tbody tr:hover {
 @media screen and (max-width: 768px /*sm*/), screen and (max-width: 900px) {
 		
 	.myTable {
-		float: left;
 		left: 5%;
 		right: 5%;
 	}
@@ -38,9 +37,7 @@ tbody tr:hover {
 
 	/*Nascondo header tabella*/
 	thead tr {
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
+		display : none;
 	}
 
 	tr { border: 1.5px solid rgb(100,100,100); }

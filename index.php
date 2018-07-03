@@ -52,7 +52,7 @@
 				<br>
 				<div class="myContainer">
 					<div class="row">
-						<div class="col-sm-4"> <br>descrizione del nostro sito </div>
+						<div class="col-sm-4 border-right"> <br>descrizione del nostro sito </div>
 						<div class="col-sm-4"> 
 							<p>
 								<br> Hai esperienza in un particolare settore ? 
@@ -60,12 +60,25 @@
 								<br> Sei la persona giusta per noi !
 							</p> 
 						</div>
-						<div class="col-sm-4"> <br>Ci devo pensare </div>
+						<div class="col-sm-4 border-left"> <br>Ci devo pensare </div>
 					</div>
 				</div>
 			</div>
 		<div>
 	</section>
+
+
+	<section id="TabellaLast5">
+		<div class=" myContainer text-center">
+			<h1><b>I Nuovi Lavori</b></h1>
+			
+			<?php
+       			require ('last5.html');
+			?>		
+
+		</div>
+	</section>
+
      <?php
         require('footer/footer.php');
      ?>
