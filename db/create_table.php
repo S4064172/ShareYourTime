@@ -1,6 +1,5 @@
 <?php
-    
-    require("connection.php");
+    require_once("connection.php");
     $conn = selectionDB();
     
     $queryCreateTable[0] = "CREATE TABLE ShareYourUsersTime (
@@ -11,7 +10,7 @@
                     Phone char(15) NOT NULL UNIQUE,
                     Email char(125) NOT NULL UNIQUE,
                     Street char(125) NOT NULL,
-                    Photo char(10) NOT NULL
+                    Photo char(50) NOT NULL
 
                 );";
 
