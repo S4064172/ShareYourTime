@@ -1,12 +1,12 @@
 <footer class="footer bg-dark footerCenter">
-	<div class="container">
+	<div id="myContainerFooter">
 		<div class="row">
-			<div class="col-lg-3 mt-3">
+			<div class="col-lg-4 mt-3">
 				<p class="text-center myFont"><b>Contatti</b></p>
 				<p class="myFont">Email: <i><b>example(at)test.com</b></i></p>
 				<p class="myFont">Telefono: <i><b>555-1234-4321</b></i></p>
 			</div>
-			<div class="col-lg-5 mt-3">
+			<div class="col-lg-4 mt-3">
 				<p class="myFont bigFont"><b>Share Your Time</b></p>
 				<img class="logoDim" src="img/sandclock.png">
 				<br>
