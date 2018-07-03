@@ -44,8 +44,13 @@ section {
 	background-color: grey;
 }
 
+#RicercaMappa{
+	min-height: 100%;
+}
+
 .myTitle{
 	font-family: galada; 
 	font-size: 15vh;
 	color:whitesmoke;
 }
+

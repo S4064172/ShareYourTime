@@ -44,13 +44,12 @@
 	    ?>
     
 	</section>
-
+	<div id="TagDettagliSito"></div>
 	<section id="DettagliSito">
 		<div class="myContainer">
 			<div class="text-center" id="DettagliSitoTesto">
 				<h1><b>Share Your Time</b></h1>
 				<br>
-				<div class="myContainer">
 					<div class="row">
 						<div class="col-sm-4 border-right"> <br>descrizione del nostro sito </div>
 						<div class="col-sm-4"> 
@@ -62,7 +61,6 @@
 						</div>
 						<div class="col-sm-4 border-left"> <br>Ci devo pensare </div>
 					</div>
-				</div>
 			</div>
 		<div>
 	</section>
@@ -78,10 +76,35 @@
 
 		</div>
 	</section>
+	<div id="TagRicerca"></div>
+	<section id="RicercaMappa">
+		<div class="text-center" id="DettagliSitoTesto">
+				<h1><b>Cerca un lavoro</b></h1>
+		</div>
+		<div class="myContainer">
+			<div class="row">
+				<div class="col-sm-4"> 
+					<label for=""><b>Inserisci la via</b></label>
+					<input type="text" placeholder="Inserisci la via" name="" required>
+				</div>
+				<div class="col-sm-4"> 
+					<label for=""><b>Inserisci la via</b></label>
+					<input type="text" placeholder="Inserisci la via" name="" required>
+				</div>
+				<div class="col-sm-4"> 
+					<label for=""><b>Inserisci la via</b></label>
+					<input type="text" placeholder="Inserisci la via" name="" required>
+				</div>
+				
+				
+			</div>
 
-     <?php
-        require('footer/footer.php');
-     ?>
+		</div>
+	</section>
+
+    <?php
+       require('footer/footer.php');
+    ?>
 
     <!--script type="text/javascript" src="index.js"></script-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
