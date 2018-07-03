@@ -27,109 +27,18 @@ section {
 	background-size: cover;
 }
 
-.text-r {
-	float: right;
-}
 
-.mybutton {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: auto 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
 
-button:hover {
-    opacity: 0.8;
-}
 
-.myModal {
-    padding-top: 5px;
-}
 
-.myModal-mt {
-	margin-top: 2.5%;
-}
 
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    position: relative;
-}
 
-img.avatar {
-    width: 10%;
-    border-radius: 50%;
-}
 
-/* The Close Button (x) */
-.myClose {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-.myClose:hover, .myClose:focus {
-    color: red;
-    cursor: pointer;
-}
 /*----------------------------------*/
 
-/* Full-width input fields */
-input[type=text], input[type=password], input[type=email], input[type=tel] {
-    width: 100%;
-    padding: 10px 10px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-	height: 10%;
-	font-size: 12px;
-}
 
-#signupModal .avatar {
-	width: 10%;
-}
 
-.signupText {
-	font-size: 24px;
-	font-weight: bold;
-	color: green;
-}
 
-.mc-signup {
-	width: 50%;
-	margin: 2% auto 50% auto;
-}
-
-/* Add Zoom Animation */
-.animate {
-    -webkit-animation: animatezoom 0.5s;
-    animation: animatezoom 0.5s
-}
-
-@-webkit-keyframes animatezoom {
-    from {
-		-webkit-transform: scale(0);
-	} 
-    to {
-		-webkit-transform: scale(1);
-	}
-}
-    
-@keyframes animatezoom {
-    from {
-		transform: scale(0);
-	} 
-    to {
-		transform: scale(1);
-	}
-}
 
 
 .jumbotron h1, .jumbotron p {
@@ -159,43 +68,7 @@ input[type=text], input[type=password], input[type=email], input[type=tel] {
 	border-radius: 25px;
 }
 
-.tableTitle {
-	float: right;
-	color: white;
-	margin-right: 10%;
-}
-
-table, th, td {
-	border: 1px solid rgb(100, 100, 100);
-	text-align: center;
-	background-color: rgb(200, 200, 200, 0.8);
-}
-
-th {
-	height: 35px;
-	background-color: rgb(100, 100, 100, 0.8);
-}
-
-tbody tr:hover {
-	opacity: 0.3;
-	cursor: pointer;
-	color: red;
-}
-
-.myTable {
-	width: 100%;
-}
-
 @media screen and (max-width: 768px /*sm*/), screen and (max-width: 900px) {
-	.text-r {
-		float: left;
-	}
-	
-	.myTable {
-		float: left;
-		left: 5%;
-		right: 5%;
-	}
 	
 	.jumbotron {
 		font-size: 10px;
@@ -203,35 +76,4 @@ tbody tr:hover {
 		width: 90%;
 	}
 
-	table, thead, tbody, th, tr, td { display: block; }
-
-	/*Nascondo header tabella*/
-	thead tr {
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-
-	tr { border: 1.5px solid rgb(100,100,100); }
-
-	td {
-		border: none;
-		border-bottom: 1.5px solid rgb(100,100,100);
-		position: relative;
-		padding-left: 50%;
-	}
-
-	td:before {
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		position: absolute;
-		padding-right: 10px; 
-		white-space: nowrap;
-	}
-
-	td:nth-of-type(1):before { content: "Lavoro"; }
-	td:nth-of-type(2):before { content: "Data"; }
-	td:nth-of-type(3):before { content: "Luogo"; }
-	td:nth-of-type(4):before { content: "Utente"; }
 }
