@@ -50,12 +50,19 @@
 			<div class="text-center" id="DettagliSitoTesto">
 				<h1><b>Share Your Time</b></h1>
 				<br>
-				<p>
-					Hai un minuto da dedicare agli altri ? <br>
-					Hai esperienza in un particolare settore ? <br>
-					Cerchi di mettere qualche soldo da parte ? <br>
-					Sei la persona giusta per noi !
-				</p>
+				<div class="myContainer">
+					<div class="row">
+						<div class="col-sm-4"> <br>descrizione del nostro sito </div>
+						<div class="col-sm-4"> 
+							<p>
+								<br> Hai esperienza in un particolare settore ? 
+								<br> Cerchi di mettere qualche soldo da parte ? 
+								<br> Sei la persona giusta per noi !
+							</p> 
+						</div>
+						<div class="col-sm-4"> <br>Ci devo pensare </div>
+					</div>
+				</div>
 			</div>
 		<div>
 	</section>

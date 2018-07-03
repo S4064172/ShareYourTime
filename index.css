@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Galada');
+
 body, html {
 	/*font-family: Sans-Serif;*/
 	height: 100%;
@@ -38,7 +40,7 @@ section {
 }
 
 .myTitle{
-	font-family: verdana; 
-	font-size: 500%;
+	font-family: galada; 
+	font-size: 15vh;
 	color:whitesmoke;
 }
