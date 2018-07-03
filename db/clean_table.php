@@ -1,13 +1,13 @@
 <?php
     
-    require("connection.php");
+    require_once("connection.php");
     $conn = selectionDB();
     
     $queryDeleteTable[0] =  "DROP TABLE ShareYourTagsJobsTime";        
     $queryDeleteTable[1] =  "DROP TABLE ShareYourTagsTime";
     $queryDeleteTable[2] =  "DROP TABLE ShareYourJobsTime";
     $queryDeleteTable[3] =  "DROP TABLE ShareYourUsersTime";
-    
+
     foreach($queryDeleteTable as $query )  {   
         
         if ( !($prepared_stmt = mysqli_prepare($conn, $query)) ) 

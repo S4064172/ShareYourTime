@@ -18,13 +18,9 @@
 	function selectionDB()
 	{
 		include("mysql_credentials.php");
-		$conn=connectionToDb();
+		$conn = connectionToDb();
 		$conn_db_selected = mysqli_select_db($conn,$mysql_db);
 		if (!$conn_db_selected) 
 		  die ("Impossibile selezionare il database");
 		return $conn;
 	}
-
-	
-
-   

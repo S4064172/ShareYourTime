@@ -1,6 +1,6 @@
 <?php
    	
-    require("connection.php");
+    require_once("connection.php");
     include("mysql_credentials.php");
 
     $conn = connectionToDb();
