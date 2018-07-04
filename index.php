@@ -44,7 +44,7 @@
 	    ?>
     
 	</section>
-	<div id="TagDettagliSito"></div>
+	
 	<section id="DettagliSito">
 		<div class="myContainer">
 			<div class="text-center" id="DettagliSitoTesto">
@@ -76,7 +76,7 @@
 
 		</div>
 	</section>
-	<div id="TagRicerca"></div>
+	
 	<section id="RicercaMappa">
 		<div class="text-center" id="DettagliSitoTesto">
 				<h1><b>Cerca un lavoro</b></h1>

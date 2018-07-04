@@ -14,16 +14,16 @@
         <div class="collapse navbar-collapse navbarTogglerSignupLogin">
             <ul class="navbar-nav">
             <li class="nav-item active ">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="#">
                     <i class="fas fa-home" ></i>
                     <span class="d-inline d-md-none">Home</span>
                     </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#TagDettagliSito" onClick="myCollapseHide()">Chi Siamo</a>
+                <a class="nav-link" href="#DettagliSito" onClick="myCollapseHide()">Chi Siamo</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#TagRicerca" onClick="myCollapseHide()">
+                <a class="nav-link" href="#RicercaMappa" onClick="myCollapseHide()">
                     <i class="fas fa-search"></i>
                     Trova
                 </a>
