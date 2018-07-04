@@ -1,1 +1,7 @@
 db/mysql_credentials.php
+
+footer/.htaccess
+header/.htaccess
+modalRegistrazione-Login/.htaccess
+navBar/.htaccess
+img/.htaccess

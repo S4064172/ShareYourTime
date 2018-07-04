@@ -2,7 +2,7 @@
     -nav bar
 -->
 
-<nav class="navbar navbar-expand-md d-flex flex-column flex-md-row justify-content-md-between  mb-3 bg-dark navbar-dark navbar-shrink fixed-top" id="navBar">  
+<nav class="navbar navbar-expand-md d-flex flex-column flex-md-row justify-content-md-between mb-3 bg-dark navbar-dark navbar-shrink fixed-top" id="navBar">  
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarTogglerSignupLogin" aria-controls="navbarTogglerSignupLogin" aria-expanded="false" aria-label="Toggle navigation">
         <span>
             <img class="sizeTitle" src="img/Time1.png">
@@ -13,15 +13,27 @@
     <div>
         <div class="collapse navbar-collapse navbarTogglerSignupLogin">
             <ul class="navbar-nav">
+            <li class="nav-item active ">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-home" ></i>
+                    <span class="d-inline d-md-none">Home</span>
+                    </a>
+            </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#DettagliSito" onClick="myCollapseHide()">Chi Siamo</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#RicercaMappa" onClick="myCollapseHide()">
+                    <i class="fas fa-search"></i>
+                    Trova
+                </a>
             </li>
             </ul>
         </div>
     </div>
     
     <div class="d-none d-md-inline">
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <a class="navbar-brand mt-0" href="index.php">
             <img src="img/Time1.png" class="sizeTitle">
             ShareYourTime
         </a>
@@ -32,7 +44,7 @@
                 <i class="fa fa-user-plus"></i>
                     Registrati
             </button>
-            <button type="button" class="btn btn-success mt-2 mt-sm-0 btnSize" data-toggle="modal" data-target="#loginModalTarget">
+            <button type="button" class="btn btn-success mt-2 mt-sm-0  ml-3 ml-sm-0 btnSize" data-toggle="modal" data-target="#loginModalTarget">
             <i class="fas fa-sign-in-alt"></i>
                     Login
             </button>
