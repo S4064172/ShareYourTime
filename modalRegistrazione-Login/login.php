@@ -9,9 +9,9 @@
                     <img src="img/avatar.png" alt="Avatar" class="avatar">
                 </div> 
                 <div class="myContainer-padding">
-                    <label for="usernameLogin" class="text-c"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="usernameLogin" minlength="5" maxlength="125" required>
-                    <label for="pswLogin" class="text-c"><b>Password</b></label>
+                    <label for="usernameLogin" class="textModal-c"><b>Username</b></label>
+                        <input type="textModal" placeholder="Enter Username" name="usernameLogin" minlength="5" maxlength="125" required>
+                    <label for="pswLogin" class="textModal-c"><b>Password</b></label>
                         <input type="password" placeholder="Enter Password" name="pswLogin" minlength="8" maxlength="125" required>
                     <button type="submit" class="btn btn-success mybutton mt-4">Login</button>
                 </div>	
