@@ -54,3 +54,24 @@ section {
 	color:whitesmoke;
 }
 
+
+.textMap-r {
+	float: right;
+}
+
+input[type=textMap] {
+    width: 50%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	height: 10%;
+	font-size: 12px;
+}
+
+@media screen and (max-width: 768px /*sm*/), screen and (max-width: 900px) {
+	input[type=textMap] {
+		width: 100%;
+	}
+}

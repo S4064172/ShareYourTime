@@ -2,7 +2,7 @@
     -nav bar
 -->
 
-<nav class="navbar navbar-expand-md d-flex flex-column flex-md-row justify-content-md-between  mb-3 bg-dark navbar-dark navbar-shrink fixed-top" id="navBar">  
+<nav class="navbar navbar-expand-md d-flex flex-column flex-md-row justify-content-md-between mb-3 bg-dark navbar-dark navbar-shrink fixed-top" id="navBar">  
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarTogglerSignupLogin" aria-controls="navbarTogglerSignupLogin" aria-expanded="false" aria-label="Toggle navigation">
         <span>
             <img class="sizeTitle" src="img/Time1.png">
@@ -13,13 +13,16 @@
     <div>
         <div class="collapse navbar-collapse navbarTogglerSignupLogin">
             <ul class="navbar-nav">
-            <li class="nav-item active ml-4 ml-mg-0 pr-2">
-                <a class="nav-link" href="index.php"><i class="fas fa-home pl-2 pl-mg-0"></i></a>
+            <li class="nav-item active ">
+                <a class="nav-link" href="index.php">
+                    <i class="fas fa-home" ></i>
+                    <span class="d-inline d-md-none">Home</span>
+                    </a>
             </li>
-            <li class="nav-item active pl-2">
+            <li class="nav-item active">
                 <a class="nav-link" href="#TagDettagliSito">Chi Siamo</a>
             </li>
-            <li class="nav-item active pl-2">
+            <li class="nav-item active">
                 <a class="nav-link" href="#TagRicerca">
                     <i class="fas fa-search"></i>
                     Trova

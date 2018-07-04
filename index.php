@@ -83,17 +83,23 @@
 		</div>
 		<div class="myContainer">
 			<div class="row">
-				<div class="col-sm-4"> 
-					<label for=""><b>Inserisci la via</b></label>
-					<input type="text" placeholder="Inserisci la via" name="" required>
+				<div class="col-sm-5"> 
+					<label class="d-block d-sm-inline"><b>Inserisci la via</b></label>
+					<input type="textMap" placeholder="Inserisci la via" name="" required>
 				</div>
-				<div class="col-sm-4"> 
-					<label for=""><b>Inserisci la via</b></label>
-					<input type="text" placeholder="Inserisci la via" name="" required>
+				<div class="col-sm-3"> 
+					<label class="d-block d-sm-inline"><b>Inserisci la via</b></label>
+					<input type="textMap" placeholder="Inserisci la via" name="" required>
 				</div>
-				<div class="col-sm-4"> 
-					<label for=""><b>Inserisci la via</b></label>
-					<input type="text" placeholder="Inserisci la via" name="" required>
+				<div class="col-sm-3"> 
+					<label class="d-block d-sm-inline"><b>Inserisci la via</b></label>
+					<input type="textMap" placeholder="Inserisci la via" name="" required>
+				</div>
+				<div class="col-sm-1"> 
+					<button type="button" class="btn btn-secondary">
+						<i class="fas fa-search"></i>
+						Cerca
+					</button>
 				</div>
 				
 				
