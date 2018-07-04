@@ -1,0 +1,5 @@
+#se non trova il file di indice non mi lista i file nella directory
+Options -Indexes
+
+#il file di indice devi chiamarsi come scritto in questa direttiva
+DirectoryIndex index.html index.php

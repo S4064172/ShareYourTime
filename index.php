@@ -59,7 +59,7 @@
 	<section id="TabellaLast5">
 		<div class="myContainer text-center">
 			<h1><b>Cosa proponiamo</b></h1>
-			
+			<br>	
 			<?php require ('last5.html'); ?>		
 
 		</div>
@@ -67,7 +67,8 @@
 	
 	<section id="RicercaMappa">
 		<div class="text-center" id="DettagliSitoTesto">
-				<h1><b>Cerca un lavoro</b></h1>
+			<h1><b>Cerca un lavoro</b></h1>
+			<br>
 		</div>
 		<div class="myContainer">
 			<div class="row">
@@ -89,8 +90,6 @@
 						Cerca
 					</button>
 				</div>
-				
-				
 			</div>
 	</section>
 
