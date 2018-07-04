@@ -20,10 +20,10 @@
                     </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#TagDettagliSito">Chi Siamo</a>
+                <a class="nav-link" href="#TagDettagliSito" onClick="myCollapseHide()">Chi Siamo</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#TagRicerca">
+                <a class="nav-link" href="#TagRicerca" onClick="myCollapseHide()">
                     <i class="fas fa-search"></i>
                     Trova
                 </a>
