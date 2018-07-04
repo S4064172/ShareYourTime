@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse navbarTogglerSignupLogin">
             <ul class="navbar-nav">
             <li class="nav-item active ">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="#" onClick="myCollapseHide()">
                     <i class="fas fa-home" ></i>
                     <span class="d-inline d-md-none">Home</span>
                     </a>
