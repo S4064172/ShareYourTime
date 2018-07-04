@@ -1,47 +1,37 @@
 <!DOCTYPE html>
 <html>
  	<head>
-    	<?php
-	      require ('header/header.html');
-	    ?>
+    	<?php require ('header/header.html'); ?>
     	<link rel="stylesheet" type="text/css" href="index.css"/>
 	    <link rel="stylesheet" type="text/css" href="navBar/navBar.css"/> 
 		<link rel="stylesheet" type="text/css" href="footer/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="modalRegistrazione-Login/login-registrazione.css"/>
 		<link rel="stylesheet" type="text/css" href="last5.css"/>
-	  </head>
+	</head>
 	
 	<body>
 
-    <?php
-        require ('navBar/navBar.php');
-	?>
-
+    <?php require ('navBar/navBar.php'); ?>
 	
 	<section id="homeView">
-		
 		<div class="myContainer">
 			<div cass="row">
-				<div class="col-3 col-md-6 offset-4  offset-sm-6 ">
-					<div style="height:100vh;">
-						<h1 class="text-center myTitle" style="padding-top:30vh">Share Your<br>Time</h1>
+				<div class="col-3 col-md-6 offset-4 offset-sm-6">
+					<div style="height: 100vh;">
+						<h1 class="text-center myTitle" style="padding-top:31.5vh">Share Your<br>Time<br>
+							<a id="xxx" href="#DettagliSito" class="btn btn-scroll titleBtn">Scopri di pi&#249; !</a>
+						</h1>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--
-			-> Login a scomparsa
-		-->	
-	  	<?php
-	      require ('modalRegistrazione-Login/login.php');
-	    ?>
 
-		<!--
-				-> Sign-up a scomparsa
-		-->	
-	  	<?php
-	      require ('modalRegistrazione-Login/registrazione.php');
-	    ?>
+
+		<!-- Login a scomparsa -->	
+	  	<?php require ('modalRegistrazione-Login/login.php'); ?>
+
+		<!-- Sign-up a scomparsa -->	
+	  	<?php require ('modalRegistrazione-Login/registrazione.php'); ?>
     
 	</section>
 	
@@ -53,7 +43,7 @@
 					<div class="row">
 						<div class="col-sm-4 border-right"> <br>descrizione del nostro sito </div>
 						<div class="col-sm-4"> 
-							<p>
+							<p class="myDescription">
 								<br> Hai esperienza in un particolare settore ? 
 								<br> Cerchi di mettere qualche soldo da parte ? 
 								<br> Sei la persona giusta per noi !
@@ -67,12 +57,10 @@
 
 
 	<section id="TabellaLast5">
-		<div class=" myContainer text-center">
-			<h1><b>I Nuovi Lavori</b></h1>
+		<div class="myContainer text-center">
+			<h1><b>Cosa proponiamo</b></h1>
 			
-			<?php
-       			require ('last5.html');
-			?>		
+			<?php require ('last5.html'); ?>		
 
 		</div>
 	</section>
@@ -105,17 +93,15 @@
 				
 			</div>
 
-		</div>
-	</section>
+	 <?php require('footer/footer.php'); ?>
+	 
+	<script type="text/javascript" src="navBar/navBar.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-    <?php
-       require('footer/footer.php');
-    ?>
 
 	<!--script type="text/javascript" src="index.js"></script-->
-	 <script type="text/javascript" src="navBar/navBar.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
   </body>
 </html>
