@@ -41,10 +41,17 @@
 				<h1><b>Share Your Time</b></h1>
 				<br>
 					<div class="row">
-						<div class="col-sm-4 border-right"> <br>descrizione del nostro sito </div>
-						<div class="col-sm-4"> 
+						<div class="col-sm-4 border-right">
 							<p class="myDescription">
-								<br> Hai esperienza in un particolare settore ? 
+								In ShareYourTime puoi mettere a disposizione
+								<br>il tuo tempo per svolgere lavori utili agli altri.
+								<br>Registrati e potrai da subito accettare lavori e
+								<br>proporli a tua volta !
+							</p>
+						</div>
+						<div class="col-sm-4"> 
+							<p class="myDescription mt-2">
+								Hai esperienza in un particolare settore ? 
 								<br> Cerchi di mettere qualche soldo da parte ? 
 								<br> Sei la persona giusta per noi !
 							</p> 
@@ -61,7 +68,6 @@
 			<h1><b>Cosa proponiamo</b></h1>
 			<br>	
 			<?php require ('last5.html'); ?>		
-
 		</div>
 	</section>
 	
