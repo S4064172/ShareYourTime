@@ -9,31 +9,60 @@
                     <label class="signupText">Benvenuto !</label>&nbsp;
                     <img src="img/Time1.png" alt="Avatar" class="avatar">
                 </div>
+
                 <div class="container myContainer-padding">
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="usernameReg"><b>Username</b></label>
-								<input onfocusout="checkUsernameReg()" id="usernameReg" type="textModal" placeholder="Inserisci un username" name="usernameReg" minlength="5" maxlength="125" required><p id="err"></p>
-                            <label for="pswReg"><b>Password</b></label>
-                               <input type="password" placeholder="Inserisci una password" name="pswReg" minlength="8" maxlength="125" required>
-                            <label for="confPswReg"><b>Conferma Password</b></label>
-                                <input type="password" placeholder="Conferma la password" name="confPswReg" minlength="8" maxlength="125" required>
-                            <label for="address"><b>Indirizzo</b></label>
-                                <input type="textModal" placeholder="Inserisci il tuo indirizzo" name="address" minlength="3" maxlength="125" required>
+                            <label><b>Username</b></label>
+						    <input onfocusout="checkUsernameReg()" onfocusin="cleanErr('errUsername')" id="usernameReg" type="textModal" placeholder="Inserisci un username" name="usernameReg" minlength="5" maxlength="125" required>
+                            <p id="errUsername"></p>                                                            
                         </div>
                         <div class="col-md-6">
-                            <label for="nameReg" class="textModal-r"><b>Nome</b></label>
-                                <input type="textModal" placeholder="Inserisci il tuo nome" name="nameReg" maxlength="125" required>
-                            <label for="surnameReg" class="textModal-r"><b>Cognome</b></label>
-                                <input type="textModal" placeholder="Inserisci il tuo cognome" name="surnameReg" maxlength="125" required>
-                            <label for="emailReg" class="textModal-r"><b>Email</b></label>
-                                <input type="email" placeholder="Inserisci il tuo indirizzo email" name="emailReg" maxlength="125" required>
-                            <label for="telephone" class="textModal-r"><b>Telefono</b></label>
-                                <input type="tel" placeholder="Inserisci un numero di telefono" name="telephone" minlength="10" maxlength="10" required>
+                            <label class="textModal-r"><b>Email</b></label>
+                            <input onfocusin="cleanErr('errEmail')" type="email" placeholder="Inserisci il tuo indirizzo email" name="emailReg" maxlength="125" required>
+                            <p id="errEmail"></p>
                         </div>
                     </div>
-                    <label for="profilePhoto">Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="file" name="profilePhoto">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><b>Password</b></label>
+                            <input onfocusin="cleanErr('errPassword')" type="password" placeholder="Inserisci una password" name="pswReg" minlength="8" maxlength="125" required>
+                            <p id="errPassword"></p>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="textModal-r"><b>Conferma Password</b></label>
+                            <input onfocusin="cleanErr('errPasswordConf')" type="password" placeholder="Conferma la password" name="confPswReg" minlength="8" maxlength="125" required>
+                            <p id="errPasswordConf"></p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><b>Nome</b></label>
+                            <input type="textModal" placeholder="Inserisci il tuo nome" name="nameReg" maxlength="125" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="textModal-r"><b>Cognome</b></label>
+                            <input type="textModal" placeholder="Inserisci il tuo cognome" name="surnameReg" maxlength="125" required> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="address"><b>Indirizzo</b></label>
+                            <input type="textModal" placeholder="Inserisci il tuo indirizzo" name="address" minlength="3" maxlength="125" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="telephone" class="textModal-r"><b>Telefono</b></label>
+                            <input onfocusin="cleanErr('errTel')" type="tel" placeholder="Inserisci un numero di telefono" name="telephone" minlength="10" maxlength="10" required>
+                            <p id="errTel"></p>
+                        </div>
+                    </div>
+
+
+                    <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="file" name="profilePhoto">
                     <button type="submit" class="btn btn-success mybutton mt-4">Registrati</button>
                 </div>
             </form>

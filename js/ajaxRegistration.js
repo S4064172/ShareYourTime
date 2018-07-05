@@ -4,12 +4,18 @@ var request = null;
 
 function checkUsernameReg() {
 	if (window.XMLHttpRequest) {
-			request = new XMLHttpRequest({mozSystem: true});
+			request = new XMLHttpRequest();
 			request.open("POST", "modalRegistrazione-Login/validate.php", true);	
 			request.onreadystatechange = validateField;
 			request.setRequestHeader("Content-type","application/x-www-form-urlencoded")
 			request.send("usernameReg=" + document.getElementById('usernameReg').value);
 	}
+}
+
+
+function cleanErr(id){
+	var notify = document.getElementById(id);
+	notify.innerHTML = "";
 }
 
 function validateField() {
@@ -18,7 +24,7 @@ function validateField() {
 			console.log(request.responseText);
 			var jsonObj = JSON.parse(request.responseText);
 			//console.log(jsonObj);
-			var notify = document.getElementById("err");
+			var notify = document.getElementById("errUsername");
 			if (jsonObj["code"] !== 0) {
 				notify.style.color = 'darkred';
 				notify.style.fontSize = '0.9em';
