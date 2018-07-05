@@ -4,19 +4,20 @@ var request = null;
 
 function checkFieldReg(idField,idErrField,checkField)
 {
+	console.log(idField);
 	if (window.XMLHttpRequest) {
-			request = new XMLHttpRequest();
-			request.open("POST", "modalRegistrazione-Login/validate.php", true);	
-			request.onreadystatechange = validateField(idErrField);
-			request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-			var hmllTag = document.getElementById(idField);
-			if(checkField==null)
-				request.send(hmllTag.name + "=" + hmllTag.value);
-			else{
-				var htmlTag1 = document.getElementById(checkField);
-				request.send(	hmllTag.name + "=" + hmllTag.value 
-								+'&'+htmlTag1.name+'c'+"="+htmlTag1.value);
-			}
+		request = new XMLHttpRequest();
+		request.open("POST", "modalRegistrazione-Login/validate.php", true);	
+		request.onreadystatechange = validateField(idErrField);
+		request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		var hmllTag = document.getElementById(idField);
+		if(checkField==null)
+			request.send(hmllTag.name + "=" + hmllTag.value);
+		else{
+			var htmlTag1 = document.getElementById(checkField);
+			request.send(	hmllTag.name + "=" + hmllTag.value 
+							+'&'+htmlTag1.name+'c'+"="+htmlTag1.value);
+		}
 				
 	}
 }

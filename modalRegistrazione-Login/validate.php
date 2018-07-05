@@ -40,4 +40,40 @@
 		return;
 	}
 
+	if(check_POST_NotIsSetOrEmpty('nameReg') ){
+		if ( !check_StringLength($_POST['nameReg'], 15, 25) ) {
+			echo json_encode(array('code' => -1 ,'msg' => 'Nome non valido' ));
+			return;
+		}
+		echo json_encode(array('code' => 0, 'msg' => 'Nome ok'));
+		return;
+	}
+
+	if(check_POST_NotIsSetOrEmpty('surnameReg') ){
+		if ( !check_StringLength($_POST['surnameReg'], 15, 25) ) {
+			echo json_encode(array('code' => -1 ,'msg' => 'Cognome non valido' ));
+			return;
+		}
+		echo json_encode(array('code' => 0, 'msg' => 'Cognome ok'));
+		return;
+	}
+
+	if(check_POST_NotIsSetOrEmpty('addressReg') ){
+		if ( !check_StringLength($_POST['addressReg'], 15, 25) ) {
+			echo json_encode(array('code' => -1 ,'msg' => 'Indirizzo non valido' ));
+			return;
+		}
+		echo json_encode(array('code' => 0, 'msg' => 'Indirizzo ok'));
+		return;
+	}
+
+	if(check_POST_NotIsSetOrEmpty('telephoneReg') ){
+		if ( !check_StringLength($_POST['telephoneReg'], 15, 25) ) {
+			echo json_encode(array('code' => -1 ,'msg' => 'Telefono non valido' ));
+			return;
+		}
+		echo json_encode(array('code' => 0, 'msg' => 'Telefono ok'));
+		return;
+	}
+
 	echo json_encode(array('code' => -2));

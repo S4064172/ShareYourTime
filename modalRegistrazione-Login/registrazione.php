@@ -40,23 +40,26 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label><b>Nome</b></label>
-                            <input type="textModal" placeholder="Inserisci il tuo nome" name="nameReg" maxlength="125" required>
+                            <input onfocusout="checkFieldReg('nameReg','errName')" onfocusin="cleanErr('errName')" id="nameReg" type="textModal" placeholder="Inserisci il tuo nome" name="nameReg" maxlength="125" required>
+                            <p id="errName"></p>
                         </div>
                         <div class="col-md-6">
                             <label class="textModal-r"><b>Cognome</b></label>
-                            <input type="textModal" placeholder="Inserisci il tuo cognome" name="surnameReg" maxlength="125" required> 
+                            <input onfocusout="checkFieldReg('surnameReg','errSurname')" onfocusin="cleanErr('errSurname')" id="surnameReg" type="textModal" placeholder="Inserisci il tuo cognome" name="surnameReg" maxlength="125" required> 
+                            <p id="errSurname"></p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="address"><b>Indirizzo</b></label>
-                            <input type="textModal" placeholder="Inserisci il tuo indirizzo" name="address" minlength="3" maxlength="125" required>
+                            <label><b>Indirizzo</b></label>
+                            <input onfocusout="checkFieldReg('addressReg','errAddress')" onfocusin="cleanErr('errAddress')" id="addressReg" type="textModal" placeholder="Inserisci il tuo indirizzo" name="addressReg" minlength="3" maxlength="125" required>
+                            <p id="errAddress"></p>
                         </div>
                         <div class="col-md-6">
                             <label for="telephone" class="textModal-r"><b>Telefono</b></label>
-                            <input onfocusin="cleanErr('errTel')" type="tel" placeholder="Inserisci un numero di telefono" name="telephone" minlength="10" maxlength="10" required>
-                            <p id="errTel"></p>
+                            <input onfocusout="checkFieldReg('telephoneReg','errTelephone')" onfocusin="cleanErr('errTelephone')" id="telephoneReg" type="tel" placeholder="Inserisci un numero di telefono" name="telephoneReg" minlength="10" maxlength="10" required>
+                            <p id="errTelephone"></p>
                         </div>
                     </div>
 
