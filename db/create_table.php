@@ -11,9 +11,9 @@
                     Email char(125) NOT NULL UNIQUE,
                     Street char(125) NOT NULL,
                     Photo char(50) NOT NULL
-
                 );";
 
+	//manca descrizione del lavoro o comunque un titolo
     $queryCreateTable[1] = "CREATE TABLE ShareYourJobsTime (
                     IdJob int PRIMARY KEY auto_increment,
                     Cost int NOT NULL,

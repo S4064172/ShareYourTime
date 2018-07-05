@@ -1,7 +1,7 @@
 <div class="modal myModal fade" id="signUpModalTarget" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content animate">
-            <form  action="register.php" method="POST">
+            <form action="validateQ.php" method="POST">
                 <div class="imgcontainer">
                     <button type="button" class="close myClose" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -13,9 +13,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="usernameReg"><b>Username</b></label>
-                                <input type="textModal" placeholder="Inserisci un username" name="usernameReg" minlength="5" maxlength="125" required>
+								<input onfocusout="checkUsernameReg()" id="usernameReg" type="textModal" placeholder="Inserisci un username" name="usernameReg" minlength="5" maxlength="125" required><p id="err"></p>
                             <label for="pswReg"><b>Password</b></label>
-                                <input type="password" placeholder="Inserisci una password" name="pswReg" minlength="8" maxlength="125" required>
+                               <input type="password" placeholder="Inserisci una password" name="pswReg" minlength="8" maxlength="125" required>
                             <label for="confPswReg"><b>Conferma Password</b></label>
                                 <input type="password" placeholder="Conferma la password" name="confPswReg" minlength="8" maxlength="125" required>
                             <label for="address"><b>Indirizzo</b></label>

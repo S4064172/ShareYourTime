@@ -54,7 +54,7 @@ img.avatar {
 input[type=textModal], input[type=password], input[type=email], input[type=tel] {
     width: 100%;
     padding: 10px 10px;
-    margin: 8px 0;
+    margin: 6px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
