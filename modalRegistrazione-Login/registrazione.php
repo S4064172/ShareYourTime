@@ -14,12 +14,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label><b>Username</b></label>
-						    <input onfocusout="checkUsernameReg()" onfocusin="cleanErr('errUsername')" id="usernameReg" type="textModal" placeholder="Inserisci un username" name="usernameReg" minlength="5" maxlength="125" required>
+						    <input onfocusout="checkFieldReg('usernameReg','errUsername')" onfocusin="cleanErr('errUsername')" id="usernameReg" type="textModal" placeholder="Inserisci un username" name="usernameReg" minlength="5" maxlength="125" required>
                             <p id="errUsername"></p>                                                            
                         </div>
                         <div class="col-md-6">
                             <label class="textModal-r"><b>Email</b></label>
-                            <input onfocusin="cleanErr('errEmail')" type="email" placeholder="Inserisci il tuo indirizzo email" name="emailReg" maxlength="125" required>
+                            <input onfocusout="checkFieldReg('emailReg','errEmail')" onfocusin="cleanErr('errEmail')" id="emailReg" type="email" placeholder="Inserisci il tuo indirizzo email" name="emailReg" maxlength="125" required>
                             <p id="errEmail"></p>
                         </div>
                     </div>
@@ -27,13 +27,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label><b>Password</b></label>
-                            <input onfocusin="cleanErr('errPassword')" type="password" placeholder="Inserisci una password" name="pswReg" minlength="8" maxlength="125" required>
-                            <p id="errPassword"></p>
+                            <input onfocusout="checkFieldReg('pswReg','errPsw')" onfocusin="cleanErr('errPsw')" id="pswReg" type="password" placeholder="Inserisci una password" name="pswReg" minlength="8" maxlength="125" required>
+                            <p id="errPsw"></p>
                         </div>
                         <div class="col-md-6">
                             <label class="textModal-r"><b>Conferma Password</b></label>
-                            <input onfocusin="cleanErr('errPasswordConf')" type="password" placeholder="Conferma la password" name="confPswReg" minlength="8" maxlength="125" required>
-                            <p id="errPasswordConf"></p>
+                            <input  onfocusout="checkFieldReg('pswRegConf','errPswConf','pswReg')" onfocusin="cleanErr('errPswConf')" id="pswRegConf" type="password" placeholder="Conferma la password" name="pswRegConf" minlength="8" maxlength="125" required>
+                            <p id="errPswConf"></p>
                         </div>
                     </div>
 
