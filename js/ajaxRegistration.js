@@ -1,27 +1,36 @@
 "use strict";
 
-var request = null;
+//var request = null;
+
+function getRequest() 
+{
+	var request = null;
+	if (window.XMLHttpRequest) 
+		request = new XMLHttpRequest();
+	return request;
+}
 
 function checkFieldReg(idField,idErrField,checkField)
 {
-	if (window.XMLHttpRequest) {
-			request = new XMLHttpRequest();
+	//if (window.XMLHttpRequest) {
+			var request = getRequest();//new XMLHttpRequest();
 			request.open("POST", "modalRegistrazione-Login/validate.php", true);	
-			request.onreadystatechange = validateField(idErrField);
+			request.onreadystatechange = validateField(idErrField, request);
 			request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			var hmllTag = document.getElementById(idField);
 			if(checkField==null)
 				request.send(hmllTag.name + "=" + hmllTag.value);
 			else{
 				var htmlTag1 = document.getElementById(checkField);
-				request.send(	hmllTag.name + "=" + hmllTag.value 
-								+'&'+htmlTag1.name+'c'+"="+htmlTag1.value);
+
+				request.send(hmllTag.name + "=" + hmllTag.value + '&_' + 
+							 htmlTag1.name+"=" + htmlTag1.value);
 			}
 				
-	}
+	//}
 }
 
-function validateField(idErrField)
+function validateField(idErrField, request)
 {
 	return function(){
 		if (request.readyState === 4 && request.status === 200) {

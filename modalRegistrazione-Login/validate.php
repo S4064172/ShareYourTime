@@ -32,11 +32,11 @@
 	}
 
 	if(check_POST_NotIsSetOrEmpty('pswRegConf') ){
-		if ( !check_POST_NotIsSetOrEmpty('pswRegc') || $_POST['pswRegConf']!==$_POST['pswRegc'] ) {
-				echo json_encode(array('code' => -1 ,'msg' => 'PasswordComf non valida' ));
+		if ( !check_POST_NotIsSetOrEmpty('_pswReg') || $_POST['pswRegConf']!==$_POST['_pswReg'] ) {
+				echo json_encode(array('code' => -1 ,'msg' => 'Le password non sono uguali' ));
 				return;
 		}
-		echo json_encode(array('code' => 0, 'msg' => 'PasswordConf ok'));
+		echo json_encode(array('code' => 0, 'msg' => 'Password ok'));
 		return;
 	}
 
