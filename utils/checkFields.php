@@ -4,11 +4,7 @@
 		return isset($_POST["$field"]) && !empty($_POST["$field"]);
 	}
 
-	function check_StringLength($string, $minLen, $maxLen) 
+	function checkMatchRegex($inputSent, $regexToMatch) 
 	{
-		if ($minLen > $maxLen)
-			return false;
-
-		$len = strlen($string);
-		return $len >= $minLen && $len <= $maxLen; 
+		return preg_match($regexToMatch, $inputSent, $match);
 	}

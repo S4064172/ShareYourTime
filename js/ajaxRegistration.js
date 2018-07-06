@@ -34,6 +34,7 @@ function validateField(idErrField)
 				notify.style.fontSize = '0.9em';
 				if (jsonObj['code'] === -1) {
 					notify.style.color = 'darkred';
+					notify.innerHTML = jsonObj['msg'];
 				} else {
 					if(jsonObj['code'] === 0){
 						notify.style.color = 'green';
@@ -42,7 +43,7 @@ function validateField(idErrField)
 					}
 						
 				}
-				notify.innerHTML = jsonObj['msg'];
+				
 			}
 		}
 	}

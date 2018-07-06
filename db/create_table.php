@@ -1,40 +1,42 @@
 <?php
     require_once("connection.php");
+    require_once("../utils/dataBaseConstant.php");
     $conn = selectionDB();
     
     $queryCreateTable[0] = "CREATE TABLE ShareYourUsersTime (
-                    User char(25) PRIMARY KEY,
-                    Password char(45) NOT NULL,
-                    Name char(30) NOT NULL,
-                    Surname char(30) NOT NULL,
-                    Phone char(15) NOT NULL UNIQUE,
-                    Email char(125) NOT NULL UNIQUE,
-                    Street char(125) NOT NULL,
-                    Photo char(50) NOT NULL
+                    User char(UserNameMaxLength) PRIMARY KEY,
+                    Password char(PasswordMaxLength) NOT NULL,
+                    Name char(NameNameMaxLength) NOT NULL,
+                    Surname char(SurnameNameMaxLength) NOT NULL,
+                    Phone char(PhoneMaxLength) NOT NULL UNIQUE,
+                    Email char(EmailMaxLength) NOT NULL UNIQUE,
+                    Street char(StreetMaxLength) NOT NULL,
+                    Photo char(PhotoMaxLength) NOT NULL
                 );";
 
 	//manca descrizione del lavoro o comunque un titolo
     $queryCreateTable[1] = "CREATE TABLE ShareYourJobsTime (
                     IdJob int PRIMARY KEY auto_increment,
+                    Description char(DescriptionMaxLength) NOT NULL,
                     Cost int NOT NULL,
                     TimeStart time NOT NULL,
                     TimeEnd time NOT NULL,
                     JobDate date NOT NULL,
                     Distance int NOT NULL,
                     Evaluation int default 0,
-                    Street char(125) NOT NULL,
+                    Street char(StreetMaxLength) NOT NULL,
                     Latitude float NOT NULL,
                     Longitude float NOT NULL,
-                    Receiver char(25),
+                    Receiver char(UserNameMaxLength),
                     FOREIGN KEY (receiver) REFERENCES ShareYourUsersTime (User)
                 );";
 
     $queryCreateTable[2] = "CREATE TABLE ShareYourTagsTime (
-                    Tag char(10) PRIMARY KEY
+                    Tag char(TagMaxLength) PRIMARY KEY
                 );";
 
     $queryCreateTable[3] = "CREATE TABLE ShareYourTagsJobsTime (
-                    Tag char(10),
+                    Tag char(TagMaxLength),
                     IdJob int,
                     PRIMARY KEY (Tag,IdJob),
                     FOREIGN KEY (Tag) REFERENCES ShareYourTagsTime (Tag),
