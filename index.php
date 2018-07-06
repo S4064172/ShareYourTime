@@ -80,27 +80,46 @@
 			<br>
 		</div>
 		<div class="myContainer">
-			<div class="row">
-				<div class="col-sm-4"> 
-					<label class="d-block d-sm-inline"><b>Inserisci la via</b></label>
-					<input type="textMap" placeholder="Inserisci la via" name="" required>
+			<form>
+				<div class="row">
+					<div class="col-md-4"> 
+						<input type="textMap" placeholder="Inserisci la via" name="" required>
+					</div>
+					<div class="col-md-2"> 
+						<select class="mySelection" id="" requred>
+							<option selected disabled>Scegli la distanza in km</option>
+							<option value="10">10 Km</option>
+							<option value="20">20 Km</option>
+							<option value="30">30 Km</option>
+						</select>
+					</div>
+					<div class="col-md-2"> 
+						<select class="mySelection" id="" requred>
+							<option selected disabled>Scegli il costo massimo</option>
+							<option value="10">10 Euro</option>
+							<option value="20">20 Euro</option>
+							<option value="30">30 Euro</option>
+						</select>
+					</div>
+					<div class="col-md-2"> 
+						<select class="mySelection" id="" requred>
+							<option selected disabled>Scegli il tag</option>
+							<option value="10">Informatica</option>
+							<option value="20">Idraulico</option>
+							<option value="30">Becchino</option>
+						</select>
+					</div>
+					<div class=" col-md-2"> 
+						<button type="submit" class="btn btn-secondary" id="myButtonSearchMap">
+							<i class="fas fa-search"></i>
+							Cerca
+						</button>
+					</div>
 				</div>
-				<div class="col-sm-3"> 
-					<label class="d-block d-sm-inline"><b>Inserisci la via</b></label>
-					<input type="textMap" placeholder="Inserisci la via" name="" required>
-				</div>
-				<div class="col-sm-3"> 
-					<label class="d-block d-sm-inline"><b>Inserisci la via</b></label>
-					<input type="textMap" placeholder="Inserisci la via" name="" required>
-				</div>
-				<div class="col-sm-2"> 
-					<button type="button" class="btn btn-secondary">
-						<i class="fas fa-search"></i>
-						Cerca
-					</button>
-				</div>
-			</div>
+			</form>
 			<div id="googleMap" style="width:100%;height:65vh;"></div>
+		</div>
+			
 	</section>
 
 	<?php require('footer/footer.php'); ?>

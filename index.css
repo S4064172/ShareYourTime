@@ -79,16 +79,33 @@ section {
 .textMap-r {
 	float: right;
 }
+ 
+#myButtonSearchMap{
+	margin-left:45%;
+	width: auto;
+}
 
-input[type=textMap] {
-    width: 50%;
-    padding: 10px 10px;
-    margin: 8px 0;
+.mySelection{
+	width: 90%;
+	height: 45%;
+    margin: 8px 0px;
     display: inline-block;
     border: 1px solid #ccc;
-    box-sizing: border-box;
-	height: 10%;
-	font-size: 12px;
+	box-sizing: border-box;
+	letter-spacing: 1px;
+	font-size: 15px;
+}
+
+input[type=textMap] {
+	width: 90%;
+	height: 12%;
+	padding: 15px 10px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+	box-sizing: border-box;
+	letter-spacing: 1px;
+	font-size: 15px;
 }
 
 @media screen and (max-width: 768px /*sm*/), screen and (max-width: 900px) {
