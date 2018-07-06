@@ -2,7 +2,6 @@
 	require_once("insertFunctions.php");
 
 	//Test
-	echo date('D, d M Y  h:m', strtotime('+26 hour'))."<br>";
 	$now = date('Y-m-d');
 	$time1S = date('Y-m-d H:i:s', strtotime('+1 hour'));
 	$time1E = date('Y-m-d H:i:s', strtotime('+3 hour'));
