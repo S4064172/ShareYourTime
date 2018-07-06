@@ -8,3 +8,8 @@
 	{
 		return preg_match($regexToMatch, $inputSent, $match);
 	}
+	
+	function sanitizeToSql($data, $conn) 
+	{
+		return mysqli_real_escape_string($conn, trim($data));
+	}
