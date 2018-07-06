@@ -40,11 +40,11 @@
     </div>
     <div>
         <span class="collapse navbar-collapse navbarTogglerSignupLogin">	
-            <button type="button" href="#" class="btn btn-primary mr-2 d-block d-sm-inline btnSize"  data-toggle="modal" data-target="#signUpModalTarget">
+            <button type="button" href="#" class="btn btn-primary mr-2 d-block d-sm-inline btnSize" onClick="myCollapseHide()" data-toggle="modal" data-target="#signUpModalTarget">
                 <i class="fa fa-user-plus"></i>
                     Registrati
             </button>
-            <button type="button" class="btn btn-success mt-2 mt-sm-0  ml-3 ml-sm-0 btnSize" data-toggle="modal" data-target="#loginModalTarget">
+            <button type="button" class="btn btn-success mt-2 mt-sm-0  ml-3 ml-sm-0 btnSize" onClick="myCollapseHide()" data-toggle="modal" data-target="#loginModalTarget">
             <i class="fas fa-sign-in-alt"></i>
                     Login
             </button>
