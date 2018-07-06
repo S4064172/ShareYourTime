@@ -4,13 +4,14 @@
     define('UserNameMinLength',5);
     define('PasswordMaxLength',45);
     define('PasswordMinLength',8);
-    define('NameNameMaxLength',30);
-    define('SurnameNameMaxLength',30);
+    define('NameMaxLength',30);
+    define('SurnameMaxLength',30);
     define('EmailMaxLength',125);
     define('EmailMinLength',6);
     define('StreetMaxLength',125);
     define('StreetMinLength',6);
-    define('PhotoLength',10);
+    define('PhotoMaxLength',50);
+    define('PhoneLength',10);
     
 
     //Jobs table

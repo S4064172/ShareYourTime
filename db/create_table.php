@@ -6,12 +6,12 @@
     $queryCreateTable[0] = "CREATE TABLE ShareYourUsersTime (
                     User char(".UserNameMaxLength.") PRIMARY KEY,
                     Password char(".PasswordMaxLength.") NOT NULL,
-                    Name char(".NameNameMaxLength.") NOT NULL,
-                    Surname char(".SurnameNameMaxLength.") NOT NULL,
-                    Phone char(".PhoneMaxLength.") NOT NULL UNIQUE,
+                    Name char(".NameMaxLength.") NOT NULL,
+                    Surname char(".SurnameMaxLength.") NOT NULL,
+                    Phone char(".PhoneLength.") NOT NULL UNIQUE,
                     Email char(".EmailMaxLength.") NOT NULL UNIQUE,
                     Street char(".StreetMaxLength.") NOT NULL,
-                    Photo char(".PhotoLength.") NOT NULL
+                    Photo char(".PhotoMaxLength.") NOT NULL
                 );";
 
     $queryCreateTable[1] = "CREATE TABLE ShareYourJobsTime (
