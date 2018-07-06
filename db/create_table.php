@@ -11,7 +11,7 @@
                     Phone char(".PhoneMaxLength.") NOT NULL UNIQUE,
                     Email char(".EmailMaxLength.") NOT NULL UNIQUE,
                     Street char(".StreetMaxLength.") NOT NULL,
-                    Photo char(".PhotoMaxLength.") NOT NULL
+                    Photo char(".PhotoLength.") NOT NULL
                 );";
 
     $queryCreateTable[1] = "CREATE TABLE ShareYourJobsTime (

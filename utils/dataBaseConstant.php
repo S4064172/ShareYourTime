@@ -3,19 +3,19 @@
     define('UserNameMaxLength',25);
     define('UserNameMinLength',5);
     define('PasswordMaxLength',45);
-    define('PasswordMinLength',5);
+    define('PasswordMinLength',8);
     define('NameNameMaxLength',30);
     define('SurnameNameMaxLength',30);
-    define('PhoneMaxLength',15);
     define('EmailMaxLength',125);
+    define('EmailMinLength',6);
     define('StreetMaxLength',125);
-    define('StreetMinLength',3);
-    define('PhotoMaxLength',10);
+    define('StreetMinLength',6);
+    define('PhotoLength',10);
     
 
     //Jobs table
-    define('DescriptionMaxLength',125);
+    define('DescriptionMaxLength',150);
 
     //Tags table
-    define('TagMaxLength',10);
+    define('TagMaxLength',20);
 

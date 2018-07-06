@@ -28,10 +28,11 @@
 					die ("Errore nell'accoppiamento dei parametri<br>");
 				insertAndCheck($insert_prep_stmt);
 				mysqli_stmt_close($insert_prep_stmt);
+				mysqli_close($conn);
+				echo("La tupla e' stata inserita correttamente<br>");
 		}
-
-		mysqli_close($conn);
-		echo("La tupla e' stata inserita correttamente<br>");
+		die ("Errore nella preparazione della query<br>");
+		
 	}
 
 	function insertInto_ShareYourJobsTime($descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $recvUser) {

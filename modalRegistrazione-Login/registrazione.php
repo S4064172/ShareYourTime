@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-md-6">
                             <label class="textModal-r"><b>Email</b></label>
-                            <input onfocusout="checkFieldReg('emailReg','errEmail')" onfocusin="cleanErr('errEmail')" id="emailReg" type="email" placeholder="Inserisci il tuo indirizzo email" name="emailReg" maxlength="125" required>
+                            <input onfocusout="checkFieldReg('emailReg','errEmail')" onfocusin="cleanErr('errEmail')" id="emailReg" type="email" placeholder="Inserisci il tuo indirizzo email" name="emailReg" minlength="6" maxlength="125" required>
                             <p id="errEmail"></p>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label><b>Indirizzo</b></label>
-                            <input onfocusout="checkFieldReg('addressReg','errAddress')" onfocusin="cleanErr('errAddress')" id="addressReg" type="textModal" placeholder="Inserisci il tuo indirizzo" name="addressReg" minlength="3" maxlength="125" required>
+                            <input onfocusout="checkFieldReg('addressReg','errAddress')" onfocusin="cleanErr('errAddress')" id="addressReg" type="textModal" placeholder="Inserisci il tuo indirizzo" name="addressReg" minlength="6" maxlength="125" required>
                             <p id="errAddress"></p>
                         </div>
                         <div class="col-md-6">
