@@ -23,7 +23,7 @@
 	}
 
 	if(check_POST_NotIsSetOrEmpty('pswReg') ){
-		if ( !checkMatchRegex($_POST['emailReg'],alphaNumRegex) ) {
+		if ( !checkMatchRegex($_POST['pswReg'],alphaNumRegex) ) {
 				echo json_encode(array('code' => -1 ,'msg' => 'Password: manca regex' ));
 				return;
 		}
