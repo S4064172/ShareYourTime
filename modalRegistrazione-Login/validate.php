@@ -9,7 +9,7 @@
 				
 				return;
 		}
-		echo json_encode(array('code' => 0, msg => 'Username ok'));
+		echo json_encode(array('code' => 0, 'msg' => 'Username ok'));
 		return;
 	}
 
@@ -18,7 +18,7 @@
 				echo json_encode(array('code' => -1 ,'msg' => 'Email non valida' ));
 				return;
 		}
-		echo json_encode(array('code' => 0, msg => 'Email ok'));
+		echo json_encode(array('code' => 0, 'msg' => 'Email ok'));
 		return;
 	}
 

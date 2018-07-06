@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label><b>Nome</b></label>
-                            <input type="textModal" placeholder="Inserisci il tuo nome" name="nameReg" maxlength="125" required>
+							<input type="textModal" placeholder="Inserisci il tuo nome" name="nameReg" maxlength="125" required>
                         </div>
                         <div class="col-md-6">
                             <label class="textModal-r"><b>Cognome</b></label>
