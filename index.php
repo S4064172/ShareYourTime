@@ -42,7 +42,7 @@
 				<br>
 				<div class="row">
 					<div class="col-sm-4 border-right">
-						<p class="myDescription mt-2">
+						<p class="myDescription">
 							In <i>ShareYourTime</i> puoi mettere a disposizione
 							<br>il tuo tempo per svolgere lavori utili agli altri.
 							<br><b>Registrati</b> e potrai fin da subito accettare lavori
@@ -50,17 +50,17 @@
 						</p>
 					</div>
 					<div class="col-sm-4"> 
-						<p class="myDescription mt-4">
+						<p class="myDescription">
 							Hai esperienza in un particolare settore ? 
 							<br> Cerchi di mettere qualche soldo da parte ? 
 							<br> Sei la persona che fa per noi !
 						</p> 
 					</div>
-					<div class="col-sm-4 border-left mt-5">
+					<div class="col-sm-4 border-left">
 						 <p class="myDescription"> 
 							La prima piattaforma italiana di <i>Time Sharing</i> 
 						</p>
-					</div>
+						<a  href="#RicercaMappa" class="btn btn-scroll titleBtn mt-3 p-2" style="font-size: 18px;">Trova un lavoro per te !</a>
 				</div>
 			<div>
 	</section>

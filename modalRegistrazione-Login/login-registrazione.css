@@ -58,7 +58,7 @@ input[type=textModal], input[type=password], input[type=email], input[type=tel] 
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-	height: 10%;
+	height: 15%;
 	font-size: 12px;
 }
 
@@ -101,7 +101,7 @@ input[type=textModal], input[type=password], input[type=email], input[type=tel] 
 	}
 }
 
-@media screen and (max-width: 768px /*sm*/), screen and (max-width: 900px) {
+@media screen and (max-width: 768px /*sm*/) {
 	.textModal-r {
 		float: left;
 	}
