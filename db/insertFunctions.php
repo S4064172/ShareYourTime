@@ -1,5 +1,5 @@
 <?php
-	require('connection.php');
+	require_once('connection.php');
 
 	function insertAndCheck($insert_prep_stmt) {
 		if ( !mysqli_stmt_execute($insert_prep_stmt) )
@@ -34,11 +34,12 @@
 		echo("La tupla e' stata inserita correttamente<br>");
 	}
 
-	function insertInto_ShareYourJobsTime($cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $recvUser) {
+	function insertInto_ShareYourJobsTime($descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $recvUser) {
 		$conn = selectionDB();
 
+		$descr = sanitizeToSql($descr, $conn);
 		$cost = sanitizeToSql($cost, $conn);
-		$timeS = sha1(sanitizeToSql($timeS, $conn));
+		$timeS = sanitizeToSql($timeS, $conn);
 		$timeE = sanitizeToSql($timeE, $conn);
 		$date = sanitizeToSql($date, $conn);
 		$dist = sanitizeToSql($dist, $conn);
@@ -48,11 +49,11 @@
 		$long = sanitizeToSql($long, $conn);
 		$recvUser = sanitizeToSql($recvUser, $conn);
 		
-		$insertQuery = "INSERT INTO ShareYourJobsTime VALUES(DEFAULT,?,?,?,?,?,?,?,?,?,?);";
+		$insertQuery = "INSERT INTO ShareYourJobsTime VALUES(DEFAULT,?,?,?,?,?,?,?,?,?,?,?);";
 
 		if ( ($insert_prep_stmt = mysqli_prepare($conn, $insertQuery)) ) {
-				if ( !mysqli_stmt_bind_param($insert_prep_stmt, "isssiisdds",
-						$cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $recvUser) )
+				if ( !mysqli_stmt_bind_param($insert_prep_stmt, "sisssiisdds",
+						$descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $recvUser) )
 					die ("Errore nell'accoppiamento dei parametri<br>");
 				insertAndCheck($insert_prep_stmt);
 

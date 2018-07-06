@@ -14,13 +14,12 @@
                     Photo char(PhotoMaxLength) NOT NULL
                 );";
 
-	//manca descrizione del lavoro o comunque un titolo
     $queryCreateTable[1] = "CREATE TABLE ShareYourJobsTime (
                     IdJob int PRIMARY KEY auto_increment,
                     Description char(DescriptionMaxLength) NOT NULL,
                     Cost int NOT NULL,
-                    TimeStart time NOT NULL,
-                    TimeEnd time NOT NULL,
+                    TimeStart timestamp NOT NULL,
+                    TimeEnd timestamp NOT NULL,
                     JobDate date NOT NULL,
                     Distance int NOT NULL,
                     Evaluation int default 0,
