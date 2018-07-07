@@ -1,7 +1,7 @@
 <div class="modal myModal fade" id="signUpModalTarget" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content animate">
-            <form action="" method="POST">
+			<form action="modalRegistrazione-Login/registerUser.php" method="POST">
                 <div class="imgcontainer">
                     <button type="button" class="close myClose" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
