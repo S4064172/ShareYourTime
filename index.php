@@ -70,7 +70,7 @@
 		<div class="myContainer text-center">
 			<h1><b>Cosa proponiamo</b></h1>
 			<br>	
-			<?php require ('last5.html'); ?>		
+			<?php require ('last5.php'); ?>		
 		</div>
 	</section>
 	

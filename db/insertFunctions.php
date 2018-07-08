@@ -37,7 +37,7 @@
 		
 	}
 
-	function insertInto_ShareYourJobsTime($descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $recvUser) {
+	function insertInto_ShareYourJobsTime($descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $propUser) {
 		$conn = selectionDB();
 
 		$descr = sanitizeToSql($descr, $conn);
@@ -50,13 +50,13 @@
 		$street = sanitizeToSql($street, $conn);
 		$lat = sanitizeToSql($lat, $conn);
 		$long = sanitizeToSql($long, $conn);
-		$recvUser = sanitizeToSql($recvUser, $conn);
+		$propUser = sanitizeToSql($propUser, $conn);
 		
-		$insertQuery = "INSERT INTO ShareYourJobsTime VALUES(DEFAULT,?,?,?,?,?,?,?,?,?,?,?);";
+		$insertQuery = "INSERT INTO ShareYourJobsTime VALUES(DEFAULT,?,?,?,?,?,?,?,?,?,?,?,DEFAULT);";
 
 		if ( ($insert_prep_stmt = mysqli_prepare($conn, $insertQuery)) ) {
 				if ( !mysqli_stmt_bind_param($insert_prep_stmt, "sisssiisdds",
-						$descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $recvUser) )
+						$descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $propUser) )
 					die ("Errore nell'accoppiamento dei parametri<br>");
 				insertAndCheck($insert_prep_stmt);
 
