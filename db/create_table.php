@@ -25,9 +25,11 @@
                     Evaluation int default 0,
                     Street char(".StreetMaxLength.") NOT NULL,
                     Latitude float NOT NULL,
-                    Longitude float NOT NULL,
-                    Receiver char(".UserNameMaxLength."),
-                    FOREIGN KEY (receiver) REFERENCES ShareYourUsersTime (User)
+					Longitude float NOT NULL,
+					Proposer char(".UserNameMaxLength.") NOT NULL,
+                    Receiver char(".UserNameMaxLength.") default NULL,
+                    FOREIGN KEY (Receiver) REFERENCES ShareYourUsersTime (User),
+                    FOREIGN KEY (Proposer) REFERENCES ShareYourUsersTime (User)
                 );";
 
     $queryCreateTable[2] = "CREATE TABLE ShareYourTagsTime (
