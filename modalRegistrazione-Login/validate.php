@@ -2,6 +2,8 @@
 	require_once("../utils/checkFields.php");	
 	require_once("../utils/regexConstant.php");
 	require_once("../db/connection.php");
+	require_once("../utils/dataBaseConstant.php");
+	
 	header("Content-Type: application/json");
 
 	function checkIfExistInDb($fieldTable, $fieldSearch)
@@ -34,9 +36,14 @@
 	
 //Check username
 	if( check_POST_NotIsSetOrEmpty('usernameReg') ) { 
+		if ( !checkMinLength($_POST['usernameReg'], UserNameMinLength) || !checkMaxLength($_POST['usernameReg'], UserNameMaxLength) ) {
+			echo json_encode(array('code' => -1, 'msg' => 'L\'username deve essere compreso tra i 5 e i 25 caratteri !'));
+			return;
+		}
+
 		if ( !checkMatchRegex($_POST['usernameReg'], alphaNumRegex) ) {
-				echo json_encode(array('code' => -1, 'msg' => 'Username non valido !'));
-				return;
+			echo json_encode(array('code' => -1, 'msg' => 'Username non valido !'));
+			return;
 		}
 
 		if ( checkIfExistInDb('user', $_POST['usernameReg']) ) {
@@ -50,7 +57,7 @@
 
 //Check email
 	if( check_POST_NotIsSetOrEmpty('emailReg') ) {
-		if ( !checkMatchRegex($_POST['emailReg'], emailRegex) ) {
+		if ( notValidString($_POST['emailReg'], emailRegex, EmailMinLength, EmailMaxLength) ) {
 				echo json_encode(array('code' => -1, 'msg' => 'Email non valida !'));
 				return;
 		}
@@ -64,8 +71,14 @@
 		return;
 	}
 
-//Check password
+//Check passwords
 	if( check_POST_NotIsSetOrEmpty('pswReg') ) {
+		if ( !checkMinLength($_POST['pswReg'], PasswordMinLength) ||
+			 !checkMaxLength($_POST['pswReg'], PasswordMaxLength) ) {
+				echo json_encode(array('code' => -1, 'msg' => 'Password troppo corta o troppo lunga (min 8 caratteri) !'));
+				return;
+		}
+
 		foreach(passwordRegex as $regex) {
 			if ( !checkMatchRegex($_POST['pswReg'], $regex) ) {
 				echo json_encode(array('code' => -1, 'msg' => 'La password deve contenere almeno 8 caratteri di cui una lettera minuscola, una maiuscola, un numero e un carattere speciale.'));
@@ -77,8 +90,15 @@
 		return;
 	}
 
+	//Check confPassword
 	if( check_POST_NotIsSetOrEmpty('pswRegConf') ) {
-		if ( !check_POST_NotIsSetOrEmpty('pswRegc') || $_POST['pswRegConf'] !== $_POST['pswRegc'] ) {
+		if ( !checkMinLength($_POST['pswRegConf'], PasswordMinLength) ||
+			 !checkMaxLength($_POST['pswRegConf'], PasswordMaxLength) ) {
+				echo json_encode(array('code' => -1, 'msg' => 'Password troppo corta o troppo lunga (min 8 caratteri) !'));
+				return;
+		}
+
+		if ( !check_POST_NotIsSetOrEmpty('_pswReg') || $_POST['pswRegConf'] !== $_POST['_pswReg'] ) {
 				echo json_encode(array('code' => -1, 'msg' => 'Le password non coincidono !'));
 				return;
 		}
@@ -89,7 +109,7 @@
 
 //Check name
 	if( check_POST_NotIsSetOrEmpty('nameReg') ) {
-		if ( !checkMatchRegex($_POST['nameReg'], alphaRegex) ) {
+		if ( notValidString($_POST['nameReg'], alphaRegex, NameMinLength, NameMaxLength) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'Il nome inserito non &egrave; valido !'));
 			return;
 		}
@@ -100,7 +120,7 @@
 
 //Check surname
 	if( check_POST_NotIsSetOrEmpty('surnameReg') ) {
-		if ( !checkMatchRegex($_POST['surnameReg'], surnameRegex) ) {
+		if ( notValidString($_POST['surnameReg'], surnameRegex, SurnameMinLength, SurnameMaxLength) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'Il congnome inserito non &egrave; valido !'));
 			return;
 		}
@@ -110,8 +130,8 @@
 	}
 
 //Check address
-	if( check_POST_NotIsSetOrEmpty('addressReg') ){
-		if ( !checkMatchRegex($_POST['addressReg'], alphaNumRegex) ) {
+	if( check_POST_NotIsSetOrEmpty('addressReg') ) {
+		if ( notValidString($_POST['addressReg'], alphaNumRegex, StreetMinLength, StreetMaxLength) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'L\'indirizzo non &egrave; valido !'));
 			return;
 		}
@@ -122,21 +142,18 @@
 
 //Check phone
 	if( check_POST_NotIsSetOrEmpty('telephoneReg') ){
-		if ( !checkMatchRegex($_POST['telephoneReg'], numRegex) ) {
+		if ( notValidString($_POST['telephoneReg'], numRegex, PhoneLength, PhoneLength) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'Il telefono non &egrave; valido !' ));
 			return;
 		}
 
 		if ( checkIfExistInDb('phone', $_POST['telephoneReg']) ) {
-			echo json_encode(array('code' => -1, 'msg' => 'Questo telefono già presente !' ));
+			echo json_encode(array('code' => -1, 'msg' => 'Questo telefono gi&agrave; presente !' ));
 			return;
 		}
 
 		echo json_encode(array('code' => 0));
 		return;
 	}
-
-//Check img
-	/* TODO: DA IMPLEMENTARE */
 
 	echo json_encode(array('code' => -2));

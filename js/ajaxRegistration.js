@@ -12,7 +12,6 @@ function getRequest()
 
 function checkFieldReg(idField,idErrField,checkField)
 {
-	
 	var request = getRequest();
 	request.open("POST", "modalRegistrazione-Login/validate.php", true);	
 	request.onreadystatechange = validateField(idErrField, request);
@@ -26,8 +25,6 @@ function checkFieldReg(idField,idErrField,checkField)
 		request.send(hmllTag.name + "=" + hmllTag.value + '&_' + 
 						htmlTag1.name+"=" + htmlTag1.value);
 	}
-		
-	
 }
 
 function validateField(idErrField, request)
@@ -37,7 +34,6 @@ function validateField(idErrField, request)
 			if (request.responseText != null) {
 				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
-				//console.log(jsonObj);
 				var notify = document.getElementById(idErrField);
 				notify.style.fontSize = '0.9em';
 				if (jsonObj['code'] === -1) {
