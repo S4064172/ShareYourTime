@@ -73,9 +73,8 @@
 
 //Check passwords
 	if( check_POST_NotIsSetOrEmpty('pswReg') ) {
-		if ( !checkMinLength($_POST['pswReg'], PasswordMinLength) ||
-			 !checkMaxLength($_POST['pswReg'], PasswordMaxLength) ) {
-				echo json_encode(array('code' => -1, 'msg' => 'Password deve essere compresa tra i 8 e i 45 caratteri !'));
+		if ( !checkMinLength($_POST['pswReg'], PasswordMinLength) ) {
+				echo json_encode(array('code' => -1, 'msg' => 'Password deve essere almeno di 8 !'));
 				return;
 		}
 

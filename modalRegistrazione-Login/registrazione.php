@@ -29,12 +29,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label><b>Password</b></label>
-                            <input onfocusout="checkFieldReg('pswReg','errPsw')" onfocusin="cleanErr('errPsw')" id="pswReg" type="password" placeholder="Inserisci una password" name="pswReg" minlength=<?php echo PasswordMinLength?> maxlength=<?php echo PasswordMaxLength?> required>
+                            <input onfocusout="checkFieldReg('pswReg','errPsw')" onfocusin="cleanErr('errPsw')" id="pswReg" type="password" placeholder="Inserisci una password" name="pswReg" minlength=<?php echo PasswordMinLength?> required>
                             <p id="errPsw"></p>
                         </div>
                         <div class="col-md-6">
                             <label class="textModal-r"><b>Conferma Password</b></label>
-                            <input  onfocusout="checkFieldReg('pswRegConf','errPswConf','pswReg')" onfocusin="cleanErr('errPswConf')" id="pswRegConf" type="password" placeholder="Conferma la password" name="pswRegConf" minlength=<?php echo PasswordMinLength?> maxlength=<?php echo PasswordMaxLength?> required>
+                            <input  onfocusout="checkFieldReg('pswRegConf','errPswConf','pswReg')" onfocusin="cleanErr('errPswConf')" id="pswRegConf" type="password" placeholder="Conferma la password" name="pswRegConf" minlength=<?php echo PasswordMinLength?> required>
                             <p id="errPswConf"></p>
                         </div>
                     </div>
