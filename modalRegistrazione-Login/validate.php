@@ -148,7 +148,7 @@
 		}
 
 		if ( checkIfExistInDb('phone', $_POST['telephoneReg']) ) {
-			echo json_encode(array('code' => -1, 'msg' => 'Questo telefono già presente !' ));
+			echo json_encode(array('code' => -1, 'msg' => 'Questo telefono gi&agrave; presente !' ));
 			return;
 		}
 
@@ -156,7 +156,4 @@
 		return;
 	}
 
-//Check img
-	/* TODO: DA IMPLEMENTARE */
-	
 	echo json_encode(array('code' => -2));
