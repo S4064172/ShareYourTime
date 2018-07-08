@@ -52,8 +52,26 @@
 	//Phone
 	if ( notValidString($_POST['telephoneReg'], numRegex, PhoneLength, PhoneLength) )
 		echo('Telefono non valido');
+
+	//Photo
+	$path = '../../profile_imgs/' . $_POST['usernameReg'] . '.jpg';
+	$imageFileType = strtolower(pathinfo($path, PATHINFO_EXTENSION));
 	
-	echo $_POST['usernameReg'].'<br>'. $_POST['pswReg'].'<br>'. $_POST['nameReg'].'<br>'. $_POST['surnameReg'].'<br>'.$_POST['telephoneReg'].'<br>'. $_POST['emailReg'].'<br>'. $_POST['addressReg'].'<br>';
+	if ( $_FILES['photoReg']['size'] > 1000000 ) {
+    	echo('File troppo grosso');
+	} 
+	
+	if ( $imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' ) {
+    	echo('Formato della foto non valido');
+	} 
+
+	if ( !move_uploaded_file($_FILES['photoReg']['tmp_name'], $path) ) 
+		echo(basename( $_FILES['photoReg']['name']). ' non e\' stato caricato.');
+
+	echo 'file name = ' . $path . '<br>tmp name = '.  $_FILES['photoReg']['tmp_name'] . '<br>';
+
+	echo $_POST['usernameReg'].'<br>'. $_POST['pswReg'].'<br>'. $_POST['nameReg'].'<br>'. $_POST['surnameReg'].'<br>'.$_POST['telephoneReg'].'<br>'. $_POST['emailReg'].'<br>'. $_POST['addressReg'].'<br>'.$path.'<br>';
 
 	insertInto_ShareYourUserTime($_POST['usernameReg'], $_POST['pswReg'], $_POST['nameReg'], $_POST['surnameReg'],
-								 $_POST['telephoneReg'], $_POST['emailReg'], $_POST['addressReg'], '../img/aaa.jpg');
+						 		 $_POST['telephoneReg'], $_POST['emailReg'], $_POST['addressReg'], $path);
+

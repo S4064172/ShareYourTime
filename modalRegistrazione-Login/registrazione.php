@@ -1,7 +1,7 @@
 <div class="modal myModal fade" id="signUpModalTarget" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content animate">
-			<form action="modalRegistrazione-Login/registerUser.php" method="POST">
+			<form action="modalRegistrazione-Login/registerUser.php" method="POST" enctype="multipart/form-data">
                 <div class="imgcontainer">
                     <button type="button" class="close myClose" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -65,7 +65,7 @@
 
 
                     <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="file" accept=".png, .jpg, .jpeg" name="profilePhoto">
+                    <input type="file" name="photoReg" id="photoReg" name="photoReg" accept=".png .jpg .jpeg" required>
                     <button type="submit" class="btn btn-success mybutton mt-4">Registrati</button>
                 </div>
             </form>
