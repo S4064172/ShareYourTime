@@ -50,15 +50,12 @@ function checkRegistrationAllField(idWait)
 */
 function validateCheckRegistrationAllField(idWait, request)
 {
-	return function(idWait){
+	return function(){
 		waitLoginEnd(idWait)
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
-				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
-				
 				for(var key in jsonObj){
-					console.log(key);
 					var notify = document.getElementById(key);
 					notify.style.color = 'darkred';
 					notify.innerHTML = jsonObj[key];
