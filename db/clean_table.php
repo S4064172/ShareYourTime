@@ -1,7 +1,7 @@
 <?php
     
     require_once("connection.php");
-    $conn = selectionDB();
+    $conn = connectionToDb();
     
     $queryDeleteTable[0] =  "DROP TABLE ShareYourTagsJobsTime";        
     $queryDeleteTable[1] =  "DROP TABLE ShareYourTagsTime";

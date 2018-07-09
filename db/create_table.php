@@ -1,7 +1,7 @@
 <?php
     require_once("connection.php");
     require_once("../utils/dataBaseConstant.php");
-    $conn = selectionDB();
+    $conn = connectionToDb();
     
     $queryCreateTable[0] = "CREATE TABLE ShareYourUsersTime (
                     User char(".UserNameMaxLength.") PRIMARY KEY,

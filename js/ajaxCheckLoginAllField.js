@@ -1,7 +1,5 @@
 "use strict";
 
-//var request = null;
-
 function getRequest() 
 {
 	var request = null;
@@ -10,12 +8,19 @@ function getRequest()
 	return request;
 }
 
-function checkLogin(idUser,IdPws,IdErrLog,idWait)
+/*
+*	Questa funzione ci permette di creare 
+*	una richiesta in post per controllare
+*	i campi che l'utente ha inserito.  
+*	Viene utilizzata una chiamata ajax
+*	per rimanere nella stessa pagina
+*/
+function checkLoginAllField(idUser,IdPws,IdErrLog,idWait)
 {
 	waitLoginStart(idWait);
 	var request = getRequest();
-	request.open("POST", "modalRegistrazione-Login/checkLogin.php", true);	
-	request.onreadystatechange = validateFieldCheckLogin(IdErrLog, idWait, request);
+	request.open("POST", "modalRegistrazione-Login/checkLoginAllField.php", true);	
+	request.onreadystatechange = validateCheckLoginAllField(IdErrLog, idWait, request);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	var hmllTagUser = document.getElementById(idUser);
     var hmllTagPws = document.getElementById(IdPws);
@@ -24,13 +29,18 @@ function checkLogin(idUser,IdPws,IdErrLog,idWait)
 	
 }
 
-function validateFieldCheckLogin(idErrField, idWait, request)
+/*
+*	Questa callback ci permette di
+*	informare l'utente sull'esito
+*	dei controlli fatti
+*/
+
+function validateCheckLoginAllField(idErrField, idWait, request)
 {
 	return function(){
 		waitLoginEnd(idWait);
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
-				//console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
 				var notify = document.getElementById(idErrField);
 				notify.style.fontSize = '0.9em';
@@ -45,6 +55,13 @@ function validateFieldCheckLogin(idErrField, idWait, request)
 		}
 	}
 }
+
+/*
+*	Queste due funzioni ci permettono di
+*	"boccare" temporaneamente l'input 
+*	dell'utente in modo che non cambi 
+*	valori durante i controlli
+*/
 
 function waitLoginStart(idWait){
 	document.getElementById(idWait).style.display = "inline";

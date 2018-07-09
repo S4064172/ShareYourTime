@@ -1,5 +1,5 @@
 <?php
-    //Users table
+   
     define('UserNameMaxLength',25);
     define('UserNameMinLength',5);
     define('PasswordMaxLength',45);
@@ -14,10 +14,6 @@
     define('StreetMinLength',6);
     define('PhotoMaxLength',50);
     define('PhoneLength',10);
-
-    //Jobs table
     define('DescriptionMaxLength',150);
-
-    //Tags table
     define('TagMaxLength',20);
 

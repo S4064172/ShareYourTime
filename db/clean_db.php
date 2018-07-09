@@ -3,7 +3,7 @@
     require_once("connection.php");
     include("mysql_credentials.php");
 
-    $conn = connectionToDb();
+    $conn = connection();
         
     $sql = "DROP DATABASE IF EXISTS $mysql_db";
     

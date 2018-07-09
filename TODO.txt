@@ -1,0 +1,7 @@
+-> checkRegistrationAllField.php, checkRegistrationSingleField,php
+    -> mancano i controlli sull'esistenza o meno dell'indirizzo
+
+-> checkRegistrationAllField.php
+    -> manca il controllo sulla foto
+    -> manca l'inserimento
+    -> manca il div di "attesa"

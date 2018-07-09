@@ -1,7 +1,5 @@
 "use strict";
 
-//var request = null;
-
 function getRequest() 
 {
 	var request = null;
@@ -10,11 +8,18 @@ function getRequest()
 	return request;
 }
 
-function checkFieldReg(idField,idErrField,checkField)
+
+/*
+*	Questa funzione ci permette di creare 
+*	una richiesta in post per controllare
+*	ogni singolo campo che l'utente ha inserito.  
+*/
+
+function checkRegistrationSingleField(idField,idErrField,checkField)
 {
 	var request = getRequest();
-	request.open("POST", "modalRegistrazione-Login/validate.php", true);	
-	request.onreadystatechange = validateField(idErrField, request);
+	request.open("POST", "modalRegistrazione-Login/checkRegistrationSingleField.php", true);	
+	request.onreadystatechange = validateCheckRegistrationSingleField(idErrField, request);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	var hmllTag = document.getElementById(idField);
 	if(checkField==null)
@@ -27,12 +32,18 @@ function checkFieldReg(idField,idErrField,checkField)
 	}
 }
 
-function validateField(idErrField, request)
+/*
+*	Questa callback ci permette di
+*	informare l'utente sull'esito
+*	dei controlli fatti
+*/
+
+function validateCheckRegistrationSingleField(idErrField, request)
 {
 	return function(){
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
-				//console.log(request.responseText);
+				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
 				var notify = document.getElementById(idErrField);
 				notify.style.fontSize = '0.9em';
@@ -53,6 +64,12 @@ function validateField(idErrField, request)
 	}
 }
 
+/*
+*	Questa funzione ci permette
+*	di "ripulire" il taghtml
+*	utilizzato per mostrare
+* 	l'errore
+*/
 function cleanErr(id){
 	var notify = document.getElementById(id);
 	notify.innerHTML = "";

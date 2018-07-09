@@ -10,7 +10,7 @@
 	}
 	
 	function insertInto_ShareYourUserTime($usr, $psw, $name, $surname, $phone, $email, $street, $path) {
-		$conn = selectionDB();
+		$conn = connectionToDb();
 
 		$usr = sanitizeToSql($usr, $conn);
 		$psw = sha1(sanitizeToSql($psw, $conn));
@@ -38,7 +38,7 @@
 	}
 
 	function insertInto_ShareYourJobsTime($descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $propUser) {
-		$conn = selectionDB();
+		$conn = connectionToDb();
 
 		$descr = sanitizeToSql($descr, $conn);
 		$cost = sanitizeToSql($cost, $conn);
@@ -68,7 +68,7 @@
 	}
 
 	function insertInto_ShareYourTagsTime ($tag) {
-		$conn = selectionDB();	
+		$conn = connectionToDb();	
 
 		$tag = sanitizeToSql($tag, $conn);
 		
@@ -87,7 +87,7 @@
 	}
 
 	function insertInto_ShareYourTagsJobsTime ($tag, $idjob) {
-		$conn = selectionDB();	
+		$conn = connectionToDb();	
 
 		$tag = sanitizeToSql($tag, $conn);
 		$idjob = sanitizeToSql($idjob, $conn);

@@ -12,7 +12,7 @@
 			require_once('db/connection.php');
 
 			$getJobsQuery = "SELECT * FROM ShareYourJobsTime ORDER BY TimeStart LIMIT 5";
-			$conn = selectionDB();
+			$conn = connectionToDb();
 			
 			if ( !($res = mysqli_query($conn, $getJobsQuery)) ) 
 				die('Errore nella selezione dei lavori');

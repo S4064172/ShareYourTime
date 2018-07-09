@@ -1,14 +1,27 @@
 <?php
+
+/*
+ * In questo file vengono effuati i
+ * controlli sui singoli campi che 
+ * l'utente inserisce man mano
+ * che compila il form di registrazione
+*/
 	require_once("../utils/checkFields.php");	
 	require_once("../utils/regexConstant.php");
 	require_once("../db/connection.php");
 	require_once("../utils/dataBaseConstant.php");
-	
 	header("Content-Type: application/json");
 
+
+	/*
+	* 	Questa funzione ci permette
+	*	di controllare nel database
+	*	se un certo elemento è presente 
+	*	nella tabella ShareYourUsersTime
+	*/
 	function checkIfExistInDb($fieldTable, $fieldSearch)
 	{
-		$conn = selectionDB();
+		$conn = connectionToDb();
 
 		$fieldSearch = sanitizeToSql($fieldSearch, $conn);
 
@@ -34,8 +47,8 @@
 		die ("Errore nella preparazione della query<br>");
 	}
 	
-//Check username
-	if( check_POST_NotIsSetOrEmpty('usernameReg') ) { 
+	//Controlli sull'username
+	if( check_POST_IsSetAndNotEmpty('usernameReg') ) { 
 		if ( !checkMinLength($_POST['usernameReg'], UserNameMinLength) || !checkMaxLength($_POST['usernameReg'], UserNameMaxLength) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'L\'username deve essere compreso tra i 5 e i 25 caratteri !'));
 			return;
@@ -55,8 +68,8 @@
 		return;
 	}
 
-//Check email
-	if( check_POST_NotIsSetOrEmpty('emailReg') ) {
+	//Controlli sull'email
+	if( check_POST_IsSetAndNotEmpty('emailReg') ) {
 		if ( notValidString($_POST['emailReg'], emailRegex, EmailMinLength, EmailMaxLength) ) {
 				echo json_encode(array('code' => -1, 'msg' => 'Email non valida !'));
 				return;
@@ -71,8 +84,8 @@
 		return;
 	}
 
-//Check passwords
-	if( check_POST_NotIsSetOrEmpty('pswReg') ) {
+	//Controlli sulla password
+	if( check_POST_IsSetAndNotEmpty('pswReg') ) {
 		if ( !checkMinLength($_POST['pswReg'], PasswordMinLength) ) {
 				echo json_encode(array('code' => -1, 'msg' => 'Password deve essere almeno di 8 !'));
 				return;
@@ -89,9 +102,9 @@
 		return;
 	}
 
-	//Check confPassword
-	if( check_POST_NotIsSetOrEmpty('pswRegConf') ) {
-		if ( !check_POST_NotIsSetOrEmpty('_pswReg') || $_POST['pswRegConf'] !== $_POST['_pswReg'] ) {
+	//Controlli sulla passoword di conferma
+	if( check_POST_IsSetAndNotEmpty('pswRegConf') ) {
+		if ( !check_POST_IsSetAndNotEmpty ('_pswReg') || $_POST['pswRegConf'] !== $_POST['_pswReg'] ) {
 				echo json_encode(array('code' => -1, 'msg' => 'Le password non coincidono !'));
 				return;
 		}
@@ -100,8 +113,8 @@
 		return;
 	}
 
-//Check name
-	if( check_POST_NotIsSetOrEmpty('nameReg') ) {
+	//Controlli sul nome
+	if( check_POST_IsSetAndNotEmpty('nameReg') ) {
 		if ( notValidString($_POST['nameReg'], alphaRegex, NameMinLength, NameMaxLength) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'Il nome inserito non &egrave; valido !'));
 			return;
@@ -111,8 +124,8 @@
 		return;
 	}
 
-//Check surname
-	if( check_POST_NotIsSetOrEmpty('surnameReg') ) {
+	//Controlli sul cognome
+	if( check_POST_IsSetAndNotEmpty('surnameReg') ) {
 		if ( notValidString($_POST['surnameReg'], surnameRegex, SurnameMinLength, SurnameMaxLength) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'Il congnome inserito non &egrave; valido !'));
 			return;
@@ -122,8 +135,8 @@
 		return;
 	}
 
-//Check address
-	if( check_POST_NotIsSetOrEmpty('addressReg') ) {
+    //Controlli sull'indirizzo
+	if( check_POST_IsSetAndNotEmpty('addressReg') ) {
 		if ( notValidString($_POST['addressReg'], alphaNumRegex, StreetMinLength, StreetMaxLength) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'L\'indirizzo non &egrave; valido !'));
 			return;
@@ -133,8 +146,8 @@
 		return;
 	}
 
-//Check phone
-	if( check_POST_NotIsSetOrEmpty('telephoneReg') ){
+	//Controlli sul telefono
+	if( check_POST_IsSetAndNotEmpty('telephoneReg') ){
 		if ( notValidString($_POST['telephoneReg'], numRegex, PhoneLength, PhoneLength) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'Il telefono non &egrave; valido !' ));
 			return;
