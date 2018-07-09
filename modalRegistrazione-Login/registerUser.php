@@ -3,81 +3,78 @@
 	require_once('../utils/checkFields.php');
 	require_once('../utils/dataBaseConstant.php');
 	require_once('../db/insertFunctions.php');
+	require_once('../db/connection.php');
+
 
 	/*
-	 *	RIPETERE TUTTI I CONTROLLI DI LUNGHEZZA E DI REGEX, SE TUTTO A POSTO CHIAMARE INSERT_USER
-	 *	FARE PARTIRE LA SESSIONE E REINDIRIZZARE VERSO LA HOMEPAGE
+	 *	Controlli da fare :
+	 *		-regex, lunghezza
+	 *		-sanitizzazione to sql
+	 *		-Manca contollo foto
 	 */	
 
-	foreach ($_POST as $key => $value)
+	/*foreach ($_POST as $key => $value)
 		if ( !check_POST_NotIsSetOrEmpty($key) ) {
 				echo($key.' non e\' presente');
-				return;
-		}
+				
+		}*/
 
-	//Username
-	if ( notValidString($_POST['usernameReg'], alphaNumRegex, UserNameMinLength, UserNameMaxLength) )
-		echo('Username non valido');
-
-	//Email
-	if ( notValidString($_POST['emailReg'], emailRegex, EmailMinLength, EmailMaxLength) )
-		echo('Email non valida');
-
-	//Password
-	if ( !notValidString($_POST['pswReg'], "/.*/", PasswordMinLength, PasswordMaxLength) ) {
-		foreach(passwordRegex as $regex)
-			if ( !checkMatchRegex($_POST['pswReg'], $regex) ) {
-				echo('Passoword non valida');
-				break;
-			}
-	} else {
-		echo('Password non valida');
+	$result = array();
+	//username
+	if( notValidString($_POST['usernameReg'], alphaNumRegex, UserNameMinLength, UserNameMaxLength) ){
+		//$result['code'] = -1;
+		$result['errUsername']="username non valido !---";
 	}
 
-	if ( $_POST['pswRegConf'] !== $_POST['pswReg'] )
-			echo('Le password sono diverse');
+	//email
+	if( notValidString($_POST['emailReg'], emailRegex, EmailMinLength, EmailMaxLength) ){
+		//$result['code'] = -1;
+		$result['errEmail']="email non valida !---";
+	}
 
-	//Name
-	if ( notValidString($_POST['surnameReg'], surnameRegex, SurnameMinLength, SurnameMaxLength) ) 
-		echo('Nome non valido');
+	//password
+	if ( !checkMinLength($_POST['pswReg'], PasswordMinLength) ) {
+		$result['errPsw']="password non valida !---";
+	}
 
-	//Surname
-	if ( notValidString($_POST['surnameReg'], surnameRegex, SurnameMinLength, SurnameMaxLength) )
-		echo('Cognome non valido');
+	foreach(passwordRegex as $regex) {
+		if ( !checkMatchRegex($_POST['pswReg'], $regex) ) {
+			$result['errPsw']="password non valida !---";
+			break;
+		}
+	}
 
-	//Address
-	if ( notValidString($_POST['addressReg'], alphaNumRegex, StreetMinLength, StreetMaxLength) )
-		echo('Indirizzo non valido');
+	//password Conf
+	if( !isset($result['errPsw']) && $_POST['pswReg']!==$_POST['pswRegConf'] ){
+		$result['errPswConf']="password non valida !---";
+	}
 
-	//Phone
-	if ( notValidString($_POST['telephoneReg'], numRegex, PhoneLength, PhoneLength) )
-		echo('Telefono non valido');
+	//nome
+	if( notValidString($_POST['nameReg'], alphaRegex, NameMinLength, NameMaxLength) ){
+		$result['errName']="nome non valida !---";
+	}
 
-	//Photo
-	$path = '../../profile_imgs/' . $_POST['usernameReg'] . '.jpg';
-	$imageFileType = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+	//cognome
+	if( notValidString($_POST['surnameReg'], surnameRegex, SurnameMinLength, SurnameMaxLength) ){
+		$result['errSurname']="cognome non valida !---";
+	}
+
+	//indirizzo
+	if( notValidString($_POST['addressReg'], alphaNumRegex, StreetMinLength, StreetMaxLength) ){
+		$result['errAddress']="indirizzo non valida !---";
+	}
+
+	//telefono
+	if( notValidString($_POST['telephoneReg'], numRegex, PhoneLength, PhoneLength) ){
+		$result['errTelephone']="telefono non valida !---";
+	}
 	
-	if ( $_FILES['photoReg']['size'] > 1000000 ) {
-    	echo('File troppo grosso');
-	} 
+
+	echo json_encode($result);
+
 	
-	if ( $imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' ) {
-    	echo('Formato della foto non valido');
-	} 
 
-	if ( !move_uploaded_file($_FILES['photoReg']['tmp_name'], $path) ) 
-		echo(basename( $_FILES['photoReg']['name']). ' non e\' stato caricato.');
-
-	echo 'file name = ' . $path . '<br>tmp name = '.  $_FILES['photoReg']['tmp_name'] . '<br>';
-
-	echo $_POST['usernameReg'].'<br>'. $_POST['pswReg'].'<br>'. $_POST['nameReg'].'<br>'. $_POST['surnameReg'].'<br>'.$_POST['telephoneReg'].'<br>'. $_POST['emailReg'].'<br>'. $_POST['addressReg'].'<br>'.$path.'<br>';
-
-
-	insertInto_ShareYourUserTime($_POST['usernameReg'], $_POST['pswReg'], $_POST['nameReg'], $_POST['surnameReg'],
-						 		 $_POST['telephoneReg'], $_POST['emailReg'], $_POST['addressReg'], $path);
-
-
-	session_start();
-	$_SESSION["user"] = $_POST["usernameReg"];
-	header("Location: /~s4064172/ProgettoSaw/ShareYourTime/homepage.php");
-
+/*
+	$conn = selectionDB();
+	$_POST['usernameReg']=sanitizeToSql($_POST['usernameReg'], $conn);
+*/
