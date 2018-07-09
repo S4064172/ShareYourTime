@@ -54,8 +54,9 @@
             return;
     }
 
-    echo json_encode(array('code' => 0));
-   /* session_start();
+    
+    session_start();
     $_SESSION['user'] = $_POST['usernameLogin'];
-    header("Location: /~s4064172/ProgettoSaw/ShareYourTime/homepage.php");*/
+    echo json_encode(array('code' => 0));
+
     

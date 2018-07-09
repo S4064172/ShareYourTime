@@ -35,12 +35,9 @@ function validateField(idErrField, request)
 				if (jsonObj['code'] === -1) {
 					notify.style.color = 'darkred';
 					notify.innerHTML = jsonObj['msg'];
-				} else {
-					if(jsonObj['code'] === 0){
-						notify.style.color = 'green';
-					}
-						
-				}
+					return
+				} 					
+				window.location.href = 'homepage.php';
 				
 			}
 		}

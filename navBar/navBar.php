@@ -53,7 +53,7 @@
             if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) { 
         ?>
             <form action="navBar/logout.php" >
-                <button type='submit' href='#' class='btn btn-primary mr-2 d-block d-sm-inline btnSize' onClick='destroySession()'>
+                <button type='submit' href='#' class='btn btn-primary mr-2 d-block d-sm-inline btnSize'>
                     <i class='fa fa-sign-out-alt'></i>
                     Logout
                 </button>
