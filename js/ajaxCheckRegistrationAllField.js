@@ -15,11 +15,12 @@ function getRequest()
 *	Viene utilizzata una chiamata ajax
 *	per rimanere nella stessa pagina.
 */
-function checkRegistrationAllField()
+function checkRegistrationAllField(idWait)
 {
+	waitLoginStart(idWait)
 	var request = getRequest();
 	request.open("POST", "modalRegistrazione-Login/checkRegistrationAllField.php", true);	
-	request.onreadystatechange = validateCheckRegistrationAllField(request);
+	request.onreadystatechange = validateCheckRegistrationAllField(idWait, request);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	var hmllTagUser = document.getElementById('usernameReg');
     var hmllTagEmail = document.getElementById('emailReg');
@@ -47,9 +48,10 @@ function checkRegistrationAllField()
 *	informare l'utente sull'esito
 *	dei controlli fatti
 */
-function validateCheckRegistrationAllField(request)
+function validateCheckRegistrationAllField(idWait, request)
 {
-	return function(){
+	return function(idWait){
+		waitLoginEnd(idWait)
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
 				console.log(request.responseText);
@@ -66,4 +68,17 @@ function validateCheckRegistrationAllField(request)
 	}
 }
 
+/*
+*	Queste due funzioni ci permettono di
+*	"boccare" temporaneamente l'input 
+*	dell'utente in modo che non cambi 
+*	valori durante i controlli
+*/
 
+function waitLoginStart(idWait){
+	document.getElementById(idWait).style.display = "inline";
+}
+
+function waitLoginEnd(idWait){
+	document.getElementById(idWait).style.display = "none";
+}

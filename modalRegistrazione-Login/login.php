@@ -1,7 +1,7 @@
 <div class="modal myModal myModal-mt fade" id="loginModalTarget" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="wait" id="wait">
-                <img class="imgWait" src="img/sandclock.png">
-        </div>
+    <div class="wait" id="waitLogin">
+            <img class="imgWait" src="img/sandclock.png">
+    </div>
     <div class="modal-dialog" role="document">
         <div class="modal-content animate">
             <div class="imgcontainer">
@@ -16,7 +16,7 @@
                 <label class="textModal-c"><b>Password</b></label>
                 <input type="password" onfocusin="cleanErr('errLogin')" placeholder="Enter Password" id="pwsLogin" name="pswLogin" minlength="8" maxlength="125" required>
                 <p id="errLogin"></p>
-                <button type="button" onClick="checkLoginAllField('userLogin','pwsLogin', 'errLogin', 'wait')" class="btn btn-success mybutton mt-4">Login</button>
+                <button type="button" onClick="checkLoginAllField('userLogin','pwsLogin', 'errLogin', 'waitLogin')" class="btn btn-success mybutton mt-4">Login</button>
             </div>	
         </div>
     </div>

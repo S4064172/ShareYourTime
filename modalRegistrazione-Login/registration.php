@@ -1,6 +1,9 @@
 <?php require_once('utils/dataBaseConstant.php');?>
 
 <div class="modal myModal fade" id="signUpModalTarget" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="wait" id="waitRegistration">
+        <img class="imgWait" src="img/sandclock.png">
+    </div>
     <div class="modal-dialog" role="document">
         <div class="modal-content animate">
 			
@@ -68,7 +71,7 @@
 
                 <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="file" name="photoReg" id="photoReg" name="photoReg" accept=".png .jpg .jpeg"  required>
-                <button type="buttom" onClick="checkRegistrationAllField()" class="btn btn-success mybutton mt-4">Registrati</button>
+                <button type="buttom" onClick="checkRegistrationAllField('waitRegistration')" class="btn btn-success mybutton mt-4">Registrati</button>
             </div>
            
         </div>

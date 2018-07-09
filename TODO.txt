@@ -5,3 +5,6 @@
     -> manca il controllo sulla foto
     -> manca l'inserimento
     -> manca il div di "attesa"
+
+-> .js
+    -> duplicazione del codice
