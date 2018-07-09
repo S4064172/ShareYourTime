@@ -10,11 +10,12 @@ function getRequest()
 	return request;
 }
 
-function checkLogin(idUser,IdPws,IdErrLog)
+function checkLogin(idUser,IdPws,IdErrLog,idWait)
 {
+	waitLoginStart(idWait);
 	var request = getRequest();
 	request.open("POST", "modalRegistrazione-Login/checkLogin.php", true);	
-	request.onreadystatechange = validateField(IdErrLog,request);
+	request.onreadystatechange = validateField(IdErrLog, idWait, request);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	var hmllTagUser = document.getElementById(idUser);
     var hmllTagPws = document.getElementById(IdPws);
@@ -23,9 +24,10 @@ function checkLogin(idUser,IdPws,IdErrLog)
 	
 }
 
-function validateField(idErrField, request)
+function validateField(idErrField, idWait, request)
 {
 	return function(){
+		waitLoginEnd(idWait);
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
 				//console.log(request.responseText);
@@ -36,10 +38,19 @@ function validateField(idErrField, request)
 					notify.style.color = 'darkred';
 					notify.innerHTML = jsonObj['msg'];
 					return
-				} 					
+				}				
 				window.location.href = 'homepage.php';
 				
 			}
 		}
 	}
 }
+
+function waitLoginStart(idWait){
+	document.getElementById(idWait).style.display = "inline";
+}
+
+function waitLoginEnd(idWait){
+	document.getElementById(idWait).style.display = "none";
+}
+

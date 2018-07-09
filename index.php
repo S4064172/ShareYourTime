@@ -35,7 +35,6 @@
 			</div>
 		</div>
 
-
 		<!-- Login a scomparsa -->	
 	  	<?php require ('modalRegistrazione-Login/login.php'); ?>
 
