@@ -1,4 +1,3 @@
-
 <?php
     require_once("../db/connection.php");
     require_once("../utils/checkFields.php");
@@ -37,19 +36,26 @@
     foreach ($_POST as $key => $value) 
             check_POST_NotIsSetOrEmpty($key);
             
-    if ( !checkMatchRegex($_POST['usernameLogin'], alphaNumRegex) )
-        die("errore0");
+    if ( !checkMatchRegex($_POST['usernameLogin'], alphaNumRegex) ){
+        echo json_encode(array('code' => -1, 'msg' => 'Username o password errati !'));
+        return;
+    }
 
     foreach(passwordRegex as $regex) {
-        if ( !checkMatchRegex($_POST['pswLogin'], $regex) ) 
-            die("errore1");
+        if ( !checkMatchRegex($_POST['pswLogin'], $regex) ){
+            echo json_encode(array('code' => -1, 'msg' => 'Username o password errati !'));
+            return;
+        }
         
     }
 
-    if(!checkIfExistInDb($_POST['usernameLogin'],$_POST['pswLogin']))
-        die("errore2");
+    if( !checkIfExistInDb($_POST['usernameLogin'],$_POST['pswLogin']) ){
+            echo json_encode(array('code' => -1, 'msg' => 'Username o password errati !'));
+            return;
+    }
 
-    session_start();
+    echo json_encode(array('code' => 0));
+   /* session_start();
     $_SESSION['user'] = $_POST['usernameLogin'];
-    header("Location: /~s4064172/ProgettoSaw/ShareYourTime/homepage.php");
+    header("Location: /~s4064172/ProgettoSaw/ShareYourTime/homepage.php");*/
     

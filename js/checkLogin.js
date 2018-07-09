@@ -10,21 +10,17 @@ function getRequest()
 	return request;
 }
 
-function checkFieldReg(idField,idErrField,checkField)
+function checkLogin(idUser,IdPws,IdErrLog)
 {
 	var request = getRequest();
-	request.open("POST", "modalRegistrazione-Login/validate.php", true);	
-	request.onreadystatechange = validateField(idErrField, request);
+	request.open("POST", "modalRegistrazione-Login/checkLogin.php", true);	
+	request.onreadystatechange = validateField(IdErrLog,request);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	var hmllTag = document.getElementById(idField);
-	if(checkField==null)
-		request.send(hmllTag.name + "=" + hmllTag.value);
-	else{
-		var htmlTag1 = document.getElementById(checkField);
-
-		request.send(hmllTag.name + "=" + hmllTag.value + '&_' + 
-						htmlTag1.name+"=" + htmlTag1.value);
-	}
+	var hmllTagUser = document.getElementById(idUser);
+    var hmllTagPws = document.getElementById(IdPws);
+    request.send(   hmllTagUser.name + "=" + hmllTagUser.value+"&"+
+                    hmllTagPws.name+ "=" +hmllTagPws.value);
+	
 }
 
 function validateField(idErrField, request)
@@ -42,8 +38,6 @@ function validateField(idErrField, request)
 				} else {
 					if(jsonObj['code'] === 0){
 						notify.style.color = 'green';
-					}else{
-						return;
 					}
 						
 				}
@@ -51,9 +45,4 @@ function validateField(idErrField, request)
 			}
 		}
 	}
-}
-
-function cleanErr(id){
-	var notify = document.getElementById(id);
-	notify.innerHTML = "";
 }

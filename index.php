@@ -142,6 +142,7 @@
 	<script type="text/javascript" src="js/navBar.js"></script>
 	<script type="text/javascript" src="js/googleMaps.js"></script>
 	<script type="text/javascript" src="js/ajaxRegistration.js"></script>
+	<script type="text/javascript" src="js/checkLogin.js"></script>
 
 	<?php require('googleAPIkey.html') ?>
 
