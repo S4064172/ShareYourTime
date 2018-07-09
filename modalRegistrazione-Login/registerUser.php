@@ -8,18 +8,16 @@
 
 	/*
 	 *	Controlli da fare :
-	 *		-regex, lunghezza
-	 *		-sanitizzazione to sql
 	 *		-Manca contollo foto
+	 *		-manca inserimento
 	 */	
-
-	/*foreach ($_POST as $key => $value)
-		if ( !check_POST_NotIsSetOrEmpty($key) ) {
-				echo($key.' non e\' presente');
-				
-		}*/
-
 	$result = array();
+	foreach ($_POST as $key => $value)
+		if ( !check_POST_NotIsSetOrEmpty($key) ) {
+			$result[$key]="campo vuoto !---";
+			return;
+		}
+
 	//username
 	if( notValidString($_POST['usernameReg'], alphaNumRegex, UserNameMinLength, UserNameMaxLength) ){
 		//$result['code'] = -1;
@@ -72,9 +70,24 @@
 
 	echo json_encode($result);
 
-	
 
-/*
+
 	$conn = selectionDB();
+	//user
 	$_POST['usernameReg']=sanitizeToSql($_POST['usernameReg'], $conn);
-*/
+	//mail
+	$_POST['emailReg']=sanitizeToSql($_POST['emailReg'], $conn);
+	//pws
+	$_POST['pswReg']=sanitizeToSql($_POST['pswReg'], $conn);
+	//nome
+	$_POST['nameReg']=sanitizeToSql($_POST['nameReg'], $conn);
+	//cognome
+	$_POST['surnameReg']=sanitizeToSql($_POST['surnameReg'], $conn);
+	//indirizzo
+	$_POST['addressReg']=sanitizeToSql($_POST['addressReg'], $conn);
+	//telefono
+	$_POST['telephoneReg']=sanitizeToSql($_POST['telephoneReg'], $conn);
+	//foto
+	//$_POST['photoReg']=sanitizeToSql($_POST['photoReg'], $conn);
+
+
