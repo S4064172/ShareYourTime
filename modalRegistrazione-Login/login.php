@@ -1,5 +1,5 @@
 <div class="modal myModal myModal-mt fade" id="loginModalTarget" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="wait">
+        <div class="wait" id="wait">
                 <img class="imgWait" src="img/sandclock.png">
         </div>
     <div class="modal-dialog" role="document">
