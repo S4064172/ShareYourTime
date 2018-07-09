@@ -73,15 +73,14 @@
 
 //Check passwords
 	if( check_POST_NotIsSetOrEmpty('pswReg') ) {
-		if ( !checkMinLength($_POST['pswReg'], PasswordMinLength) ||
-			 !checkMaxLength($_POST['pswReg'], PasswordMaxLength) ) {
-				echo json_encode(array('code' => -1, 'msg' => 'Password troppo corta o troppo lunga (min 8 caratteri) !'));
+		if ( !checkMinLength($_POST['pswReg'], PasswordMinLength) ) {
+				echo json_encode(array('code' => -1, 'msg' => 'Password deve essere almeno di 8 !'));
 				return;
 		}
 
 		foreach(passwordRegex as $regex) {
 			if ( !checkMatchRegex($_POST['pswReg'], $regex) ) {
-				echo json_encode(array('code' => -1, 'msg' => 'La password deve contenere almeno 8 caratteri di cui una lettera minuscola, una maiuscola, un numero e un carattere speciale.'));
+				echo json_encode(array('code' => -1, 'msg' => 'La password deve contenere almeno una lettera minuscola, una maiuscola, un numero e un carattere speciale.'));
 				return;
 			}
 		}
@@ -92,12 +91,6 @@
 
 	//Check confPassword
 	if( check_POST_NotIsSetOrEmpty('pswRegConf') ) {
-		if ( !checkMinLength($_POST['pswRegConf'], PasswordMinLength) ||
-			 !checkMaxLength($_POST['pswRegConf'], PasswordMaxLength) ) {
-				echo json_encode(array('code' => -1, 'msg' => 'Password troppo corta o troppo lunga (min 8 caratteri) !'));
-				return;
-		}
-
 		if ( !check_POST_NotIsSetOrEmpty('_pswReg') || $_POST['pswRegConf'] !== $_POST['_pswReg'] ) {
 				echo json_encode(array('code' => -1, 'msg' => 'Le password non coincidono !'));
 				return;
