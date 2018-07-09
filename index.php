@@ -1,3 +1,12 @@
+<?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+	if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) {
+        header("Location: homepage.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
  	<head>
@@ -70,7 +79,7 @@
 		<div class="myContainer text-center">
 			<h1><b>Cosa proponiamo</b></h1>
 			<br>	
-			<?php require ('last5.html'); ?>		
+			<?php require ('last5.php'); ?>		
 		</div>
 	</section>
 	

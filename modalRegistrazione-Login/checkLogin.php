@@ -45,6 +45,11 @@
             die("errore1");
         
     }
+
     if(!checkIfExistInDb($_POST['usernameLogin'],$_POST['pswLogin']))
         die("errore2");
 
+    session_start();
+    $_SESSION['user'] = $_POST['usernameLogin'];
+    header("Location: /~s4064172/ProgettoSaw/ShareYourTime/homepage.php");
+    

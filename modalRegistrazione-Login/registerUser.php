@@ -72,6 +72,12 @@
 
 	echo $_POST['usernameReg'].'<br>'. $_POST['pswReg'].'<br>'. $_POST['nameReg'].'<br>'. $_POST['surnameReg'].'<br>'.$_POST['telephoneReg'].'<br>'. $_POST['emailReg'].'<br>'. $_POST['addressReg'].'<br>'.$path.'<br>';
 
+
 	insertInto_ShareYourUserTime($_POST['usernameReg'], $_POST['pswReg'], $_POST['nameReg'], $_POST['surnameReg'],
 						 		 $_POST['telephoneReg'], $_POST['emailReg'], $_POST['addressReg'], $path);
+
+
+	session_start();
+	$_SESSION["user"] = $_POST["usernameReg"];
+	header("Location: /~s4064172/ProgettoSaw/ShareYourTime/homepage.php");
 
