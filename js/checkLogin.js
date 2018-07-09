@@ -15,7 +15,7 @@ function checkLogin(idUser,IdPws,IdErrLog,idWait)
 	waitLoginStart(idWait);
 	var request = getRequest();
 	request.open("POST", "modalRegistrazione-Login/checkLogin.php", true);	
-	request.onreadystatechange = validateField(IdErrLog, idWait, request);
+	request.onreadystatechange = validateFieldCheckLogin(IdErrLog, idWait, request);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	var hmllTagUser = document.getElementById(idUser);
     var hmllTagPws = document.getElementById(IdPws);
@@ -24,7 +24,7 @@ function checkLogin(idUser,IdPws,IdErrLog,idWait)
 	
 }
 
-function validateField(idErrField, idWait, request)
+function validateFieldCheckLogin(idErrField, idWait, request)
 {
 	return function(){
 		waitLoginEnd(idWait);
