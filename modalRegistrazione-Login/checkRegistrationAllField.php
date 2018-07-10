@@ -5,7 +5,6 @@
 	require_once('../db/insertFunctions.php');
 	require_once('../db/connection.php');
 
-
 	$result = array();
 	
 	//Contolli sull'username
@@ -45,7 +44,7 @@
 	if( !check_POST_IsSetAndNotEmpty('surnameReg') || notValidString($_POST['surnameReg'], surnameRegex, SurnameMinLength, SurnameMaxLength) ){
 		$result['errSurname']="Il cognome inserito non è valido !";
 	}
-
+	
 	//Controlli sull'indirizzo
 	if(!check_POST_IsSetAndNotEmpty('addressReg') || notValidString($_POST['addressReg'], alphaNumRegex, StreetMinLength, StreetMaxLength) ){
 		$result['errAddress']="L'indirizzo inserito non è valido !";
@@ -55,16 +54,30 @@
 	if(!check_POST_IsSetAndNotEmpty('telephoneReg') || notValidString($_POST['telephoneReg'], numRegex, PhoneLength, PhoneLength) ){
 		$result['errTelephone']="Il telefono inserito non è valido !";
 	}
+
+	//Controlli sulla foto 
+	$path = '../../profile_imgs/' . /*$_POST['usernameReg']*/'aaaa' . '.jpg';
 	
+	$imageFileType = strtolower(pathinfo($_FILES['photoReg']['name'], PATHINFO_EXTENSION));
+
+	if ( $_FILES['photoReg']['size'] > 1000000 ) 
+    	$result['errPhoto'] = "File troppo grosso";
+	else 
+		if ( $imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' ) 
+			$result['errPhoto'] = 'Formato della foto non valido';
+		else
+			if ( !move_uploaded_file($_FILES['photoReg']['tmp_name'], $path) ) 
+				$result['errPhoto'] = basename( $_FILES['photoReg']['name']). ' non e\' stato caricato.';
+
+	//Fine dei controlli --> inserimento nel database
 	if( count($result) == 0 ){
 		session_start();
 		$_SESSION['user'] = $_POST['usernameReg'];
 		insertInto_ShareYourUserTime(	$_POST['usernameReg'], $_POST['pswReg'],
 										$_POST['nameReg'], $_POST['surnameReg'],
 										$_POST['telephoneReg'], $_POST['emailReg'],
-										$_POST['addressReg'], "ciao");
+										$_POST['addressReg'], "../profile_img/dddd.jpg");
 	}
 
 	echo json_encode($result);
-
 

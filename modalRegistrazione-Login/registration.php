@@ -68,11 +68,11 @@
                     </div>
                 </div>
 
-
                 <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="file" id="photoReg" name="photoReg" accept=".png .jpg .jpeg" required >
-                <p id="errPhoto"></p>
-                <button type="buttom" onclick="checkRegistrationAllField('waitRegistration')" class="btn btn-success mybutton mt-4">Registrati</button>
+              	<input type="file" id="photoReg" name="photoReg" accept=".png, .jpg, .jpeg" required>
+				<p id="errPhoto"></p>
+
+                <button type="button" onclick="checkRegistrationAllField('waitRegistration')" class="btn btn-success mybutton mt-4">Registrati</button>
             </div>
 
         </div>

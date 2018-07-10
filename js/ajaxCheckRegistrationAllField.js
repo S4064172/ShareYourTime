@@ -21,26 +21,30 @@ function checkRegistrationAllField(idWait)
 	var request = getRequest();
 	request.open("POST", "modalRegistrazione-Login/checkRegistrationAllField.php", true);	
 	request.onreadystatechange = validateCheckRegistrationAllField(idWait, request);
-	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	var hmllTagUser = document.getElementById('usernameReg');
-    var hmllTagEmail = document.getElementById('emailReg');
-    var hmllTagPws = document.getElementById('pswReg');
-    var hmllTagPwsConf = document.getElementById('pswRegConf');
-  	var hmllTagName = document.getElementById('nameReg');
-    var hmllTagSurname = document.getElementById('surnameReg');
-    var hmllTagAddress = document.getElementById('addressReg');
-	var hmllTagPhone = document.getElementById('telephoneReg');
-	var hmllTagPhoto = document.getElementById('photoReg');
-   	request.send(	hmllTagUser.name + "=" + hmllTagUser.value+"&"+
-                    hmllTagEmail.name+ "=" +hmllTagEmail.value+"&"+
-                    hmllTagPws.name+ "=" +hmllTagPws.value+"&"+
-                    hmllTagPwsConf.name+ "=" +hmllTagPwsConf.value+"&"+
-                    hmllTagName.name+ "=" +hmllTagName.value+"&"+
-					hmllTagSurname.name+ "=" +hmllTagSurname.value+"&"+
-					hmllTagAddress.name+ "=" +hmllTagAddress.value+"&"+
-                    hmllTagPhone.name+ "=" +hmllTagPhone.value+"&"+
-					hmllTagPhoto.name+ "=" +hmllTagPhoto.value);
 	
+    var formData = new FormData();
+
+	var htmlTagUser = document.getElementById('usernameReg');
+    var htmlTagEmail = document.getElementById('emailReg');
+    var htmlTagPsw = document.getElementById('pswReg');
+    var htmlTagPswConf = document.getElementById('pswRegConf');
+  	var htmlTagName = document.getElementById('nameReg');
+    var htmlTagSurname = document.getElementById('surnameReg');
+    var htmlTagAddress = document.getElementById('addressReg');
+	var htmlTagPhone = document.getElementById('telephoneReg');
+	var htmlTagPhoto = document.getElementById('photoReg');
+    
+	formData.append(htmlTagPhoto.name, htmlTagPhoto.files[0]);
+	formData.append(htmlTagUser.name, htmlTagUser.value);
+    formData.append(htmlTagEmail.name, htmlTagEmail.value);
+    formData.append(htmlTagPsw.name, htmlTagPsw.value);
+    formData.append(htmlTagPswConf.name, htmlTagPswConf.value);
+    formData.append(htmlTagName.name, htmlTagName.value);
+    formData.append(htmlTagSurname.name, htmlTagSurname.value);
+    formData.append(htmlTagAddress.name, htmlTagAddress.value);
+    formData.append(htmlTagPhone.name, htmlTagPhone.value);
+
+	request.send(formData);
 }
 
 /** @description
@@ -54,6 +58,7 @@ function validateCheckRegistrationAllField(idWait, request)
 		waitLoginEnd(idWait)
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
+				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
 				if(jsonObj.length==0){
 					window.location.href = 'homepage.php';
