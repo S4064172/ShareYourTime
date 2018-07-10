@@ -18,7 +18,7 @@
 
 
 
-	<section>
+	<section id="home">
 		<div id="showMenu" onmouseover="showMenu('menu');hideMenu('showMenu');">
 		</div>
 		<div id="menu" onmouseout="showMenu('showMenu');hideMenu('menu');">

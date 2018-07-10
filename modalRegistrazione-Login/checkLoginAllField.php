@@ -3,14 +3,14 @@
     require_once("../utils/checkFields.php");
     require_once("../utils/regexConstant.php");
 
-    /*
+    /* 
     *   Questa funzine ci permette di
     *   verificare se esite un utente
     *   nel db con una certa password
     */
     function checkIfExistInDb($fieldSearchUser,  $fieldSearchPsw )
 	{
-		$conn = connectioToDb();
+		$conn = connectionToDb();
 
         $fieldSearchUser = sanitizeToSql($fieldSearchUser, $conn);
         $fieldSearchPsw = sanitizeToSql($fieldSearchPsw, $conn);
@@ -37,7 +37,7 @@
 	}
 
 
-    foreach ($_POST as $key => $value) 
+   foreach ($_POST as $key => $value) 
         if( !check_POST_IsSetAndNotEmpty($key) ){
             echo json_encode(array('code' => -1, 'msg' => 'Username o password errati !'));
             return;
@@ -56,7 +56,7 @@
         
     }
 
-    if( !checkIfExistInDb($_POST['usernameLogin'],$_POST['pswLogin']) ){
+    if( !checkIfExistInDb($_POST['usernameLogin'], $_POST['pswLogin']) ){
             echo json_encode(array('code' => -1, 'msg' => 'Username o password errati !'));
             return;
     }
