@@ -6,12 +6,6 @@
 	require_once('../db/connection.php');
 
 
-	/*
-	 *	Controlli da fare :
-	 *		-Manca contollo foto
-	 *		-manca inserimento
-	 */	
-
 	$result = array();
 	
 	//Contolli sull'username
@@ -20,11 +14,11 @@
 	
 
 	//Controlli sull'email
-	if( !check_POST_IsSetAndNotEmpty('usernameReg') || notValidString($_POST['emailReg'], emailRegex, EmailMinLength, EmailMaxLength) )
+	if( !check_POST_IsSetAndNotEmpty('emailReg') || notValidString($_POST['emailReg'], emailRegex, EmailMinLength, EmailMaxLength) )
 		$result['errEmail']="L'email inserita non è valida !";
 
 	//Controlli sulla password
-	if ( !check_POST_IsSetAndNotEmpty('usernameReg') || !checkMinLength($_POST['pswReg'], PasswordMinLength) ) {
+	if ( !check_POST_IsSetAndNotEmpty('pswReg') || !checkMinLength($_POST['pswReg'], PasswordMinLength) ) {
 		$result['errPsw']="La password inserita non è valida !";
 	}
 
@@ -38,45 +32,39 @@
 	//Controlli sulla password di conferma
 	//vengono effettuati solo si i controlli
 	//sulla password sono passati con successo
-	if( !isset($result['errPsw']) && ( !check_POST_IsSetAndNotEmpty('usernameReg') ||  $_POST['pswReg']!==$_POST['pswRegConf'] ) ){
+	if( !isset($result['errPsw']) && ( !check_POST_IsSetAndNotEmpty('pswRegConf') ||  $_POST['pswReg']!==$_POST['pswRegConf'] ) ){
 		$result['errPswConf']="Le password non corrispondono !";
 	}
 
 	//Controlli sul nome
-	if(!check_POST_IsSetAndNotEmpty('usernameReg') || notValidString($_POST['nameReg'], alphaRegex, NameMinLength, NameMaxLength) ){
+	if(!check_POST_IsSetAndNotEmpty('nameReg') || notValidString($_POST['nameReg'], alphaRegex, NameMinLength, NameMaxLength) ){
 		$result['errName']="Il nome inserito non è valido !";
 	}
 
 	//Controlli sul cognome
-	if( !check_POST_IsSetAndNotEmpty('usernameReg') || notValidString($_POST['surnameReg'], surnameRegex, SurnameMinLength, SurnameMaxLength) ){
+	if( !check_POST_IsSetAndNotEmpty('surnameReg') || notValidString($_POST['surnameReg'], surnameRegex, SurnameMinLength, SurnameMaxLength) ){
 		$result['errSurname']="Il cognome inserito non è valido !";
 	}
 
 	//Controlli sull'indirizzo
-	if(!check_POST_IsSetAndNotEmpty('usernameReg') || notValidString($_POST['addressReg'], alphaNumRegex, StreetMinLength, StreetMaxLength) ){
+	if(!check_POST_IsSetAndNotEmpty('addressReg') || notValidString($_POST['addressReg'], alphaNumRegex, StreetMinLength, StreetMaxLength) ){
 		$result['errAddress']="L'indirizzo inserito non è valido !";
 	}
 
 	//Controlli sul telefono
-	if(!check_POST_IsSetAndNotEmpty('usernameReg') || notValidString($_POST['telephoneReg'], numRegex, PhoneLength, PhoneLength) ){
+	if(!check_POST_IsSetAndNotEmpty('telephoneReg') || notValidString($_POST['telephoneReg'], numRegex, PhoneLength, PhoneLength) ){
 		$result['errTelephone']="Il telefono inserito non è valido !";
 	}
 	
+	if( count($result) == 0 ){
+		session_start();
+		$_SESSION['user'] = $_POST['usernameReg'];
+		insertInto_ShareYourUserTime(	$_POST['usernameReg'], $_POST['pswReg'],
+										$_POST['nameReg'], $_POST['surnameReg'],
+										$_POST['telephoneReg'], $_POST['emailReg'],
+										$_POST['addressReg'], "ciao");
+	}
 
 	echo json_encode($result);
-
-
-
-	$conn = connectionToDb();
-	
-	//Sanitizzazione input
-	$_POST['usernameReg']=sanitizeToSql($_POST['usernameReg'], $conn);
-	$_POST['emailReg']=sanitizeToSql($_POST['emailReg'], $conn);
-	$_POST['pswReg']=sanitizeToSql($_POST['pswReg'], $conn);
-	$_POST['nameReg']=sanitizeToSql($_POST['nameReg'], $conn);
-	$_POST['surnameReg']=sanitizeToSql($_POST['surnameReg'], $conn);
-	$_POST['addressReg']=sanitizeToSql($_POST['addressReg'], $conn);
-	$_POST['telephoneReg']=sanitizeToSql($_POST['telephoneReg'], $conn);
-	//$_POST['photoReg']=sanitizeToSql($_POST['photoReg'], $conn);
 
 

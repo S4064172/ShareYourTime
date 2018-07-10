@@ -30,7 +30,7 @@
 				insertAndCheck($insert_prep_stmt);
 				mysqli_stmt_close($insert_prep_stmt);
 				mysqli_close($conn);
-				echo("La tupla e' stata inserita correttamente<br>");
+				/*echo("La tupla e' stata inserita correttamente<br>");*/
 				return;
 		}
 		die ("Errore nella preparazione della query<br>");

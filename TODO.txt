@@ -3,8 +3,9 @@
 
 -> checkRegistrationAllField.php
     -> manca il controllo sulla foto
-    -> manca l'inserimento
-    -> manca il div di "attesa"
 
 -> .js
     -> duplicazione del codice
+
+-> insertFunction.php
+    -> modificare le insert coi default per i campi non necessari

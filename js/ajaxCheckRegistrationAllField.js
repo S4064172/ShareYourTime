@@ -8,7 +8,7 @@ function getRequest()
 	return request;
 }
 
-/*
+/** @description
 *	Questa funzione ci permette di creare 
 *	una richiesta in post per controllare
 *	i campi che l'utente ha inserito.  
@@ -43,7 +43,7 @@ function checkRegistrationAllField(idWait)
 	
 }
 
-/*
+/** @description
 *	Questa callback ci permette di
 *	informare l'utente sull'esito
 *	dei controlli fatti
@@ -55,6 +55,10 @@ function validateCheckRegistrationAllField(idWait, request)
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
 				var jsonObj = JSON.parse(request.responseText);
+				if(jsonObj.length==0){
+					window.location.href = 'homepage.php';
+					return;
+				}
 				for(var key in jsonObj){
 					var notify = document.getElementById(key);
 					notify.style.color = 'darkred';

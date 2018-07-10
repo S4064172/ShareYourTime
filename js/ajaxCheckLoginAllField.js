@@ -8,7 +8,7 @@ function getRequest()
 	return request;
 }
 
-/*
+/** @description
 *	Questa funzione ci permette di creare 
 *	una richiesta in post per controllare
 *	i campi che l'utente ha inserito.  
@@ -29,7 +29,7 @@ function checkLoginAllField(idUser,IdPws,IdErrLog,idWait)
 	
 }
 
-/*
+/** @description
 *	Questa callback ci permette di
 *	informare l'utente sull'esito
 *	dei controlli fatti

@@ -10,8 +10,6 @@
 	require_once("../utils/regexConstant.php");
 	require_once("../db/connection.php");
 	require_once("../utils/dataBaseConstant.php");
-	header("Content-Type: application/json");
-
 
 	/*
 	* 	Questa funzione ci permette

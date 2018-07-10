@@ -70,10 +70,11 @@
 
 
                 <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="file" name="photoReg" id="photoReg" name="photoReg" accept=".png .jpg .jpeg"  required>
-                <button type="buttom" onClick="checkRegistrationAllField('waitRegistration')" class="btn btn-success mybutton mt-4">Registrati</button>
+                <input type="file" id="photoReg" name="photoReg" accept=".png .jpg .jpeg" required >
+                <p id="errPhoto"></p>
+                <button type="buttom" onclick="checkRegistrationAllField('waitRegistration')" class="btn btn-success mybutton mt-4">Registrati</button>
             </div>
-           
+
         </div>
     </div>
 </div>
