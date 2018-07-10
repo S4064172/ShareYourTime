@@ -89,41 +89,55 @@
 		</div>
 		<div class="myContainer">
 			<form>
-				<div class="row">
-					<div class="col-md-4"> 
-						<input type="textMap" placeholder="Inserisci la via" name="" required>
+				<div class ="">
+					<div class="row">
+						<div class="col-md-3"> 
+							<input class="mySelection" placeholder="Inserisci la via" name="" required>
+						</div>
+						<div class="col-md-3"> 
+							<select class="mySelection " id="" requred>
+								<option selected disabled>Seleziona la distanza</option>
+								<option value="10">10 Km</option>
+								<option value="20">20 Km</option>
+								<option value="30">30 Km</option>
+							</select>
+						</div>
+
+						<div class="col-md-3"> 
+							<select class="mySelection" id="" requred>
+								<option selected disabled>Seleziona il costo</option>
+								<option value="10">10 Euro</option>
+								<option value="20">20 Euro</option>
+								<option value="30">30 Euro</option>
+							</select>
+						</div>
+						
+						<div class="col-md-3"> 
+							<select class="mySelection " id="" requred>
+								<option selected disabled>Scegli il tag</option>
+								<option value="10">Informatica</option>
+								<option value="20">Idraulico</option>
+								<option value="30">Becchino</option>
+							</select>
+						</div>
 					</div>
-					<div class="col-md-2"> 
-						<select class="mySelection" id="" requred>
-							<option selected disabled>Scegli la distanza in km</option>
-							<option value="10">10 Km</option>
-							<option value="20">20 Km</option>
-							<option value="30">30 Km</option>
-						</select>
+				
+					<div class="row">
+						
 					</div>
-					<div class="col-md-2"> 
-						<select class="mySelection" id="" requred>
-							<option selected disabled>Scegli il costo massimo</option>
-							<option value="10">10 Euro</option>
-							<option value="20">20 Euro</option>
-							<option value="30">30 Euro</option>
-						</select>
+					
+					<div class ="row">
+						<div class=" offset-md-5 col-md-2"> 
+							<button type="submit" class="btn btn-secondary" id="myButtonSearchMap">
+								<i class="fas fa-search"></i>
+								Cerca
+							</button>
+						</div>
 					</div>
-					<div class="col-md-2"> 
-						<select class="mySelection" id="" requred>
-							<option selected disabled>Scegli il tag</option>
-							<option value="10">Informatica</option>
-							<option value="20">Idraulico</option>
-							<option value="30">Becchino</option>
-						</select>
-					</div>
-					<div class=" col-md-2"> 
-						<button type="submit" class="btn btn-secondary" id="myButtonSearchMap">
-							<i class="fas fa-search"></i>
-							Cerca
-						</button>
-					</div>
+
 				</div>
+					
+				
 			</form>
 			<div id="googleMap" style="width:100%;height:65vh;"></div>
 		</div>

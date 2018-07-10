@@ -81,35 +81,28 @@ section {
 }
  
 #myButtonSearchMap{
-	margin-left:45%;
-	width: auto;
+	width: 100%;
+	margin-top: 10px;
 }
 
 .mySelection{
-	width: 90%;
-	height: 45%;
+	width: 100%;
+	height: 80%;
     margin: 8px 0px;
-    display: inline-block;
-    border: 1px solid #ccc;
 	box-sizing: border-box;
 	letter-spacing: 1px;
-	font-size: 15px;
+	font-size: 80%;
+	
 }
 
-input[type=textMap] {
-	width: 90%;
-	height: 12%;
-	padding: 15px 10px;
-    margin: 8px 0px;
-    display: inline-block;
-    border: 1px solid #ccc;
-	box-sizing: border-box;
-	letter-spacing: 1px;
-	font-size: 15px;
+@media  screen and (max-width: 800px) {
+	.mySelection {
+		font-size: 70%;
+	}
 }
 
-@media screen and (max-width: 768px /*sm*/), screen and (max-width: 900px) {
-	input[type=textMap] {
-		width: 100%;
+@media screen and (max-width: 764px ){
+	.mySelection {
+		font-size: 80%;
 	}
 }
