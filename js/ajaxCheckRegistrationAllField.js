@@ -1,12 +1,6 @@
 "use strict";
 
-function getRequest() 
-{
-	var request = null;
-	if (window.XMLHttpRequest) 
-		request = new XMLHttpRequest();
-	return request;
-}
+
 
 /** @description
 *	Questa funzione ci permette di creare 
@@ -72,19 +66,4 @@ function validateCheckRegistrationAllField(idWait, request)
 			}
 		}
 	}
-}
-
-/*
-*	Queste due funzioni ci permettono di
-*	"boccare" temporaneamente l'input 
-*	dell'utente in modo che non cambi 
-*	valori durante i controlli
-*/
-
-function waitLoginStart(idWait){
-	document.getElementById(idWait).style.display = "inline";
-}
-
-function waitLoginEnd(idWait){
-	document.getElementById(idWait).style.display = "none";
 }

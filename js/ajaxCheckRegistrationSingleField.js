@@ -1,14 +1,5 @@
 "use strict";
 
-function getRequest() 
-{
-	var request = null;
-	if (window.XMLHttpRequest) 
-		request = new XMLHttpRequest();
-	return request;
-}
-
-
 /*
 *	Questa funzione ci permette di creare 
 *	una richiesta in post per controllare
@@ -61,15 +52,4 @@ function validateCheckRegistrationSingleField(idErrField, request)
 			}
 		}
 	}
-}
-
-/*
-*	Questa funzione ci permette
-*	di "ripulire" il taghtml
-*	utilizzato per mostrare
-* 	l'errore
-*/
-function cleanErr(id){
-	var notify = document.getElementById(id);
-	notify.innerHTML = "";
 }
