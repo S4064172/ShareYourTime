@@ -15,6 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="footer/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="homepage.css"/>
 		<link rel="stylesheet" type="text/css" href="menu/menu.css"/>
+		<link rel="stylesheet" type="text/css" href="viewProfile/viewProfile.css"/>
 	</head>
 	
 	<body>
@@ -22,10 +23,21 @@
     <?php require ('navBar/navBar.php'); ?>
 
 
-
-	<section id="home" onClick="hideMenu('menu');">
+	<section id="mainPage" onClick="hideItem('menu');">
+		
 		<?php require_once("menu/menu.php"); ?>
+
+		<section id="home" onClick="hideItem('menu');">
+		
+		</section>
+
+		<section id="viewProfile" onClick="hideItem('menu');">
+			<?php require_once("viewProfile/viewProfile.php"); ?>
+		</section>
+
 	</section>
+
+
     <?php require ('footer/footer.php'); ?>
     
 
@@ -39,5 +51,7 @@
 	
 	<script type="text/javascript" src="js/utils.js"></script>
 	<script type="text/javascript" src="js/navBar.js"></script>
+	<script type="text/javascript" src="js/menu.js"></script>
+	
     </body>
 </html>

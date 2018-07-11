@@ -62,7 +62,7 @@
                         <p id="errAddress"></p>
                     </div>
                     <div class="col-md-6">
-                        <label for="telephone" class="textModal-r"><b>Telefono</b></label>
+                        <label class="textModal-r"><b>Telefono</b></label>
                         <input onfocusout="checkRegistrationSingleField('telephoneReg','errTelephone')" onfocusin="cleanErr('errTelephone')" id="telephoneReg" type="tel" placeholder="Inserisci un numero di telefono" name="telephoneReg" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> required>
                         <p id="errTelephone"></p>
                     </div>

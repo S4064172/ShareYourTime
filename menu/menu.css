@@ -7,10 +7,18 @@
 
 #menu{
     position: fixed;
-    display: block;
-    visibility: hidden;
+    display: none;
     z-index: 1;
     height: 100%; 
     width: 310px;
-    background-color: blue;
+    background-color: gray;
+}
+
+#optionMenu{
+    height: auto;
+    margin-top: 5em;
+}
+
+.buttonMenu{
+    width: 100%;
 }
