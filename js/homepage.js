@@ -7,7 +7,8 @@
  *  nascosto 
  */
 
- function showMenu(idMenu){
+ function showMenu(idMenu)
+ {
     document.getElementById(idMenu).style.display = "block";
  }
 
@@ -17,6 +18,8 @@
  *  visibile 
  */
 
-function hideMenu(idMenu){
+function hideMenu(idMenu)
+{
     document.getElementById(idMenu).style.display = "none";
- }
+}
+

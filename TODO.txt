@@ -6,3 +6,5 @@
 
 -> ajaxCheckSearchOptionMap.js
     -> forse manca il "blocco"
+
+-> controllo sessione
