@@ -3,7 +3,8 @@
 }
 
 .wait{
-    display: none;
+    display: block;
+    visibility: hidden;
     position: absolute;
     display: fixed;
     height: 100%;

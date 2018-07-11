@@ -11,7 +11,7 @@
 */
 function checkRegistrationAllField(idWait)
 {
-	waitLoginStart(idWait)
+	showItem(idWait)
 	var request = getRequest();
 	request.open("POST", "modalRegistrazione-Login/checkRegistrationAllField.php", true);	
 	request.onreadystatechange = validateCheckRegistrationAllField(idWait, request);
@@ -49,7 +49,7 @@ function checkRegistrationAllField(idWait)
 function validateCheckRegistrationAllField(idWait, request)
 {
 	return function(){
-		waitLoginEnd(idWait)
+		hideItem(idWait)
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
 				console.log(request.responseText);

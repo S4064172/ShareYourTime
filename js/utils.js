@@ -8,19 +8,22 @@ function getRequest()
 	return request;
 }
 
-/*
-*	Queste due funzioni ci permettono di
-*	"boccare" temporaneamente l'input 
-*	dell'utente in modo che non cambi 
-*	valori durante i controlli
+/** @description
+*	Questa funzione mi permette di 
+*	mostrare item nascosti
 */
 
-function waitLoginStart(idWait){
-	document.getElementById(idWait).style.display = "inline";
+function showItem(idItem){
+	document.getElementById(idItem).style.visibility = "visible"; 
 }
 
-function waitLoginEnd(idWait){
-	document.getElementById(idWait).style.display = "none";
+/** @description
+*	Questa funzione mi permette di 
+*	nascondere item visibili
+*/
+
+function hideItem(idItem){
+	document.getElementById(idItem).style.visibility = "hidden"; 
 }
 
 /*

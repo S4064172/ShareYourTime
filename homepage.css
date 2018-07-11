@@ -17,19 +17,5 @@ section {
     min-height: 100%
 }
 
-#showMenu{
-    position: fixed;
-    z-index: 1;
-    height: 100%; 
-    width: 10px;
-}
 
-#menu{
-    position: fixed;
-    display: none;
-    z-index: 1;
-    height: 100%; 
-    width: 310px;
-    background-color: blue;
-}
 

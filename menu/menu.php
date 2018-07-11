@@ -1,6 +1,6 @@
-<div id="showMenu" onmouseover="showMenu('menu');"></div>
+<div id="showMenu" onmouseover="showItem('menu');"></div>
 
-<div id="menu" onmouseout="hideMenu('menu');" onClick="hideMenu('menu');">
+<div id="menu" onmouseout="hideItem('menu');" onClick="hideItem('menu');">
 
 
 </div>

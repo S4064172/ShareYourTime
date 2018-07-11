@@ -10,7 +10,7 @@
 */
 function checkLoginAllField(idUser,IdPws,IdErrLog,idWait)
 {
-	waitLoginStart(idWait);
+	showItem(idWait);
 	var request = getRequest();
 	request.open("POST", "modalRegistrazione-Login/checkLoginAllField.php", true);	
 	request.onreadystatechange = validateCheckLoginAllField(IdErrLog, idWait, request);
@@ -31,7 +31,7 @@ function checkLoginAllField(idUser,IdPws,IdErrLog,idWait)
 function validateCheckLoginAllField(idErrField, idWait, request)
 {
 	return function(){
-		waitLoginEnd(idWait);
+		hideItem(idWait);
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
 				var jsonObj = JSON.parse(request.responseText);

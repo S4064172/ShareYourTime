@@ -11,9 +11,10 @@
 <html>
  	<head>
     	<?php require ('header/header.html'); ?>
-    	<link rel="stylesheet" type="text/css" href="homepage.css"/>
 	    <link rel="stylesheet" type="text/css" href="navBar/navBar.css"/> 
 		<link rel="stylesheet" type="text/css" href="footer/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="homepage.css"/>
+		<link rel="stylesheet" type="text/css" href="menu/menu.css"/>
 	</head>
 	
 	<body>
@@ -36,8 +37,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   
 	
+	<script type="text/javascript" src="js/utils.js"></script>
 	<script type="text/javascript" src="js/navBar.js"></script>
-	<script type="text/javascript" src="js/homepage.js"></script>
-
     </body>
 </html>

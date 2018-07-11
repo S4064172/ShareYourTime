@@ -21,8 +21,9 @@ function myCollapseHide()
 function showOrHideMenu(idMenu)
 {
     var htmlMenu = document.getElementById(idMenu);
-    if(htmlMenu.style.display === "block")
-        hideMenu(idMenu);
+    console.log(htmlMenu.style.visibility);
+    if(htmlMenu.style.visibility === "visible")
+        hideItem(idMenu);
     else
-        showMenu(idMenu);
+        showItem(idMenu);
 }
