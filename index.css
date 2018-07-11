@@ -49,8 +49,13 @@ section {
 	min-height: 100%;
 }
 
+#myTitleCOntaitner{
+	height: 100vh;
+}
+
 .myTitle{
 	font-family: galada; 
+	padding-top:31.5vh;
 	font-size: 15vh;
 	color: rgb(238, 226, 200);
     animation-name: animatezoom;
@@ -67,18 +72,24 @@ section {
 	background-color: rgb(238, 226, 200);
 }
 
-.titleBtn:hover {
+.titleBtn:hover, #mapBtn:hover {
 	color: rgb(238, 226, 200);
 	background-color: rgb(146, 114, 84);
 }
+
+#mapBtn{
+	font-family: Old Standard TT;
+	color: rgb(54, 44, 34);
+	font-size: 1.3em;
+	border-radius: 20px;
+	background-color: rgb(238, 226, 200);
+}
+
 
 .myDescription {
 	font-size: 1.3em;
 }
 
-.textMap-r {
-	float: right;
-}
  
 #myButtonSearchMap{
 	width: 100%;
@@ -94,6 +105,11 @@ section {
 	font-size: 80%;
 	text-align: center;
 	
+}
+
+#googleMap{
+	width:100%;
+	height:65vh;
 }
 
 @media  screen and (max-width: 800px) {

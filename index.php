@@ -26,8 +26,8 @@
 		<div class="myContainer">
 			<div cass="row">
 				<div class="col-3 col-md-6 offset-4 offset-sm-6">
-					<div style="height: 100vh;">
-						<h1 class="text-center myTitle" style="padding-top:31.5vh">Share Your<br>Time<br>
+					<div id="myTitleCOntaitner">
+						<h1 class="text-center myTitle">Share Your<br>Time<br>
 							<a id="xxx" href="#DettagliSito" class="btn btn-scroll titleBtn">Scopri di pi&#249; !</a>
 						</h1>
 					</div>
@@ -68,7 +68,7 @@
 						 <p class="myDescription"> 
 							La prima piattaforma italiana di <i>Time Sharing</i> 
 						</p>
-						<a  href="#RicercaMappa" class="btn btn-scroll titleBtn mt-3 p-2" style="font-size: 18px;">Trova un lavoro per te !</a>
+						<a  href="#RicercaMappa" class="btn btn-scroll mt-3 p-2" id ="mapBtn" >Trova un lavoro per te !</a>
 				</div>
 			<div>
 	</section>
@@ -88,7 +88,7 @@
 			<br>
 		</div>
 		<div class="myContainer">
-			<form>
+			
 				<div class ="">
 					<div class="row">
 						<div class="col-md-3"> 
@@ -128,7 +128,7 @@
 					
 					<div class ="row">
 						<div class=" offset-md-5 col-md-2"> 
-							<button type="submit" class="btn btn-secondary" id="myButtonSearchMap">
+							<button type="button" class="btn btn-secondary mb-2" id="myButtonSearchMap">
 								<i class="fas fa-search"></i>
 								Cerca
 							</button>
@@ -138,8 +138,7 @@
 				</div>
 					
 				
-			</form>
-			<div id="googleMap" style="width:100%;height:65vh;"></div>
+			<div class="mb-2" id="googleMap" ></div>
 		</div>
 			
 	</section>
