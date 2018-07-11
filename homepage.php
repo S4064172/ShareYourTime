@@ -51,7 +51,8 @@
 	
 	<script type="text/javascript" src="js/utils.js"></script>
 	<script type="text/javascript" src="js/navBar.js"></script>
-	<script type="text/javascript" src="js/menu.js"></script>
+	<script type="text/javascript" src="js/whichPageView.js"></script>
+	<script type="text/javascript" src="js/viewProfile.js"></script>
 	
     </body>
 </html>

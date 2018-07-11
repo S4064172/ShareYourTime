@@ -4,31 +4,30 @@
 }
 
 
-/* Full-width input fields */
-input[type=text], input[type=password], input[type=email], input[type=tel] {
+input[type=text], input[type=password], input[type=email], input[type=tel], .labelText {
     width: 100%;
     padding: 10px 10px;
     margin: 6px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    display: inline-block;  
 	height: auto;
 	font-size: 20px;
 }
+   
+input[type=text], input[type=password], input[type=email], input[type=tel]{
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.fieldHide, input[type=password]{
+    display: none;
+}
 
 .labelText {
-    text-align: center;
-    width: 100%;
-    padding: 10px 10px;
-    margin: 6px 0;
-    display: inline-block;
-	height: auto;
-	font-size: 20px; 
-	
+    text-align: center;	
 }
 
-@media screen and (max-width: 768px /*sm*/) {
-	.text-r {
-		float: left;
-	}
+#bntModify, #bntExit, #bntSave{
+    margin-left: 7em;
+    width: 50%;
 }
+
