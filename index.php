@@ -16,6 +16,8 @@
 		<link rel="stylesheet" type="text/css" href="footer/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="modalRegistrazione-Login/login-registrazione.css"/>
 		<link rel="stylesheet" type="text/css" href="last5.css"/>
+		<link rel="stylesheet" type="text/css" href="select/mySelect.css"/>
+
 	</head>
 	
 	<body>
@@ -92,33 +94,18 @@
 				<div class ="">
 					<div class="row">
 						<div class="col-md-3"> 
-							<input class="mySelection" placeholder="Inserisci la via" name="" required>
+							<input class="mySelection" placeholder="Inserisci la via" name="">
 						</div>
 						<div class="col-md-3"> 
-							<select class="mySelection " id="" requred>
-								<option selected disabled>Seleziona la distanza</option>
-								<option value="10">10 Km</option>
-								<option value="20">20 Km</option>
-								<option value="30">30 Km</option>
-							</select>
+						<?php require_once('select/selectDistance.php')?>
 						</div>
 
 						<div class="col-md-3"> 
-							<select class="mySelection" id="" requred>
-								<option selected disabled>Seleziona il costo</option>
-								<option value="10">10 Euro</option>
-								<option value="20">20 Euro</option>
-								<option value="30">30 Euro</option>
-							</select>
+							<?php require_once('select/selectCost.php')?>
 						</div>
 						
 						<div class="col-md-3"> 
-							<select class="mySelection " id="" requred>
-								<option selected disabled>Scegli il tag</option>
-								<option value="10">Informatica</option>
-								<option value="20">Idraulico</option>
-								<option value="30">Becchino</option>
-							</select>
+							<?php require_once('select/selectTag.php')?>
 						</div>
 					</div>
 				
