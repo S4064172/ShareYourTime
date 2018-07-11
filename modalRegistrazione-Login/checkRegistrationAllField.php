@@ -46,7 +46,7 @@
 	}
 	
 	//Controlli sull'indirizzo
-	if(!check_POST_IsSetAndNotEmpty('addressReg') || notValidString($_POST['addressReg'], alphaNumRegex, StreetMinLength, StreetMaxLength) ){
+	if(!check_POST_IsSetAndNotEmpty('addressReg') || notValidString($_POST['addressReg'], addressRegex, StreetMinLength, StreetMaxLength) ){
 		$result['errAddress']="L'indirizzo inserito non è valido !";
 	}
 

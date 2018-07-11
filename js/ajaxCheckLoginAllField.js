@@ -22,10 +22,10 @@ function checkLoginAllField(idUser,IdPws,IdErrLog,idWait)
 	request.open("POST", "modalRegistrazione-Login/checkLoginAllField.php", true);	
 	request.onreadystatechange = validateCheckLoginAllField(IdErrLog, idWait, request);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	var hmllTagUser = document.getElementById(idUser);
-    var hmllTagPws = document.getElementById(IdPws);
-    request.send(   hmllTagUser.name + "=" + hmllTagUser.value+"&"+
-                    hmllTagPws.name+ "=" +hmllTagPws.value);
+	var htmlTagUser = document.getElementById(idUser);
+    var htmlTagPws = document.getElementById(IdPws);
+    request.send(   htmlTagUser.name + "=" + htmlTagUser.value+"&"+
+                    htmlTagPws.name+ "=" +htmlTagPws.value);
 	
 }
 

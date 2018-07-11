@@ -135,7 +135,7 @@
 
     //Controlli sull'indirizzo
 	if( check_POST_IsSetAndNotEmpty('addressReg') ) {
-		if ( notValidString($_POST['addressReg'], alphaNumRegex, StreetMinLength, StreetMaxLength) ) {
+		if ( notValidString($_POST['addressReg'], addressRegex, StreetMinLength, StreetMaxLength) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'L\'indirizzo non &egrave; valido !'));
 			return;
 		}

@@ -21,13 +21,13 @@ function checkRegistrationSingleField(idField,idErrField,checkField)
 	request.open("POST", "modalRegistrazione-Login/checkRegistrationSingleField.php", true);	
 	request.onreadystatechange = validateCheckRegistrationSingleField(idErrField, request);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	var hmllTag = document.getElementById(idField);
+	var htmlTag = document.getElementById(idField);
 	if(checkField==null)
-		request.send(hmllTag.name + "=" + hmllTag.value);
+		request.send(htmlTag.name + "=" + htmlTag.value);
 	else{
 		var htmlTag1 = document.getElementById(checkField);
 
-		request.send(hmllTag.name + "=" + hmllTag.value + '&_' + 
+		request.send(htmlTag.name + "=" + htmlTag.value + '&_' + 
 						htmlTag1.name+"=" + htmlTag1.value);
 	}
 }
