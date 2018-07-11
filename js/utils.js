@@ -14,7 +14,7 @@ function getRequest()
 */
 
 function showItem(idItem){
-	document.getElementById(idItem).style.visibility = "visible"; 
+	document.getElementById(idItem).style.display = "block"; 
 }
 
 /** @description
@@ -23,7 +23,7 @@ function showItem(idItem){
 */
 
 function hideItem(idItem){
-	document.getElementById(idItem).style.visibility = "hidden"; 
+	document.getElementById(idItem).style.display = "none"; 
 }
 
 /*
