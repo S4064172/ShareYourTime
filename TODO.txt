@@ -1,11 +1,8 @@
 -> checkRegistrationAllField.php, checkRegistrationSingleField,php
     -> mancano i controlli sull'esistenza o meno dell'indirizzo
 
--> checkRegistrationAllField.php
-    -> manca il controllo sulla foto
-
--> .js
-    -> duplicazione del codice
-
 -> insertFunction.php
     -> modificare le insert coi default per i campi non necessari
+
+-> ajaxCheckSearchOptionMap.js
+    -> forse manca il "blocco"

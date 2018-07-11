@@ -16,7 +16,7 @@
 		<link rel="stylesheet" type="text/css" href="footer/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="modalRegistrazione-Login/login-registrazione.css"/>
 		<link rel="stylesheet" type="text/css" href="last5.css"/>
-		<link rel="stylesheet" type="text/css" href="select/mySelect.css"/>
+		<link rel="stylesheet" type="text/css" href="optionMapSearch/optionMapSearch.css"/>
 
 	</head>
 	
@@ -91,40 +91,8 @@
 		</div>
 		<div class="myContainer">
 			
-				<div class ="">
-					<div class="row">
-						<div class="col-md-3"> 
-							<input class="mySelection" placeholder="Inserisci la via" name="">
-						</div>
-						<div class="col-md-3"> 
-						<?php require_once('select/selectDistance.php')?>
-						</div>
+			<?php require_once('optionMapSearch/optionMapSearch.php')?>
 
-						<div class="col-md-3"> 
-							<?php require_once('select/selectCost.php')?>
-						</div>
-						
-						<div class="col-md-3"> 
-							<?php require_once('select/selectTag.php')?>
-						</div>
-					</div>
-				
-					<div class="row">
-						
-					</div>
-					
-					<div class ="row">
-						<div class=" offset-md-5 col-md-2"> 
-							<button type="button" class="btn btn-secondary mb-2" id="myButtonSearchMap">
-								<i class="fas fa-search"></i>
-								Cerca
-							</button>
-						</div>
-					</div>
-
-				</div>
-					
-				
 			<div class="mb-2" id="googleMap" ></div>
 		</div>
 			
@@ -141,9 +109,11 @@
 	
 	<script type="text/javascript" src="js/navBar.js"></script>
 	<script type="text/javascript" src="js/googleMaps.js"></script>
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/ajaxCheckRegistrationAllField.js"></script>
 	<script type="text/javascript" src="js/ajaxCheckRegistrationSingleField.js"></script>
 	<script type="text/javascript" src="js/ajaxCheckLoginAllField.js"></script>
-	<script type="text/javascript" src="js/ajaxCheckRegistrationAllField.js"></script>
+	<script type="text/javascript" src="js/ajaxCheckSearchOptionMap.js"></script>
 
 	<?php require('googleAPIkey.html') ?>
 
