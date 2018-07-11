@@ -10,3 +10,12 @@
 -> controllo sessione
 
 -> oscurare le cartelle/pagine secondarie
+
+-> chiamata ajaxGeneric
+    -> testare i controlli aggiuni in js
+
+-> funzioni chiamata da html con passaggi parametri
+    -> possibile mettere conrolli anti manomissione
+
+-> controllo sulla modifica
+    -> trovare un modo per controllare che il modificato sia presente nel db

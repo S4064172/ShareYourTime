@@ -45,30 +45,50 @@ function cleanErr(id){
 }
 
 
-/** @description
+/** @param 	idField  campo da analizzare
+ * 	@param	idErrField campo per notifica errore
+ * 	@param  registrationOrModified 0 registrazione 1 modifica
+ *  @param 	checkField passaggio password per il confronto	
+ * 
+ *  @description
 *	Questa funzione ci permette di creare 
 *	una richiesta in post per controllare
 *	ogni singolo campo che l'utente ha inserito.  
 */
 
-function checkGenericSingleField(idField,idErrField,checkField)
+function checkGenericSingleField(idField,idErrField,registrationOrModified,checkField)
 {
 	var request = getRequest();
 	request.open("POST", "utils/checkGenericSingleField.php", true);	
 	request.onreadystatechange = validateCheckGenericSingleField(idErrField, request);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	var htmlTag = document.getElementById(idField);
+	
+	if(	idField==null || idErrField==null || registrationOrModified==null || 
+		(registrationOrModified!=1 && registrationOrModified!=0)) {
+		console.log("Parametro non valido");
+		return;
+	}
+	
 	if(checkField==null)
-		request.send(htmlTag.name + "=" + htmlTag.value);
+		request.send(	htmlTag.name + "=" + htmlTag.value+'&'+
+						"registration ="+ registrationOrModified);
 	else{
 		var htmlTag1 = document.getElementById(checkField);
-
-		request.send(htmlTag.name + "=" + htmlTag.value + '&_' + 
-						htmlTag1.name+"=" + htmlTag1.value);
+		if(checkField.name!='pws' || htmlTag.name!='pswConf'){
+			console.log("Parametro non valido");
+			return;
+		}
+		request.send(	htmlTag.name + "=" + htmlTag.value + '&_' + 
+						htmlTag1.name+"=" + htmlTag1.value+'&'+
+						"registration ="+ registrationOrModified);
 	}
 }
 
-/** @description
+/** @param	idErrField campo per notifica errore
+ *  @param	request campo per passaggio della richiesta
+ * 
+ * 	@description
 *	Questa callback ci permette di
 *	informare l'utente sull'esito
 *	dei controlli fatti

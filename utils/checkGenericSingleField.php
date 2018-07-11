@@ -37,14 +37,17 @@
 
 			mysqli_stmt_store_result($prep_stmt);
 			$row = mysqli_stmt_num_rows($prep_stmt);
-			
+			//$result = mysqli_fetch_array($prep_stmt);
 			mysqli_stmt_close($prep_stmt);
 			mysqli_close($conn);
 			
-			return ($row == 1);
+			if( $_POST['registration']==0 )
+				return ($row == 1);
+			die ("ci sto pensando");
 		}
 		die ("Errore nella preparazione della query<br>");
 	}
+	
 	
 	//Controlli sull'username
 	if( check_POST_IsSetAndNotEmpty('user') ) { 
@@ -58,7 +61,7 @@
 			return;
 		}
 
-		if ( checkIfExistInDb('user', $_POST['user']) ) {
+		if ( checkIfExistInDb('user', $_POST['user'],'user') ) {
 			echo json_encode(array('code' => -1, 'msg' => 'Username gi&agrave; presente !'));
 			return;
 		}
