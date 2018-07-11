@@ -28,11 +28,12 @@ section {
 	min-height: 100vh;
 }
 
-.myContainerMarginTop{
+.myContainerPageToView{
 	min-height: 100vh;
 	width: 95%;
 	margin-left: 2.5%;
 	padding-top: 6em;
+	padding-bottom: 1em;
 }
 
 

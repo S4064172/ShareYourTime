@@ -8,3 +8,5 @@
     -> forse manca il "blocco"
 
 -> controllo sessione
+
+-> oscurare le cartelle/pagine secondarie
