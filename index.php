@@ -111,7 +111,7 @@
 	<script type="text/javascript" src="js/googleMaps.js"></script>
 	<script type="text/javascript" src="js/utils.js"></script>
 	<script type="text/javascript" src="js/ajaxCheckRegistrationAllField.js"></script>
-	<script type="text/javascript" src="js/ajaxCheckRegistrationSingleField.js"></script>
+	<script type="text/javascript" src="js/ajaxCheckGenericSingleField.js"></script>
 	<script type="text/javascript" src="js/ajaxCheckLoginAllField.js"></script>
 	<script type="text/javascript" src="js/ajaxCheckSearchOptionMap.js"></script>
 
