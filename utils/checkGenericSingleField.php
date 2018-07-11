@@ -18,7 +18,7 @@
 	*	se un certo elemento è presente 
 	*	nella tabella ShareYourUsersTime
 	*/
-	function checkIfExistInDb($fieldTable, $fieldSearch)
+	function checkIfExistInDb($fieldTable, $fieldSearch, $field)
 	{
 		$conn = connectionToDb();
 
@@ -35,15 +35,17 @@
 			if ( !mysqli_stmt_execute($prep_stmt) )
 				die ("Errore nell'esecuzione della query<br>");
 
+		
 			mysqli_stmt_store_result($prep_stmt);
 			$row = mysqli_stmt_num_rows($prep_stmt);
-			//$result = mysqli_fetch_array($prep_stmt);
+			//mysqli_stmt_bind_result($prep_stmt,$col);
+			//echo json_encode(array('code' =>$field));
 			mysqli_stmt_close($prep_stmt);
 			mysqli_close($conn);
-			
+			//return;
 			if( $_POST['registration']==0 )
 				return ($row == 1);
-			die ("ci sto pensando");
+			return ($prep_stmt[$fieldTable]==$field);
 		}
 		die ("Errore nella preparazione della query<br>");
 	}
@@ -61,7 +63,7 @@
 			return;
 		}
 
-		if ( checkIfExistInDb('user', $_POST['user'],'user') ) {
+		if ( checkIfExistInDb('user', $_POST['user'],$_POST['oldField']) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'Username gi&agrave; presente !'));
 			return;
 		}

@@ -19,3 +19,5 @@
 
 -> controllo sulla modifica
     -> trovare un modo per controllare che il modificato sia presente nel db
+
+-> controlli sulle vaire funzioni del db

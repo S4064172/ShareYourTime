@@ -29,7 +29,7 @@
                         <label class="labelText"><b>Username</b></label>
                     </div>
                     <div class="col-md-6">
-                        <input onfocusout="checkGenericSingleField('userModified','errUserModified',1)" onfocusin="cleanErr('errUserModified')" id="userModified" type="text" value="<?php echo $row['User'] ?>" name="user" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> readonly>
+                        <input onfocusout="checkGenericSingleField('userModified','errUserModified',1,'<?php echo $row['User'] ?>')" onfocusin="cleanErr('errUserModified')" id="userModified" type="text" value="<?php echo $row['User'] ?>" name="user" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> readonly>
                         <p id="errUserModified"></p> 
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                     <label class="labelText"><b>Email</b></label>
                     </div>
                     <div class="col-md-6">
-                        <input onfocusout="checkGenericSingleField('emailModified','errEmailModified',1)" onfocusin="cleanErr('errEmailModified')" id="emailModified" type="email" value="<?php echo $row['Email'] ?>" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> readonly>
+                        <input onfocusout="checkGenericSingleField('emailModified','errEmailModified',1,'<?php echo $row['Email'] ?>')" onfocusin="cleanErr('errEmailModified')" id="emailModified" type="email" value="<?php echo $row['Email'] ?>" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> readonly>
                         <p id="errEmailModified"></p>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                         <label class="labelText"><b>Telefono</b></label>
                     </div>
                     <div class="col-md-6">
-                        <input onfocusout="checkGenericSingleField('phoneModified','errPhoneModified',1)" onfocusin="cleanErr('errPhoneModified')" id="phoneModified" type="tel" value="<?php echo $row['Phone'] ?>" name="phone" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> readonly>
+                        <input onfocusout="checkGenericSingleField('phoneModified','errPhoneModified',1,'<?php echo $row['Phone'] ?>')" onfocusin="cleanErr('errPhoneModified')" id="phoneModified" type="tel" value="<?php echo $row['Phone'] ?>" name="phone" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> readonly>
                         <p id="errPhoneModified"></p>
                     </div>
                 </div>

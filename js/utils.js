@@ -48,7 +48,8 @@ function cleanErr(id){
 /** @param 	idField  campo da analizzare
  * 	@param	idErrField campo per notifica errore
  * 	@param  registrationOrModified 0 registrazione 1 modifica
- *  @param 	checkField passaggio password per il confronto	
+ *  @param 	checkField 	passaggio password per il confronto se registrazione,
+ * 						passaggio campi vecchi per controllo sul db	
  * 
  *  @description
 *	Questa funzione ci permette di creare 
@@ -69,19 +70,29 @@ function checkGenericSingleField(idField,idErrField,registrationOrModified,check
 		console.log("Parametro non valido");
 		return;
 	}
-	
+
 	if(checkField==null)
 		request.send(	htmlTag.name + "=" + htmlTag.value+'&'+
 						"registration ="+ registrationOrModified);
 	else{
-		var htmlTag1 = document.getElementById(checkField);
-		if(checkField.name!='pws' || htmlTag.name!='pswConf'){
-			console.log("Parametro non valido");
-			return;
+
+		if (registrationOrModified==1){
+			request.send(	htmlTag.name + "=" + htmlTag.value + '&' + 
+							"oldField"+"=" + checkField+'&'+
+							"registration ="+ registrationOrModified);
+
+		}else{
+			var htmlTag1 = document.getElementById(checkField);
+		
+			if(checkField.name!='pws' || htmlTag.name!='pswConf'){
+				console.log("Parametro non valido");
+				return;
+			}
+			request.send(	htmlTag.name + "=" + htmlTag.value + '&_' + 
+							htmlTag1.name+"=" + htmlTag1.value+'&'+
+							"registration ="+ registrationOrModified);
 		}
-		request.send(	htmlTag.name + "=" + htmlTag.value + '&_' + 
-						htmlTag1.name+"=" + htmlTag1.value+'&'+
-						"registration ="+ registrationOrModified);
+		
 	}
 }
 
@@ -99,21 +110,21 @@ function validateCheckGenericSingleField(idErrField, request)
 	return function(){
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
+				//console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
 				var notify = document.getElementById(idErrField);
 				notify.style.fontSize = '0.9em';
+				//console.log(jsonObj);
 				if (jsonObj['code'] === -1) {
 					notify.style.color = 'darkred';
 					notify.innerHTML = jsonObj['msg'];
-				} else {
+				} /*else {
 					if(jsonObj['code'] === 0){
 						notify.style.color = 'green';
 					}else{
 						return;
-					}
-						
-				}
-				
+					}		
+				}*/
 			}
 		}
 	}
