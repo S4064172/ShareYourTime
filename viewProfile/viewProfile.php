@@ -8,6 +8,7 @@
                 die('Errore nella selezione dei lavori');
     $row = mysqli_fetch_array($res);
     mysqli_free_result($res);
+    mysqli_close($conn);
 ?>
 
 <div class="myContainerPageToView">

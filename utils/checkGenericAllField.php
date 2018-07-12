@@ -2,7 +2,7 @@
 	require_once('../utils/regexConstant.php');
 	require_once('../utils/checkFields.php');
 	require_once('../utils/dataBaseConstant.php');
-	require_once('../db/insertFunctions.php');
+	require_once('../db/updataFunction.php');
 	require_once('../db/connection.php');
 
 	$result = array();
@@ -18,7 +18,7 @@
 
 	//Controlli sull'email
 	if( !check_POST_IsSetAndNotEmpty('email') || notValidString($_POST['email'], emailRegex, EmailMinLength, EmailMaxLength)
-		|| ( checkIfExistInDb('user', $_POST['user']) ) )
+		|| ( checkIfExistInDb('email', $_POST['email']) ) )
 		if($_POST['registration']=='0')
 			$result['errEmail']="L'email inserita non è valida !";
 		else
@@ -30,15 +30,14 @@
 	if ( !check_POST_IsSetAndNotEmpty('psw') || !checkMinLength($_POST['psw'], PasswordMinLength) ) 
 		if($_POST['registration']=='0')
 			$result['errPsw']="La password inserita non è valida !";
-		else
-			$result['errPswModified']="La password inserita non è valida !";
-
+		
 	foreach(passwordRegex as $regex) {
 		if ( !checkMatchRegex($_POST['psw'], $regex) ) {
 			if($_POST['registration']=='0')
 				$result['errPsw']="La password inserita non è valida !";
 			else
-				$result['errPswModified']="La password inserita non è valida !";
+				if(!empty($_POST['psw']) )
+					$result['errPswModified']="La password inserita non è valida !";
 			break;
 		}
 	}
@@ -116,7 +115,8 @@
 	
 
 	//Fine dei controlli --> inserimento nel database
-	/*if( count($result) == 0 ){
+	if( count($result) == 0 ){
+		if( $_POST['registration']=='0' ){ 
 		session_start();
 		$_SESSION['user'] = $_POST['user'];
 		if($_POST['registration']=='0')
@@ -124,7 +124,20 @@
 											$_POST['name'], $_POST['surname'],
 											$_POST['telephone'], $_POST['email'],
 											$_POST['address'], $path);
-	}*/
+		}else{
+			if( check_POST_IsSetAndNotEmpty('psw') )
+				updataInto_ShareYourUserTime(	$_POST['user'], $_POST['psw'],
+												$_POST['name'], $_POST['surname'],
+												$_POST['phone'], $_POST['email'],
+												$_POST['address'], $_POST['checkUser']);
+				else
+					updataInto_ShareYourUserTime(	$_POST['user'], null,
+													$_POST['name'], $_POST['surname'],
+													$_POST['phone'], $_POST['email'],
+													$_POST['address'], $_POST['checkUser']);
+			
+		}
+	}
 
 	echo json_encode($result);
 
