@@ -23,5 +23,4 @@
 -> controlli sulle vaire funzioni del db
 
 -> ajaxCheckModifiedAllFile.js
-    -> controllo foto manca
     -> aggiungere conferma pw

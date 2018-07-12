@@ -22,9 +22,9 @@ function checkModifiedAllField(idWait,userCheck,mailCheck,phoneCheck)
     var htmlTagSurname = document.getElementById('surnameModified');
     var htmlTagAddress = document.getElementById('addressModified');
 	var htmlTagPhone = document.getElementById('phoneModified');
-	//var htmlTagPhoto = document.getElementById('photoModifiedg');
+	var htmlTagPhoto = document.getElementById('photoModified');
     
-	//formData.append(htmlTagPhoto.name, htmlTagPhoto.files[0]);
+	formData.append(htmlTagPhoto.name, htmlTagPhoto.files[0]);
 	formData.append(htmlTagUser.name, htmlTagUser.value);
     formData.append(htmlTagEmail.name, htmlTagEmail.value);
     formData.append(htmlTagPsw.name, htmlTagPsw.value);
