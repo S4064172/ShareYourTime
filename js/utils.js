@@ -73,24 +73,24 @@ function checkGenericSingleField(idField,idErrField,registrationOrModified,check
 
 	if(checkField==null)
 		request.send(	htmlTag.name + "=" + htmlTag.value+'&'+
-						"registration ="+ registrationOrModified);
+						"registration="+ registrationOrModified);
 	else{
 
 		if (registrationOrModified==1){
-			request.send(	htmlTag.name + "=" + htmlTag.value + '&' + 
+			request.send(	htmlTag.name + "=" + htmlTag.value+'&'+ 
 							"oldField"+"=" + checkField+'&'+
-							"registration ="+ registrationOrModified);
+							"registration="+ registrationOrModified);
 
 		}else{
+
 			var htmlTag1 = document.getElementById(checkField);
-		
 			if(checkField.name!='pws' || htmlTag.name!='pswConf'){
 				console.log("Parametro non valido");
 				return;
 			}
 			request.send(	htmlTag.name + "=" + htmlTag.value + '&_' + 
 							htmlTag1.name+"=" + htmlTag1.value+'&'+
-							"registration ="+ registrationOrModified);
+							"registration="+ registrationOrModified);
 		}
 		
 	}
@@ -110,11 +110,9 @@ function validateCheckGenericSingleField(idErrField, request)
 	return function(){
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
-				//console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
 				var notify = document.getElementById(idErrField);
 				notify.style.fontSize = '0.9em';
-				//console.log(jsonObj);
 				if (jsonObj['code'] === -1) {
 					notify.style.color = 'darkred';
 					notify.innerHTML = jsonObj['msg'];

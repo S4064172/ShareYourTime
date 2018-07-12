@@ -18,7 +18,7 @@
 	*	se un certo elemento è presente 
 	*	nella tabella ShareYourUsersTime
 	*/
-	function checkIfExistInDb($fieldTable, $fieldSearch, $field)
+	function checkIfExistInDb($fieldTable, $fieldSearch)
 	{
 		$conn = connectionToDb();
 
@@ -38,21 +38,22 @@
 		
 			mysqli_stmt_store_result($prep_stmt);
 			$row = mysqli_stmt_num_rows($prep_stmt);
-			//mysqli_stmt_bind_result($prep_stmt,$col);
-			//echo json_encode(array('code' =>$field));
 			mysqli_stmt_close($prep_stmt);
 			mysqli_close($conn);
-			//return;
-			if( $_POST['registration']==0 )
-				return ($row == 1);
-			return ($prep_stmt[$fieldTable]==$field);
+			return ($row == 1);
+			
 		}
 		die ("Errore nella preparazione della query<br>");
 	}
 	
-	
 	//Controlli sull'username
 	if( check_POST_IsSetAndNotEmpty('user') ) { 
+		
+		if( $_POST['registration']==='1' && $_POST['user'] === $_POST['oldField']){
+			echo json_encode(array('code' => '0'));
+			return;
+		}
+
 		if ( !checkMinLength($_POST['user'], UserNameMinLength) || !checkMaxLength($_POST['user'], UserNameMaxLength) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'L\'username deve essere compreso tra i 5 e i 25 caratteri !'));
 			return;
@@ -63,7 +64,7 @@
 			return;
 		}
 
-		if ( checkIfExistInDb('user', $_POST['user'],$_POST['oldField']) ) {
+		if ( checkIfExistInDb('user', $_POST['user']) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'Username gi&agrave; presente !'));
 			return;
 		}
@@ -74,6 +75,11 @@
 
 	//Controlli sull'email
 	if( check_POST_IsSetAndNotEmpty('email') ) {
+		if( $_POST['registration']==='1' && $_POST['email'] === $_POST['oldField']){
+			echo json_encode(array('code' => '0'));
+			return;
+		}
+
 		if ( notValidString($_POST['email'], emailRegex, EmailMinLength, EmailMaxLength) ) {
 				echo json_encode(array('code' => -1, 'msg' => 'Email non valida !'));
 				return;
@@ -152,6 +158,11 @@
 
 	//Controlli sul telefono
 	if( check_POST_IsSetAndNotEmpty('phone') ){
+		if( $_POST['registration']==='1' && $_POST['phone'] === $_POST['oldField']){
+			echo json_encode(array('code' => '0'));
+			return;
+		}
+
 		if ( notValidString($_POST['phone'], numRegex, PhoneLength, PhoneLength) ) {
 			echo json_encode(array('code' => -1, 'msg' => 'Il telefono non &egrave; valido !' ));
 			return;
