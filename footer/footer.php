@@ -31,7 +31,7 @@
 						</a>
 					</li>
 					<li class="list-inline-item">
-						<a href="https://www.github.com">
+						<a href="https://www.twitter.com">
 							<img class="socialIconDim" src="img/twitter_logo.png"></i>
 						</a>
 					</li>

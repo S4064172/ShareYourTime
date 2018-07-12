@@ -25,3 +25,5 @@
 -> ajaxCheckModifiedAllFile.js
     -> aggiungere conferma pw
     -> impossibile modifica username
+
+-> fare seguire lo scrolling all'autocomplete di google maps sul modal

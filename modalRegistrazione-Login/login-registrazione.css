@@ -2,7 +2,7 @@
 	float: right;
 }
 
-.wait{
+.wait {
     display: none;
     position: absolute;
     display: fixed;
@@ -63,7 +63,6 @@ img.avatar {
     border-radius: 50%;
 }
 
-/* The Close Button (x) */
 .myClose {
     position: absolute;
     right: 25px;
@@ -78,7 +77,6 @@ img.avatar {
     cursor: pointer;
 }
 
-/* Full-width input fields */
 input[type=textModal], input[type=password], input[type=email], input[type=tel] {
     width: 100%;
     padding: 10px 10px;
@@ -105,7 +103,6 @@ input[type=textModal], input[type=password], input[type=email], input[type=tel] 
 	margin: 2% auto 50% auto;
 }
 
-/* Add Zoom Animation */
 .animate {
     -webkit-animation: animatezoom 0.5s;
     animation: animatezoom 0.5s
@@ -127,6 +124,11 @@ input[type=textModal], input[type=password], input[type=email], input[type=tel] 
     to {
 		transform: scale(1);
 	}
+}
+
+/* Serve per mostrare l'autocomplete di google maps sul modal*/
+.pac-container {
+	z-index: 1051 !important;
 }
 
 @media screen and (max-width: 768px /*sm*/) {
