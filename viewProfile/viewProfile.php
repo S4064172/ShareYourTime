@@ -11,7 +11,9 @@
 ?>
 
 <div class="myContainerPageToView">
-
+    <div class="wait" id="waitRegistration">
+        <img class="imgWait" src="img/sandclock.png">
+    </div>
     <div class="row text-center">
         <div class="col-12">
             <h1>Impostazioni Profilo</h1>
@@ -102,7 +104,7 @@
                 <div class="row text-center">
                     <div class="col-md-6">
                         <button class="btn btn-primary mb-2 mb-sm-0" id="bntModify" onClick="hideItem('bntModify');showItem('bntSave');showItem('pswLabel');showItem('pswModified');showItem('imgModified');removeReadOnly();">Modifica</button>
-                        <button class="btn btn-primary fieldHide mb-2 mb-sm-0" id="bntSave" onClick="checkModifiedAllField('1','<?php echo $row['User'] ?>','<?php echo $row['Email'] ?>','<?php echo $row['Phone'] ?>');">Salva</button>
+                        <button class="btn btn-primary fieldHide mb-2 mb-sm-0" id="bntSave" onClick="checkModifiedAllField('waitRegistration','<?php echo $row['User'] ?>','<?php echo $row['Email'] ?>','<?php echo $row['Phone'] ?>');">Salva</button>
                         <!--hideItem('bntSave');showItem('bntModify');hideItem('pswLabel');hideItem('pswModified');hideItem('imgModified');addReadOnly();-->
                     </div>
                     <div class="col-md-6">

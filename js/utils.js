@@ -142,7 +142,7 @@ function validateCheckGenericSingleField(idErrField, request)
 function validateCheckGenericAllField(idWait, request)
 {
 	return function(){
-		//hideItem(idWait)
+		hideItem(idWait)
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
 				console.log(request.responseText);

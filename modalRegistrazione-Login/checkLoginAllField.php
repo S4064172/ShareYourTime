@@ -8,7 +8,7 @@
     *   verificare se esite un utente
     *   nel db con una certa password
     */
-    function checkIfExistInDb($fieldSearchUser,  $fieldSearchPsw )
+    function checkIfExistInDb_Login($fieldSearchUser,  $fieldSearchPsw )
 	{
 		$conn = connectionToDb();
 
@@ -56,7 +56,7 @@
         
     }
 
-    if( !checkIfExistInDb($_POST['usernameLogin'], $_POST['pswLogin']) ){
+    if( !checkIfExistInDb_Login($_POST['usernameLogin'], $_POST['pswLogin']) ){
             echo json_encode(array('code' => -1, 'msg' => 'Username o password errati !'));
             return;
     }

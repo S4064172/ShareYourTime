@@ -9,7 +9,7 @@
 */
 function checkModifiedAllField(idWait,userCheck,mailCheck,phoneCheck)
 {
-	//showItem(idWait)
+	showItem(idWait)
 	var request = getRequest();
 	request.open("POST", "utils/checkGenericAllField.php", true);	
 	request.onreadystatechange = validateCheckGenericAllField(idWait, request);
