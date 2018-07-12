@@ -21,3 +21,7 @@
     -> trovare un modo per controllare che il modificato sia presente nel db
 
 -> controlli sulle vaire funzioni del db
+
+-> ajaxCheckModifiedAllFile.js
+    -> controllo foto manca
+    -> aggiungere conferma pw

@@ -71,6 +71,7 @@ function checkGenericSingleField(idField,idErrField,registrationOrModified,check
 		console.log("Parametro non valido");
 		return;
 	}
+
 	if(checkField==null)
 		request.send(	htmlTag.name + "=" + htmlTag.value+'&'+
 						"registration="+ registrationOrModified);
@@ -129,6 +130,9 @@ function validateCheckGenericSingleField(idErrField, request)
 	}
 }
 
+
+
+
 /** @description
 *	Questa callback ci permette di
 *	informare l'utente sull'esito
@@ -138,7 +142,7 @@ function validateCheckGenericSingleField(idErrField, request)
 function validateCheckGenericAllField(idWait, request)
 {
 	return function(){
-		hideItem(idWait)
+		//hideItem(idWait)
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
 				console.log(request.responseText);
@@ -149,6 +153,7 @@ function validateCheckGenericAllField(idWait, request)
 				}
 				for(var key in jsonObj){
 					var notify = document.getElementById(key);
+					notify.style.fontSize = '0.9em';
 					notify.style.color = 'darkred';
 					notify.innerHTML = jsonObj[key];
 				}

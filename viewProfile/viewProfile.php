@@ -97,7 +97,8 @@
                 <div class="row text-center">
                     <div class="col-md-6">
                         <button class="btn btn-primary mb-2 mb-sm-0" id="bntModify" onClick="hideItem('bntModify');showItem('bntSave');showItem('pswLabel');showItem('pswModified');removeReadOnly();">Modifica</button>
-                        <button class="btn btn-primary fieldHide mb-2 mb-sm-0" id="bntSave" onClick="hideItem('bntSave');showItem('bntModify');hideItem('pswLabel');hideItem('pswModified');addReadOnly();">Salva</button>
+                        <button class="btn btn-primary fieldHide mb-2 mb-sm-0" id="bntSave" onClick="checkModifiedAllField('1','<?php echo $row['User'] ?>','<?php echo $row['Email'] ?>','<?php echo $row['Phone'] ?>');">Salva</button>
+                        <!--hideItem('bntSave');showItem('bntModify');hideItem('pswLabel');hideItem('pswModified');addReadOnly();-->
                     </div>
                     <div class="col-md-6">
                        <button class="btn btn-success" onClick="hideItem('pswLabel');hideItem('pswModified');addReadOnly();showHome();" id="bntExit">Esci</button>
