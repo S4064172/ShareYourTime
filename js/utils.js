@@ -54,7 +54,8 @@ function cleanErr(id){
  *  @description
 *	Questa funzione ci permette di creare 
 *	una richiesta in post per controllare
-*	ogni singolo campo che l'utente ha inserito.  
+*	ogni singolo campo che l'utente ha inserito. 
+*	sia in fase di registrazione che modifica 
 */
 
 function checkGenericSingleField(idField,idErrField,registrationOrModified,checkField)
@@ -101,7 +102,8 @@ function checkGenericSingleField(idField,idErrField,registrationOrModified,check
  * 	@description
 *	Questa callback ci permette di
 *	informare l'utente sull'esito
-*	dei controlli fatti
+*	dei controlli ffatti sia in fase di 
+*	registrazione che modifica
 */
 
 function validateCheckGenericSingleField(idErrField, request)
@@ -127,3 +129,30 @@ function validateCheckGenericSingleField(idErrField, request)
 	}
 }
 
+/** @description
+*	Questa callback ci permette di
+*	informare l'utente sull'esito
+*	dei controlli fatti sia in fase di 
+*	registrazione che modifica
+*/
+function validateCheckGenericAllField(idWait, request)
+{
+	return function(){
+		hideItem(idWait)
+		if (request.readyState === 4 && request.status === 200) {
+			if (request.responseText != null) {
+				console.log(request.responseText);
+				var jsonObj = JSON.parse(request.responseText);
+				if(jsonObj.length==0){
+					window.location.href = 'homepage.php';
+					return;
+				}
+				for(var key in jsonObj){
+					var notify = document.getElementById(key);
+					notify.style.color = 'darkred';
+					notify.innerHTML = jsonObj[key];
+				}
+			}
+		}
+	}
+}

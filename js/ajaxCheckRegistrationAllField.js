@@ -14,7 +14,7 @@ function checkRegistrationAllField(idWait)
 	showItem(idWait)
 	var request = getRequest();
 	request.open("POST", "modalRegistrazione-Login/checkRegistrationAllField.php", true);	
-	request.onreadystatechange = validateCheckRegistrationAllField(idWait, request);
+	request.onreadystatechange = validateCheckGenericAllField(idWait, request);
 	
     var formData = new FormData();
 
@@ -41,29 +41,4 @@ function checkRegistrationAllField(idWait)
 	request.send(formData);
 }
 
-/** @description
-*	Questa callback ci permette di
-*	informare l'utente sull'esito
-*	dei controlli fatti
-*/
-function validateCheckRegistrationAllField(idWait, request)
-{
-	return function(){
-		hideItem(idWait)
-		if (request.readyState === 4 && request.status === 200) {
-			if (request.responseText != null) {
-				console.log(request.responseText);
-				var jsonObj = JSON.parse(request.responseText);
-				if(jsonObj.length==0){
-					window.location.href = 'homepage.php';
-					return;
-				}
-				for(var key in jsonObj){
-					var notify = document.getElementById(key);
-					notify.style.color = 'darkred';
-					notify.innerHTML = jsonObj[key];
-				}
-			}
-		}
-	}
-}
+
