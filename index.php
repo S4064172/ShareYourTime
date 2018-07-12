@@ -91,7 +91,7 @@
 			<form>
 				<div class="row">
 					<div class="col-md-4"> 
-						<input type="textMap" placeholder="Inserisci la via" name="" required>
+						<input type="textMap" id="searchAddr" placeholder="Inserisci la via" name="" required>
 					</div>
 					<div class="col-md-2"> 
 						<select class="mySelection" id="" requred>

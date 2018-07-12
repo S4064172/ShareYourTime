@@ -1,6 +1,10 @@
 "use strict";
 
 function showMap() {
+	//Autocompletamento google maps per inserire indirizzi in fase di registrazione
+	var addr = document.getElementById('searchAddr');
+	var autocomplete = new google.maps.places.Autocomplete(addr,{types:['geocode']});
+
 	var myLocation = new google.maps.LatLng(44.403425,8.972164);
 
 	var mapProp = {
