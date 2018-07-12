@@ -24,3 +24,4 @@
 
 -> ajaxCheckModifiedAllFile.js
     -> aggiungere conferma pw
+    -> impossibile modifica username

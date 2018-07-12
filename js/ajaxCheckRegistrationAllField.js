@@ -13,7 +13,7 @@ function checkRegistrationAllField(idWait)
 {
 	showItem(idWait)
 	var request = getRequest();
-	request.open("POST", "modalRegistrazione-Login/checkRegistrationAllField.php", true);	
+	request.open("POST", "utils/checkGenericAllField.php", true);	
 	request.onreadystatechange = validateCheckGenericAllField(idWait, request);
 	
     var formData = new FormData();
@@ -37,7 +37,8 @@ function checkRegistrationAllField(idWait)
     formData.append(htmlTagSurname.name, htmlTagSurname.value);
     formData.append(htmlTagAddress.name, htmlTagAddress.value);
     formData.append(htmlTagPhone.name, htmlTagPhone.value);
-
+    formData.append("registration", 0);
+    
 	request.send(formData);
 }
 
