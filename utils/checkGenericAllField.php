@@ -89,7 +89,7 @@
 			$result['errPhoto'] = "File non valido";
 	}else{
 		//Controlli sulla foto 
-		$path = '../../profile_imgs/' . $_POST['user'] . '.jpg';
+		$path = '../profile_imgs/' . $_POST['user'] . '.jpg';
 		
 		$imageFileType = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
 
@@ -124,6 +124,7 @@
 											$_POST['name'], $_POST['surname'],
 											$_POST['telephone'], $_POST['email'],
 											$_POST['address'], $path);
+		$result=$_POST['registration'];
 		}else{
 			if( check_POST_IsSetAndNotEmpty('psw') )
 				updataInto_ShareYourUserTime(	$_POST['user'], $_POST['psw'],
@@ -135,7 +136,8 @@
 													$_POST['name'], $_POST['surname'],
 													$_POST['phone'], $_POST['email'],
 													$_POST['address'], $_POST['checkUser']);
-			
+			$result=$_POST['registration'];
+			$_SESSION['user'] = $_POST['user'];
 		}
 	}
 
