@@ -49,8 +49,13 @@ section {
 	min-height: 100%;
 }
 
+#myTitleCOntaitner{
+	height: 100vh;
+}
+
 .myTitle{
 	font-family: galada; 
+	padding-top:31.5vh;
 	font-size: 15vh;
 	color: rgb(238, 226, 200);
     animation-name: animatezoom;
@@ -67,49 +72,41 @@ section {
 	background-color: rgb(238, 226, 200);
 }
 
-.titleBtn:hover {
+.titleBtn:hover, #mapBtn:hover {
 	color: rgb(238, 226, 200);
 	background-color: rgb(146, 114, 84);
 }
+
+#mapBtn{
+	font-family: Old Standard TT;
+	color: rgb(54, 44, 34);
+	font-size: 1.3em;
+	border-radius: 20px;
+	background-color: rgb(238, 226, 200);
+}
+
 
 .myDescription {
 	font-size: 1.3em;
 }
 
-.textMap-r {
-	float: right;
-}
  
-#myButtonSearchMap{
-	margin-left:45%;
-	width: auto;
+
+
+
+#googleMap{
+	width:100%;
+	height:65vh;
 }
 
-.mySelection{
-	width: 90%;
-	height: 45%;
-    margin: 8px 0px;
-    display: inline-block;
-    border: 1px solid #ccc;
-	box-sizing: border-box;
-	letter-spacing: 1px;
-	font-size: 15px;
+@media  screen and (max-width: 800px) {
+	.mySelection {
+		font-size: 70%;
+	}
 }
 
-input[type=textMap] {
-	width: 90%;
-	height: 12%;
-	padding: 15px 10px;
-    margin: 8px 0px;
-    display: inline-block;
-    border: 1px solid #ccc;
-	box-sizing: border-box;
-	letter-spacing: 1px;
-	font-size: 15px;
-}
-
-@media screen and (max-width: 768px /*sm*/), screen and (max-width: 900px) {
-	input[type=textMap] {
-		width: 100%;
+@media screen and (max-width: 766px ){
+	.mySelection {
+		font-size: 80%;
 	}
 }

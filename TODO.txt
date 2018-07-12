@@ -1,11 +1,27 @@
 -> checkRegistrationAllField.php, checkRegistrationSingleField,php
     -> mancano i controlli sull'esistenza o meno dell'indirizzo
 
--> checkRegistrationAllField.php
-    -> manca il controllo sulla foto
-
--> .js
-    -> duplicazione del codice
-
 -> insertFunction.php
     -> modificare le insert coi default per i campi non necessari
+
+-> ajaxCheckSearchOptionMap.js
+    -> forse manca il "blocco"
+
+-> controllo sessione
+
+-> oscurare le cartelle/pagine secondarie
+
+-> chiamata ajaxGeneric
+    -> testare i controlli aggiuni in js
+
+-> funzioni chiamata da html con passaggi parametri
+    -> possibile mettere conrolli anti manomissione
+
+-> controllo sulla modifica
+    -> trovare un modo per controllare che il modificato sia presente nel db
+
+-> controlli sulle vaire funzioni del db
+
+-> ajaxCheckModifiedAllFile.js
+    -> aggiungere conferma pw
+    -> impossibile modifica username

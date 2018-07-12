@@ -19,3 +19,7 @@ button:hover {
 a:focus {
 	outline: none;
 }
+
+#clickable{
+    cursor: pointer;
+}

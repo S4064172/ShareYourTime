@@ -1,0 +1,24 @@
+#showMenu{
+    position: fixed;
+    z-index: 1;
+    height: 100%; 
+    width: 10px;
+}
+
+#menu{
+    position: fixed;
+    display: none;
+    z-index: 1;
+    height: 100%; 
+    width: 310px;
+    background-color: gray;
+}
+
+#optionMenu{
+    height: auto;
+    margin-top: 5em;
+}
+
+.buttonMenu{
+    width: 100%;
+}

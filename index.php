@@ -16,6 +16,8 @@
 		<link rel="stylesheet" type="text/css" href="footer/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="modalRegistrazione-Login/login-registrazione.css"/>
 		<link rel="stylesheet" type="text/css" href="last5.css"/>
+		<link rel="stylesheet" type="text/css" href="optionMapSearch/optionMapSearch.css"/>
+
 	</head>
 	
 	<body>
@@ -26,8 +28,8 @@
 		<div class="myContainer">
 			<div cass="row">
 				<div class="col-3 col-md-6 offset-4 offset-sm-6">
-					<div style="height: 100vh;">
-						<h1 class="text-center myTitle" style="padding-top:31.5vh">Share Your<br>Time<br>
+					<div id="myTitleCOntaitner">
+						<h1 class="text-center myTitle">Share Your<br>Time<br>
 							<a id="xxx" href="#DettagliSito" class="btn btn-scroll titleBtn">Scopri di pi&#249; !</a>
 						</h1>
 					</div>
@@ -68,7 +70,7 @@
 						 <p class="myDescription"> 
 							La prima piattaforma italiana di <i>Time Sharing</i> 
 						</p>
-						<a  href="#RicercaMappa" class="btn btn-scroll titleBtn mt-3 p-2" style="font-size: 18px;">Trova un lavoro per te !</a>
+						<a  href="#RicercaMappa" class="btn btn-scroll mt-3 p-2" id ="mapBtn" >Trova un lavoro per te !</a>
 				</div>
 			<div>
 	</section>
@@ -88,44 +90,8 @@
 			<br>
 		</div>
 		<div class="myContainer">
-			<form>
-				<div class="row">
-					<div class="col-md-4"> 
-						<input type="textMap" id="searchAddr" placeholder="Inserisci la via" name="" required>
-					</div>
-					<div class="col-md-2"> 
-						<select class="mySelection" id="" requred>
-							<option selected disabled>Scegli la distanza in km</option>
-							<option value="10">10 Km</option>
-							<option value="20">20 Km</option>
-							<option value="30">30 Km</option>
-						</select>
-					</div>
-					<div class="col-md-2"> 
-						<select class="mySelection" id="" requred>
-							<option selected disabled>Scegli il costo massimo</option>
-							<option value="10">10 Euro</option>
-							<option value="20">20 Euro</option>
-							<option value="30">30 Euro</option>
-						</select>
-					</div>
-					<div class="col-md-2"> 
-						<select class="mySelection" id="" requred>
-							<option selected disabled>Scegli il tag</option>
-							<option value="10">Informatica</option>
-							<option value="20">Idraulico</option>
-							<option value="30">Becchino</option>
-						</select>
-					</div>
-					<div class=" col-md-2"> 
-						<button type="submit" class="btn btn-secondary" id="myButtonSearchMap">
-							<i class="fas fa-search"></i>
-							Cerca
-						</button>
-					</div>
-				</div>
-			</form>
-			<div id="googleMap" style="width:100%;height:65vh;"></div>
+			<?php require_once('optionMapSearch/optionMapSearch.php')?>
+			<div class="mb-2" id="googleMap" ></div>
 		</div>
 			
 	</section>
@@ -141,9 +107,10 @@
 	
 	<script type="text/javascript" src="js/navBar.js"></script>
 	<script type="text/javascript" src="js/googleMaps.js"></script>
-	<script type="text/javascript" src="js/ajaxCheckRegistrationSingleField.js"></script>
-	<script type="text/javascript" src="js/ajaxCheckLoginAllField.js"></script>
+	<script type="text/javascript" src="js/utils.js"></script>
 	<script type="text/javascript" src="js/ajaxCheckRegistrationAllField.js"></script>
+	<script type="text/javascript" src="js/ajaxCheckLoginAllField.js"></script>
+	<script type="text/javascript" src="js/ajaxCheckSearchOptionMap.js"></script>
 
 	<?php require('googleAPIkey.html') ?>
 

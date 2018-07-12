@@ -1,0 +1,59 @@
+.MyContainer{
+    width: 80%;
+    margin-left: 10%;
+}
+
+
+input[type=text], input[type=password], input[type=email], input[type=tel], .labelText {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 6px 0;
+    display: inline-block;  
+	height: auto;
+	font-size: 20px;
+}
+   
+input[type=text], input[type=password], input[type=email], input[type=tel]{
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.fieldHide, input[type=password]{
+    display: none;
+}
+
+.labelText {
+    text-align: center;	
+}
+
+#bntModify, #bntExit, #bntSave{
+    width: 50%;
+}
+
+.wait{
+    display: none;
+    position: absolute;
+    display: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 1050; 
+}
+
+.imgWait {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 55vh;
+    
+	width: 80px;
+	-webkit-animation: rotation 2s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}

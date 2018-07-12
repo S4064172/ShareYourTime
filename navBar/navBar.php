@@ -12,30 +12,33 @@
     <div>
         <div class="collapse navbar-collapse navbarTogglerSignupLogin">
             <ul class="navbar-nav">
-            <li class="nav-item active ">
-                <a class="nav-link" href="#" onClick="myCollapseHide()">
-                    <i class="fas fa-home" ></i>
-                    <span class="d-inline d-md-none">Home</span>
+                <?php if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) { ?>
+                    <li class="nav-item active ">
+                        <a class="nav-link" id="clickable" onClick="showOrHideMenu('menu');myCollapseHide();">
+                            <i class="fas fa-bars" ></i>
+                            <span class="d-inline d-md-none">Menu</span>
+                        </a>
+                    </li>
+                <?php } ?>
+                <li class="nav-item active ">
+                    <a class="nav-link" href="#" onClick="myCollapseHide()">
+                        <i class="fas fa-home" ></i>
+                        <span class="d-inline d-md-none">Home</span>
                     </a>
-            </li>
-            <?php
-                if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) { 
-            ?>
-            <?php    
-                }else{
-            ?>
+                
+                <?php if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) { ?>
+
+                <?php  }else{ ?>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#DettagliSito" onClick="myCollapseHide()">Chi Siamo</a>
+                    </li>
+                <?php } ?>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#DettagliSito" onClick="myCollapseHide()">Chi Siamo</a>
+                    <a class="nav-link" href="#RicercaMappa" onClick="myCollapseHide()">
+                        <i class="fas fa-search"></i>
+                        Trova
+                    </a>
                 </li>
-            <?php
-                }                
-            ?>
-            <li class="nav-item active">
-                <a class="nav-link" href="#RicercaMappa" onClick="myCollapseHide()">
-                    <i class="fas fa-search"></i>
-                    Trova
-                </a>
-            </li>
             
             </ul>
         </div>
@@ -49,18 +52,14 @@
     </div>
     <div>
     <span class='collapse navbar-collapse navbarTogglerSignupLogin'>
-        <?php
-            if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) { 
-        ?>
+        <?php if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) {?>
             <form action="navBar/logout.php" >
-                <button type='submit' href='#' class='btn btn-primary mr-2 d-block d-sm-inline btnSize'>
+                <button type='submit' href='#' class='btn btn-warning mr-2 d-block d-sm-inline btnSize'>
                     <i class='fa fa-sign-out-alt'></i>
                     Logout
                 </button>
             </form> 
-        <?php    
-            }else{
-        ?>
+        <?php }else{ ?>
             <button type='button' href='#' class='btn btn-primary mr-2 d-block d-sm-inline btnSize' onClick='myCollapseHide()' data-toggle='modal' data-target='#signUpModalTarget'>
                 <i class='fa fa-user-plus'></i>
                 Registrati
@@ -69,9 +68,7 @@
                 <i class='fas fa-sign-in-alt'></i>
                 Login
             </button>
-        <?php
-            }                
-        ?>
+        <?php  }  ?>
         </span>
     </div> 
 </nav>
