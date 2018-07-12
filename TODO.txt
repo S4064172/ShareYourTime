@@ -1,3 +1,5 @@
+-> controlli lato database
+
 -> checkRegistrationAllField.php, checkRegistrationSingleField,php
     -> mancano i controlli sull'esistenza o meno dell'indirizzo
 
@@ -21,4 +23,3 @@
 
 -> ajaxCheckModifiedAllFile.js
     -> aggiungere conferma pw
-    -> impossibile modifica username

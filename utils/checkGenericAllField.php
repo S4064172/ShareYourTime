@@ -137,6 +137,10 @@
 													$_POST['phone'], $_POST['email'],
 													$_POST['address'], $_POST['checkUser']);
 			$result=$_POST['registration'];
+			session_start();
+			session_unset();
+			session_destroy();
+			session_start();
 			$_SESSION['user'] = $_POST['user'];
 		}
 	}
