@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="textModal-r"><b>Conferma Password</b></label>
-                        <input  onfocusout="checkGenericSingleField('pswRegConf','errPswConf',,0,'pswReg')" onfocusin="cleanErr('errPswConf')" id="pswRegConf" type="password" placeholder="Conferma la password" name="pswConf" minlength=<?php echo PasswordMinLength?> required>
+                        <input  onfocusout="checkGenericSingleField('pswRegConf','errPswConf',0,'pswReg')" onfocusin="cleanErr('errPswConf')" id="pswRegConf" type="password" placeholder="Conferma la password" name="pswConf" minlength=<?php echo PasswordMinLength?> required>
                         <p id="errPswConf"></p>
                     </div>
                 </div>
