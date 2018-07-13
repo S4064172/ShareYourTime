@@ -61,8 +61,12 @@
         upDataAndCheck($update_prep_stmt);
         mysqli_stmt_close($update_prep_stmt);
         mysqli_close($conn);
-        unlink('../../profile_imgs/'.$fieldFilter.'_temp.jpg');
-        rename('../../profile_imgs/'.$fieldFilter.'.jpg',"../".$path_temp);
+
+        if ( file_exists('../../profile_imgs/'.$fieldFilter.'_temp.jpg') )
+            unlink('../../profile_imgs/'.$fieldFilter.'_temp.jpg');
+        
+        rename('../../profile_imgs/'.$fieldFilter.'.jpg', "../".$path_temp);
+        
         /*echo("La tupla e' stata inserita correttamente<br>");*/
         return;
 		
