@@ -14,12 +14,14 @@
 		$conn = connectionToDb();
 
 		$usr = sanitizeToSql($usr, $conn);
-		
 		$name = sanitizeToSql($name, $conn);
 		$surname = sanitizeToSql($surname, $conn);
 		$phone = sanitizeToSql($phone, $conn);
 		$email = sanitizeToSql($email, $conn);
         $street = sanitizeToSql($street, $conn);
+
+        $path_temp = '../profile_imgs/'.$usr.'.jpg';
+
         if( $psw != null ){
             $psw = sha1(sanitizeToSql($psw, $conn));
             $updateQuery =  "UPDATE ShareYourUsersTime SET ". 
@@ -29,13 +31,14 @@
                             "surname = ? , ".
                             "phone = ? , ".
                             "email = ? , ".
-                            "street = ? ".
+                            "street = ? , ".
+                            "photo = ? ".
                             "WHERE user='$fieldFilter';";
 
             if ( !($update_prep_stmt = mysqli_prepare($conn, $updateQuery)) )
                 die ("Errore nella preparazione della query<br>");
-            if ( !mysqli_stmt_bind_param($update_prep_stmt, "sssssss",
-                $usr, $psw, $name, $surname, $phone, $email, $street) )
+            if ( !mysqli_stmt_bind_param($update_prep_stmt, "ssssssss",
+                $usr, $psw, $name, $surname, $phone, $email, $street, $path_temp) )
                 die ("Errore nell'accoppiamento dei parametri<br>");
         } else {
             $updateQuery =  "UPDATE ShareYourUsersTime SET ". 
@@ -44,19 +47,22 @@
                             "surname = ? , ".
                             "phone = ? , ".
                             "email = ? , ".
-                            "street = ? ".
+                            "street = ? ,".
+                            "photo = ? ".
                             "WHERE user='$fieldFilter';";
 
                          
             if ( !($update_prep_stmt = mysqli_prepare($conn, $updateQuery)) )
                 die ("Errore nella preparazione della query<br>");
-            if ( !mysqli_stmt_bind_param($update_prep_stmt, "ssssss",
-                $usr,  $name, $surname, $phone, $email, $street) )
+            if ( !mysqli_stmt_bind_param($update_prep_stmt, "sssssss",
+                $usr,  $name, $surname, $phone, $email, $street,$path_temp) )
                 die ("Errore nell'accoppiamento dei parametri<br>");
         }
         upDataAndCheck($update_prep_stmt);
         mysqli_stmt_close($update_prep_stmt);
         mysqli_close($conn);
+        unlink('../../profile_imgs/'.$fieldFilter.'_temp.jpg');
+        rename('../../profile_imgs/'.$fieldFilter.'.jpg',"../".$path_temp);
         /*echo("La tupla e' stata inserita correttamente<br>");*/
         return;
 		

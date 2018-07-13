@@ -1,4 +1,4 @@
-<?php 
+<?php
     require_once('utils/dataBaseConstant.php');
     require_once('db/connection.php');
 
@@ -9,6 +9,7 @@
     $row = mysqli_fetch_array($res);
     mysqli_free_result($res);
     mysqli_close($conn);
+    
 ?>
 
 <div class="myContainerPageToView">
@@ -24,14 +25,14 @@
     <div class="row">
         <div class="col-lg-4">
             <div class="card text-center" style="width:400px">
-                <img class="card-img-top" src='<?php echo $row['Photo']?>' alt="Card image">
+                <img class="card-img-top" id="imgCard" src='<?php echo $row['Photo']?>' alt="Foto Profilo">
                 <div class="card-body">
                     <h4 class="card-title" id="imgName"><?php echo ($row['Name'].' '. $row['Surname']) ?></h4>
                 </div>
             </div>
             <div class="fieldHide" id="imgModified">
                 <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="file" id="photoModified" name="photo" accept=".png, .jpg, .jpeg" required>
+                <input type="file" id="photoModified" onchange="checkGenericSingleField('photoModified','errPhotoModified',1,'<?php echo $row['User'] ?>')" name="photo" accept=".png, .jpg, .jpeg" required>
                 <p id="errPhotoModified"></p>
             </div>
         </div>  
@@ -92,7 +93,7 @@
                         <label class="labelText" ><b>Indirizzo</b></label>
                     </div>
                     <div class="col-md-6">
-                        <input onfocusout="checkGenericSingleField('errAddressModified','errAddressModified',1)" onfocusin="cleanErr('errAddressModified')" id="addressModified" type="text" value="<?php echo $row['Street'] ?>" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> readonly>
+                        <input onfocusout="checkGenericSingleField('addressModified','errAddressModified',1)" onfocusin="cleanErr('errAddressModified')" id="addressModified" type="text" value="<?php echo $row['Street'] ?>" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> readonly>
                         <p id="errAddressModified"></p>
                     </div>
                 </div>
@@ -109,7 +110,7 @@
 
                 <div class="row text-center">
                     <div class="col-md-6">
-                        <button class="btn btn-primary mb-2 mb-sm-0" id="bntModify" onClick="enableChanges()">Modifica</button>
+                        <button class="btn btn-primary mb-2 mb-sm-0" id="bntModify" onClick="enableChanges();">Modifica</button>
                         <button class="btn btn-primary fieldHide mb-2 mb-sm-0" id="bntSave" onClick="checkModifiedAllField('waitRegistration','<?php echo $row['User'] ?>','<?php echo $row['Email'] ?>','<?php echo $row['Phone'] ?>');">Salva</button>
                         
                     </div>

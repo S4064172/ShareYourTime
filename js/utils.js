@@ -63,39 +63,41 @@ function checkGenericSingleField(idField,idErrField,registrationOrModified,check
 {
 	var request = getRequest();
 	request.open("POST", "utils/checkGenericSingleField.php", true);	
-	request.onreadystatechange = validateCheckGenericSingleField(idErrField, request);
-	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	request.onreadystatechange = validateCheckGenericSingleField(idErrField, request);	
+	var formData = new FormData();
 	var htmlTag = document.getElementById(idField);
 	
 	if(	idField==null || idErrField==null || registrationOrModified==null || 
-		(registrationOrModified!=1 && registrationOrModified!=0)) {
+		(registrationOrModified!==1 && registrationOrModified!==0)) {
 		console.log("Parametro non valido");
 		return;
 	}
 
-	if(checkField==null)
-		request.send(	htmlTag.name + "=" + htmlTag.value+'&'+
-						"registration="+ registrationOrModified);
-	else{
-
-		if (registrationOrModified==1){
-			request.send(	htmlTag.name + "=" + htmlTag.value+'&'+ 
-							"oldField"+"=" + checkField+'&'+
-							"registration=" + registrationOrModified);
-
+	if(checkField == null)
+	{
+		formData.append(htmlTag.name,htmlTag.value);
+		
+	}else{
+		if (registrationOrModified === 1 ){
+			if(htmlTag.name === 'photo')
+				formData.append(htmlTag.name,htmlTag.files[0]);
+			else
+				formData.append(htmlTag.name,htmlTag.value);
+			formData.append('oldField',checkField);
 		}else{
+
 			var htmlTag1 = document.getElementById(checkField);
 			if(htmlTag1.name!=='psw' || htmlTag.name!=='pswConf'){
 				console.log("Parametro non valido");
 				return;
 			}
-			
-			request.send(	htmlTag.name + "=" + htmlTag.value + '&_' + 
-							htmlTag1.name + "=" + htmlTag1.value+'&'+
-							"registration=" + registrationOrModified);
+			formData.append(htmlTag.name,htmlTag.value);
+			formData.append(htmlTag1.name,htmlTag1.value);
 		}
 		
 	}
+	formData.append("registration",registrationOrModified);
+	request.send(formData);
 }
 
 /** @param	idErrField campo per notifica errore
@@ -112,14 +114,21 @@ function validateCheckGenericSingleField(idErrField, request)
 {
 	return function(){
 		if (request.readyState === 4 && request.status === 200) {
+			
 			if (request.responseText != null) {
+				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
 				var notify = document.getElementById(idErrField);
 				notify.style.fontSize = '0.9em';
 				if (jsonObj['code'] === -1) {
 					notify.style.color = 'darkred';
 					notify.innerHTML = jsonObj['msg'];
-				}
+				}else
+					if(jsonObj['code'] === 1)
+					{
+						refreshImg("");
+						refreshImg(jsonObj['msg']+'?'+new Date().getTime());
+					}
 			}
 		}
 	}
@@ -142,16 +151,20 @@ function validateCheckGenericAllField(idWait, request)
 				if(jsonObj == 0){
 					window.location.href = 'homepage.php';
 					return;
-				}else
-					if(jsonObj == 1){
-						disableChanges();
-					}else
-						for(var key in jsonObj){
-							var notify = document.getElementById(key);
-							notify.style.fontSize = '0.9em';
-							notify.style.color = 'darkred';
-							notify.innerHTML = jsonObj[key];
 				}
+				if( jsonObj == 1 ){
+					disableChanges();
+					window.location.href = 'homepage.php';
+					return;
+				}
+		
+				for(var key in jsonObj){
+					var notify = document.getElementById(key);
+					notify.style.fontSize = '0.9em';
+					notify.style.color = 'darkred';
+					notify.innerHTML = jsonObj[key];		
+				}
+				
 			}
 		}
 	}

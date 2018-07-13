@@ -23,3 +23,5 @@
 
 -> ajaxCheckModifiedAllFile.js
     -> aggiungere conferma pw
+
+-> aggiornamento foto in fase di scelta ne campio dati 
