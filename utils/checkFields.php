@@ -14,6 +14,10 @@
 		return mysqli_real_escape_string($conn, trim($data));
 	}
 
+	function sanitizeToHtml($inputSent){
+		return htmlspecialchars(stripslashes(trim($inputSent))); 
+	}
+
 	function checkMinLength($string, $min) {
 		return strlen($string) >= $min;
 	}
