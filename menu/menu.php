@@ -2,6 +2,10 @@
 
 <div id="menu" onmouseover="showItem('menu');" onmouseout="hideItem('menu');" onClick="hideItem('menu');">
     <div id="optionMenu">
-        <button class="buttonMenu" onClick="showViewProfile()">Profilo</button>
+        <a href="#">
+            <button class="buttonMenu" onClick="showViewProfile()">
+                Profilo
+            </button>
+        </a>
     </div>
 </div>

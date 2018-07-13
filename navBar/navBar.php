@@ -19,26 +19,33 @@
                             <span class="d-inline d-md-none">Menu</span>
                         </a>
                     </li>
-                <?php } ?>
-                <li class="nav-item active ">
-                    <a class="nav-link" href="#" onClick="myCollapseHide()">
-                        <i class="fas fa-home" ></i>
-                        <span class="d-inline d-md-none">Home</span>
-                    </a>
-                
-                <?php if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) { ?>
-
+                    <li class="nav-item active ">
+                        <a class="nav-link" href="#" onClick="myCollapseHide();showHome();">
+                            <i class="fas fa-home" ></i>
+                            <span class="d-inline d-md-none">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#contactUs" onClick="myCollapseHide()">Contattaci</a>
+                    </li>
                 <?php  }else{ ?>
+                    <li class="nav-item active ">
+                        <a class="nav-link" href="#" onClick="myCollapseHide()">
+                            <i class="fas fa-home" ></i>
+                            <span class="d-inline d-md-none">Home</span>
+                        </a>
+                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#DettagliSito" onClick="myCollapseHide()">Chi Siamo</a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#RicercaMappa" onClick="myCollapseHide()">
+                            <i class="fas fa-search"></i>
+                            Trova
+                        </a>
+                    </li>
                 <?php } ?>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#RicercaMappa" onClick="myCollapseHide()">
-                        <i class="fas fa-search"></i>
-                        Trova
-                    </a>
-                </li>
+                
             
             </ul>
         </div>
