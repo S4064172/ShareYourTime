@@ -33,7 +33,6 @@ function checkModifiedAllField(idWait,userCheck,mailCheck,phoneCheck)
     formData.append(htmlTagSurname.name, htmlTagSurname.value);
     formData.append(htmlTagAddress.name, htmlTagAddress.value);
     formData.append(htmlTagPhone.name, htmlTagPhone.value);
-    formData.append(htmlTagPhone.name, htmlTagPhone.value);
     formData.append('checkUser', userCheck);
     formData.append('checkEmail', mailCheck);
     formData.append('checkPhone', phoneCheck);

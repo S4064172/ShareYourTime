@@ -84,12 +84,14 @@
 				$result['errPhoneModified']="Il telefono inserito non è valido !";
 	}
 
-	if(!check_POST_IsSetAndNotEmpty($_POST['photo'])) {
+
+	if( empty($_FILES) ) {
 		if($_POST['registration']=='0')
 			$result['errPhoto'] = "File non valido";
 	}else{
 		//Controlli sulla foto 
 		$path = '../profile_imgs/' . $_POST['user'] . '.jpg';
+		
 		
 		$imageFileType = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
 
@@ -105,7 +107,7 @@
 				else
 					$result['errPhotoModified'] = 'Formato della foto non valido';
 			else
-				if ( !move_uploaded_file($_FILES['photo']['tmp_name'], $path) ) 
+				if ( !move_uploaded_file($_FILES['photo']['tmp_name'], '../'.$path) ) 
 					if($_POST['registration']=='0')
 						$result['errPhoto'] = basename( $_FILES['photo']['name']). ' non e\' stato caricato.';
 					else
