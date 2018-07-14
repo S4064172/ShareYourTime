@@ -154,7 +154,7 @@ function validateCheckGenericAllField(idWait, request)
 				}
 				if( jsonObj == 1 ){
 					disableChanges();
-					window.location.href = 'homepage.php';
+					window.location.href = 'viewProfile.php';
 					return;
 				}
 		

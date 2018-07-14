@@ -48,10 +48,7 @@ section {
 	padding-top: 10vh;
 }
 
-#viewProfile{
-	display: none;
-	min-height: 100vh;
-}
+
 
 .myContainerPageToView{
 	min-height: 100vh;
