@@ -12,7 +12,7 @@ function checkLoginAllField(idUser,IdPws,IdErrLog,idWait)
 {
 	showItem(idWait);
 	var request = getRequest();
-	request.open("POST", "modalRegistrazione-Login/checkLoginAllField.php", true);	
+	request.open("POST", "../modalRegistrazione-Login/checkLoginAllField.php", true);	
 	request.onreadystatechange = validateCheckLoginAllField(IdErrLog, idWait, request);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	var htmlTagUser = document.getElementById(idUser);
@@ -34,6 +34,7 @@ function validateCheckLoginAllField(idErrField, idWait, request)
 		hideItem(idWait);
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
+				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
 				var notify = document.getElementById(idErrField);
 				notify.style.fontSize = '0.9em';
@@ -42,7 +43,7 @@ function validateCheckLoginAllField(idErrField, idWait, request)
 					notify.innerHTML = jsonObj['msg'];
 					return
 				}				
-				window.location.href = 'homepage.php';
+				window.location.href = '../homepage/homepage.php';
 				
 			}
 		}

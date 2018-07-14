@@ -1,4 +1,6 @@
 <?php
+	require_once('../db/connection.php');
+
 	function check_POST_IsSetAndNotEmpty($field) 
 	{
 		return isset($_POST["$field"]) && !empty($_POST["$field"]);

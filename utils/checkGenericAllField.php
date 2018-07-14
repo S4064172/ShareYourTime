@@ -92,7 +92,7 @@
 			$result['errPhoto'] = "File non valido";
 	}else{
 		//Controlli sulla foto 
-		$path = '../profile_imgs/' . $_POST['user']. '.jpg';
+		$path = '../../profile_imgs/' . $_POST['user']. '.jpg';
 		
 		
 		$imageFileType = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));

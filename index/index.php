@@ -4,9 +4,10 @@
     }
 
 	if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) {
-        header("Location: homepage.php");
+        header("Location: ../homepage/homepage.php");
 	}
 ?>
+
 <!DOCTYPE html>
 <html>
  	<head>
@@ -30,7 +31,7 @@
 				<div class="col-3 col-md-6 offset-4 offset-sm-6">
 					<div id="myTitleCOntaitner">
 						<h1 class="text-center myTitle">Share Your<br>Time<br>
-							<a id="xxx" href="#DettagliSito" class="btn btn-scroll titleBtn">Scopri di pi&#249; !</a>
+							<a href="#DettagliSito" class="btn btn-scroll titleBtn">Scopri di pi&#249; !</a>
 						</h1>
 					</div>
 				</div>
@@ -98,7 +99,7 @@
 			
 	</section>
 
-	<?php require('footer/footer.php'); ?>
+	<?php require('../footer/footer.php'); ?>
 	 
 	<!-- BOOTSTRAP -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">

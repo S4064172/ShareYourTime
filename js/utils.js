@@ -62,7 +62,7 @@ function cleanErr(id){
 function checkGenericSingleField(idField,idErrField,registrationOrModified,checkField)
 {
 	var request = getRequest();
-	request.open("POST", "utils/checkGenericSingleField.php", true);	
+	request.open("POST", "../utils/checkGenericSingleField.php", true);	
 	request.onreadystatechange = validateCheckGenericSingleField(idErrField, request);	
 	var formData = new FormData();
 	var htmlTag = document.getElementById(idField);
@@ -149,12 +149,12 @@ function validateCheckGenericAllField(idWait, request)
 			if (request.responseText != null) {
 				var jsonObj = JSON.parse(request.responseText);
 				if(jsonObj == 0){
-					window.location.href = 'homepage.php';
+					window.location.href = '../homepage/homepage.php';
 					return;
 				}
 				if( jsonObj == 1 ){
 					disableChanges();
-					window.location.href = 'viewProfile.php';
+					window.location.href = '../viewProfile/viewProfile.php';
 					return;
 				}
 		

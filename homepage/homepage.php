@@ -4,7 +4,7 @@
 	}
 	
 	if ( !isset($_SESSION['user']) || empty($_SESSION['user']) ) {
-        header("Location: index.php");
+        header("Location: ../index/index.php");
 	}
 ?>
 <!DOCTYPE html>

@@ -13,7 +13,7 @@ function checkRegistrationAllField(idWait)
 {
 	showItem(idWait)
 	var request = getRequest();
-	request.open("POST", "utils/checkGenericAllField.php", true);	
+	request.open("POST", "../utils/checkGenericAllField.php", true);	
 	request.onreadystatechange = validateCheckGenericAllField(idWait, request);
 	
     var formData = new FormData();

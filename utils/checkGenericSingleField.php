@@ -169,7 +169,7 @@
 				echo json_encode(array('code' => -1, 'msg' => basename( $_FILES['photo']['name']). ' non e\' stato caricato.' ));
 				return;	
 		}
-		echo json_encode(array('code' => 1, 'msg' => $path));
+		echo json_encode(array('code' => 1, 'msg' => "../".$path));
 		return;
 					
 	}
