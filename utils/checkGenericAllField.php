@@ -84,12 +84,14 @@
 				$result['errPhoneModified']="Il telefono inserito non è valido !";
 	}
 
-	if(!check_POST_IsSetAndNotEmpty($_POST['photo'])) {
+
+	if( empty($_FILES) ) {
 		if($_POST['registration']=='0')
 			$result['errPhoto'] = "File non valido";
 	}else{
 		//Controlli sulla foto 
-		$path = '../../profile_imgs/' . $_POST['user'] . '.jpg';
+		$path = '../profile_imgs/' . $_POST['user'] . '.jpg';
+		
 		
 		$imageFileType = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
 
@@ -105,7 +107,7 @@
 				else
 					$result['errPhotoModified'] = 'Formato della foto non valido';
 			else
-				if ( !move_uploaded_file($_FILES['photo']['tmp_name'], $path) ) 
+				if ( !move_uploaded_file($_FILES['photo']['tmp_name'], '../'.$path) ) 
 					if($_POST['registration']=='0')
 						$result['errPhoto'] = basename( $_FILES['photo']['name']). ' non e\' stato caricato.';
 					else
@@ -124,6 +126,7 @@
 											$_POST['name'], $_POST['surname'],
 											$_POST['telephone'], $_POST['email'],
 											$_POST['address'], $path);
+		$result=$_POST['registration'];
 		}else{
 			if( check_POST_IsSetAndNotEmpty('psw') )
 				updataInto_ShareYourUserTime(	$_POST['user'], $_POST['psw'],
@@ -135,7 +138,12 @@
 													$_POST['name'], $_POST['surname'],
 													$_POST['phone'], $_POST['email'],
 													$_POST['address'], $_POST['checkUser']);
-			
+			$result=$_POST['registration'];
+			session_start();
+			session_unset();
+			session_destroy();
+			session_start();
+			$_SESSION['user'] = $_POST['user'];
 		}
 	}
 

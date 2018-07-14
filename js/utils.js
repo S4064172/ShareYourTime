@@ -32,6 +32,7 @@ function hideItem(idItem){
 	document.getElementById(idItem).style.display = "none"; 
 }
 
+
 /** @description
 *	Questa funzione ci permette
 *	di "ripulire" il taghtml
@@ -137,17 +138,19 @@ function validateCheckGenericAllField(idWait, request)
 		hideItem(idWait)
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
-				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
-				if(jsonObj.length==0){
+				if(jsonObj == 0){
 					window.location.href = 'homepage.php';
 					return;
-				}
-				for(var key in jsonObj){
-					var notify = document.getElementById(key);
-					notify.style.fontSize = '0.9em';
-					notify.style.color = 'darkred';
-					notify.innerHTML = jsonObj[key];
+				}else
+					if(jsonObj == 1){
+						disableChanges();
+					}else
+						for(var key in jsonObj){
+							var notify = document.getElementById(key);
+							notify.style.fontSize = '0.9em';
+							notify.style.color = 'darkred';
+							notify.innerHTML = jsonObj[key];
 				}
 			}
 		}

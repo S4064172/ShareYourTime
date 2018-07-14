@@ -1,3 +1,5 @@
+-> controlli lato database
+
 -> checkRegistrationAllField.php, checkRegistrationSingleField,php
     -> mancano i controlli sull'esistenza o meno dell'indirizzo
 
@@ -16,9 +18,6 @@
 
 -> funzioni chiamata da html con passaggi parametri
     -> possibile mettere conrolli anti manomissione
-
--> controllo sulla modifica
-    -> trovare un modo per controllare che il modificato sia presente nel db
 
 -> controlli sulle vaire funzioni del db
 

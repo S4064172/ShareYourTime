@@ -3,7 +3,7 @@
     require_once('db/connection.php');
 
     $conn = connectionToDb();
-    $getInfoUserQuery = "SELECT User,Name,Surname,Phone,Email,Street FROM ShareYourUsersTime where user='".$_SESSION['user']."'";
+    $getInfoUserQuery = "SELECT User,Name,Surname,Phone,Email,Street,Photo FROM ShareYourUsersTime where user='".$_SESSION['user']."'";
     if ( !($res = mysqli_query($conn, $getInfoUserQuery)) ) 
                 die('Errore nella selezione dei lavori');
     $row = mysqli_fetch_array($res);
@@ -23,12 +23,17 @@
     
     <div class="row">
         <div class="col-lg-4">
-        <h1>Foto Profilo</h1>
-                <div class="fieldHide" id="imgModified">
-                    <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="file" id="photoModified" name="photo" accept=".png, .jpg, .jpeg" required>
-                    <p id="errPhotoModified"></p>
+            <div class="card text-center" style="width:400px">
+                <img class="card-img-top" src='<?php echo $row['Photo']?>' alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title" id="imgName"><?php echo ($row['Name'].' '. $row['Surname']) ?></h4>
                 </div>
+            </div>
+            <div class="fieldHide" id="imgModified">
+                <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="file" id="photoModified" name="photo" accept=".png, .jpg, .jpeg" required>
+                <p id="errPhotoModified"></p>
+            </div>
         </div>  
         <div class="col-lg-8">
             <div class="MyContainer">
@@ -104,12 +109,12 @@
 
                 <div class="row text-center">
                     <div class="col-md-6">
-                        <button class="btn btn-primary mb-2 mb-sm-0" id="bntModify" onClick="hideItem('bntModify');showItem('bntSave');showItem('pswLabel');showItem('pswModified');showItem('imgModified');removeReadOnly();">Modifica</button>
+                        <button class="btn btn-primary mb-2 mb-sm-0" id="bntModify" onClick="enableChanges()">Modifica</button>
                         <button class="btn btn-primary fieldHide mb-2 mb-sm-0" id="bntSave" onClick="checkModifiedAllField('waitRegistration','<?php echo $row['User'] ?>','<?php echo $row['Email'] ?>','<?php echo $row['Phone'] ?>');">Salva</button>
-                        <!--hideItem('bntSave');showItem('bntModify');hideItem('pswLabel');hideItem('pswModified');hideItem('imgModified');addReadOnly();-->
+                        
                     </div>
                     <div class="col-md-6">
-                       <button class="btn btn-success" onClick="hideItem('pswLabel');hideItem('pswModified');addReadOnly();showHome();" id="bntExit">Esci</button>
+                       <button class="btn btn-success" onClick="showHome();disableChanges();" id="bntExit">Esci</button>
                     </div>
                 </div>
 

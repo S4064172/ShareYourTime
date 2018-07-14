@@ -23,6 +23,7 @@
  *  readonly dai campi
  *  in gestione profilo
  */
+
 function addReadOnly() {
     document.getElementById("userModified").readOnly = true;
     document.getElementById("emailModified").readOnly = true;
@@ -32,3 +33,38 @@ function addReadOnly() {
     document.getElementById("addressModified").readOnly = true;
     document.getElementById("phoneModified").readOnly = true;
  }
+
+ /** @description
+  *  questa funzione permette
+  *  di abilitare la modifica
+  *  del profilo sbloccando 
+  *  tutti i campi necessarri
+  */
+
+ function enableChanges(){
+    hideItem('bntModify');
+    showItem('bntSave');
+    showItem('pswLabel');
+    showItem('pswModified');
+    showItem('imgModified');
+    removeReadOnly();
+ }
+
+ /** @description
+  *  questa funzione permette
+  *  di disabilitare la modifica
+  *  del profilo bloccando 
+  *  tutti i campi necessarri
+  */
+ function disableChanges(){
+    document.getElementById('imgName').innerHTML=   document.getElementById('nameModified').value+" "+
+                                                    document.getElementById('surnameModified').value;
+    hideItem('bntSave');
+    showItem('bntModify');
+    hideItem('pswLabel');
+    hideItem('pswModified');
+    hideItem('imgModified');
+    addReadOnly();
+ }
+
+ 
