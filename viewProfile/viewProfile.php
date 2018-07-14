@@ -4,8 +4,10 @@
 	}
 	
 	if ( !isset($_SESSION['user']) || empty($_SESSION['user']) ) {
-       // header("Location: ../index.php");
+       header("Location: ../index/index.php");
 	}
+
+    $_SESSION['page']="viewprofile";
 
     require_once('../utils/dataBaseConstant.php');
     require_once('../utils/checkFields.php');
@@ -28,7 +30,8 @@
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
 		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
         <link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
-		<link rel="stylesheet" type="text/css" href="../viewProfile/viewProfile.css"/>
+        <link rel="stylesheet" type="text/css" href="viewProfile.css"/>
+        <link rel="stylesheet" type="text/css" href="../contactUs/contactUs.css"/>
 
 	</head>
 	
@@ -153,7 +156,9 @@
             </div>
         </section>
 
-     <?php require ('../footer/footer.php'); ?>
+        <?php require ('../contactUs/contactUs.php'); ?>
+
+        <?php require ('../footer/footer.php'); ?>
 
         <!-- BOOTSTRAP -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
