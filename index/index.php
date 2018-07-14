@@ -10,19 +10,19 @@
 <!DOCTYPE html>
 <html>
  	<head>
-    	<?php require ('header/header.html'); ?>
+    	<?php require ('../header/header.html'); ?>
     	<link rel="stylesheet" type="text/css" href="index.css"/>
-	    <link rel="stylesheet" type="text/css" href="navBar/navBar.css"/> 
-		<link rel="stylesheet" type="text/css" href="footer/footer.css"/>
-		<link rel="stylesheet" type="text/css" href="modalRegistrazione-Login/login-registrazione.css"/>
-		<link rel="stylesheet" type="text/css" href="last5.css"/>
-		<link rel="stylesheet" type="text/css" href="optionMapSearch/optionMapSearch.css"/>
+	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
+		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="../modalRegistrazione-Login/login-registrazione.css"/>
+		<link rel="stylesheet" type="text/css" href="../last5.css"/>
+		<link rel="stylesheet" type="text/css" href="../optionMapSearch/optionMapSearch.css"/>
 
 	</head>
 	
 	<body>
 
-    <?php require ('navBar/navBar.php'); ?>
+    <?php require ('../navBar/navBar.php'); ?>
 	
 	<section id="homeView">
 		<div class="myContainer">
@@ -38,10 +38,10 @@
 		</div>
 
 		<!-- Login a scomparsa -->	
-	  	<?php require ('modalRegistrazione-Login/login.php'); ?>
+	  	<?php require ('../modalRegistrazione-Login/login.php'); ?>
 
 		<!-- Sign-up a scomparsa -->	
-	  	<?php require ('modalRegistrazione-Login/registration.php'); ?>
+	  	<?php require ('../modalRegistrazione-Login/registration.php'); ?>
     
 	</section>
 	
@@ -80,7 +80,7 @@
 		<div class="myContainer text-center">
 			<h1><b>Cosa proponiamo</b></h1>
 			<br>	
-			<?php require ('last5.php'); ?>		
+			<?php require ('../last5.php'); ?>		
 		</div>
 	</section>
 	
@@ -91,7 +91,7 @@
 		</div>
 		<div class="myContainer">
 			
-			<?php require_once('optionMapSearch/optionMapSearch.php')?>
+			<?php require_once('../optionMapSearch/optionMapSearch.php')?>
 
 			<div class="mb-2" id="googleMap" ></div>
 		</div>
@@ -107,14 +107,14 @@
   
 	
 	
-	<script type="text/javascript" src="js/navBar.js"></script>
-	<script type="text/javascript" src="js/googleMaps.js"></script>
-	<script type="text/javascript" src="js/utils.js"></script>
-	<script type="text/javascript" src="js/ajaxCheckRegistrationAllField.js"></script>
-	<script type="text/javascript" src="js/ajaxCheckLoginAllField.js"></script>
-	<script type="text/javascript" src="js/ajaxCheckSearchOptionMap.js"></script>
+	<script type="text/javascript" src="../js/navBar.js"></script>
+	<script type="text/javascript" src="../js/googleMaps.js"></script>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/ajaxCheckRegistrationAllField.js"></script>
+	<script type="text/javascript" src="../js/ajaxCheckLoginAllField.js"></script>
+	<script type="text/javascript" src="../js/ajaxCheckSearchOptionMap.js"></script>
 
-	<?php require('googleAPIkey.html') ?>
+	<?php require('../googleAPIkey.html') ?>
 
 	</body>
 </html>
