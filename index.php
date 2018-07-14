@@ -20,8 +20,13 @@
 
 	</head>
 	
-	<body>
+<noscript>
+	<div style="position: fixed; height: 100vh; width: 100%; background-color: white; z-index: 10000 !important;">
+		<h1 style="text-align: center; font-size:100px;">ABILITA JAVASCRIPT E RICARICA LA PAGINA</h1>
+	</div>
+</noscript>
 
+	<body>
     <?php require ('navBar/navBar.php'); ?>
 	
 	<section id="homeView">
