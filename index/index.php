@@ -52,7 +52,7 @@
 				<h1><b>Share Your Time</b></h1>
 				<br>
 				<div class="row">
-					<div class="col-sm-4 border-right">
+					<div class="col-md-4 border-right">
 						<p class="myDescription">
 							In <i>ShareYourTime</i> puoi mettere a disposizione
 							<br>il tuo tempo per svolgere lavori utili agli altri.
@@ -60,14 +60,14 @@
 							<br>e proporli a tua volta !
 						</p>
 					</div>
-					<div class="col-sm-4"> 
+					<div class="col-md-4"> 
 						<p class="myDescription">
 							Hai esperienza in un particolare settore ? 
 							<br> Cerchi di mettere qualche soldo da parte ? 
 							<br> Sei la persona che fa per noi !
 						</p> 
 					</div>
-					<div class="col-sm-4 border-left">
+					<div class="col-md-4 border-left">
 						 <p class="myDescription"> 
 							La prima piattaforma italiana di <i>Time Sharing</i> 
 						</p>
@@ -78,7 +78,7 @@
 
 
 	<section id="TabellaLast5">
-		<div class="myContainer text-center">
+		<div class="myContainer text-center pt-5">
 			<h1><b>Cosa proponiamo</b></h1>
 			<br>	
 			<?php require ('../table/last5.php'); ?>		

@@ -20,4 +20,13 @@
         </a>
     </div>
     <?php } ?>
+    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="jobs") {?>
+    <div>
+        <a href="">
+            <button class="buttonMenu">
+                Gestisci i tuoi lavori
+            </button>
+        </a>
+    </div>
+    <?php } ?>
 </div>
