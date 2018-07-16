@@ -12,6 +12,7 @@
     <div>
         <div class="collapse navbar-collapse navbarTogglerSignupLogin">
             <ul class="navbar-nav">
+
                 <?php if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) { ?>
                     <li class="nav-item active ">
                         <a class="nav-link" id="clickable" onClick="showOrHideMenu('menu');myCollapseHide();">
@@ -20,7 +21,7 @@
                         </a>
                     </li>
                     <li class="nav-item active ">
-                        <a class="nav-link" href="#" onClick="myCollapseHide();">
+                        <a class="nav-link" href="../homepage/homepage.php" onClick="myCollapseHide();">
                             <i class="fas fa-home" ></i>
                             <span class="d-inline d-md-none">Home</span>
                         </a>
@@ -28,9 +29,11 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#contactUs" onClick="myCollapseHide()">Contattaci</a>
                     </li>
+
                 <?php  }else{ ?>
+
                     <li class="nav-item active ">
-                        <a class="nav-link" href="#" onClick="myCollapseHide()">
+                        <a class="nav-link" href="../index/index.php" onClick="myCollapseHide()">
                             <i class="fas fa-home" ></i>
                             <span class="d-inline d-md-none">Home</span>
                         </a>
@@ -44,6 +47,7 @@
                             Trova
                         </a>
                     </li>
+
                 <?php } ?>
                 
             
@@ -52,11 +56,7 @@
     </div>
     
     <div class="d-none d-md-inline">
-        <?php if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) {?>
-            <a class="navbar-brand mt-0" href="../homepage/homepage.php">
-        <?php }else{ ?>
-            <a class="navbar-brand mt-0" href="../index/index.php">
-        <?php  }  ?>
+            <a class="navbar-brand mt-0" href="#">
             <img src="../img/Time1.png" class="sizeTitle">
             ShareYourTime
         </a>

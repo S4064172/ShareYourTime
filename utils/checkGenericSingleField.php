@@ -146,13 +146,8 @@
 
 
 	//Controlli sulla foto
-	if( empty($_FILES) ) {
-		if($_POST['registration'] === '0'){
-			echo json_encode(array('code' => -1, 'msg' => 'File non valido !' ));
-			return;
-		}
-	}else{
-			
+	if( !empty($_FILES) ) {
+				
 		$imageFileType = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
 		$path = '../profile_imgs/' . $_POST['oldField'].'_temp.jpg';
 

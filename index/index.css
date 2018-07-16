@@ -24,7 +24,7 @@ section {
 
 #homeView {
 	min-height: 100%;
-	background-image: url("img/SfondoTime.jpeg");
+	background-image: url("../img/SfondoTime.jpeg");
 	background-attachment: fixed; 
 	background-position: center;
 	background-repeat: no-repeat;

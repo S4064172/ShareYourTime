@@ -146,7 +146,7 @@
                                     
                                 </div>
                                 <div class="col-md-6">
-                                <a href="../homepage.php"><button class="btn btn-success" onClick="disableChanges();" id="bntExit">Esci</button></a>
+                                <a href="../homepage/homepage.php"><button class="btn btn-success" onClick="disableChanges();" id="bntExit">Esci</button></a>
                                 </div>
                             </div>
 
