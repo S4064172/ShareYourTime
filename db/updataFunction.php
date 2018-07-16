@@ -20,7 +20,7 @@
 		$email = sanitizeToSql($email, $conn);
         $street = sanitizeToSql($street, $conn);
 
-        $path_temp = '../profile_imgs/'.$usr.'.jpg';
+        $path_temp = '../../profile_imgs/'.$usr.'.jpg';
 
         if( $psw != null ){
             $psw = sha1(sanitizeToSql($psw, $conn));
@@ -65,7 +65,7 @@
         if ( file_exists('../../profile_imgs/'.$fieldFilter.'_temp.jpg') )
             unlink('../../profile_imgs/'.$fieldFilter.'_temp.jpg');
         
-        rename('../../profile_imgs/'.$fieldFilter.'.jpg', "../".$path_temp);
+        rename('../../profile_imgs/'.$fieldFilter.'.jpg', $path_temp);
         
         /*echo("La tupla e' stata inserita correttamente<br>");*/
         return;

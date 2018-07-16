@@ -16,8 +16,8 @@ function checkOptionSearchMap()
 	var htmlTagStreet = document.getElementById('optionMapStreet');
     var htmlTagCost = document.getElementById('optionMapCost');
     var htmlTagDistance = document.getElementById('optionMapDistance');
-    var htmlTag = document.getElementById('optionMapTag');
-    console.log("----dati mappa----");
+	var htmlTag = document.getElementById('optionMapTag');
+	
     console.log( htmlTagStreet.name + "=" + htmlTagStreet.value);
     console.log( htmlTagCost.name+ "=" +htmlTagCost.value);
     console.log( htmlTagDistance.name+ "=" +htmlTagDistance.value );
@@ -40,9 +40,7 @@ function validateCheckOptionSearchMap(request)
 	return function(){
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
-				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
-				
 				for(var key in jsonObj){
 					var notify = document.getElementById(key);
 					notify.style.color = 'darkred';

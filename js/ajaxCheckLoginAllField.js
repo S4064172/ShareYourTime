@@ -7,6 +7,7 @@
 *	i campi che l'utente ha inserito.  
 *	Viene utilizzata una chiamata ajax
 *	per rimanere nella stessa pagina
+*	in caso di errore
 */
 function checkLoginAllField(idUser,IdPws,IdErrLog,idWait)
 {

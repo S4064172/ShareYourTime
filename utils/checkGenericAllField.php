@@ -109,7 +109,7 @@
 				else
 					$result['errPhotoModified'] = 'Formato della foto non valido';
 			else
-				if ( !move_uploaded_file($_FILES['photo']['tmp_name'], '../'.$path) ) 
+				if ( !move_uploaded_file($_FILES['photo']['tmp_name'], $path) ) 
 					if($_POST['registration']=='0')
 						$result['errPhoto'] = basename( $_FILES['photo']['name']). ' non e\' stato caricato.';
 					else
