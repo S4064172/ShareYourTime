@@ -18,6 +18,7 @@
 		<link rel="stylesheet" type="text/css" href="homepage.css"/>
 		<link rel="stylesheet" type="text/css" href="../contactUs/contactUs.css"/>
 		<link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
+		<link rel="stylesheet" type="text/css" href="../table/table.css"/>
 	</head>
 	
 	<body>
@@ -27,9 +28,36 @@
 
 		<section id="home" onClick="hideItem('menu');">
 			<?php require_once("../menu/menu.php"); ?>
+
+			<div class="myContainer">
+				<div cass="row">
+					<div class="col-3 col-md-6">
+						<div id="myTitleContaitner">
+							<h1 class="text-center myTitle">Bentornato<br>Kenny<br>
+								<a href="#job" class="btn btn-scroll titleBtn">Vai ai tuoi lavori !</a>
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</section>
 
-			
+		<section id="job" class="jobs" onClick="hideItem('menu');">
+			<div class="myContainer text-center titleSessionTesto">
+				<h1><b>I tuoi lavori</b></h1>
+				<br>	
+				<?php require ('../table/last5.php'); ?>		
+			</div>
+		</section>
+
+		<section class="jobs" onClick="hideItem('menu');">
+			<div class="myContainer text-center">
+				<h1><b>I tuoi impegni</b></h1>
+				<br>	
+				<?php require ('../table/last5.php'); ?>		
+			</div>
+		</section>
 
 		<?php require ('../contactUs/contactUs.php'); ?>
 

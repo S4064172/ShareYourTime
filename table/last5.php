@@ -9,7 +9,7 @@
 	</thead>
 	<tbody>
 		<?php
-			require_once('db/connection.php');
+			require_once('../db/connection.php');
 
 			$getJobsQuery = "SELECT * FROM ShareYourJobsTime ORDER BY TimeStart LIMIT 5";
 			$conn = connectionToDb();

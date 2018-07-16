@@ -16,7 +16,7 @@
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
 		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="../modalRegistrazione-Login/login-registrazione.css"/>
-		<link rel="stylesheet" type="text/css" href="../last5.css"/>
+		<link rel="stylesheet" type="text/css" href="../table/table.css"/>
 		<link rel="stylesheet" type="text/css" href="../optionMapSearch/optionMapSearch.css"/>
 
 	</head>
@@ -29,7 +29,7 @@
 		<div class="myContainer">
 			<div cass="row">
 				<div class="col-3 col-md-6 offset-4 offset-sm-6">
-					<div id="myTitleCOntaitner">
+					<div id="myTitleContaitner">
 						<h1 class="text-center myTitle">Share Your<br>Time<br>
 							<a href="#DettagliSito" class="btn btn-scroll titleBtn">Scopri di pi&#249; !</a>
 						</h1>
@@ -81,7 +81,7 @@
 		<div class="myContainer text-center">
 			<h1><b>Cosa proponiamo</b></h1>
 			<br>	
-			<?php require ('../last5.php'); ?>		
+			<?php require ('../table/last5.php'); ?>		
 		</div>
 	</section>
 	
