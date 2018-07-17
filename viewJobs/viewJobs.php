@@ -36,19 +36,49 @@
 	</head>
 	
 	<body>
-
-        <?php require ('../navBar/navBar.php'); ?>
+        <?php require_once("../cardjobs/showAllCard.php");?>
+        <?php require_once ('../navBar/navBar.php'); ?>
 
         <section class="viewJobs" onClick="hideItem('menu');">
 
             <?php require_once("../menu/menu.php"); ?>
             
             <div class="myContainer text-center titleSessionTesto">
-				<h1><b>Tutti i tuoi impegni</b></h1>
+				<h1><b>I tuoi impegni</b></h1>
 				<br>	
-  
-			</div>
-   
+                <?php 
+                    //tutti i lavori inseriti da user che sono stati accettati da altri utenti ancora validi
+                    showJobs("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and Receiver is not NULL and TimeStart > NOW() ORDER BY TimeStart", 0); 
+                ?>
+            </div>
+            
+            
+        </section>
+
+        <section class="viewJobs" onClick="hideItem('menu');">
+
+
+        <div class="myContainer text-center titleSessionTesto">
+            <h1><b>Le tue disponibilit&agrave;</b></h1>
+            <br>	
+            <?php 
+                //tutti i lavori inseriti da user che non sono stati accettati da altri utenti ancora validi
+                showJobs("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and Receiver is NULL and TimeStart > NOW() ORDER BY TimeStart", 0);
+            ?>
+        </div>
+
+
+        </section>
+
+        <section class="viewJobs" onClick="hideItem('menu');">
+            <div class="myContainer text-center titleSessionTesto">
+                <h1><b>Lavori passati</b></h1>
+                <br>	
+                <?php 
+                    //tutti i lavori inseriti da user che non sono validi
+                    showJobs("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and TimeStart < NOW() ORDER BY TimeStart", 0); 
+                ?>
+            </div>
         </section>
 
 

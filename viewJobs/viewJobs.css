@@ -1,3 +1,5 @@
+
+
 body, html {
 	/*font-family: Sans-Serif;*/
 	height: 100%;
@@ -28,5 +30,24 @@ section {
 
 
 .titleSessionTesto {
-	padding-top: 10vh;
+	padding-top: 6em;
+}
+
+@media (min-width: 576px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+
+@media (min-width: 1000px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 1700px) {
+    .card-columns {
+        column-count: 5;
+    }
 }

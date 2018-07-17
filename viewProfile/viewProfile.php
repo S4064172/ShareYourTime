@@ -43,7 +43,7 @@
 
             <?php require_once("../menu/menu.php"); ?>
 
-            <div class="myContainerPageToView">
+            <div class="titleSessionTesto">
                 <div class="wait" id="waitRegistration">
                     <img class="imgWait" src="img/sandclock.png">
                 </div>
@@ -68,7 +68,7 @@
                         </div>
                     </div>  
                     <div class="col-lg-8">
-                        <div class="MyContainer">
+                        <div class="myContainer">
                             <div class="row">
                                 <div class="col-md-6">
                                     <label class="labelText"><b>Username</b></label>

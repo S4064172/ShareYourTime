@@ -66,8 +66,6 @@
             unlink('../../profile_imgs/'.$fieldFilter.'_temp.jpg');
         
         rename('../../profile_imgs/'.$fieldFilter.'.jpg', $path_temp);
-        
-        return;
     }
     
 
@@ -81,9 +79,8 @@
         
         $updateQuery =  "UPDATE ShareYourJobsTime SET ". 
                         "$fieldToUpdate = ?  ".
-                        "WHERE IdJob='$fieldToSearch';";
-
-                        
+                        "WHERE IdJob = $fieldToSearch ;";
+    
         if ( !($update_prep_stmt = mysqli_prepare($conn, $updateQuery)) )
             die ("Errore nella preparazione della query<br>");
         if ( !mysqli_stmt_bind_param($update_prep_stmt, "s", $fieldValue) )
@@ -92,5 +89,4 @@
         upDataAndCheck($update_prep_stmt);
         mysqli_stmt_close($update_prep_stmt);
         mysqli_close($conn);        
-        return;
 	}
