@@ -67,9 +67,30 @@
         
         rename('../../profile_imgs/'.$fieldFilter.'.jpg', $path_temp);
         
-        /*echo("La tupla e' stata inserita correttamente<br>");*/
         return;
-		
-		
-		
+    }
+    
+
+    function updataInto_ShareYourJobsTime($fieldToUpdate, $fieldValue, $fieldToSearch) {
+		$conn = connectionToDb();
+
+		$fieldToUpdate = sanitizeToSql($fieldToUpdate, $conn);
+        $fieldValue = sanitizeToSql($fieldValue, $conn);
+        $fieldToSearch = sanitizeToSql($fieldToSearch, $conn);
+		        
+        
+        $updateQuery =  "UPDATE ShareYourJobsTime SET ". 
+                        "$fieldToUpdate = ?  ".
+                        "WHERE IdJob='$fieldToSearch';";
+
+                        
+        if ( !($update_prep_stmt = mysqli_prepare($conn, $updateQuery)) )
+            die ("Errore nella preparazione della query<br>");
+        if ( !mysqli_stmt_bind_param($update_prep_stmt, "s", $fieldValue) )
+            die ("Errore nell'accoppiamento dei parametri<br>");
+        
+        upDataAndCheck($update_prep_stmt);
+        mysqli_stmt_close($update_prep_stmt);
+        mysqli_close($conn);        
+        return;
 	}

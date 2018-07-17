@@ -26,10 +26,13 @@
                             <span class="d-inline d-md-none">Home</span>
                         </a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#contactUs" onClick="myCollapseHide()">Contattaci</a>
-                    </li>
 
+                    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']=="viewjobs") {?>
+                    <?php }else{ ?>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#contactUs" onClick="myCollapseHide()">Contattaci</a>
+                        </li>
+                    <?php } ?>
                 <?php  }else{ ?>
 
                     <li class="nav-item active ">

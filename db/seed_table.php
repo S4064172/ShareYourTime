@@ -1,5 +1,6 @@
 <?php
 	require_once("insertFunctions.php");
+	require_once("updataFunctions.php");
 
 	//Test
 	$now = date('Y-m-d');
@@ -31,6 +32,11 @@
 	insertInto_ShareYourJobsTime("Taglio il prato e gli alberi che ostacolano la strada", 50, $time4S, $time4E, $days2, 10, "DEFAULT", "via ferragiana", 66.45, 39.74, "pippo");
 	insertInto_ShareYourJobsTime("Preparo pranzo a domicilio", 15, $time5S, $time5E, $days6, 1, "DEFAULT", "corso viglienzoni", 7.56, 8.94, "kenny");
 	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti", 60, $time6S, $time6E, $days2, 2, "DEFAULT", "via gramsci", 55.99, 23.31, "pippo");
+
+
+	updataInto_ShareYourJobsTime('Receiver','kenny' , 1);
+	updataInto_ShareYourJobsTime('Receiver', 'kenny', 3);
+	updataInto_ShareYourJobsTime('Receiver', 'pippo', 2);
 
 	insertInto_ShareYourTagsTime("INFORMATICA");
 	insertInto_ShareYourTagsTime("IDRAULICA");

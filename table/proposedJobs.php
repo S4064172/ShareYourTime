@@ -1,9 +1,9 @@
-<table class="myTable" id="last5" onload="populateTable(myTable)">
+<table class="myTable" id="" onload="populateTable(myTable)">
     
     <?php
         require_once('../db/connection.php');
         $user = $_SESSION['user'];
-        $getJobsQuery = "SELECT * FROM ShareYourJobsTime where Proposer = '$user' and Receiver <> null ORDER BY TimeStart LIMIT 5";
+        $getJobsQuery = "SELECT * FROM ShareYourJobsTime where Proposer = '$user' and Receiver is not NULL ORDER BY TimeStart LIMIT 5";
         $conn = connectionToDb();
         
         if ( !($res = mysqli_query($conn, $getJobsQuery)) ) 

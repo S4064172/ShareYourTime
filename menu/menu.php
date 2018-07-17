@@ -2,6 +2,15 @@
 
 <div id="menu" onmouseover="showItem('menu');" onmouseout="hideItem('menu');" onClick="hideItem('menu');">
     <div id="optionMenu"></div>
+    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="homepage") {?>
+    <div>
+        <a href="../homepage/homepage.php">
+            <button class="buttonMenu">
+                Home
+            </button>
+        </a>
+    </div>
+    <?php } ?>    
     <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="viewprofile") {?>
     <div>
         <a href="../viewProfile/viewProfile.php">
@@ -11,20 +20,11 @@
         </a>
     </div>
     <?php } ?>
-    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="homepage") {?>
+    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="viewjobs") {?>
     <div>
-        <a href="../homepage/homepage.php">
+        <a href="../viewJobs/viewJobs.php">
             <button class="buttonMenu">
-                Home
-            </button>
-        </a>
-    </div>
-    <?php } ?>
-    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="jobs") {?>
-    <div>
-        <a href="">
-            <button class="buttonMenu">
-                Gestisci i tuoi lavori
+                I tuoi lavori
             </button>
         </a>
     </div>

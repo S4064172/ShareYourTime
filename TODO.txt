@@ -22,3 +22,5 @@
     -> aggiungere conferma pw
 
 -> problema tabelle se 0 lavori
+
+-> sistemare query dei lavori con controllo data

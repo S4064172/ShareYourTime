@@ -33,7 +33,7 @@
 				<div cass="row">
 					<div class="col-3 col-md-6">
 						<div id="myTitleContaitner">
-							<h1 class="text-center myTitle">Bentornato<br>Kenny<br>
+							<h1 class="text-center myTitle">Bentornato<br><?php echo $_SESSION['user'] ?><br>
 								<a href="#job" class="btn btn-scroll titleBtn">Vai ai tuoi lavori !</a>
 							</h1>
 						</div>

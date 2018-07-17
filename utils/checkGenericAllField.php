@@ -2,7 +2,7 @@
 	require_once('../utils/regexConstant.php');
 	require_once('../utils/checkFields.php');
 	require_once('../utils/dataBaseConstant.php');
-	require_once('../db/updataFunction.php');
+	require_once('../db/updataFunctions.php');
 	require_once('../db/connection.php');
 
 	$result = array();

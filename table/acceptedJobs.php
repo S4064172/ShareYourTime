@@ -1,4 +1,4 @@
-<table class="myTable" id="last5" onload="populateTable(myTable)">
+<table class="myTable" id="" onload="populateTable(myTable)">
     
     <?php
         require_once('../db/connection.php');
