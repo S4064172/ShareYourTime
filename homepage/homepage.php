@@ -45,7 +45,7 @@
 
 		<section id="job" class="jobs" onClick="hideItem('menu');">
 			<div class="myContainer text-center titleSessionTesto">
-				<h1><b>I tuoi lavori proposti prenotati</b></h1>
+				<h1><b>I tuoi impegni</b></h1>
 				<br>	
 				<?php require ('../table/proposedJobs.php'); ?>		
 			</div>
@@ -53,7 +53,7 @@
 
 		<section class="jobs" onClick="hideItem('menu');">
 			<div class="myContainer text-center">
-				<h1><b>I tuoi impegni</b></h1>
+				<h1><b>Lavori che hai richiesto</b></h1>
 				<br>	
 				<?php require ('../table/acceptedJobs.php'); ?>		
 			</div>
