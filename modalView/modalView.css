@@ -2,6 +2,10 @@
 	float: right;
 }
 
+.textModal-c {
+    text-align: center;
+}
+
 .wait{
     display: none;
     position: absolute;

@@ -30,6 +30,7 @@
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
 		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
         <link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
+        <link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
         <link rel="stylesheet" type="text/css" href="viewJobs.css"/>
         <link rel="stylesheet" type="text/css" href="../table/table.css"/>
 
@@ -42,9 +43,9 @@
         <section class="viewJobs" onClick="hideItem('menu');">
 
             <?php require_once("../menu/menu.php"); ?>
-            
+            <?php require_once("../modalView/modalJobsView.php");?>
             <div class="myContainer text-center titleSessionTesto">
-				<h1><b>I tuoi impegni</b></h1>
+				<h1><b class="colorTitle">I tuoi impegni</b></h1>
 				<br>	
                 <?php 
                     //tutti i lavori inseriti da user che sono stati accettati da altri utenti ancora validi
@@ -59,7 +60,7 @@
 
 
         <div class="myContainer text-center titleSessionTesto">
-            <h1><b>Le tue disponibilit&agrave;</b></h1>
+            <h1><b class="colorTitle">Le tue disponibilit&agrave;</b></h1>
             <br>	
             <?php 
                 //tutti i lavori inseriti da user che non sono stati accettati da altri utenti ancora validi
@@ -72,7 +73,7 @@
 
         <section class="viewJobs" onClick="hideItem('menu');">
             <div class="myContainer text-center titleSessionTesto">
-                <h1><b>Lavori passati</b></h1>
+                <h1><b class="colorTitle">Lavori passati</b></h1>
                 <br>	
                 <?php 
                     //tutti i lavori inseriti da user che non sono validi
@@ -95,6 +96,6 @@
 	    <script type="text/javascript" src="../js/navBar.js"></script>
 	    <script type="text/javascript" src="../js/viewProfile.js"></script>
 	    <script type="text/javascript" src="../js/ajaxCheckModifiedAllField.js"></script>
-           
+        <script type="text/javascript" src="../js/fillFieldModalJobs.js"></script>
 	</body>
 </html>

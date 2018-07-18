@@ -15,7 +15,7 @@
     	<link rel="stylesheet" type="text/css" href="index.css"/>
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
 		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
-		<link rel="stylesheet" type="text/css" href="../modalRegistrazione-Login/login-registrazione.css"/>
+		<link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
 		<link rel="stylesheet" type="text/css" href="../table/table.css"/>
 		<link rel="stylesheet" type="text/css" href="../optionMapSearch/optionMapSearch.css"/>
 
@@ -39,10 +39,10 @@
 		</div>
 
 		<!-- Login a scomparsa -->	
-	  	<?php require ('../modalRegistrazione-Login/login.php'); ?>
+	  	<?php require ('../modalView/login.php'); ?>
 
 		<!-- Sign-up a scomparsa -->	
-	  	<?php require ('../modalRegistrazione-Login/registration.php'); ?>
+	  	<?php require ('../modalView/registration.php'); ?>
     
 	</section>
 	

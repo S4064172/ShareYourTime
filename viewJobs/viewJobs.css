@@ -33,6 +33,10 @@ section {
 	padding-top: 6em;
 }
 
+.colorTitle{
+	color: black;
+}
+
 @media (min-width: 576px) {
     .card-columns {
         column-count: 2;

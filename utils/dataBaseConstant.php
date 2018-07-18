@@ -14,6 +14,7 @@
     define('StreetMinLength',6);
     define('PhotoMaxLength',50);
     define('PhoneLength',10);
+    define('DescriptionMinLength',10);
     define('DescriptionMaxLength',150);
     define('TagMaxLength',20);
 

@@ -13,7 +13,7 @@ function checkLoginAllField(idUser,IdPws,IdErrLog,idWait)
 {
 	showItem(idWait);
 	var request = getRequest();
-	request.open("POST", "../modalRegistrazione-Login/checkLoginAllField.php", true);	
+	request.open("POST", "../modalView/checkLoginAllField.php", true);	
 	request.onreadystatechange = validateCheckLoginAllField(IdErrLog, idWait, request);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	var htmlTagUser = document.getElementById(idUser);
