@@ -12,6 +12,11 @@
 	width: 25%;
 }
 
+.myContainer {
+	width: 95%;
+	margin-left: 2.5%;
+}
+
 #myTextArea {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

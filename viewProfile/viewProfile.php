@@ -45,7 +45,7 @@
 
             <div class="myContainer titleSessionTesto">
                 <div class="wait" id="waitRegistration">
-                    <img class="imgWait" src="img/sandclock.png">
+                    <img class="imgWait" src="../img/sandclock.png">
                 </div>
                 <div class="row text-center">
                     <div class="col-12">
@@ -155,8 +155,6 @@
                 </div>
             </div>
         </section>
-
-        <?php require ('../contactUs/contactUs.php'); ?>
 
         <?php require ('../footer/footer.php'); ?>
 
