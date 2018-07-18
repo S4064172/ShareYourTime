@@ -1,6 +1,6 @@
 <section id="contactUs" onClick="hideItem('menu');">
     <div class="container text-center">
-        <div class="titleSessionTesto" id="">
+        <div class="titleSessionTesto">
             <h1><b>Contattaci</b></h1>
             <br>
         </div>

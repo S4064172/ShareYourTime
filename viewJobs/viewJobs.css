@@ -16,7 +16,7 @@ section {
 .viewJobs{
 	display: block;
     min-height: 100vh;
-    background-image: url("");
+    background-image: url("../img/viewJobs.jpg");
 	background-attachment: fixed; 
 	background-position: center;
 	background-repeat: no-repeat;
