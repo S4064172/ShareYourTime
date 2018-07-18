@@ -81,7 +81,9 @@
 		<div class="myContainer text-center pt-5">
 			<h1><b>Cosa proponiamo</b></h1>
 			<br>	
-			<?php require ('../table/last5.php'); ?>		
+			<?php require ('../table/showJobsInTable.php'); 
+				showTableJobs("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart LIMIT 5",0);
+			?>		
 		</div>
 	</section>
 	

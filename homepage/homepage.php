@@ -43,11 +43,12 @@
 
 		</section>
 
+		<?php require_once ('../table/showJobsInTable.php'); ?>
 		<section id="job" class="jobs" onClick="hideItem('menu');">
 			<div class="myContainer text-center titleSessionTesto">
 				<h1><b>I tuoi impegni</b></h1>
 				<br>	
-				<?php require ('../table/proposedJobs.php'); ?>		
+				<?php showTableJobs("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and Receiver is not null ORDER BY TimeStart LIMIT 5",1); ?>
 			</div>
 		</section>
 
@@ -55,7 +56,7 @@
 			<div class="myContainer text-center">
 				<h1><b>Lavori che hai richiesto</b></h1>
 				<br>	
-				<?php require ('../table/acceptedJobs.php'); ?>		
+				<?php showTableJobs("SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' ORDER BY TimeStart LIMIT 5",0); ?>	
 			</div>
 		</section>
 

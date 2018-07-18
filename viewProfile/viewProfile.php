@@ -43,7 +43,7 @@
 
             <?php require_once("../menu/menu.php"); ?>
 
-            <div class="titleSessionTesto">
+            <div class="myContainer titleSessionTesto">
                 <div class="wait" id="waitRegistration">
                     <img class="imgWait" src="img/sandclock.png">
                 </div>
