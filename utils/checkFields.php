@@ -1,4 +1,6 @@
 <?php
+	require_once('../db/connection.php');
+
 	function check_POST_IsSetAndNotEmpty($field) 
 	{
 		return isset($_POST["$field"]) && !empty($_POST["$field"]);
@@ -12,6 +14,10 @@
 	function sanitizeToSql($data, $conn) 
 	{
 		return mysqli_real_escape_string($conn, trim($data));
+	}
+
+	function sanitizeToHtml($inputSent){
+		return htmlspecialchars(stripslashes(trim($inputSent))); 
 	}
 
 	function checkMinLength($string, $min) {

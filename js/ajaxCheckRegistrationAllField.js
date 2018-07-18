@@ -7,13 +7,14 @@
 *	una richiesta in post per controllare
 *	i campi che l'utente ha inserito.  
 *	Viene utilizzata una chiamata ajax
-*	per rimanere nella stessa pagina.
+*	per rimanere nella stessa pagina 
+*   in caso di errore.
 */
 function checkRegistrationAllField(idWait)
 {
 	showItem(idWait)
 	var request = getRequest();
-	request.open("POST", "utils/checkGenericAllField.php", true);	
+	request.open("POST", "../utils/checkGenericAllField.php", true);	
 	request.onreadystatechange = validateCheckGenericAllField(idWait, request);
 	
     var formData = new FormData();

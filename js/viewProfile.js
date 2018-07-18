@@ -67,4 +67,6 @@ function addReadOnly() {
     addReadOnly();
  }
 
- 
+ function refreshImg(path){
+    document.getElementById('imgCard').src=path;
+ }

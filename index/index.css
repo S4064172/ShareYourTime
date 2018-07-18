@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Galada');
+
+body, html {
+	/*font-family: Sans-Serif;*/
+	height: 100%;
+	width: 100%;
+	scroll-behavior: smooth;
+	font-family: Old Standard TT;
+}
+
+section {
+	height: auto; 
+	width: 100%;
+}
+
+.myContainer {
+	width: 95%;
+	margin-left: 2.5%;
+}
+
+.myContainer-padding {
+    padding: 16px;
+}
+
+#homeView {
+	min-height: 100%;
+	background-image: url("../img/SfondoTime.jpeg");
+	background-attachment: fixed; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#DettagliSito {
+	min-height: 50%;
+	background-color: lightgrey;
+}
+
+#DettagliSitoTesto {
+	padding-top: 10vh;
+}
+
+#TabellaLast5 {
+	min-height: 50%;
+	background-color: lightgrey;
+}
+
+#RicercaMappa{
+	min-height: 100%;
+}
+
+#myTitleContaitner{
+	height: 100vh;
+}
+
+.myTitle{
+	font-family: galada; 
+	padding-top:31.5vh;
+	font-size: 15vh;
+	color: rgb(238, 226, 200);
+    animation-name: animatezoom;
+    -webkit-animation-name: animatezoom;
+	animation-duration: 2s;
+	-webkit-animation-duration: 2s;
+}
+
+.titleBtn {
+	font-family: Old Standard TT;
+	color: rgb(54, 44, 34);
+	font-size: 0.3em;
+	border-radius: 25px;
+	background-color: rgb(238, 226, 200);
+}
+
+.titleBtn:hover, #mapBtn:hover {
+	color: rgb(238, 226, 200);
+	background-color: rgb(146, 114, 84);
+}
+
+#mapBtn{
+	font-family: Old Standard TT;
+	color: rgb(54, 44, 34);
+	font-size: 1.3em;
+	border-radius: 20px;
+	background-color: rgb(238, 226, 200);
+}
+
+
+.myDescription {
+	font-size: 1.3em;
+}
+
+ 
+#googleMap{
+	width:100%;
+	height:65vh;
+}
+
+@media  screen and (max-width: 800px) {
+	.mySelection {
+		font-size: 70%;
+	}
+}
+
+@media screen and (max-width: 766px ){
+	.mySelection {
+		font-size: 80%;
+	}
+}

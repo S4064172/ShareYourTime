@@ -1,0 +1,24 @@
+#contactUs{
+	width: 100%;
+	min-height: 100vh;
+	background-image: url("");
+	background-attachment: fixed; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#myBntContatUs{
+	width: 25%;
+}
+
+#myTextArea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	width: 100%;
+	padding: 1%;
+	letter-spacing: 1px;
+	resize: none;
+	border-radius: 24px;
+}

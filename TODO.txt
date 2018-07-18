@@ -13,9 +13,6 @@
 
 -> oscurare le cartelle/pagine secondarie
 
--> chiamata ajaxGeneric
-    -> testare i controlli aggiuni in js
-
 -> funzioni chiamata da html con passaggi parametri
     -> possibile mettere conrolli anti manomissione
 
@@ -23,6 +20,9 @@
 
 -> ajaxCheckModifiedAllFile.js
     -> aggiungere conferma pw
-    -> impossibile modifica username
 
 -> fare seguire lo scrolling all'autocomplete di google maps sul modal
+
+-> problema tabelle se 0 lavori
+
+-> sistemare query dei lavori con controllo data

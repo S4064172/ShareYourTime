@@ -55,7 +55,7 @@
         <option selected disabled>Scegli il tag</option>
         
         <?php
-            require_once('db/connection.php');
+            require_once('../db/connection.php');
 
             $getJobsQuery = "SELECT Tag FROM ShareYourTagsTime ORDER BY Tag ASC;";
             $conn = connectionToDb();

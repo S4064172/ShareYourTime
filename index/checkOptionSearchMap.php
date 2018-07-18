@@ -1,7 +1,7 @@
 <?php
-    require_once("utils/checkFields.php");
-    require_once("utils/regexConstant.php");
-    require_once("utils/dataBaseConstant.php");
+    require_once("../utils/checkFields.php");
+    require_once("../utils/regexConstant.php");
+    require_once("../utils/dataBaseConstant.php");
     
 
     $result = array();

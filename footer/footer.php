@@ -8,7 +8,7 @@
 			</div>
 			<div class="col-lg-4 mt-3">
 				<p class="myFont bigFont"><b>Share Your Time</b></p>
-				<img class="logoDim" src="img/sandclock.png">
+				<img class="logoDim" src="../img/sandclock.png">
 				<br>
 				<p class="myFont">Copyright &copy; Brandi Eugenio &amp; Canepa Andrea</p>
 			</div>
@@ -17,17 +17,17 @@
 				<ul class="list-inline">
 					<li class="list-inline-item">
 						<a href="https://www.facebook.com">
-							<img class="socialIconDim" src="img/fb_logo.png"></i>
+							<img class="socialIconDim" src="../img/fb_logo.png"></i>
 						</a>
 					</li>
 					<li class="list-inline-item">
 						<a href="https://www.github.com">
-							<img class="socialIconDim" src="img/git_logo.png"></i>
+							<img class="socialIconDim" src="../img/git_logo.png"></i>
 						</a>
 					</li>
 					<li class="list-inline-item">
 						<a href="https://www.instagram.com">
-							<img class="socialIconDim" src="img/insta_logo.png"></i>
+							<img class="socialIconDim" src="../img/insta_logo.png"></i>
 						</a>
 					</li>
 					<li class="list-inline-item">
@@ -37,7 +37,7 @@
 					</li>
 					<li class="list-inline-item">
 						<a href="https://www.youtube.com">
-							<img class="socialIconDim" src="img/yt_logo.png"></i>
+							<img class="socialIconDim" src="../img/yt_logo.png"></i>
 						</a>
 					</li>
 				</ul>

@@ -13,43 +13,23 @@ section {
 	width: 100%;
 }
 
-.myContainer {
-	width: 95%;
-	margin-left: 2.5%;
-}
-
-.myContainer-padding {
-    padding: 16px;
-}
-
-#homeView {
-	min-height: 100%;
-	background-image: url("img/SfondoTime.jpeg");
+#home{	
+	width: 100%;
+	min-height: 100vh;
+	background-image: url("../img/homepage.jpeg");
 	background-attachment: fixed; 
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
-#DettagliSito {
-	min-height: 50%;
+.jobs{
+	width: 100%;
+	min-height: 50vh;
 	background-color: lightgrey;
 }
 
-#DettagliSitoTesto {
-	padding-top: 10vh;
-}
-
-#TabellaLast5 {
-	min-height: 50%;
-	background-color: lightgrey;
-}
-
-#RicercaMappa{
-	min-height: 100%;
-}
-
-#myTitleCOntaitner{
+#myTitleContaitner{
 	height: 100vh;
 }
 
@@ -57,7 +37,7 @@ section {
 	font-family: galada; 
 	padding-top:31.5vh;
 	font-size: 15vh;
-	color: rgb(238, 226, 200);
+	/*color: rgb(238, 226, 200);*/
     animation-name: animatezoom;
     -webkit-animation-name: animatezoom;
 	animation-duration: 2s;
@@ -77,36 +57,12 @@ section {
 	background-color: rgb(146, 114, 84);
 }
 
-#mapBtn{
-	font-family: Old Standard TT;
-	color: rgb(54, 44, 34);
-	font-size: 1.3em;
-	border-radius: 20px;
-	background-color: rgb(238, 226, 200);
+.myContainer {
+	width: 95%;
+	margin-left: 2.5%;
 }
 
 
-.myDescription {
-	font-size: 1.3em;
-}
-
- 
-
-
-
-#googleMap{
-	width:100%;
-	height:65vh;
-}
-
-@media  screen and (max-width: 800px) {
-	.mySelection {
-		font-size: 70%;
-	}
-}
-
-@media screen and (max-width: 766px ){
-	.mySelection {
-		font-size: 80%;
-	}
+.titleSessionTesto {
+	padding-top: 10vh;
 }

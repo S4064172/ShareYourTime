@@ -2,11 +2,13 @@
 	require_once('../utils/regexConstant.php');
 	require_once('../utils/checkFields.php');
 	require_once('../utils/dataBaseConstant.php');
-	require_once('../db/updataFunction.php');
+	require_once('../db/updataFunctions.php');
 	require_once('../db/connection.php');
 
 	$result = array();
 	
+
+
 	//Contolli sull'username
 	if( !check_POST_IsSetAndNotEmpty('user') || notValidString($_POST['user'], alphaNumRegex, UserNameMinLength, UserNameMaxLength) 
 		|| ( checkIfExistInDb('user', $_POST['user']) ))
@@ -90,7 +92,7 @@
 			$result['errPhoto'] = "File non valido";
 	}else{
 		//Controlli sulla foto 
-		$path = '../profile_imgs/' . $_POST['user'] . '.jpg';
+		$path = '../../profile_imgs/' . $_POST['user']. '.jpg';
 		
 		
 		$imageFileType = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
@@ -107,12 +109,11 @@
 				else
 					$result['errPhotoModified'] = 'Formato della foto non valido';
 			else
-				if ( !move_uploaded_file($_FILES['photo']['tmp_name'], '../'.$path) ) 
+				if ( !move_uploaded_file($_FILES['photo']['tmp_name'], $path) ) 
 					if($_POST['registration']=='0')
 						$result['errPhoto'] = basename( $_FILES['photo']['name']). ' non e\' stato caricato.';
 					else
 						$result['errPhotoModified'] = basename( $_FILES['photo']['name']). ' non e\' stato caricato.';
-
 	}
 	
 

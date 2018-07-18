@@ -12,10 +12,11 @@
 	require_once("../db/connection.php");
 	require_once("../utils/dataBaseConstant.php");
 	
+
 	//Controlli sull'username
 	if( check_POST_IsSetAndNotEmpty('user') ) { 
 		
-		if( $_POST['registration']==='1' && $_POST['user'] === $_POST['oldField']){
+		if( $_POST['registration'] === '1' && $_POST['user'] === $_POST['oldField']){
 			echo json_encode(array('code' => '0'));
 			return;
 		}
@@ -110,7 +111,7 @@
 		echo json_encode(array('code' => 0));
 		return;
 	}
-
+	
     //Controlli sull'indirizzo
 	if( check_POST_IsSetAndNotEmpty('address') ) {
 		if ( notValidString($_POST['address'], addressRegex, StreetMinLength, StreetMaxLength) ) {
@@ -142,5 +143,31 @@
 		echo json_encode(array('code' => 0));
 		return;
 	}
+
+
+	//Controlli sulla foto
+	if( !empty($_FILES) ) {
+				
+		$imageFileType = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
+		$path = '../profile_imgs/' . $_POST['oldField'].'_temp.jpg';
+
+		if ( $_FILES['photo']['size'] > 1000000 ){
+				echo json_encode(array('code' => -1, 'msg' => 'File troppo grosso' ));
+				return;
+		}
+			
+		if ( $imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg' ) {
+				echo json_encode(array('code' => -1, 'msg' => 'Formato della foto non valido !' ));
+				return;
+		}
+		if ( !move_uploaded_file($_FILES['photo']['tmp_name'], '../'.$path) ){
+				echo json_encode(array('code' => -1, 'msg' => basename( $_FILES['photo']['name']). ' non e\' stato caricato.' ));
+				return;	
+		}
+		echo json_encode(array('code' => 1, 'msg' => "../".$path));
+		return;
+					
+	}
+	
 
 	echo json_encode(array('code' => -2));

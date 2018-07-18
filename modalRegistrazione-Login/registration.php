@@ -1,8 +1,8 @@
-<?php require_once('utils/dataBaseConstant.php');?>
+<?php require_once('../utils/dataBaseConstant.php');?>
 
 <div class="modal myModal fade" id="signUpModalTarget" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="wait" id="waitRegistration">
-        <img class="imgWait" src="img/sandclock.png">
+        <img class="imgWait" src="../img/sandclock.png">
     </div>
     <div class="modal-dialog" role="document">
         <div class="modal-content animate">
@@ -12,7 +12,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <label class="signupText">Benvenuto !</label>&nbsp;
-                <img src="img/Time1.png" alt="Avatar" class="avatar">
+                <img src="../img/Time1.png" alt="Avatar" class="avatar">
             </div>
 
             <div class="container myContainer-padding">
