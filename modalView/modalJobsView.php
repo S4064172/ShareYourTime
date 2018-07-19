@@ -27,17 +27,16 @@
           <div class="row">
             <div class="col-12 text-center">
             <label><b>Inizio Attività</b></label><br>
-            <input onfocusout="" onfocusin="" id="modalDateStart" type="date" name="DateStart">
-            <input onfocusout="" onfocusin="" id="modalTimeStart" type="time" name="timeStart">
-            <p id=""></p>
+            <input onfocusout="checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');" onfocusin="cleanErr('errTime');" id="modalDateStart" type="date" name="DateStart">
+            <input onfocusout="checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');" onfocusin="cleanErr('errTime');" id="modalTimeStart" type="time" name="timeStart">
             </div>
           </div>
           <div class="row">
             <div class="col-12 text-center">
             <label><b>Fine Attività</b></label><br>
-            <input  onfocusout="" onfocusin="" id="modalDateEnd" type="date" name="dateEnd">
-            <input  onfocusout="" onfocusin="" id="modalTimeEnd" type="time" name="timeEnd">
-            <p id=""></p>
+            <input  onfocusout="checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');" onfocusin="cleanErr('errTime');" id="modalDateEnd" type="date" name="dateEnd">
+            <input  onfocusout="checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');" onfocusin="cleanErr('errTime');" id="modalTimeEnd" type="time" name="timeEnd">
+            <p id="errTime"></p>
             </div>
           </div>
 

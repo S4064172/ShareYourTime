@@ -63,6 +63,44 @@ function checkDistance(idCheck,idErr){
     //manca controllo regex
 }
 
+function checkTime(idDate1, idTime1,idDate2, idTime2,idErr){
+    
+
+
+    var data1 = document.getElementById(idDate1);
+    var time1 = document.getElementById(idTime1);
+    var data2 = document.getElementById(idDate2);
+    var time2 = document.getElementById(idTime2);
+    var err = document.getElementById(idErr);
+    err.style.fontSize = '0.9em';
+    err.style.color = 'darkred';
+    
+    var dateNow = new Date(data1.value+" "+time1.value);
+    console.log(dateNow);
+    if( data1.value < dateNow.getFullYear+"-"+dateNow.getMonth+"-"+dateNow.getDate){
+        err.innerHTML="data1 < now ";
+        return;
+    }
+
+    if( data1.value = dateNow.getFullYear+"-"+dateNow.getMonth+"-"+dateNow.getDate ){
+        err.innerHTML="data1 < now ";
+        return;
+    }
+
+    if(data1.value > data2.value ){
+        err.innerHTML="data1 > data2 ";
+        return;
+    }
+
+    if(data1.value == data2.value && time1.value >= time2.value){
+        err.innerHTML="time1 >= time2 ";
+        return;
+    }
+
+
+}
+
+
 function checkStreet(idCheck,idErr){
    
     var desc = document.getElementById(idCheck);
