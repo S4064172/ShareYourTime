@@ -9,7 +9,7 @@
                     <h5 class="card-title"><li class="list-group-item p-0 m-0" id="cardDescription" style="height:3em" value="<?php echo $row['Description']?>" ><?php echo $row['Description']?></li></h5>
                     <li class="list-group-item" id="cardCost" value="<?php echo $row['Cost']?>"><?php echo "Costo : ".$row['Cost']?></li>
                     <li class="list-group-item" id="cardTimeStart" value="<?php echo $row['TimeStart']?>"><?php echo "Inizio : ".$row['TimeStart']?></li>
-                    <li class="list-group-item" id="cardTmeEnd" value="<?php echo $row['TimeEnd'].','.$row['TimeEnd']?>"><?php echo "Fine : ".$row['TimeEnd']?></li>
+                    <li class="list-group-item" id="cardTimeEnd" value="<?php echo $row['TimeEnd']?>"><?php echo "Fine : ".$row['TimeEnd']?></li>
                     <li class="list-group-item" id="cardDistance" value="<?php echo $row['Distance']?>"><?php echo "Distanza : ".$row['Distance']?></li>
                     <?php if ($row['TimeEnd'] < date('Y-m-d H:i:s') ) {?>
                         <li class="list-group-item" id="cardValuation" value="<?php echo $row['Evaluation']?>"><?php echo "Valutazione : ".$row['Evaluation']?></li>

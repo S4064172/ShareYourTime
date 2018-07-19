@@ -6,7 +6,7 @@
     </div>
     
     <div class="col-md-3"> 
-        <select class="mySelection" onfocusin="cleanErr('errDistanceSearch')" id="optionMapDistance" name="optionMapDistance">
+        <select class="custom-select mySelection" onfocusin="cleanErr('errDistanceSearch')" id="optionMapDistance" name="optionMapDistance">
             <option selected disabled>Seleziona la distanza</option>
             <?php
                 $i=1;
@@ -27,7 +27,7 @@
     </div>
 
     <div class="col-md-3"> 
-        <select class="mySelection"  id="optionMapCost" name="optionMapCost">
+        <select class="custom-select mySelection"  id="optionMapCost" name="optionMapCost">
         <option selected disabled>Seleziona il costo</option>
         <?php
             $i=1;
@@ -51,7 +51,7 @@
     </div>
     
     <div class="col-md-3"> 
-        <select class="mySelection" id="optionMapTag" name="optionMapTag">
+        <select class="custom-select mySelection" id="optionMapTag" name="optionMapTag">
         <option selected disabled>Scegli il tag</option>
         
         <?php

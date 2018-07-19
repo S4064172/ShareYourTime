@@ -82,16 +82,25 @@ img.avatar {
     cursor: pointer;
 }
 
-/* Full-width input fields */
-input[type=textModal], input[type=password], input[type=email], input[type=tel] {
-    width: 100%;
-    padding: 10px 10px;
+input[type=textModal], input[type=password], input[type=email], input[type=tel], input[type=date], input[type=time]{
+
+    
     margin: 6px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-	height: 15%;
-	font-size: 12px;
+	
+	font-size: 15px;
+}
+
+input[type=textModal], input[type=password], input[type=email], input[type=tel] {
+    width: 100%;
+    padding: 10px 10px;
+    height: 15%;
+}
+
+input[type=date], input[type=time]{
+    width: 49%;
 }
 
 #signupModal .avatar {
