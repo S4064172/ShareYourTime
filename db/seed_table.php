@@ -6,22 +6,22 @@
 	
 	//Test
 	$now = date('Y-m-d');
-	$time1S = date('Y-m-d H:i:s', strtotime('+1 hour'));
-	$time1E = date('Y-m-d H:i:s', strtotime('+3 hour'));
-	$time2S = date('Y-m-d H:i:s', strtotime('+3 day +1 hour'));
-	$time2E = date('Y-m-d H:i:s', strtotime('+3 day +5 hour'));
-	$time3S = date('Y-m-d H:i:s', strtotime('+1 day +1 hour'));
-	$time3E = date('Y-m-d H:i:s', strtotime('+1 day +3 hour'));
-	$time4S = date('Y-m-d H:i:s', strtotime('+2 day +6 hour'));
-	$time4E = date('Y-m-d H:i:s', strtotime('+2 day +7 hour'));
-	$time5S = date('Y-m-d H:i:s', strtotime('+6 day +1 hour'));
-	$time5E = date('Y-m-d H:i:s', strtotime('+6 day +3 hour'));
-	$time6S = date('Y-m-d H:i:s', strtotime('+2 day +8 hour'));
-	$time6E = date('Y-m-d H:i:s', strtotime('+2 day +10 hour'));
-	$time7S = date('Y-m-d H:i:s', strtotime('-2 day +8 hour'));
-	$time7E = date('Y-m-d H:i:s', strtotime('-2 day +10 hour'));
-	$time8S = date('Y-m-d H:i:s', strtotime('+1 day +8 hour'));
-	$time8E = date('Y-m-d H:i:s', strtotime('+1 day +10 hour'));
+	$time1S = date('Y-m-d H:i', strtotime('+1 hour'));
+	$time1E = date('Y-m-d H:i', strtotime('+3 hour'));
+	$time2S = date('Y-m-d H:i', strtotime('+3 day +1 hour'));
+	$time2E = date('Y-m-d H:i', strtotime('+3 day +5 hour'));
+	$time3S = date('Y-m-d H:i', strtotime('+1 day +1 hour'));
+	$time3E = date('Y-m-d H:i', strtotime('+1 day +3 hour'));
+	$time4S = date('Y-m-d H:i', strtotime('+2 day +6 hour'));
+	$time4E = date('Y-m-d H:i', strtotime('+2 day +7 hour'));
+	$time5S = date('Y-m-d H:i', strtotime('+6 day +1 hour'));
+	$time5E = date('Y-m-d H:i', strtotime('+6 day +3 hour'));
+	$time6S = date('Y-m-d H:i', strtotime('+2 day +8 hour'));
+	$time6E = date('Y-m-d H:i', strtotime('+2 day +10 hour'));
+	$time7S = date('Y-m-d H:i', strtotime('-2 day +8 hour'));
+	$time7E = date('Y-m-d H:i', strtotime('-2 day +10 hour'));
+	$time8S = date('Y-m-d H:i', strtotime('+1 day +8 hour'));
+	$time8E = date('Y-m-d H:i', strtotime('+1 day +10 hour'));
 
 	
 

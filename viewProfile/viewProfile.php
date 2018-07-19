@@ -52,7 +52,7 @@
                         <h1>Impostazioni Profilo</h1>
                     </div>  
                 </div>
-                
+                               
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="card text-center" style="width:400px">
