@@ -176,3 +176,21 @@
 			}
 		}
 	}
+
+
+	/*function checkMatchRegex(inputSent, regexToMatch) 
+	{
+		return preg_match(regexToMatch, inputSent);
+	}*/
+
+	function checkMin(num, min) {
+		return num > min;
+	}
+
+	function checkMinLength(string, min) {
+		return string.length >= min;
+	}
+
+	function checkMaxLength(string, max) {
+		return string.length <= max;
+	}

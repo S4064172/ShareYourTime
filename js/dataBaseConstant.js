@@ -1,0 +1,21 @@
+"use strict";
+
+const UserNameMaxLength = 25;
+const UserNameMinLength = 5;
+const PasswordMaxLength = 45;
+const PasswordMinLength = 8;
+const NameMaxLength = 30;
+const NameMinLength = 2;
+const SurnameMaxLength = 30;
+const SurnameMinLength = 2;
+const EmailMaxLength = 125;
+const EmailMinLength = 6;
+const StreetMaxLength = 125;
+const StreetMinLength = 6;
+const PhotoMaxLength = 50;
+const PhoneLength = 10;
+const DescriptionMinLength = 10;
+const DescriptionMaxLength = 150;
+const TagMaxLength = 20;
+const CostMin = 0;
+const DistanceMin = 0;

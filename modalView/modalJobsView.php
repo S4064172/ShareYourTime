@@ -8,20 +8,20 @@
           <div class="row">
             <div class="col-12 text-center">
               <label><b>Descrizione</b></label>
-              <input onfocusout="" onfocusin="" id="modalDescription" type="textModal" name="description" minlength=<?php echo DescriptionMinLength?> maxlength=<?php echo DescriptionMaxLength?>>
-              <p id=""></p>                                                            
+              <input onfocusout="checkDescription('modalDescription','errModalDescription');" onfocusin="cleanErr('errModalDescription');" id="modalDescription" type="textModal" name="description" minlength=<?php echo DescriptionMinLength?> maxlength=<?php echo DescriptionMaxLength?>>
+              <p id="errModalDescription"></p>                                                            
             </div>
           </div>
           <div class="row">  
             <div class="col-md-6 text-center">
               <label ><b>Costo</b></label>
-              <input onfocusout="" onfocusin="" id="modalCost" type="textModal" name="cost">
-              <p id=""></p>
+              <input onfocusout="checkCost('modalCost','errModalCost')" onfocusin="cleanErr('errModalCost');" id="modalCost" type="textModal" name="cost">
+              <p id="errModalCost"></p>
             </div>
             <div class="col-md-6 text-center">
               <label><b>Distanza</b></label>
-              <input onfocusout="" onfocusin="" id="modalDistance" type="textModal" name="distance">
-              <p id=""></p>
+              <input onfocusout="checkDistance('modalDistance','errModalDistance');" onfocusin="cleanErr('errModalDistance')" id="modalDistance" type="textModal" name="distance">
+              <p id="errModalDistance"></p>
             </div>
           </div>
           <div class="row">
@@ -47,8 +47,8 @@
           <div class="row">  
             <div class="col-12 text-center">
             <label><b>Via</b></label>
-            <input onfocusout="" onfocusin="" id="modalStreet" type="textModal" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> required> 
-            <p id=""></p>
+            <input onfocusout="checkStreet('modalStreet','errModalStreet');" onfocusin="cleanErr('errModalStreet')" id="modalStreet" type="textModal" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> required> 
+            <p id="errModalStreet"></p>
             </div>
           </div>
         </div>

@@ -91,11 +91,12 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     
         
-        
+        <script type="text/javascript" src="../js/dataBaseConstant.js"></script>
         <script type="text/javascript" src="../js/utils.js"></script>
 	    <script type="text/javascript" src="../js/navBar.js"></script>
 	    <script type="text/javascript" src="../js/viewProfile.js"></script>
 	    <script type="text/javascript" src="../js/ajaxCheckModifiedAllField.js"></script>
         <script type="text/javascript" src="../js/fillFieldModalJobs.js"></script>
+        <script type="text/javascript" src="../js/checkJobsLocalField.js"></script>
 	</body>
 </html>

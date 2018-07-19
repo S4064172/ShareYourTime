@@ -8,7 +8,7 @@
 
 	function checkMatchRegex($inputSent, $regexToMatch) 
 	{
-		return preg_match($regexToMatch, $inputSent, $match);
+		return preg_match($regexToMatch, $inputSent);
 	}
 	
 	function sanitizeToSql($data, $conn) 
