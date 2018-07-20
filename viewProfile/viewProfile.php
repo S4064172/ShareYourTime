@@ -63,7 +63,7 @@
                         </div>
                         <div class="fieldHide" id="imgModified">
                             <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="file" id="photoModified" onchange="checkGenericSingleField('photoModified','errPhotoModified',1,'<?php echo sanitizeToHtml($row['User']) ?>')" name="photo" accept=".png, .jpg, .jpeg" required>
+                            <input type="file" id="photoModified" onchange="checkPhoto('photoModified','errPhotoModified','<?php echo sanitizeToHtml($row['User']) ?>')" name="photo" accept=".png, .jpg, .jpeg" required>
                             <p id="errPhotoModified"></p>
                         </div>
                     </div>  
@@ -74,7 +74,7 @@
                                     <label class="labelText"><b>Username</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('userModified','errUserModified',1,'<?php echo $row['User'] ?>')" onfocusin="cleanErr('errUserModified')" id="userModified" type="text" value="<?php echo sanitizeToHtml($row['User']) ?>" name="user" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> readonly>
+                                    <input onfocusout="checkUsernameUpdate('userModified','errUserModified','<?php echo $row['User'] ?>')" onfocusin="cleanErr('errUserModified')" id="userModified" type="text" value="<?php echo sanitizeToHtml($row['User']) ?>" name="user" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> readonly>
                                     <p id="errUserModified"></p> 
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                 <label class="labelText"><b>Email</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('emailModified','errEmailModified',1,'<?php echo $row['Email'] ?>')" onfocusin="cleanErr('errEmailModified')" id="emailModified" type="email" value="<?php echo sanitizeToHtml($row['Email']) ?>" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> readonly>
+                                    <input onfocusout="checkEmailUpdate('emailModified','errEmailModified','<?php echo $row['Email'] ?>')" onfocusin="cleanErr('errEmailModified')" id="emailModified" type="email" value="<?php echo sanitizeToHtml($row['Email']) ?>" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> readonly>
                                     <p id="errEmailModified"></p>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                                     <label class="labelText fieldHide" id="pswLabel"><b>Password</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('pswModified','errPswModified',1)" onfocusin="cleanErr('errPswModified')" id="pswModified" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
+                                    <input onfocusout="checkPsw('pswModified','errPswModified')" onfocusin="cleanErr('errPswModified')" id="pswModified" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
                                     <p id="errPswModified"></p>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@
                                     <label class="labelText"><b>Nome</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('nameModified','errNameModified',1)" onfocusin="cleanErr('errNameModified')" id="nameModified" type="text" value="<?php echo sanitizeToHtml($row['Name']) ?>" name="name" minlength=<?php echo NameMinLength?> maxlength=<?php echo NameMaxLength?> readonly>
+                                    <input onfocusout="checkName('nameModified','errNameModified')" onfocusin="cleanErr('errNameModified')" id="nameModified" type="text" value="<?php echo sanitizeToHtml($row['Name']) ?>" name="name" minlength=<?php echo NameMinLength?> maxlength=<?php echo NameMaxLength?> readonly>
                                     <p id="errNameModified"></p>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                                     <label class="labelText"><b>Cognome</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('surnameModified','errSurnameModified',1)" onfocusin="cleanErr('errSurnameModified')" id="surnameModified" type="text" value="<?php echo sanitizeToHtml($row['Surname']) ?>" name="surname" minlength=<?php echo SurnameMinLength?> maxlength=<?php echo SurnameMaxLength?> readonly> 
+                                    <input onfocusout="checkSurname('surnameModified','errSurnameModified')" onfocusin="cleanErr('errSurnameModified')" id="surnameModified" type="text" value="<?php echo sanitizeToHtml($row['Surname']) ?>" name="surname" minlength=<?php echo SurnameMinLength?> maxlength=<?php echo SurnameMaxLength?> readonly> 
                                     <p id="errSurnameModified"></p>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                                     <label class="labelText" ><b>Indirizzo</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('addressModified','errAddressModified',1)" onfocusin="cleanErr('errAddressModified')" id="addressModified" type="text" value="<?php echo sanitizeToHtml($row['Street']) ?>" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> readonly>
+                                    <input onfocusout="checkAddress('addressModified','errAddressModified')" onfocusin="cleanErr('errAddressModified')" id="addressModified" type="text" value="<?php echo sanitizeToHtml($row['Street']) ?>" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> readonly>
                                     <p id="errAddressModified"></p>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                     <label class="labelText"><b>Telefono</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('phoneModified','errPhoneModified',1,'<?php echo $row['Phone'] ?>')" onfocusin="cleanErr('errPhoneModified')" id="phoneModified" type="tel" value="<?php echo sanitizeToHtml($row['Phone']) ?>" name="phone" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> readonly>
+                                    <input onfocusout="checkPhoneUpdate('phoneModified','errPhoneModified','<?php echo $row['Phone'] ?>')" onfocusin="cleanErr('errPhoneModified')" id="phoneModified" type="tel" value="<?php echo sanitizeToHtml($row['Phone']) ?>" name="phone" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> readonly>
                                     <p id="errPhoneModified"></p>
                                 </div>
                             </div>
@@ -168,7 +168,10 @@
         <script type="text/javascript" src="../js/utils.js"></script>
 	    <script type="text/javascript" src="../js/navBar.js"></script>
 	    <script type="text/javascript" src="../js/viewProfile.js"></script>
-	    <script type="text/javascript" src="../js/ajaxCheckModifiedAllField.js"></script>
+        <script type="text/javascript" src="../js/ajaxCheckModifiedAllField.js"></script>
+        <script type="text/javascript" src="../js/checkProfileLocalField.js"></script>
+	    <script type="text/javascript" src="../js/regexConstant.js"></script>
+	    <script type="text/javascript" src="../js/dataBaseConstant.js"></script>
            
 	</body>
 </html>

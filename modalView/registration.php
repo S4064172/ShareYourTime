@@ -19,12 +19,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label><b>Username</b></label>
-                        <input onfocusout="checkUsername('usernameReg','errUsername',0)" onfocusin="cleanErr('errUsername')" id="usernameReg" type="textModal" placeholder="Inserisci un username" name="user" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> required>
+                        <input onfocusout="checkUsername('usernameReg','errUsername')" onfocusin="cleanErr('errUsername')" id="usernameReg" type="textModal" placeholder="Inserisci un username" name="user" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> required>
                         <p id="errUsername"></p>                                                            
                     </div>
                     <div class="col-md-6">
                         <label class="textModal-r"><b>Email</b></label>
-                        <input onfocusout="checkEmail('emailReg','errEmail',0)" onfocusin="cleanErr('errEmail')" id="emailReg" type="email" placeholder="Inserisci il tuo indirizzo email" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> required>
+                        <input onfocusout="checkEmail('emailReg','errEmail')" onfocusin="cleanErr('errEmail')" id="emailReg" type="email" placeholder="Inserisci il tuo indirizzo email" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> required>
                         <p id="errEmail"></p>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="textModal-r"><b>Telefono</b></label>
-                        <input onfocusout="checkPhone('telephoneReg','errTelephone',0)" onfocusin="cleanErr('errTelephone')" id="telephoneReg" type="tel" placeholder="Inserisci un numero di telefono" name="phone" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> required>
+                        <input onfocusout="checkPhone('telephoneReg','errTelephone')" onfocusin="cleanErr('errTelephone')" id="telephoneReg" type="tel" placeholder="Inserisci un numero di telefono" name="phone" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> required>
                         <p id="errTelephone"></p>
                     </div>
                 </div>

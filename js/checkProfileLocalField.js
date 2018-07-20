@@ -1,14 +1,11 @@
 "use strict";
 
-function checkUsername(idUser, idErr, registration, oldValue){
+
+function checkUsername(idUser, idErr){
 
     var user = document.getElementById(idUser).value;
     var err = document.getElementById(idErr);
    
-    
-    if( registration === '1' && user === oldValue)
-        return;
-
     if ( !checkMinLength(user, UserNameMinLength) || !checkMaxLength(user, UserNameMaxLength) ) {
         err.style.fontSize = '0.9em';
         err.style.color = 'darkred';
@@ -26,13 +23,20 @@ function checkUsername(idUser, idErr, registration, oldValue){
     checkGenericSingleField(idUser, idErr);
 }
 
-function checkEmail(idEmail, idErr,registration,oldValue){
+function checkUsernameUpdate(idUser, idErr, oldValue){
+    
+    var user = document.getElementById(idUser).value;
+   
+    if( user !== oldValue)
+        checkUsername(idUser, idErr);
+}
+
+
+
+function checkEmail(idEmail, idErr){
 
     var email = document.getElementById(idEmail).value;
-    var err = document.getElementById(idErr);
-
-    if( registration==='1' &&  email === oldValue)
-        return;
+    var err = document.getElementById(idErr)
 
     if ( notValidString(email, emailRegex, EmailMinLength, EmailMaxLength) ) {
         err.style.fontSize = '0.9em';
@@ -42,6 +46,14 @@ function checkEmail(idEmail, idErr,registration,oldValue){
     }
 
     checkGenericSingleField(idEmail, idErr);
+}
+
+function checkEmailUpdate(idEmail, idErr, oldValue){
+    
+    var email = document.getElementById(idEmail).value;
+
+    if(  email !== oldValue)
+        checkEmail(idEmail, idErr);
 }
 
 function checkPsw(idPws, idErr){
@@ -121,14 +133,10 @@ function checkAddress(idAddress , idErr){
 }
 
 
-function checkPhone(idPhone, idErr, registration,oldValue){
+function checkPhone(idPhone, idErr){
 
     var phone = document.getElementById(idPhone).value;
     var err = document.getElementById(idErr);
-
-    if( registration==='1' && phone === oldValue)
-        return;
-    
 
     if ( notValidString(phone, numRegex, PhoneLength, PhoneLength) ) {
         err.style.fontSize = '0.9em';
@@ -141,14 +149,25 @@ function checkPhone(idPhone, idErr, registration,oldValue){
 
 }
 
+function checkPhoneUpdate(idPhone, idErr,oldValue){
+
+    var phone = document.getElementById(idPhone).value;
+   
+
+    if(  phone !== oldValue)
+        checkPhone(idPhone, idErr);
+
+}
+
+
 function checkPhoto(idPhoto,idErr,oldValue){
 
-    var photo = document.getElementById(idPhoto).file[0];
+    var photo = document.getElementById(idPhoto).files[0];
     var err = document.getElementById(idErr);
 
-    var imageFileType = strtolower(pathinfo(photo['name'], PATHINFO_EXTENSION));
+    //var imageFileType = pathinfo(photo['name'], PATHINFO_EXTENSION).toLowerCase();
 
-    $path = '../profile_imgs/' +oldValue+'_temp.jpg';
+    var path = '../profile_imgs/' +oldValue+'_temp.jpg';
 
     if ( photo['size'] > 1000000 ){
         err.style.fontSize = '0.9em';
@@ -157,18 +176,19 @@ function checkPhoto(idPhoto,idErr,oldValue){
         return;
     }
         
-    if ( imageFileType != 'jpg' && imageFileType != 'png' && imageFileType != 'jpeg' ) {
+    /*if ( imageFileType != 'jpg' && imageFileType != 'png' && imageFileType != 'jpeg' ) {
         err.style.fontSize = '0.9em';
         err.style.color = 'darkred';
         err.innerHTML = 'Formato della foto non valido';
         return;
-    }
-    if ( !move_uploaded_file($_FILES['photo']['tmp_name'], '../'.path) ){
+    }*/
+
+   /* if ( !move_uploaded_file(photo['tmp_name'], '../'.path) ){
         err.style.fontSize = '0.9em';
         err.style.color = 'darkred';
         err.innerHTML = basename( photo['name']) + ' non e\' stato caricato.';
         return;	
-    }
-    refreshImg("../"+path+'?'+new Date().getTime());
+    }*/
+    //refreshImg("../"+path+'?'+new Date().getTime());
     return;
 }
