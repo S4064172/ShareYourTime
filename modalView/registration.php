@@ -19,12 +19,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label><b>Username</b></label>
-                        <input onfocusout="checkGenericSingleField('usernameReg','errUsername',0)" onfocusin="cleanErr('errUsername')" id="usernameReg" type="textModal" placeholder="Inserisci un username" name="user" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> required>
+                        <input onfocusout="checkUsername('usernameReg','errUsername',0)" onfocusin="cleanErr('errUsername')" id="usernameReg" type="textModal" placeholder="Inserisci un username" name="user" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> required>
                         <p id="errUsername"></p>                                                            
                     </div>
                     <div class="col-md-6">
                         <label class="textModal-r"><b>Email</b></label>
-                        <input onfocusout="checkGenericSingleField('emailReg','errEmail',0)" onfocusin="cleanErr('errEmail')" id="emailReg" type="email" placeholder="Inserisci il tuo indirizzo email" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> required>
+                        <input onfocusout="checkEmail('emailReg','errEmail',0)" onfocusin="cleanErr('errEmail')" id="emailReg" type="email" placeholder="Inserisci il tuo indirizzo email" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> required>
                         <p id="errEmail"></p>
                     </div>
                 </div>
@@ -32,12 +32,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label><b>Password</b></label>
-                        <input onfocusout="checkGenericSingleField('pswReg','errPsw',0)" onfocusin="cleanErr('errPsw')" id="pswReg" type="password" placeholder="Inserisci una password" name="psw" minlength=<?php echo PasswordMinLength?> required>
+                        <input onfocusout="checkPsw('pswReg','errPsw')" onfocusin="cleanErr('errPsw')" id="pswReg" type="password" placeholder="Inserisci una password" name="psw" minlength=<?php echo PasswordMinLength?> required>
                         <p id="errPsw"></p>
                     </div>
                     <div class="col-md-6">
                         <label class="textModal-r"><b>Conferma Password</b></label>
-                        <input  onfocusout="checkGenericSingleField('pswRegConf','errPswConf',0,'pswReg')" onfocusin="cleanErr('errPswConf')" id="pswRegConf" type="password" placeholder="Conferma la password" name="pswConf" minlength=<?php echo PasswordMinLength?> required>
+                        <input  onfocusout="checkConfPws('pswRegConf','errPswConf','pswReg')" onfocusin="cleanErr('errPswConf')" id="pswRegConf" type="password" placeholder="Conferma la password" name="pswConf" minlength=<?php echo PasswordMinLength?> required>
                         <p id="errPswConf"></p>
                     </div>
                 </div>
@@ -45,12 +45,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label><b>Nome</b></label>
-                        <input onfocusout="checkGenericSingleField('nameReg','errName',0)" onfocusin="cleanErr('errName')" id="nameReg" type="textModal" placeholder="Inserisci il tuo nome" name="name" minlength=<?php echo NameMinLength?> maxlength=<?php echo NameMaxLength?> required>
+                        <input onfocusout="checkName('nameReg','errName')" onfocusin="cleanErr('errName')" id="nameReg" type="textModal" placeholder="Inserisci il tuo nome" name="name" minlength=<?php echo NameMinLength?> maxlength=<?php echo NameMaxLength?> required>
                         <p id="errName"></p>
                     </div>
                     <div class="col-md-6">
                         <label class="textModal-r"><b>Cognome</b></label>
-                        <input onfocusout="checkGenericSingleField('surnameReg','errSurname',0)" onfocusin="cleanErr('errSurname')" id="surnameReg" type="textModal" placeholder="Inserisci il tuo cognome" name="surname" minlength=<?php echo SurnameMinLength?> maxlength=<?php echo SurnameMaxLength?> required> 
+                        <input onfocusout="checkSurname('surnameReg','errSurname')" onfocusin="cleanErr('errSurname')" id="surnameReg" type="textModal" placeholder="Inserisci il tuo cognome" name="surname" minlength=<?php echo SurnameMinLength?> maxlength=<?php echo SurnameMaxLength?> required> 
                         <p id="errSurname"></p>
                     </div>
                 </div>
@@ -58,12 +58,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label><b>Indirizzo</b></label>
-                        <input onfocusout="checkGenericSingleField('addressReg','errAddress',0)" onfocusin="cleanErr('errAddress')" id="addressReg" type="textModal" placeholder="Inserisci il tuo indirizzo" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> required>
+                        <input onfocusout="checkAddress('addressReg','errAddress')" onfocusin="cleanErr('errAddress')" id="addressReg" type="textModal" placeholder="Inserisci il tuo indirizzo" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> required>
                         <p id="errAddress"></p>
                     </div>
                     <div class="col-md-6">
                         <label class="textModal-r"><b>Telefono</b></label>
-                        <input onfocusout="checkGenericSingleField('telephoneReg','errTelephone',0)" onfocusin="cleanErr('errTelephone')" id="telephoneReg" type="tel" placeholder="Inserisci un numero di telefono" name="phone" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> required>
+                        <input onfocusout="checkPhone('telephoneReg','errTelephone',0)" onfocusin="cleanErr('errTelephone')" id="telephoneReg" type="tel" placeholder="Inserisci un numero di telefono" name="phone" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> required>
                         <p id="errTelephone"></p>
                     </div>
                 </div>

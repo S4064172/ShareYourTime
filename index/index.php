@@ -116,7 +116,10 @@
 	<script type="text/javascript" src="../js/ajaxCheckRegistrationAllField.js"></script>
 	<script type="text/javascript" src="../js/ajaxCheckLoginAllField.js"></script>
 	<script type="text/javascript" src="../js/ajaxCheckSearchOptionMap.js"></script>
-
+	<script type="text/javascript" src="../js/checkProfileLocalField.js"></script>
+	<script type="text/javascript" src="../js/regexConstant.js"></script>
+	<script type="text/javascript" src="../js/dataBaseConstant.js"></script>
+	
 	<?php require('../googleAPIkey.html') ?>
 
 	</body>

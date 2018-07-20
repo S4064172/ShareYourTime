@@ -72,7 +72,7 @@
 			console.log("Parametro non valido");
 			return;
 		}
-
+		
 		// non devo confrontare il campo inserito con un altro campo
 		if(checkField == null)
 			formData.append(htmlTag.name,htmlTag.value);
@@ -178,10 +178,10 @@
 	}
 
 
-	/*function checkMatchRegex(inputSent, regexToMatch) 
+	function checkMatchRegex(inputSent, regexToMatch) 
 	{
-		return preg_match(regexToMatch, inputSent);
-	}*/
+		return regexToMatch.test(inputSent);
+	}
 
 	function checkMin(num, min) {
 		return num > min;
@@ -193,4 +193,10 @@
 
 	function checkMaxLength(string, max) {
 		return string.length <= max;
+	}
+
+	function notValidString(string, regex, minLen, maxLen) {
+		return !checkMinLength(string, minLen) ||
+			   !checkMaxLength(string, maxLen) ||
+			   !checkMatchRegex(string, regex);
 	}
