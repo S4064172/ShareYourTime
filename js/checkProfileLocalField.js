@@ -68,15 +68,14 @@ function checkPsw(idPws, idErr){
         return;
     }
        
-    
-/*
-    foreach(passwordRegex as $regex) {
-        if ( !checkMatchRegex($_POST['psw'], $regex) ) {
-            echo json_encode(array('code' => -1, 'msg' => 'La password deve contenere almeno una lettera minuscola, una maiuscola, un numero e un carattere speciale.'));
+    for(var i =0; i<passwordRegex.length ; i++)
+        if ( !checkMatchRegex(psw, passwordRegex[i]) ) {
+            err.style.fontSize = '0.9em';
+            err.style.color = 'darkred';
+            err.innerHTML = 'La password deve contenere almeno una lettera minuscola, una maiuscola, un numero e un carattere speciale.';
             return;
         }
-    }
-*/
+
 }
 
 function checkConfPws(idPwsConf , idErr, idPws ){
@@ -160,15 +159,15 @@ function checkPhoneUpdate(idPhone, idErr,oldValue){
 }
 
 
-function checkPhoto(idPhoto,idErr,oldValue){
+function checkPhoto(idPhoto,idErr){
 
     var photo = document.getElementById(idPhoto).files[0];
     var err = document.getElementById(idErr);
 
-    //var imageFileType = pathinfo(photo['name'], PATHINFO_EXTENSION).toLowerCase();
+    var imageFileType = photo['type'].split("/")[1].toLowerCase();
 
-    var path = '../profile_imgs/' +oldValue+'_temp.jpg';
-
+    var tmpPath = URL.createObjectURL(photo);
+   
     if ( photo['size'] > 1000000 ){
         err.style.fontSize = '0.9em';
         err.style.color = 'darkred';
@@ -176,19 +175,13 @@ function checkPhoto(idPhoto,idErr,oldValue){
         return;
     }
         
-    /*if ( imageFileType != 'jpg' && imageFileType != 'png' && imageFileType != 'jpeg' ) {
+    if ( imageFileType != 'jpg' && imageFileType != 'png' && imageFileType != 'jpeg' ) {
         err.style.fontSize = '0.9em';
         err.style.color = 'darkred';
         err.innerHTML = 'Formato della foto non valido';
         return;
-    }*/
+    }
 
-   /* if ( !move_uploaded_file(photo['tmp_name'], '../'.path) ){
-        err.style.fontSize = '0.9em';
-        err.style.color = 'darkred';
-        err.innerHTML = basename( photo['name']) + ' non e\' stato caricato.';
-        return;	
-    }*/
-    //refreshImg("../"+path+'?'+new Date().getTime());
+    refreshImg(tmpPath+'?'+new Date().getTime());
     return;
 }
