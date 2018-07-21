@@ -6,21 +6,14 @@
 -> insertFunction.php
     -> modificare le insert coi default per i campi non necessari
 
--> ajaxCheckSearchOptionMap.js
-    -> forse manca il "blocco"
-
 -> controllo sessione
 
 -> oscurare le cartelle/pagine secondarie
 
--> funzioni chiamata da html con passaggi parametri
-    -> possibile mettere conrolli anti manomissione
-
 -> controlli sulle vaire funzioni del db
-
--> ajaxCheckModifiedAllFile.js
-    -> aggiungere conferma pw
 
 -> problema tabelle se 0 lavori
 
 -> sistemare query dei lavori con controllo data
+
+-> manca controllo foto locale durante la registrazione

@@ -32,6 +32,7 @@ function checkModifiedAllField(idWait,userCheck,mailCheck,phoneCheck)
 	var htmlTagUser = document.getElementById('userModified');
     var htmlTagEmail = document.getElementById('emailModified');
     var htmlTagPsw = document.getElementById('pswModified');
+    var htmlTagConfPsw = document.getElementById('pswConfModified');
   	var htmlTagName = document.getElementById('nameModified');
     var htmlTagSurname = document.getElementById('surnameModified');
     var htmlTagAddress = document.getElementById('addressModified');
@@ -42,6 +43,7 @@ function checkModifiedAllField(idWait,userCheck,mailCheck,phoneCheck)
 	formData.append(htmlTagUser.name, htmlTagUser.value);
     formData.append(htmlTagEmail.name, htmlTagEmail.value);
     formData.append(htmlTagPsw.name, htmlTagPsw.value);
+    formData.append(htmlTagConfPsw.name, htmlTagConfPsw.value);
     formData.append(htmlTagName.name, htmlTagName.value);
     formData.append(htmlTagSurname.name, htmlTagSurname.value);
     formData.append(htmlTagAddress.name, htmlTagAddress.value);
@@ -278,8 +280,7 @@ function checkEmailUpdate(idEmail, idErr, oldValue){
  *  @description
  *  questa funzione controlla 
  *  la psw in fase di 
- *  registrazione o
- *  modifica profilo
+ *  registrazione
  */
 function checkPsw(idPws, idErr){
 
@@ -305,12 +306,27 @@ function checkPsw(idPws, idErr){
 
 /**
  *  @description
+ *  questa funzione controlla 
+ *  la psw in fase di 
+ *  modifica profilo
+ */
+function checkPswUpdate(idPws, idErr){
+
+    var psw = document.getElementById(idPws).value;
+
+    if(psw !== "")
+        checkPsw(idPws, idErr);
+
+}
+
+/**
+ *  @description
  *  questa funzione confronta
  *  la psw con pswConf
  *  in fase di 
- *  registrazione o
- *  modifica profilo
+ *  registrazione
  */
+
 function checkConfPws(idPwsConf , idErr, idPws ){
 
     var psw = document.getElementById(idPws).value;
@@ -323,6 +339,22 @@ function checkConfPws(idPwsConf , idErr, idPws ){
         err.innerHTML = 'Le password non coincidono';
         return;
     }
+}
+
+/**
+ *  @description
+ *  questa funzione confronta
+ *  la psw con pswConf
+ *  in fase di 
+ *  modifica profilo
+ */
+function checkConfPwsUpDate(idPwsConf , idErr, idPws ){
+
+    var psw = document.getElementById(idPws).value;
+
+    if(psw !== "")
+        checkConfPws(idPwsConf , idErr, idPws )
+
 }
 
 /**
@@ -436,8 +468,6 @@ function checkPhoto(idPhoto,idErr){
     var err = document.getElementById(idErr);
 
     var imageFileType = photo['type'].split("/")[1].toLowerCase();
-
-    var tmpPath = URL.createObjectURL(photo);
    
     if ( photo['size'] > 1000000 ){
         err.style.fontSize = '0.9em';
@@ -453,6 +483,13 @@ function checkPhoto(idPhoto,idErr){
         return;
     }
 
-    refreshImg(tmpPath+'?'+new Date().getTime());
     return;
+}
+
+function checkPhotoUpDate(idPhoto,idErr){
+
+    checkPhoto(idPhoto,idErr);
+    var photo = document.getElementById(idPhoto).files[0];
+    var tmpPath = URL.createObjectURL(photo);
+    refreshImg(tmpPath+'?'+new Date().getTime());
 }

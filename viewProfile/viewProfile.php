@@ -63,7 +63,7 @@
                         </div>
                         <div class="fieldHide" id="imgModified">
                             <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="file" id="photoModified" onchange="checkPhoto('photoModified','errPhotoModified','<?php echo sanitizeToHtml($row['User']) ?>')" name="photo" accept=".png, .jpg, .jpeg" required>
+                            <input type="file" id="photoModified" onchange="checkPhotoUpDate('photoModified','errPhotoModified','<?php echo sanitizeToHtml($row['User']) ?>')" name="photo" accept=".png, .jpg, .jpeg" required>
                             <p id="errPhotoModified"></p>
                         </div>
                     </div>  
@@ -94,8 +94,18 @@
                                     <label class="labelText fieldHide" id="pswLabel"><b>Password</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkPsw('pswModified','errPswModified')" onfocusin="cleanErr('errPswModified')" id="pswModified" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
+                                    <input onfocusout="checkPswUpdate('pswModified','errPswModified')" onfocusin="cleanErr('errPswModified')" id="pswModified" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
                                     <p id="errPswModified"></p>
+                                </div>
+                            </div>
+
+                             <div class="row">
+                                <div class="col-md-6">
+                                    <label class="labelText fieldHide" id="pswConfLabel"><b>Conferma password</b></label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input onfocusout="checkConfPwsUpDate('pswConfModified','errPswConfModified','pswModified')" onfocusin="cleanErr('errPswModified')" id="pswConfModified" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
+                                    <p id="errPswConfModified"></p>
                                 </div>
                             </div>
 

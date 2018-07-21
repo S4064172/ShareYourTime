@@ -69,7 +69,7 @@
                 </div>
 
                 <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
-              	<input type="file" id="photoReg" name="photo" accept=".png, .jpg, .jpeg" required>
+              	<input type="file" onchange="checkPhoto('photoReg','errPhoto')" id="photoReg" name="photo" accept=".png, .jpg, .jpeg" required>
 				<p id="errPhoto"></p>
 
                 <button type="button" onclick="checkRegistrationAllField('waitRegistration')" class="btn btn-success mybutton mt-4">Registrati</button>
