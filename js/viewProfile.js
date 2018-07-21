@@ -1,5 +1,12 @@
 "use strict";
 
+/*
+    questo file contiene tutte 
+    le funzioni js utilizzate per
+    gestire viewProfile
+*/
+
+
 /** @description
  *  Questa funzione permette
  *  di togliere il tag

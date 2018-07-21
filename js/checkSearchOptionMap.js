@@ -7,6 +7,7 @@
 *	Viene utilizzata una chiamata ajax
 *	per rimanere nella stessa pagina.
 */
+/*
 function checkOptionSearchMap()
 {
 	var request = getRequest();
@@ -29,12 +30,13 @@ function checkOptionSearchMap()
                     htmlTag.name+ "=" +htmlTag.value);
 	
 }
-
+*/
 /** @description
 *	Questa callback ci permette di
 *	informare l'utente sull'esito
 *	dei controlli fatti
 */
+/*
 function validateCheckOptionSearchMap(request)
 {
 	return function(){
@@ -49,4 +51,4 @@ function validateCheckOptionSearchMap(request)
 			}
 		}
 	}
-}
+}*/

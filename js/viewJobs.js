@@ -1,5 +1,22 @@
 "use strict";
 
+
+/*
+    questo file contiene tutte 
+    le funzioni js utilizzate per
+    gestire viewJobs
+*/
+
+
+
+/**
+ * @description
+ * questa funzione ci permette
+ * di riempire il modalJobs in 
+ * fase di modifica 
+ */
+
+
 function fillModalFieldJobs(id){
 
     var num=id.split("_");

@@ -1,4 +1,4 @@
-<?php require_once('../utils/dataBaseConstant.php');?>
+<?php require_once('../utils/constant.php');?>
 
 <div class="modal myModal fade" id="signUpModalTarget" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="wait" id="waitRegistration">

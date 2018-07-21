@@ -1,10 +1,12 @@
 "use strict";
 
 
+
 /** @description
 *	Questa funzione ci permette di creare 
 *	una richiesta in post per controllare
-*	i campi che l'utente ha inserito.  
+*	i campi che l'utente ha inserito durante
+*	la fase di login.  
 *	Viene utilizzata una chiamata ajax
 *	per rimanere nella stessa pagina
 *	in caso di errore
@@ -13,7 +15,7 @@ function checkLoginAllField(idUser,IdPws,IdErrLog,idWait)
 {
 	showItem(idWait);
 	var request = getRequest();
-	request.open("POST", "../modalView/checkLoginAllField.php", true);	
+	request.open("POST", "../utils/checkLoginUser.php", true);	
 	request.onreadystatechange = validateCheckLoginAllField(IdErrLog, idWait, request);
 	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	var htmlTagUser = document.getElementById(idUser);
@@ -35,11 +37,10 @@ function validateCheckLoginAllField(idErrField, idWait, request)
 		hideItem(idWait);
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
-				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
 				var notify = document.getElementById(idErrField);
-				notify.style.fontSize = '0.9em';
 				if (jsonObj['code'] === -1) {
+					notify.style.fontSize = '0.9em';
 					notify.style.color = 'darkred';
 					notify.innerHTML = jsonObj['msg'];
 					return

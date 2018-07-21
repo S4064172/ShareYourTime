@@ -1,6 +1,6 @@
 <?php
     require_once("connection.php");
-    require_once("../utils/dataBaseConstant.php");
+    require_once("../utils/constant.php");
     $conn = connectionToDb();
     
     $queryCreateTable[0] = "CREATE TABLE ShareYourUsersTime (

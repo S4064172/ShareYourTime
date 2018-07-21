@@ -1,5 +1,14 @@
 "use strict";
 
+/*
+    questo file contiene tutte 
+    le funzioni js utilizzate per
+    gestire la navBar
+*/
+
+
+
+
 /** @description
 *   Questa funzione ci permette di 
 *   chiudere manualmente il 

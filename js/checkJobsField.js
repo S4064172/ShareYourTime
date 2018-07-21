@@ -1,5 +1,12 @@
 "use strict";
 
+/*
+    Questo file contiene tutti i controlli 
+    necessari per validare i campi dei 
+    lavori sia in fase di modifica che
+    inserimento sia in locale che in remoto
+*/
+
 
 function checkDescription(idCheck,idErr){
    

@@ -1,6 +1,6 @@
 <?php
 	require_once('connection.php');
-	require_once('../utils/checkFields.php');
+	require_once('../utils/utlis.php');
 
 	function insertAndCheck($insert_prep_stmt) {
 		if ( !mysqli_stmt_execute($insert_prep_stmt) )
