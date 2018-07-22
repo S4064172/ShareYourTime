@@ -65,7 +65,7 @@
                 <br>	
                 <?php 
                     //tutti i lavori inseriti da user che non sono validi
-                    showJobs("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and TimeStart < NOW() ORDER BY TimeStart"); 
+                    showJobs("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and TimeStart < NOW() ORDER BY TimeStart DESC"); 
                 ?>
             </div>
         </section>

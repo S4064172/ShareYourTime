@@ -32,6 +32,7 @@
         <link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
         <link rel="stylesheet" type="text/css" href="viewProfile.css"/>
         <link rel="stylesheet" type="text/css" href="../contactUs/contactUs.css"/>
+        <link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
 
 	</head>
 	
@@ -42,7 +43,7 @@
         <section id="viewProfile" onClick="hideItem('menu');">
 
             <?php require_once("../menu/menu.php"); ?>
-
+            <?php require_once("../modalView/confirmPws.php"); ?>
             <div class="myContainer titleSessionTesto">
                 <div class="wait" id="waitRegistration">
                     <img class="imgWait" src="../img/sandclock.png">
@@ -156,10 +157,10 @@
                                     
                                 </div>
                                 <div class="col-md-3">
-                                    <a href="../utils/deleteAccount.php"><button class="btn btn-danger" id="bntDelete">Elimina</button></a>
+                                    <a  class="btn btn-danger" id="bntDelete" data-toggle="modal" data-target="#confirmDeleteAccount">Elimina</a>
                                 </div>
                                 <div class="col-md-3">
-                                    <a href="../homepage/homepage.php"><button class="btn btn-success" onClick="disableChanges();" id="bntExit">Esci</button></a>
+                                    <a href="../homepage/homepage.php" class="btn btn-success" onClick="disableChanges();" id="bntExit">Esci</a>
                                 </div>
                             </div>
 

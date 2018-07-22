@@ -7,6 +7,46 @@
     sia in locale che in remoto
 */
 
+/*****************Controlli Remoti Solo Psw*******************/
+
+
+/** @description    
+ *  Questa funzione mi permette
+ *  di controllare la pws in
+ *  operazioni sensibili
+ */
+function confirmPws(user, idPsw, idErrPsw){
+    
+    var request = getRequest();
+    request.open("POST", "../utils/checkConfirmPws.php", true);	
+    request.onreadystatechange = validateConfirmPws(request, idErrPsw);
+    var psw = document.getElementById(idPsw).value;
+    var formData = new FormData();
+    formData.append('checkUser', user);
+    formData.append('checkPsw', psw);
+    request.send(formData);
+    
+ }
+
+ function validateConfirmPws(request, idErrPsw){
+    return function(){
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.responseText != null) {
+                console.log(request.responseText);
+                var jsonObj = JSON.parse(request.responseText);
+                if (jsonObj === '0') {
+                    window.location.href = '../utils/deleteAccount.php';
+                }else{
+                    var tagHtml = document.getElementById(idErrPsw);
+                    tagHtml.style.fontSize = '0.9em';
+                    tagHtml.style.color = 'darkred';
+                    tagHtml.innerHTML = jsonObj;
+                }
+                    
+            }
+        }
+    }
+ }
 
 /*****************Controlli Remoti Completi*******************/
 

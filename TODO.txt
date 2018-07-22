@@ -16,5 +16,4 @@
     -> modifica valutazione da fare
 
 -> cancellazione utente
-    -> manca avviso di conferma
     -> disabilitare in fase di modifica

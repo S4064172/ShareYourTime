@@ -54,7 +54,7 @@
                 <br>	
                 <?php 
                    //tutti i lavori richiesti da user non validi
-                    showJobs("SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart < NOW() ORDER BY TimeStart"); 
+                    showJobs("SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart < NOW() ORDER BY TimeStart DESC"); 
                 ?>
             </div>  
 
