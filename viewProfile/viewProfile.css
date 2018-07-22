@@ -34,7 +34,7 @@ section {
 }
 
 
-input[type=text], input[type=password], input[type=email], input[type=tel], .labelText {
+.inputType, .inputTypePsw, .labelText {
     width: 100%;
     padding: 10px 10px;
     margin: 6px 0;
@@ -43,12 +43,12 @@ input[type=text], input[type=password], input[type=email], input[type=tel], .lab
 	font-size: 20px;
 }
    
-input[type=text], input[type=password], input[type=email], input[type=tel]{
+.inputType, .inputTypePsw{
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
 
-.fieldHide, input[type=password]{
+.fieldHide, .inputTypePsw{
     display: none;
 }
 

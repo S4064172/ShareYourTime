@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <label><b>Inserisci la password</b></label>
-                            <input onfocusout="checkPsw('modalPwsDelete', 'errModalPwsDelete');" onfocusin="cleanErr('errModalPwsDelete');" id="modalPwsDelete" type="textModal" name="description" minlength=<?php echo DescriptionMinLength?> maxlength=<?php echo DescriptionMaxLength?>>
+                            <input onfocusout="checkPsw('modalPwsDelete', 'errModalPwsDelete');" onfocusin="cleanErr('errModalPwsDelete');" id="modalPwsDelete" class="inputTextModal" type="password" name="psw" minlength=<?php echo PasswordMinLength?>>
                             <p id="errModalPwsDelete"></p>    
                         </div>                                                        
                     </div>

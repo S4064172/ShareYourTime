@@ -26,14 +26,14 @@
             
             <?php if ( $_SESSION['page'] == "viewjobs" && $row['Receiver'] == null ) {?>
                 <div class="card-footer">
-                    <button type="button" onClick="fillModalFieldJobs('modalModify__<?php echo $row['IdJob']?>')" id="modalModify__<?php echo $row['IdJob']?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#exampleModal">Modifica</button>
+                    <button type="button" onClick="fillModalFieldJobs('modalModify__<?php echo $row['IdJob']?>')" id="modalModify__<?php echo $row['IdJob']?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#jobsModal">Modifica</button>
                     <a href="#" id="modalDelete__<?php echo $row['IdJob']?>" class="btn btn-danger ">Cancella</a>
                 </div>
             <?php } ?>
 
                 <?php if ($_SESSION['page'] == "viewjobsrequired" && $row['TimeEnd'] < date('Y-m-d H:i:s') ) {?>
                 <div class="card-footer">
-                    <button type="button" onClick="fillModalFieldJobs('modalModify__<?php echo $row['IdJob']?>')" id="modalModify__<?php echo $row['IdJob']?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#exampleModal">Modifica</button>
+                    <button type="button" onClick="fillModalFieldJobs('modalModify__<?php echo $row['IdJob']?>')" id="modalModify__<?php echo $row['IdJob']?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#jobsModal">Modifica</button>
                 </div>
             <?php } ?>
 

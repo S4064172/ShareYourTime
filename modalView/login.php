@@ -12,10 +12,10 @@
                 <img src="../img/avatar.png" alt="Avatar" class="avatar">
             </div> 
             <div class="myContainer-padding">
-                <label class="textModal-c"><b>Username</b></label>
-                <input type="textModal" onfocusin="cleanErr('errLogin')" placeholder="Enter Username" id="userLogin" name="usernameLogin" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> required>
-                <label class="textModal-c"><b>Password</b></label>
-                <input type="password" onfocusin="cleanErr('errLogin')" placeholder="Enter Password" id="pwsLogin" name="pswLogin" minlength=<?php echo PasswordMinLength?> required>
+                <label class="text-c"><b>Username</b></label>
+                <input type="text" onfocusin="cleanErr('errLogin')" placeholder="Enter Username" id="userLogin" class="inputTextModal" name="usernameLogin" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> >
+                <label class="text-c"><b>Password</b></label>
+                <input type="password" onfocusin="cleanErr('errLogin')" placeholder="Enter Password" id="pwsLogin" class="inputTextModal"  name="pswLogin" minlength=<?php echo PasswordMinLength?> >
                 <p id="errLogin"></p>
                 <button type="button" onClick="checkLoginAllField('userLogin','pwsLogin', 'errLogin', 'waitLogin')" class="btn btn-success mybutton mt-4">Login</button>
             </div>	

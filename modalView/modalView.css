@@ -1,8 +1,8 @@
-.textModal-r {
+.text-r {
 	float: right;
 }
 
-.textModal-c {
+.text-c {
     text-align: center;
 }
 
@@ -82,24 +82,22 @@ img.avatar {
     cursor: pointer;
 }
 
-input[type=textModal], input[type=password], input[type=email], input[type=tel], input[type=date], input[type=time]{
-
+.inputTextModal, .inputTimeModal{
     
     margin: 6px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-	
 	font-size: 15px;
 }
 
-input[type=textModal], input[type=password], input[type=email], input[type=tel] {
+.inputTextModal {
     width: 100%;
     padding: 10px 10px;
     height: 15%;
 }
 
-input[type=date], input[type=time]{
+.inputTimeModal{
     width: 49%;
 }
 
@@ -143,7 +141,7 @@ input[type=date], input[type=time]{
 }
 
 @media screen and (max-width: 768px /*sm*/) {
-	.textModal-r {
+	.text-r {
 		float: left;
 	}
 }
