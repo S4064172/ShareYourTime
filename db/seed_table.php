@@ -53,13 +53,17 @@
 	
 	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti1", 60, $time7S, $time7E, $days_2, 2, "DEFAULT", "via gramsci", 55.99, 23.31, "pippo");
 	updataInto_ShareYourJobsTime('Receiver', 'kenny', 7);
+	updataInto_ShareYourJobsTime('Evaluation', 5, 7);
 
 	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti2", 60, $time8S, $time8E, $days1, 2, "DEFAULT", "via gramsci", 55.99, 23.31, "kenny");
 	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti3", 60, $time7S, $time7E, $days_2, 2, "DEFAULT", "via gramsci", 55.99, 23.31, "kenny");
 	
 	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti4", 60, $time7S, $time7E, $days_2, 2, "DEFAULT", "via gramsci", 55.99, 23.31, "kenny");
 	updataInto_ShareYourJobsTime('Receiver', 'pippo', 10);
+	updataInto_ShareYourJobsTime('Evaluation', 4, 10);
 
+	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti5", 60, $time7S, $time7E, $days_2, 2, "DEFAULT", "via gramsci", 55.99, 23.31, "pippo");
+	updataInto_ShareYourJobsTime('Receiver', 'kenny', 11);
 
 	
 	

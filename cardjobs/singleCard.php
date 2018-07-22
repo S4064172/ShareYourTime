@@ -11,8 +11,23 @@
                     <li class="list-group-item" id="cardTimeStart_<?php echo $row['IdJob']?>" value="<?php echo $row['TimeStart']?>"><?php echo "Inizio : ".$row['TimeStart']?></li>
                     <li class="list-group-item" id="cardTimeEnd_<?php echo $row['IdJob']?>" value="<?php echo $row['TimeEnd']?>"><?php echo "Fine : ".$row['TimeEnd']?></li>
                     <li class="list-group-item" id="cardDistance_<?php echo $row['IdJob']?>" value="<?php echo $row['Distance']?>"><?php echo "Distanza : ".$row['Distance']?></li>
-                    <?php if ($row['TimeEnd'] < date('Y-m-d H:i:s') ) {?>
-                        <li class="list-group-item" id="cardValuation_<?php echo $row['IdJob']?>" value="<?php echo $row['Evaluation']?>"><?php echo "Valutazione : ".$row['Evaluation']?></li>
+                    <?php if ($row['TimeEnd'] < date('Y-m-d H:i:s')) {?>
+                        <li class="list-group-item" id="cardValuation_<?php echo $row['IdJob']?>" value="<?php echo $row['Evaluation']?>">
+                            <?php 
+                                //se il lavoro non ha valutazioni si da 
+                                //la possibilità di valutare
+                                //altrimenti si stampano le stelline 
+                                //corrisponenti
+                                if($row['Evaluation']==0)
+                                    if($_SESSION['page'] == "viewjobs")
+                                        echo "attesa valutazione";
+                                    else    
+                                        echo "aggiungi valutazione";
+                                else
+                                    for($i=0; $i<$row['Evaluation']; $i++)
+                                    echo "<i class='far fa-star'></i>";
+                            ?>
+                        </li>
                     <?php } ?>
                     <li class="list-group-item" id="cardStreet_<?php echo $row['IdJob']?>" value="<?php echo $row['Street']?>"><?php echo $row['Street']?></li>
                     <?php if ($_SESSION['page'] == "viewjobsrequired") {?>
@@ -30,13 +45,6 @@
                     <a href="#" id="modalDelete__<?php echo $row['IdJob']?>" class="btn btn-danger ">Cancella</a>
                 </div>
             <?php } ?>
-
-                <?php if ($_SESSION['page'] == "viewjobsrequired" && $row['TimeEnd'] < date('Y-m-d H:i:s') ) {?>
-                <div class="card-footer">
-                    <button type="button" onClick="fillModalFieldJobs('modalModify__<?php echo $row['IdJob']?>')" id="modalModify__<?php echo $row['IdJob']?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#jobsModal">Modifica</button>
-                </div>
-            <?php } ?>
-
         </div>
 <?php } ?>
 
