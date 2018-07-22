@@ -67,7 +67,7 @@
     <div>
     <span class='collapse navbar-collapse navbarTogglerSignupLogin'>
         <?php if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) {?>
-            <form action="../navBar/logout.php" >
+            <form action="../utils/logout.php" >
                 <button type='submit' class='btn btn-warning mr-2 d-block d-sm-inline btnSize'>
                     <i class='fa fa-sign-out-alt'></i>
                     Logout

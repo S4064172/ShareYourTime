@@ -148,15 +148,18 @@
                                     <p id="errPhoneModified"></p>
                                 </div>
                             </div>
-
+                            
                             <div class="row text-center">
-                                <div class="col-md-6">
-                                    <button class="btn btn-primary mb-2 mb-sm-0" id="bntModify" onClick="enableChanges();">Modifica</button>
-                                    <button class="btn btn-primary fieldHide mb-2 mb-sm-0" id="bntSave" onClick="checkModifiedAllField('waitRegistration','<?php echo $row['User'] ?>','<?php echo $row['Email'] ?>','<?php echo $row['Phone'] ?>');">Salva</button>
+                                <div class="offset-md-2  col-md-3">
+                                    <a class="btn btn-primary" id="bntModify" onClick="enableChanges();">Modifica</a>
+                                    <a class="btn btn-primary fieldHide" id="bntSave" onClick="checkModifiedAllField('waitRegistration','<?php echo $row['User'] ?>','<?php echo $row['Email'] ?>','<?php echo $row['Phone'] ?>');">Salva</a>
                                     
                                 </div>
-                                <div class="col-md-6">
-                                <a href="../homepage/homepage.php"><button class="btn btn-success" onClick="disableChanges();" id="bntExit">Esci</button></a>
+                                <div class="col-md-3">
+                                    <a href="../utils/deleteAccount.php"><button class="btn btn-danger" id="bntDelete">Elimina</button></a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="../homepage/homepage.php"><button class="btn btn-success" onClick="disableChanges();" id="bntExit">Esci</button></a>
                                 </div>
                             </div>
 

@@ -56,9 +56,12 @@ input[type=text], input[type=password], input[type=email], input[type=tel]{
     text-align: center;	
 }
 
-#bntModify, #bntExit, #bntSave{
-    width: 50%;
+#bntModify, #bntExit, #bntSave, #bntDelete{
+    width: 60%; 
+    margin-bottom: 2% !important;
 }
+
+
 
 .titleSessionTesto {
 	padding-top: 6em;

@@ -121,7 +121,6 @@
 		if( $_POST['registration']=='0' ){ 
 		session_start();
 		$_SESSION['user'] = $_POST['user'];
-		if($_POST['registration']=='0')
 			insertInto_ShareYourUserTime(	$_POST['user'], $_POST['psw'],
 											$_POST['name'], $_POST['surname'],
 											$_POST['telephone'], $_POST['email'],

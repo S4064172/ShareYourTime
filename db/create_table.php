@@ -28,8 +28,8 @@
 					Longitude float NOT NULL,
 					Proposer char(".UserNameMaxLength.") NOT NULL,
                     Receiver char(".UserNameMaxLength.") default NULL,
-                    FOREIGN KEY (Receiver) REFERENCES ShareYourUsersTime (User) ON UPDATE CASCADE,
-                    FOREIGN KEY (Proposer) REFERENCES ShareYourUsersTime (User) ON UPDATE CASCADE
+                    FOREIGN KEY (Receiver) REFERENCES ShareYourUsersTime (User) ON UPDATE CASCADE ON DELETE CASCADE,
+                    FOREIGN KEY (Proposer) REFERENCES ShareYourUsersTime (User) ON UPDATE CASCADE ON DELETE CASCADE
                 );";
 
     $queryCreateTable[2] = "CREATE TABLE ShareYourTagsTime (
@@ -41,7 +41,7 @@
                     IdJob int,
                     PRIMARY KEY (Tag,IdJob),
                     FOREIGN KEY (Tag) REFERENCES ShareYourTagsTime (Tag) ON UPDATE CASCADE,
-                    FOREIGN KEY (IdJob) REFERENCES ShareYourJobsTime (IdJob) ON UPDATE CASCADE
+                    FOREIGN KEY (IdJob) REFERENCES ShareYourJobsTime (IdJob) ON UPDATE CASCADE ON DELETE CASCADE
                 );";
     
     foreach($queryCreateTable as $query ){     

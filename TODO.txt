@@ -12,8 +12,9 @@
 
 -> controlli sulle vaire funzioni del db
 
--> problema tabelle se 0 lavori
+-> viewJobsReqiured
+    -> modifica valutazione da fare
 
--> sistemare query dei lavori con controllo data
-
--> manca controllo foto locale durante la registrazione
+-> cancellazione utente
+    -> manca avviso di conferma
+    -> disabilitare in fase di modifica

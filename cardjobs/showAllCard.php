@@ -1,6 +1,6 @@
 <?php
         
-    function showJobs($getJobsQuery, $selector) {
+    function showJobs($getJobsQuery) {
         require_once('../db/connection.php');
         
         
@@ -17,7 +17,7 @@
             require_once("singleCard.php");
             if($rows>0){
                 while( $row = mysqli_fetch_array($res) ) 
-                    showCart($row,$selector);
+                    showCart($row);
             }else{
         ?> 
             <h1>NON CI SONO LAVORI</h1>
