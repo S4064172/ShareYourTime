@@ -1,5 +1,5 @@
 <?php
-     if (session_status() == PHP_SESSION_NONE) {
+     if ( session_status() == PHP_SESSION_NONE ) {
         session_start();
 	}
 	
@@ -7,11 +7,9 @@
        header("Location: ../index/index.php");
 	}
 
-    $_SESSION['page']="viewjobsrequired";
+    $_SESSION['page'] = "viewjobsrequired";
 
     require_once('../utils/constant.php');
-  
-    
 ?>
 
 <html>
@@ -22,6 +20,7 @@
         <link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
         <link rel="stylesheet" type="text/css" href="viewJobs.css"/>
         <link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
+        <link rel="stylesheet" type="text/css" href="../cardjobs/card.css"/>
 
     </head>
 
@@ -34,15 +33,13 @@
             <?php require_once("../menu/menu.php"); ?>
             <?php require_once("../modalView/jobsView.php");?>
             <div class="myContainer text-center titleSessionTesto">
-				<h1><b class="colorTitle">Working Progress</b></h1>
+				<h1><b class="colorTitle">Lavori richiesti</b></h1>
 				<br>	
                 <?php 
                     //tutti i lavori richiesti da user ancora validi
                     showJobs("SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart > NOW() ORDER BY TimeStart"); 
                 ?>
             </div>
-            
-            
         </section>
 
         <section class="viewJobs" onClick="hideItem('menu');">
@@ -50,15 +47,13 @@
         <?php require_once("../menu/menu.php"); ?>
         <?php require_once("../modalView/jobsView.php");?>
             <div class="myContainer text-center titleSessionTesto">
-                <h1><b class="colorTitle">Working Progress</b></h1>
+                <h1><b class="colorTitle">Lavori che ti sono stati fatti</b></h1>
                 <br>	
                 <?php 
                    //tutti i lavori richiesti da user non validi
                     showJobs("SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart < NOW() ORDER BY TimeStart DESC"); 
                 ?>
             </div>  
-
-
         </section>
 
         <?php require ('../footer/footer.php'); ?>

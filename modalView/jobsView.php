@@ -2,8 +2,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       
-      <div class="modal-body">
-              
+      <div class="modal-body">            
         <div class="container myContainer-padding">
           <div class="row">
             <div class="col-12 text-center">
@@ -39,10 +38,6 @@
             <p id="errTime"></p>
             </div>
           </div>
-
-          <div class="row">
-            
-          </div>  
           <div class="row">  
             <div class="col-12 text-center">
             <label><b>Via</b></label>

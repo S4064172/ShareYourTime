@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="text-r"><b>Conferma Password</b></label>
-                        <input  onfocusout="checkConfPws('pswRegConf','errPswConf','pswReg')" onfocusin="cleanErr('errPswConf')" id="pswRegConf" class="inputTextModal" type="password" placeholder="Conferma la password" name="pswConf" minlength=<?php echo PasswordMinLength?> >
+                        <input  onfocusout="checkConfPsw('pswRegConf','errPswConf','pswReg')" onfocusin="cleanErr('errPswConf')" id="pswRegConf" class="inputTextModal" type="password" placeholder="Conferma la password" name="pswConf" minlength=<?php echo PasswordMinLength?> >
                         <p id="errPswConf"></p>
                     </div>
                 </div>

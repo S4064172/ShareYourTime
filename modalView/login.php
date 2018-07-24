@@ -1,4 +1,5 @@
 <?php require_once('../utils/constant.php');?>
+
 <div class="modal myModal myModal-mt fade" id="loginModalTarget" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="wait" id="waitLogin">
             <img class="imgWait" src="../img/sandclock.png">

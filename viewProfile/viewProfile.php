@@ -1,5 +1,5 @@
 <?php
-     if (session_status() == PHP_SESSION_NONE) {
+     if ( session_status() == PHP_SESSION_NONE ) {
         session_start();
 	}
 	
@@ -7,16 +7,16 @@
        header("Location: ../index/index.php");
 	}
 
-    $_SESSION['page']="viewprofile";
+    $_SESSION['page'] = "viewprofile";
 
     require_once('../utils/constant.php');
     require_once('../utils/utils.php');
     require_once('../db/connection.php');
 
     $conn = connectionToDb();
-    $getInfoUserQuery = "SELECT User,Name,Surname,Phone,Email,Street,Photo FROM ShareYourUsersTime where user='".$_SESSION['user']."'";
+    $getInfoUserQuery = "SELECT User,Name,Surname,Phone,Email,Street,Photo FROM ShareYourUsersTime WHERE user='".$_SESSION['user']."'";
     if ( !($res = mysqli_query($conn, $getInfoUserQuery)) ) 
-                die('Errore nella selezione dei lavori');
+        die('Errore nella selezione dei lavori');
     $row = mysqli_fetch_array($res);
     mysqli_free_result($res);
     mysqli_close($conn);
@@ -44,7 +44,7 @@
         <section id="viewProfile" onClick="hideItem('menu');">
 
             <?php require_once("../menu/menu.php"); ?>
-            <?php require_once("../modalView/confirmPws.php"); ?>
+            <?php require_once("../modalView/confirmPsw.php"); ?>
             <div class="myContainer titleSessionTesto">
                 <div class="wait" id="waitRegistration">
                     <img class="imgWait" src="../img/sandclock.png">
@@ -57,7 +57,7 @@
                                
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="card text-center" style="width:400px">
+                        <div class="card text-center wi400">
                             <img class="card-img-top" id="imgCard" src='<?php echo sanitizeToHtml($row['Photo'])?>' alt="Foto Profilo">
                             <div class="card-body">
                                 <h4 class="card-title" id="imgName"><?php echo sanitizeToHtml($row['Name'].' '. $row['Surname']) ?></h4>
@@ -65,7 +65,7 @@
                         </div>
                         <div class="fieldHide" id="imgModified">
                             <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="file" id="photoModified" onchange="checkPhotoUpDate('photoModified','errPhotoModified','<?php echo sanitizeToHtml($row['User']) ?>')" name="photo" accept=".png, .jpg, .jpeg" required>
+                            <input type="file" id="photoModified" onchange="cleanErr('errPhotoModified');checkPhotoUpdate('photoModified','errPhotoModified','<?php echo sanitizeToHtml($row['User']) ?>')" name="photo" accept=".png, .jpg, .jpeg" required>
                             <p id="errPhotoModified"></p>
                         </div>
                     </div>  
@@ -88,26 +88,6 @@
                                 <div class="col-md-6">
                                     <input onfocusout="checkEmailUpdate('emailModified','errEmailModified','<?php echo $row['Email'] ?>')" onfocusin="cleanErr('errEmailModified')" id="emailModified" class="inputType" type="email" value="<?php echo sanitizeToHtml($row['Email']) ?>" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> readonly>
                                     <p id="errEmailModified"></p>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label class="labelText fieldHide" id="pswLabel"><b>Password</b></label>
-                                </div>
-                                <div class="col-md-6">
-                                    <input onfocusout="checkPswUpdate('pswModified','errPswModified')" onfocusin="cleanErr('errPswModified')" id="pswModified" class="inputTypePsw" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
-                                    <p id="errPswModified"></p>
-                                </div>
-                            </div>
-
-                             <div class="row">
-                                <div class="col-md-6">
-                                    <label class="labelText fieldHide" id="pswConfLabel"><b>Conferma password</b></label>
-                                </div>
-                                <div class="col-md-6">
-                                    <input onfocusout="checkConfPwsUpDate('pswConfModified','errPswConfModified','pswModified')" onfocusin="cleanErr('errPswModified')" id="pswConfModified" class="inputTypePsw" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
-                                    <p id="errPswConfModified"></p>
                                 </div>
                             </div>
 
@@ -151,17 +131,38 @@
                                 </div>
                             </div>
                             
-                            <div class="row text-center">
-                                <div class="offset-md-2  col-md-3">
-                                    <a class="btn btn-primary" id="bntModify" onClick="enableChanges();">Modifica</a>
-                                    <a class="btn btn-primary fieldHide" id="bntSave" onClick="checkModifiedAllField('waitRegistration','<?php echo $row['User'] ?>','<?php echo $row['Email'] ?>','<?php echo $row['Phone'] ?>');">Salva</a>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="labelText fieldHide" id="pswLabel"><b>Password</b></label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input onfocusout="checkPswUpdate('pswModified','errPswModified')" onfocusin="cleanErr('errPswModified')" id="pswModified" class="inputTypePsw" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
+                                    <p id="errPswModified"></p>
+                                </div>
+                            </div>
+
+                             <div class="row">
+                                <div class="col-md-6">
+                                    <label class="labelText fieldHide" id="pswConfLabel"><b>Conferma password</b></label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input onfocusout="checkConfPswUpdate('pswConfModified','errPswConfModified','pswModified')" onfocusin="cleanErr('errPswModified')" id="pswConfModified" class="inputTypePsw" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
+                                    <p id="errPswConfModified"></p>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="offset-md-3  col-md-3">
+                                    <button class="btn btn-primary" id="bntModify" onClick="enableChanges();">Modifica profilo</button>
+                                    <button class="btn btn-primary fieldHide" id="bntSave" onClick="checkModifiedAllField('waitRegistration','<?php echo $row['User'] ?>','<?php echo $row['Email'] ?>','<?php echo $row['Phone'] ?>');">Salva modifiche</button>
                                     
                                 </div>
                                 <div class="col-md-3">
-                                    <a  class="btn btn-danger" id="bntDelete" data-toggle="modal" data-target="#confirmDeleteAccount">Elimina</a>
+                                    <button  class="btn btn-danger" id="bntDelete" data-toggle="modal" data-target="#confirmDeleteAccount">Elimina profilo</button>
                                 </div>
                                 <div class="col-md-3">
-                                    <a href="../homepage/homepage.php" class="btn btn-success" onClick="disableChanges();" id="bntExit">Esci</a>
+                                    <a href="../homepage/homepage.php" class="btn btn-success" id="bntExit">Torna alla homepage</a>
                                 </div>
                             </div>
 

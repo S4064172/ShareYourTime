@@ -6,65 +6,71 @@
 * in diversi contesti
 */
 
-	function getRequest() 
-	{
-		var request = null;
-		if (window.XMLHttpRequest) 
-			request = new XMLHttpRequest();
-		return request;
-	}
+function getRequest() 
+{
+	var request = null;
+	if (window.XMLHttpRequest) 
+		request = new XMLHttpRequest();
+	return request;
+}
 
-	/** @description
-	*	Questa funzione mi permette di 
-	*	mostrare item nascosti
-	*/
+/** @description
+*	Questa funzione mi permette di 
+*	mostrare item nascosti
+*/
 
-	function showItem(idItem){
-		document.getElementById(idItem).style.display = "block"; 
-	}
+function showItem(idItem)
+{
+	document.getElementById(idItem).style.display = "block"; 
+}
 
-	/** @description
-	*	Questa funzione mi permette di 
-	*	nascondere item visibili
-	*/
+/** @description
+*	Questa funzione mi permette di 
+*	nascondere item visibili
+*/
 
-	function hideItem(idItem){
-		document.getElementById(idItem).style.display = "none"; 
-	}
-
-
-	/** @description
-	*	Questa funzione ci permette
-	*	di "ripulire" il tag html
-	*	utilizzato per mostrare
-	* 	l'errore
-	*/
-
-	function cleanErr(id){
-		var notify = document.getElementById(id);
-		notify.innerHTML = "";
-	}
+function hideItem(idItem)
+{
+	document.getElementById(idItem).style.display = "none"; 
+}
 
 
-	function checkMatchRegex(inputSent, regexToMatch) 
-	{
-		return regexToMatch.test(inputSent);
-	}
+/** @description
+*	Questa funzione ci permette
+*	di "ripulire" il tag html
+*	utilizzato per mostrare
+* 	l'errore
+*/
 
-	function checkMin(num, min) {
-		return num > min;
-	}
+function cleanErr(id)
+{
+	var notify = document.getElementById(id);
+	notify.innerHTML = "";
+}
 
-	function checkMinLength(string, min) {
-		return string.length >= min;
-	}
+function checkMatchRegex(inputSent, regexToMatch) 
+{
+	return regexToMatch.test(inputSent);
+}
 
-	function checkMaxLength(string, max) {
-		return string.length <= max;
-	}
+function checkMin(num, min) 
+{
+	return num > min;
+}
 
-	function notValidString(string, regex, minLen, maxLen) {
-		return !checkMinLength(string, minLen) ||
-			   !checkMaxLength(string, maxLen) ||
-			   !checkMatchRegex(string, regex);
-	}
+function checkMinLength(string, min) 
+{
+	return string.length >= min;
+}
+
+function checkMaxLength(string, max) 
+{
+	return string.length <= max;
+}
+
+function notValidString(string, regex, minLen, maxLen) 
+{
+	return !checkMinLength(string, minLen) ||
+			!checkMaxLength(string, maxLen) ||
+			!checkMatchRegex(string, regex);
+}
