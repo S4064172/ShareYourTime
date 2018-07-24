@@ -1,6 +1,6 @@
 <?php
     require_once('connection.php');
-    require_once('../utils/checkFields.php');
+    require_once('../utils/utils.php');
     
     function upDataAndCheck($insert_prep_stmt) {
 		if ( !mysqli_stmt_execute($insert_prep_stmt) )
@@ -62,10 +62,6 @@
         mysqli_stmt_close($update_prep_stmt);
         mysqli_close($conn);
 
-        if ( file_exists('../../profile_imgs/'.$fieldFilter.'_temp.jpg') )
-            unlink('../../profile_imgs/'.$fieldFilter.'_temp.jpg');
-        
-        rename('../../profile_imgs/'.$fieldFilter.'.jpg', $path_temp);
     }
     
 

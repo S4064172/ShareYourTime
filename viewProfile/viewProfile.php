@@ -9,8 +9,8 @@
 
     $_SESSION['page']="viewprofile";
 
-    require_once('../utils/dataBaseConstant.php');
-    require_once('../utils/checkFields.php');
+    require_once('../utils/constant.php');
+    require_once('../utils/utils.php');
     require_once('../db/connection.php');
 
     $conn = connectionToDb();
@@ -32,6 +32,8 @@
         <link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
         <link rel="stylesheet" type="text/css" href="viewProfile.css"/>
         <link rel="stylesheet" type="text/css" href="../contactUs/contactUs.css"/>
+        <link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
+        
 
 	</head>
 	
@@ -42,17 +44,17 @@
         <section id="viewProfile" onClick="hideItem('menu');">
 
             <?php require_once("../menu/menu.php"); ?>
-
-            <div class="titleSessionTesto">
+            <?php require_once("../modalView/confirmPws.php"); ?>
+            <div class="myContainer titleSessionTesto">
                 <div class="wait" id="waitRegistration">
-                    <img class="imgWait" src="img/sandclock.png">
+                    <img class="imgWait" src="../img/sandclock.png">
                 </div>
                 <div class="row text-center">
                     <div class="col-12">
                         <h1>Impostazioni Profilo</h1>
                     </div>  
                 </div>
-                
+                               
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="card text-center" style="width:400px">
@@ -63,7 +65,7 @@
                         </div>
                         <div class="fieldHide" id="imgModified">
                             <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="file" id="photoModified" onchange="checkGenericSingleField('photoModified','errPhotoModified',1,'<?php echo sanitizeToHtml($row['User']) ?>')" name="photo" accept=".png, .jpg, .jpeg" required>
+                            <input type="file" id="photoModified" onchange="checkPhotoUpDate('photoModified','errPhotoModified','<?php echo sanitizeToHtml($row['User']) ?>')" name="photo" accept=".png, .jpg, .jpeg" required>
                             <p id="errPhotoModified"></p>
                         </div>
                     </div>  
@@ -74,7 +76,7 @@
                                     <label class="labelText"><b>Username</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('userModified','errUserModified',1,'<?php echo $row['User'] ?>')" onfocusin="cleanErr('errUserModified')" id="userModified" type="text" value="<?php echo sanitizeToHtml($row['User']) ?>" name="user" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> readonly>
+                                    <input onfocusout="checkUsernameUpdate('userModified','errUserModified','<?php echo $row['User'] ?>')" onfocusin="cleanErr('errUserModified')" id="userModified" class="inputType" type="text" value="<?php echo sanitizeToHtml($row['User']) ?>" name="user" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> readonly>
                                     <p id="errUserModified"></p> 
                                 </div>
                             </div>
@@ -84,7 +86,7 @@
                                 <label class="labelText"><b>Email</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('emailModified','errEmailModified',1,'<?php echo $row['Email'] ?>')" onfocusin="cleanErr('errEmailModified')" id="emailModified" type="email" value="<?php echo sanitizeToHtml($row['Email']) ?>" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> readonly>
+                                    <input onfocusout="checkEmailUpdate('emailModified','errEmailModified','<?php echo $row['Email'] ?>')" onfocusin="cleanErr('errEmailModified')" id="emailModified" class="inputType" type="email" value="<?php echo sanitizeToHtml($row['Email']) ?>" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> readonly>
                                     <p id="errEmailModified"></p>
                                 </div>
                             </div>
@@ -94,8 +96,18 @@
                                     <label class="labelText fieldHide" id="pswLabel"><b>Password</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('pswModified','errPswModified',1)" onfocusin="cleanErr('errPswModified')" id="pswModified" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
+                                    <input onfocusout="checkPswUpdate('pswModified','errPswModified')" onfocusin="cleanErr('errPswModified')" id="pswModified" class="inputTypePsw" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
                                     <p id="errPswModified"></p>
+                                </div>
+                            </div>
+
+                             <div class="row">
+                                <div class="col-md-6">
+                                    <label class="labelText fieldHide" id="pswConfLabel"><b>Conferma password</b></label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input onfocusout="checkConfPwsUpDate('pswConfModified','errPswConfModified','pswModified')" onfocusin="cleanErr('errPswModified')" id="pswConfModified" class="inputTypePsw" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
+                                    <p id="errPswConfModified"></p>
                                 </div>
                             </div>
 
@@ -104,7 +116,7 @@
                                     <label class="labelText"><b>Nome</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('nameModified','errNameModified',1)" onfocusin="cleanErr('errNameModified')" id="nameModified" type="text" value="<?php echo sanitizeToHtml($row['Name']) ?>" name="name" minlength=<?php echo NameMinLength?> maxlength=<?php echo NameMaxLength?> readonly>
+                                    <input onfocusout="checkName('nameModified','errNameModified')" onfocusin="cleanErr('errNameModified')" id="nameModified" class="inputType" type="text" value="<?php echo sanitizeToHtml($row['Name']) ?>" name="name" minlength=<?php echo NameMinLength?> maxlength=<?php echo NameMaxLength?> readonly>
                                     <p id="errNameModified"></p>
                                 </div>
                             </div>
@@ -114,7 +126,7 @@
                                     <label class="labelText"><b>Cognome</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('surnameModified','errSurnameModified',1)" onfocusin="cleanErr('errSurnameModified')" id="surnameModified" type="text" value="<?php echo sanitizeToHtml($row['Surname']) ?>" name="surname" minlength=<?php echo SurnameMinLength?> maxlength=<?php echo SurnameMaxLength?> readonly> 
+                                    <input onfocusout="checkSurname('surnameModified','errSurnameModified')" onfocusin="cleanErr('errSurnameModified')" id="surnameModified"  class="inputType" type="text" value="<?php echo sanitizeToHtml($row['Surname']) ?>" name="surname" minlength=<?php echo SurnameMinLength?> maxlength=<?php echo SurnameMaxLength?> readonly> 
                                     <p id="errSurnameModified"></p>
                                 </div>
                             </div>
@@ -124,7 +136,7 @@
                                     <label class="labelText" ><b>Indirizzo</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('addressModified','errAddressModified',1)" onfocusin="cleanErr('errAddressModified')" id="addressModified" type="text" value="<?php echo sanitizeToHtml($row['Street']) ?>" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> readonly>
+                                    <input onfocusout="checkAddress('addressModified','errAddressModified')" onfocusin="cleanErr('errAddressModified')" id="addressModified" class="inputType" type="text" value="<?php echo sanitizeToHtml($row['Street']) ?>" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> readonly>
                                     <p id="errAddressModified"></p>
                                 </div>
                             </div>
@@ -134,19 +146,22 @@
                                     <label class="labelText"><b>Telefono</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkGenericSingleField('phoneModified','errPhoneModified',1,'<?php echo $row['Phone'] ?>')" onfocusin="cleanErr('errPhoneModified')" id="phoneModified" type="tel" value="<?php echo sanitizeToHtml($row['Phone']) ?>" name="phone" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> readonly>
+                                    <input onfocusout="checkPhoneUpdate('phoneModified','errPhoneModified','<?php echo $row['Phone'] ?>')" onfocusin="cleanErr('errPhoneModified')" id="phoneModified" class="inputType" type="tel" value="<?php echo sanitizeToHtml($row['Phone']) ?>" name="phone" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> readonly>
                                     <p id="errPhoneModified"></p>
                                 </div>
                             </div>
-
+                            
                             <div class="row text-center">
-                                <div class="col-md-6">
-                                    <button class="btn btn-primary mb-2 mb-sm-0" id="bntModify" onClick="enableChanges();">Modifica</button>
-                                    <button class="btn btn-primary fieldHide mb-2 mb-sm-0" id="bntSave" onClick="checkModifiedAllField('waitRegistration','<?php echo $row['User'] ?>','<?php echo $row['Email'] ?>','<?php echo $row['Phone'] ?>');">Salva</button>
+                                <div class="offset-md-2  col-md-3">
+                                    <a class="btn btn-primary" id="bntModify" onClick="enableChanges();">Modifica</a>
+                                    <a class="btn btn-primary fieldHide" id="bntSave" onClick="checkModifiedAllField('waitRegistration','<?php echo $row['User'] ?>','<?php echo $row['Email'] ?>','<?php echo $row['Phone'] ?>');">Salva</a>
                                     
                                 </div>
-                                <div class="col-md-6">
-                                <a href="../homepage/homepage.php"><button class="btn btn-success" onClick="disableChanges();" id="bntExit">Esci</button></a>
+                                <div class="col-md-3">
+                                    <a  class="btn btn-danger" id="bntDelete" data-toggle="modal" data-target="#confirmDeleteAccount">Elimina</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="../homepage/homepage.php" class="btn btn-success" onClick="disableChanges();" id="bntExit">Esci</a>
                                 </div>
                             </div>
 
@@ -156,8 +171,6 @@
             </div>
         </section>
 
-        <?php require ('../contactUs/contactUs.php'); ?>
-
         <?php require ('../footer/footer.php'); ?>
 
         <!-- BOOTSTRAP -->
@@ -166,11 +179,13 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     
         
-        
+        <script type="text/javascript" src="../js/constant.js"></script>
         <script type="text/javascript" src="../js/utils.js"></script>
 	    <script type="text/javascript" src="../js/navBar.js"></script>
-	    <script type="text/javascript" src="../js/viewProfile.js"></script>
-	    <script type="text/javascript" src="../js/ajaxCheckModifiedAllField.js"></script>
+        <script type="text/javascript" src="../js/viewProfile.js"></script>
+        
+        <script type="text/javascript" src="../js/checkProfileUserField.js"></script>
+	    
            
 	</body>
 </html>

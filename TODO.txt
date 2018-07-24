@@ -6,23 +6,14 @@
 -> insertFunction.php
     -> modificare le insert coi default per i campi non necessari
 
--> ajaxCheckSearchOptionMap.js
-    -> forse manca il "blocco"
-
 -> controllo sessione
 
 -> oscurare le cartelle/pagine secondarie
 
--> funzioni chiamata da html con passaggi parametri
-    -> possibile mettere conrolli anti manomissione
-
 -> controlli sulle vaire funzioni del db
 
--> ajaxCheckModifiedAllFile.js
-    -> aggiungere conferma pw
+-> viewJobsReqiured
+    -> modifica valutazione da fare
 
--> fare seguire lo scrolling all'autocomplete di google maps sul modal
-
--> problema tabelle se 0 lavori
-
--> sistemare query dei lavori con controllo data
+-> cancellazione utente
+    -> disabilitare in fase di modifica

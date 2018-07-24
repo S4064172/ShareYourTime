@@ -11,6 +11,12 @@ section {
 	width: 100%;
 }
 
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+
 #viewProfile{
 	display: block;
     min-height: 100vh;
@@ -28,7 +34,7 @@ section {
 }
 
 
-input[type=text], input[type=password], input[type=email], input[type=tel], .labelText {
+.inputType, .inputTypePsw, .labelText {
     width: 100%;
     padding: 10px 10px;
     margin: 6px 0;
@@ -37,12 +43,12 @@ input[type=text], input[type=password], input[type=email], input[type=tel], .lab
 	font-size: 20px;
 }
    
-input[type=text], input[type=password], input[type=email], input[type=tel]{
+.inputType, .inputTypePsw{
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
 
-.fieldHide, input[type=password]{
+.fieldHide, .inputTypePsw{
     display: none;
 }
 
@@ -50,9 +56,12 @@ input[type=text], input[type=password], input[type=email], input[type=tel]{
     text-align: center;	
 }
 
-#bntModify, #bntExit, #bntSave{
-    width: 50%;
+#bntModify, #bntExit, #bntSave, #bntDelete{
+    width: 60%; 
+    margin-bottom: 2% !important;
 }
+
+
 
 .titleSessionTesto {
 	padding-top: 6em;

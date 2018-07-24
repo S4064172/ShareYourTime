@@ -1,7 +1,7 @@
 #contactUs{
 	width: 100%;
 	min-height: 100vh;
-	background-image: url("");
+	background-image: url("../img/contactUs.jpg");
 	background-attachment: fixed; 
 	background-position: center;
 	background-repeat: no-repeat;
@@ -10,6 +10,11 @@
 
 #myBntContatUs{
 	width: 25%;
+}
+
+.myContainer {
+	width: 95%;
+	margin-left: 2.5%;
 }
 
 #myTextArea {

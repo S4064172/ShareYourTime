@@ -15,7 +15,7 @@
     	<link rel="stylesheet" type="text/css" href="index.css"/>
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
 		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
-		<link rel="stylesheet" type="text/css" href="../modalRegistrazione-Login/login-registrazione.css"/>
+		<link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
 		<link rel="stylesheet" type="text/css" href="../table/table.css"/>
 		<link rel="stylesheet" type="text/css" href="../optionMapSearch/optionMapSearch.css"/>
 
@@ -39,10 +39,10 @@
 		</div>
 
 		<!-- Login a scomparsa -->	
-	  	<?php require ('../modalRegistrazione-Login/login.php'); ?>
+	  	<?php require ('../modalView/login.php'); ?>
 
 		<!-- Sign-up a scomparsa -->	
-	  	<?php require ('../modalRegistrazione-Login/registration.php'); ?>
+	  	<?php require ('../modalView/registration.php'); ?>
     
 	</section>
 	
@@ -81,7 +81,9 @@
 		<div class="myContainer text-center pt-5">
 			<h1><b>Cosa proponiamo</b></h1>
 			<br>	
-			<?php require ('../table/last5.php'); ?>		
+			<?php require ('../table/showJobsInTable.php'); 
+				showTableJobs("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart LIMIT 5",0);
+			?>		
 		</div>
 	</section>
 	
@@ -107,13 +109,18 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   
 	
-	
+	<script type="text/javascript" src="../js/constant.js"></script>
+	<script type="text/javascript" src="../js/utils.js"></script>
+
 	<script type="text/javascript" src="../js/navBar.js"></script>
 	<script type="text/javascript" src="../js/googleMaps.js"></script>
-	<script type="text/javascript" src="../js/utils.js"></script>
-	<script type="text/javascript" src="../js/ajaxCheckRegistrationAllField.js"></script>
-	<script type="text/javascript" src="../js/ajaxCheckLoginAllField.js"></script>
-	<script type="text/javascript" src="../js/ajaxCheckSearchOptionMap.js"></script>
+	
+	<script type="text/javascript" src="../js/checkLoginUser.js"></script>
+	<script type="text/javascript" src="../js/checkSearchOptionMap.js"></script>
+	
+	<script type="text/javascript" src="../js/checkProfileUserField.js"></script>
+	
+
 
 	<?php require('../googleAPIkey.html') ?>
 

@@ -1,5 +1,12 @@
 "use strict";
 
+/*
+    questo file contiene tutte 
+    le funzioni js utilizzate per
+    gestire viewProfile
+*/
+
+
 /** @description
  *  Questa funzione permette
  *  di togliere il tag
@@ -11,6 +18,7 @@
     document.getElementById("userModified").readOnly = false;
     document.getElementById("emailModified").readOnly = false;
     document.getElementById("pswModified").readOnly = false;
+    document.getElementById("pswConfModified").readOnly = false;
     document.getElementById("nameModified").readOnly = false;
     document.getElementById("surnameModified").readOnly = false;
     document.getElementById("addressModified").readOnly = false;
@@ -28,6 +36,7 @@ function addReadOnly() {
     document.getElementById("userModified").readOnly = true;
     document.getElementById("emailModified").readOnly = true;
     document.getElementById("pswModified").readOnly = true;
+    document.getElementById("pswConfModified").readOnly = true;
     document.getElementById("nameModified").readOnly = true;
     document.getElementById("surnameModified").readOnly = true;
     document.getElementById("addressModified").readOnly = true;
@@ -46,6 +55,8 @@ function addReadOnly() {
     showItem('bntSave');
     showItem('pswLabel');
     showItem('pswModified');
+    showItem('pswConfLabel');
+    showItem('pswConfModified');
     showItem('imgModified');
     removeReadOnly();
  }
