@@ -6,6 +6,11 @@
 		return isset($_POST["$field"]) && !empty($_POST["$field"]);
 	}
 
+	function check_COOKIE_IsSetAndNotEmpty($field) 
+	{
+		return isset($_COOKIE["$field"]) && !empty($_COOKIE["$field"]);
+	}
+
 	function checkMatchRegex($inputSent, $regexToMatch) 
 	{
 		return preg_match($regexToMatch, $inputSent);

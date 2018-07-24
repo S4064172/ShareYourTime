@@ -11,6 +11,7 @@
 *	per rimanere nella stessa pagina
 *	in caso di errore
 */
+
 function checkLoginAllField(idUser,IdPws,IdErrLog,idWait)
 {
 	showItem(idWait);

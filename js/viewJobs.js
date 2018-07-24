@@ -19,7 +19,7 @@
 
 function fillModalFieldJobs(id){
 
-    var num=id.split("_");
+    var num = id.split("_");
     document.getElementById('modalDescription').value=
         document.getElementById('cardDescription_'+num[2]).getAttribute('value');
     document.getElementById('modalCost').value=

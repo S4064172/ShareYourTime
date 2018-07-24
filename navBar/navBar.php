@@ -27,7 +27,7 @@
                         </a>
                     </li>
 
-                    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']=="viewjobs") {?>
+                    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  ( $_SESSION['page']=="viewjobs" || $_SESSION['page']=="viewjobsrequired" ) )  {?>
                     <?php }else{ ?>
                         <li class="nav-item active">
                             <a class="nav-link" href="#contactUs" onClick="myCollapseHide()">Contattaci</a>

@@ -42,7 +42,7 @@
 	if( check_POST_IsSetAndNotEmpty('phone') ){
 		
 		if ( checkIfExistInDb('phone', $_POST['phone']) ) {
-			echo json_encode(array('code' => -1, 'msg' => 'Questo telefono gi&agrave; presente' ));
+			echo json_encode(array('code' => -1, 'msg' => 'Questo telefono &egrave; gi&agrave; presente' ));
 			return;
 		}
 

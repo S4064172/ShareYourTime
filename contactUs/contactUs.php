@@ -8,9 +8,7 @@
         </div>
         <div class="row text-center">
             <div class="col-12 col-md-6">
-                <textarea id="myTextArea" rows=15 >
-                    
-                </textarea> 
+                <textarea id="myTextArea" rows=15 ></textarea> 
             </div>
         </div>
         

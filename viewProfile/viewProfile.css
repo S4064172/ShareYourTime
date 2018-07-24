@@ -1,5 +1,4 @@
 body, html {
-	/*font-family: Sans-Serif;*/
 	height: 100%;
 	width: 100%;
 	scroll-behavior: smooth;
@@ -12,12 +11,12 @@ section {
 }
 
 .card {
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
-    margin-bottom: 10px; /* Added */
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
 }
 
-#viewProfile{
+#viewProfile {
 	display: block;
     min-height: 100vh;
     background-image: url("../img/viewProfile.jpg");
@@ -27,12 +26,14 @@ section {
 	background-size: cover;
 }
 
-
-.myContainer{
+.myContainer {
     width: 80%;
     margin-left: 10%;
 }
 
+.wi400 {
+    width: 400px;
+}
 
 .inputType, .inputTypePsw, .labelText {
     width: 100%;
@@ -43,12 +44,12 @@ section {
 	font-size: 20px;
 }
    
-.inputType, .inputTypePsw{
+.inputType, .inputTypePsw {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
 
-.fieldHide, .inputTypePsw{
+.fieldHide, .inputTypePsw {
     display: none;
 }
 
@@ -56,8 +57,10 @@ section {
     text-align: center;	
 }
 
-#bntModify, #bntExit, #bntSave, #bntDelete{
-    width: 60%; 
+#bntModify, #bntExit, #bntSave, #bntDelete {
+    text-align: center;	
+    min-width: 70%; 
+    width: auto;
     margin-bottom: 2% !important;
 }
 
@@ -67,7 +70,7 @@ section {
 	padding-top: 6em;
 }
 
-.wait{
+.wait {
     display: none;
     position: absolute;
     display: fixed;

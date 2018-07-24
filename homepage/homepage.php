@@ -1,5 +1,5 @@
 <?php
-    if (session_status() == PHP_SESSION_NONE) {
+    if ( session_status() == PHP_SESSION_NONE ) {
         session_start();
 	}
 	
@@ -7,7 +7,7 @@
         header("Location: ../index/index.php");
 	}
 
-	$_SESSION['page']="homepage";
+	$_SESSION['page'] = "homepage";
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,16 +40,16 @@
 					</div>
 				</div>
 			</div>
-
 		</section>
 
 		<?php require_once ('../table/showJobsInTable.php'); ?>
+
 		<section id="job" class="jobs" onClick="hideItem('menu');">
 			<div class="myContainer text-center titleSessionTesto">
 				<h1><b>I tuoi impegni</b></h1>
 				<br>	
 				<?php showTableJobs("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and Receiver is not null and TimeStart > NOW() ORDER BY TimeStart LIMIT 5",1); ?>
-				<a class="btn mt-2" href="../viewJobs/viewJobs.php">Scopri di più</a>
+				<a class="btn mt-2" href="../viewJobs/viewJobs.php">Scopri di pi&ugrave;</a>
 			</div>
 		</section>
 
@@ -58,7 +58,7 @@
 				<h1><b>Lavori che hai richiesto</b></h1>
 				<br>	
 				<?php showTableJobs("SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart > NOW() ORDER BY TimeStart LIMIT 5",0); ?>	
-				<a class="btn mt-2" href="../viewJobs/viewJobsRequired.php">Scopri di più</a>
+				<a class="btn mt-2" href="../viewJobs/viewJobsRequired.php">Scopri di pi&ugrave;</a>
 			</div>
 		</section>
 

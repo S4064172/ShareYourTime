@@ -7,15 +7,15 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <label><b>Inserisci la password</b></label>
-                            <input onfocusout="checkPsw('modalPwsDelete', 'errModalPwsDelete');" onfocusin="cleanErr('errModalPwsDelete');" id="modalPwsDelete" class="inputTextModal" type="password" name="psw" minlength=<?php echo PasswordMinLength?>>
-                            <p id="errModalPwsDelete"></p>    
+                            <input onfocusout="checkPsw('modalPswDelete', 'errModalPswDelete');" onfocusin="cleanErr('errModalPswDelete');" id="modalPswDelete" class="inputTextModal" type="password" name="psw" minlength=<?php echo PasswordMinLength?>>
+                            <p id="errModalPswDelete"></p>    
                         </div>                                                        
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onClick="confirmPws('<?php $_SESSION['user'] ?>','modalPwsDelete','errModalPwsDelete')">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+                <button type="button" class="btn btn-primary" onClick="confirmPsw('<?php echo $_SESSION['user'] ?>','modalPswDelete','errModalPswDelete')">Conferma</button>
             </div>
         </div>
     </div>
