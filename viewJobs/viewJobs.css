@@ -36,22 +36,3 @@ section {
 .colorTitle{
 	color: black;
 }
-
-@media (min-width: 576px) {
-    .card-columns {
-        column-count: 2;
-    }
-}
-
-
-@media (min-width: 1000px) {
-    .card-columns {
-        column-count: 3;
-    }
-}
-
-@media (min-width: 1700px) {
-    .card-columns {
-        column-count: 5;
-    }
-}

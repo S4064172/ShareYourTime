@@ -18,7 +18,7 @@
                                 //altrimenti si stampano le stelline 
                                 //corrisponenti
                                 if( $row['Evaluation'] == 0 )
-                                    if( $_SESSION['page'] == "viewjobs" )
+                                    if(  session_status() == PHP_SESSION_NONE && $_SESSION['page'] == "viewjobs" )
                                         if ($row['Receiver'] == null )
                                             echo "Nessuna valutazione";
                                         else
@@ -32,16 +32,16 @@
                         </li>
                     <?php } ?>
                     <li class="list-group-item" id="cardStreet_<?php echo $row['IdJob']?>" value="<?php echo $row['Street']?>"><?php echo $row['Street']?></li>
-                    <?php if ( $_SESSION['page'] == "viewjobsrequired" ) {?>
+                    <?php if ( session_status() != PHP_SESSION_NONE || $_SESSION['page'] == "viewjobsrequired" ) {?>
                         <li class="list-group-item" id="cardProposer_<?php echo $row['IdJob']?>" value="<?php echo $row['Proposer']?>"><?php echo $row['Proposer']?></li>
                     <?php } ?>
-                    <?php if ( $_SESSION['page'] == "viewjobs" ) {?>
+                    <?php if (session_status() == PHP_SESSION_NONE && $_SESSION['page'] == "viewjobs" ) {?>
                     <li class="list-group-item h2em" id="cardReciver_<?php echo $row['IdJob']?>" value="<?php echo $row['Receiver']?>"><?php echo $row['Receiver']?></li>
                     <?php } ?>
                 </ul>
             </div>
             
-            <?php if ( $_SESSION['page'] == "viewjobs" && $row['Receiver'] == null ) {?>
+            <?php if (session_status() == PHP_SESSION_NONE && $_SESSION['page'] == "viewjobs" && $row['Receiver'] == null ) {?>
                 <div class="card-footer">
                     <button type="button" onClick="fillModalFieldJobs('modalModify_<?php echo $row['IdJob']?>')" id="modalModify_<?php echo $row['IdJob']?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#jobsModal">Modifica</button>
                     <a href="#" id="modalDelete_<?php echo $row['IdJob']?>" class="btn btn-danger ">Cancella</a>

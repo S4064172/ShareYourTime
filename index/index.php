@@ -20,10 +20,12 @@
 		<link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
 		<link rel="stylesheet" type="text/css" href="../table/table.css"/>
 		<link rel="stylesheet" type="text/css" href="../optionMapSearch/optionMapSearch.css"/>
+		<link rel="stylesheet" type="text/css" href="../cardjobs/cardCarousel.css"/>
+		
 
 	</head>
 	
-	<body>
+	<body >
 
 	<?php require ('../navBar/navBar.php'); ?>
 	
@@ -94,11 +96,12 @@
 
 
 	<section id="TabellaLast5">
-		<div class="myContainer text-center pt-5">
+		<div class="myContainer text-center pt-5" >
 			<h1><b>Cosa proponiamo</b></h1>
 			<br>	
-			<?php require ('../table/showJobsInTable.php'); 
-				showTableJobs("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart LIMIT 5",0);
+			<?php 
+				require_once('../carousel/carousel.php');
+				showJobsCarousel("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart LIMIT 9",3);
 			?>		
 		</div>
 	</section>
