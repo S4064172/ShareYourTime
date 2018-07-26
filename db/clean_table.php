@@ -3,10 +3,9 @@
     require_once("connection.php");
     $conn = connectionToDb();
     
-    $queryDeleteTable[0] =  "DROP TABLE ShareYourTagsJobsTime";        
-    $queryDeleteTable[1] =  "DROP TABLE ShareYourTagsTime";
-    $queryDeleteTable[2] =  "DROP TABLE ShareYourJobsTime";
-    $queryDeleteTable[3] =  "DROP TABLE ShareYourUsersTime";
+    $queryDeleteTable[0] =  "DROP TABLE ShareYourJobsTime";
+    $queryDeleteTable[1] =  "DROP TABLE ShareYourUsersTime";
+    $queryDeleteTable[2] =  "DROP TABLE ShareYourTagsTime";
 
     foreach($queryDeleteTable as $query )  {   
         

@@ -9,7 +9,8 @@
                     <li class="list-group-item" id="cardCost_<?php echo $row['IdJob']?>" value="<?php echo $row['Cost']?>"><?php echo "Costo : ".$row['Cost']?></li>
                     <li class="list-group-item" id="cardTimeStart_<?php echo $row['IdJob']?>" value="<?php echo $row['TimeStart']?>"><?php echo "Inizio : ".$row['TimeStart']?></li>
                     <li class="list-group-item" id="cardTimeEnd_<?php echo $row['IdJob']?>" value="<?php echo $row['TimeEnd']?>"><?php echo "Fine : ".$row['TimeEnd']?></li>
-                    <li class="list-group-item" id="cardDistance_<?php echo $row['IdJob']?>" value="<?php echo $row['Distance']?>"><?php echo "Distanza : ".$row['Distance']?></li>
+					<li class="list-group-item" id="cardDistance_<?php echo $row['IdJob']?>" value="<?php echo $row['Distance']?>"><?php echo "Distanza : ".$row['Distance']?></li>
+					<li class="list-group-item" id="cardTag_<?php echo $row['IdJob']?>" value="<?php echo $row['Tag']?>"><?php echo "Tag : ".$row['Tag']?></li>
                     <?php if ( $row['TimeEnd'] < date('Y-m-d H:i:s') ) {?>
                         <li class="list-group-item" id="cardValuation_<?php echo $row['IdJob']?>" value="<?php echo $row['Evaluation']?>">
                             <?php 
@@ -41,12 +42,12 @@
                 </ul>
             </div>
             
+                <div class="card-footer mh4em">
             <?php if ( $_SESSION['page'] == "viewjobs" && $row['Receiver'] == null ) {?>
-                <div class="card-footer">
                     <button type="button" onClick="fillModalFieldJobs('modalModify_<?php echo $row['IdJob']?>')" id="modalModify_<?php echo $row['IdJob']?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#jobsModal">Modifica</button>
                     <a href="#" id="modalDelete_<?php echo $row['IdJob']?>" class="btn btn-danger ">Cancella</a>
-                </div>
             <?php } ?>
+                </div>
         </div>
 <?php } ?>
 

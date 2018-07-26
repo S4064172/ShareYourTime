@@ -7,5 +7,4 @@
         header("Location: index/index.php");
 	}
 
-    $_SESSION['page']="homepage";
     header("Location: homepage/homepage.php");

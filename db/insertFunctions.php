@@ -29,15 +29,15 @@
 					die ("Errore nell'accoppiamento dei parametri<br>");
 				insertAndCheck($insert_prep_stmt);
 				mysqli_stmt_close($insert_prep_stmt);
-				mysqli_close($conn);
 				/*echo("La tupla e' stata inserita correttamente<br>");*/
 				return;
 		}
+		mysqli_close($conn);
 		die ("Errore nella preparazione della query<br>");
 		
 	}
 
-	function insertInto_ShareYourJobsTime($descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $propUser) {
+	function insertInto_ShareYourJobsTime($descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $propUser, $tag) {
 		$conn = connectionToDb();
 
 		$descr = sanitizeToSql($descr, $conn);
@@ -51,12 +51,13 @@
 		$lat = sanitizeToSql($lat, $conn);
 		$long = sanitizeToSql($long, $conn);
 		$propUser = sanitizeToSql($propUser, $conn);
+		$tag = sanitizeToSql($tag, $conn);
 		
-		$insertQuery = "INSERT INTO ShareYourJobsTime VALUES(DEFAULT,?,?,?,?,?,?,?,?,?,?,?,DEFAULT);";
+		$insertQuery = "INSERT INTO ShareYourJobsTime VALUES(DEFAULT,?,?,?,?,?,?,?,?,?,?,?,DEFAULT,?);";
 
 		if ( ($insert_prep_stmt = mysqli_prepare($conn, $insertQuery)) ) {
-				if ( !mysqli_stmt_bind_param($insert_prep_stmt, "sisssiisdds",
-						$descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $propUser) )
+				if ( !mysqli_stmt_bind_param($insert_prep_stmt, "sisssiisddss",
+						$descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $propUser, $tag) )
 					die ("Errore nell'accoppiamento dei parametri<br>");
 				insertAndCheck($insert_prep_stmt);
 
@@ -77,26 +78,6 @@
 		if ( ($insert_prep_stmt = mysqli_prepare($conn, $insertQuery)) ) {
 				if ( !mysqli_stmt_bind_param($insert_prep_stmt, "s", $tag) )
 					die ("Errore nell'accoppiamento del parametro<br>");
-				insertAndCheck($insert_prep_stmt);
-
-				mysqli_stmt_close($insert_prep_stmt);
-		}
-
-		mysqli_close($conn);
-		echo("La tupla e' stata inserita correttamente<br>");
-	}
-
-	function insertInto_ShareYourTagsJobsTime ($tag, $idjob) {
-		$conn = connectionToDb();	
-
-		$tag = sanitizeToSql($tag, $conn);
-		$idjob = sanitizeToSql($idjob, $conn);
-		
-		$insertQuery = "INSERT INTO ShareYourTagsJobsTime VALUES(?,?);";
-
-		if ( ($insert_prep_stmt = mysqli_prepare($conn, $insertQuery)) ) {
-				if ( !mysqli_stmt_bind_param($insert_prep_stmt, "si", $tag, $idjob) )
-					echo("Errore nell'accoppiamento dei parametri<br>");
 				insertAndCheck($insert_prep_stmt);
 
 				mysqli_stmt_close($insert_prep_stmt);

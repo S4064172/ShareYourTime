@@ -11,8 +11,8 @@
 
 
 /** @description    
- *  Questa funzione mi permette
- *  di controllare la pws in
+ *  Questa funzione ci permette
+ *  di controllare la password in
  *  operazioni sensibili
  */
 
@@ -26,17 +26,15 @@ function confirmPsw(user, idPsw, idErrPsw)
     formData.append('checkUser', user);
     formData.append('checkPsw', psw);
     request.send(formData);
-    
 }
 
 function validateConfirmPsw(request, idErrPsw)
 {
     return function() {
-        if (request.readyState === 4 && request.status === 200) {
-            if (request.responseText != null) {
-                console.log(request.responseText);
+        if ( request.readyState === 4 && request.status === 200 ) {
+            if ( request.responseText != null ) {
                 var jsonObj = JSON.parse(request.responseText);
-                if (jsonObj === '0') {
+                if ( jsonObj === '0' ) {
                     window.location.href = '../utils/deleteAccount.php';
                 } else {
                     var tagHtml = document.getElementById(idErrPsw);
@@ -44,14 +42,12 @@ function validateConfirmPsw(request, idErrPsw)
                     tagHtml.style.color = 'darkred';
                     tagHtml.innerHTML = jsonObj;
                 }
-                    
             }
         }
     }
 }
 
 /*****************Controlli Remoti Completi*******************/
-
 
 /** @description
 *	Questa funzione ci permette di creare 
@@ -153,27 +149,27 @@ function validateCheckGenericAllField(idWait, request)
 {
     return function() {
         hideItem(idWait)
-        if (request.readyState === 4 && request.status === 200) {
-            if (request.responseText != null) {
+        if ( request.readyState === 4 && request.status === 200 ) {
+            if ( request.responseText != null ) {
                 var jsonObj = JSON.parse(request.responseText);
                 
                 // mi sono registrato con successo
                 // mi sposto nella home page
-                if(jsonObj == 0){
+                if( jsonObj == 0 ) {
                     window.location.href = '../homepage/homepage.php';
                     return;
                 }
 
                 // ho modificato i campi del profilo con
                 // successo torno sulla modifica del profilo
-                if( jsonObj == 1 ){
+                if( jsonObj == 1 ) {
                     disableChanges();
                     window.location.href = '../viewProfile/viewProfile.php';
                     return;
                 }
         
                 //stampa degli errori rilevati
-                for(var key in jsonObj){
+                for(var key in jsonObj) {
                     console.log(jsonObj[key]);
                     var notify = document.getElementById(key);
                     notify.style.fontSize = '0.9em';
@@ -184,7 +180,6 @@ function validateCheckGenericAllField(idWait, request)
         }
     }
 }
-
 
 
 /*****************Controlli Remoti Singoli*******************/
@@ -217,12 +212,12 @@ function checkGenericSingleField(idField, idErrField)
 function validateCheckGenericSingleField(idErrField, request)
 {
     return function() {
-        if (request.readyState === 4 && request.status === 200) {
-            if (request.responseText != null) {
+        if ( request.readyState === 4 && request.status === 200 ) {
+            if ( request.responseText != null ) {
                 var jsonObj = JSON.parse(request.responseText);
 
                 //stampa dell'errore sul campo
-                if (jsonObj['code'] === -1) {
+                if ( jsonObj['code'] === -1 ) {
                     var notify = document.getElementById(idErrField);
                     notify.style.fontSize = '0.9em';
                     notify.style.color = 'darkred';
@@ -232,9 +227,6 @@ function validateCheckGenericSingleField(idErrField, request)
         }
     }
 }
-
-
-
 
 /*****************Controlli Locali*******************/
 /**
@@ -312,7 +304,7 @@ function checkEmailUpdate(idEmail, idErr, oldValue)
 {    
     var email = document.getElementById(idEmail).value;
 
-    if(  email !== oldValue)
+    if( email !== oldValue )
         checkEmail(idEmail, idErr);
 }
 
@@ -334,7 +326,7 @@ function checkPsw(idPws, idErr)
         return;
     }
        
-    for(var i =0; i<passwordRegex.length ; i++)
+    for(var i = 0; i < passwordRegex.length; i++)
         if ( !checkMatchRegex(psw, passwordRegex[i]) ) {
             err.style.fontSize = '0.9em';
             err.style.color = 'darkred';
@@ -353,9 +345,8 @@ function checkPswUpdate(idPws, idErr)
 {
     var psw = document.getElementById(idPws).value;
 
-    if(psw !== "")
+    if( psw !== "" )
         checkPsw(idPws, idErr);
-
 }
 
 /**
@@ -391,8 +382,8 @@ function checkConfPswUpdate(idPswConf, idErr, idPsw)
 {
     var psw = document.getElementById(idPsw).value;
 
-    if(psw !== "")
-        checkConfPsw(idPswConf , idErr, idPsw )
+    if( psw !== "" )
+        checkConfPsw(idPswConf , idErr, idPsw)
 }
 
 /**
@@ -486,11 +477,9 @@ function checkPhoneUpdate(idPhone, idErr, oldValue)
 {
     var phone = document.getElementById(idPhone).value;
    
-    if(  phone !== oldValue)
+    if( phone !== oldValue )
         checkPhone(idPhone, idErr);
-
 }
-
 
 /**
  *  @description

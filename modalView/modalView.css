@@ -81,7 +81,7 @@ img.avatar {
     cursor: pointer;
 }
 
-.inputTextModal, .inputTimeModal {
+.inputTextModal, .inputTimeModal, .inputTagModal {
     margin: 6px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -93,6 +93,13 @@ img.avatar {
     width: 100%;
     padding: 10px 10px;
     height: 15%;
+}
+
+.inputTagModal {
+    padding: 3px 3px;
+    height: 23%;
+	width: 95%;
+	font-size: 11px;
 }
 
 .inputTimeModal {

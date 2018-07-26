@@ -7,127 +7,156 @@
     inserimento sia in locale che in remoto
 */
 
-
-function checkDescription(idCheck,idErr){
-   
+function checkDescription(idCheck, idErr)
+{   
     var desc = document.getElementById(idCheck);
-    var errDEsc = document.getElementById(idErr);
-    errDEsc.style.fontSize = '0.9em';
-    errDEsc.style.color = 'darkred';
-    if(desc == null || desc.value === ""){
-        errDEsc.innerHTML="Descrizione non valida";
+    var errDesc = document.getElementById(idErr);
+    errDesc.style.fontSize = '0.9em';
+    errDesc.style.color = 'darkred';
+		
+    if( desc == null || desc.value === "" || !alphaNumRegex.test(desc.value) ) {
+        errDesc.innerHTML = "La descrizione non &egrave; valida";
         return;
     }
 
-    if( !checkMinLength( desc.value, DescriptionMinLength)){
-        errDEsc.innerHTML="Descrizione troppo corta";
+    if( !checkMinLength(desc.value, DescriptionMinLength) ) {
+        errDesc.innerHTML = "La descrizione &egrave; troppo corta";
         return;
     }
 
-    if( !checkMaxLength( desc.value, DescriptionMaxLength)){
-        errDEsc.innerHTML="Descrizione troppo corta";
+    if( !checkMaxLength(desc.value, DescriptionMaxLength) ) {
+        errDesc.innerHTML = "La descrizione &egrave; troppo lunga";
         return;
     }
-
-    //manca controllo regex
 }
 
-function checkCost(idCheck,idErr){
-   
-    var check = document.getElementById(idCheck);
-    var errCheck = document.getElementById(idErr);
-    errCheck.style.fontSize = '0.9em';
-    errCheck.style.color = 'darkred';
-    if(check == null || check.value === ""){
-        errCheck.innerHTML="Costo non valida";
-        return;
-    }
-
-    if( !checkMin(parseInt(check.value), CostMin)){
-        errCheck.innerHTML="Costo >= 0 ";
-        return;
-    }
-
-    //manca controllo regex
-}
-
-function checkDistance(idCheck,idErr){
-   
-    var check = document.getElementById(idCheck);
-    var errCheck = document.getElementById(idErr);
-    errCheck.style.fontSize = '0.9em';
-    errCheck.style.color = 'darkred';
-    if(check == null || check.value === ""){
-        errCheck.innerHTML="Distanza non valida";
-        return;
-    }
-
-    if( !checkMin(parseInt(check.value), DistanceMin)){
-        errCheck.innerHTML="Distanza >= 0 ";
-        return;
-    }
-
-    //manca controllo regex
-}
-
-function checkTime(idDate1, idTime1,idDate2, idTime2,idErr){
+function checkCost(idCost, idErr)
+{   
+    var cost = document.getElementById(idCost);
+    var errCost = document.getElementById(idErr);
+    errCost.style.fontSize = '0.9em';
+    errCost.style.color = 'darkred';
     
+	if( cost == null || cost.value === "" || !checkMin(parseInt(cost.value), CostMin) || !numRegex.test(cost.value) ) {
+        errCost.innerHTML = "Costo non valido";
+        return;
+    }
+}
 
+function checkDistance(idDist, idErr)
+{   
+    var dist = document.getElementById(idDist);
+    var errDist = document.getElementById(idErr);
+    errDist.style.fontSize = '0.9em';
+    errDist.style.color = 'darkred';
 
-    var data1 = document.getElementById(idDate1);
-    var time1 = document.getElementById(idTime1);
-    var data2 = document.getElementById(idDate2);
-    var time2 = document.getElementById(idTime2);
-    var err = document.getElementById(idErr);
-    err.style.fontSize = '0.9em';
+    if( dist == null || dist.value === "" || !checkMin(parseInt(dist.value), DistanceMin) || !numRegex.test(dist.value) ) {
+        errDist.innerHTML = "Distanza non valida";
+        return;
+    }
+}
+
+function checkTime(idDate1, idTime1, idDate2, idTime2, idErr)
+{
+    var dateStart = new Date(document.getElementById(idDate1).value + ' ' + document.getElementById(idTime1).value);
+    var dateEnd = new Date(document.getElementById(idDate2).value + ' ' + document.getElementById(idTime2).value);
+    var now = new Date();
+   
+	var err = document.getElementById(idErr);
+	err.style.fontSize = '0.9em';
     err.style.color = 'darkred';
     
-    var dateNow = new Date(data1.value+" "+time1.value);
-    console.log(dateNow);
-    if( data1.value < dateNow.getFullYear+"-"+dateNow.getMonth+"-"+dateNow.getDate){
-        err.innerHTML="data1 < now ";
+	//non si possono caricare lavori nel passato
+	if ( dateStart.getTime() < now.getTime() || dateEnd.getTime() < now.getTime() ) {
+        err.innerHTML = "Non puoi caricare un lavoro nel passato";
         return;
     }
 
-    if( data1.value = dateNow.getFullYear+"-"+dateNow.getMonth+"-"+dateNow.getDate ){
-        err.innerHTML="data1 < now ";
+	//la data di inizio non puo' essere maggiore di quella di fine lavoro
+    if( dateStart.getTime() >= dateEnd.getTime() ) {
+        err.innerHTML = "La data di inizio lavoro non pu&ograve; essere successiva a quella di fine";
         return;
     }
-
-    if(data1.value > data2.value ){
-        err.innerHTML="data1 > data2 ";
-        return;
-    }
-
-    if(data1.value == data2.value && time1.value >= time2.value){
-        err.innerHTML="time1 >= time2 ";
-        return;
-    }
-
-
 }
 
+function checkStreet(idCheck, idErr)
+{   
+    var addr = document.getElementById(idCheck);
+    
+	var errAddr = document.getElementById(idErr);
+    errAddr.style.fontSize = '0.9em';
+    errAddr.style.color = 'darkred';
 
-function checkStreet(idCheck,idErr){
-   
-    var desc = document.getElementById(idCheck);
-    var errDEsc = document.getElementById(idErr);
-    errDEsc.style.fontSize = '0.9em';
-    errDEsc.style.color = 'darkred';
-    if(desc == null || desc.value === ""){
-        errDEsc.innerHTML="Strada non valida";
+    if( addr == null || addr.value === "" || !addressRegex.test(addr.value) ) {
+        errAddr.innerHTML = "Indirizzo non valido";
         return;
     }
 
-    if( !checkMinLength( desc.value, StreetMinLength)){
-        errDEsc.innerHTML="Strada troppo corta";
+    if( !checkMinLength(addr.value, StreetMinLength) ) {
+        errAddr.innerHTML = "Indirizzo troppo corto";
         return;
     }
 
-    if( !checkMaxLength( desc.value, StreetMaxLength)){
-        errDEsc.innerHTML="Strada troppo corta";
+    if( !checkMaxLength(addr.value, StreetMaxLength) ) {
+        errAddr.innerHTML = "Strada troppo corta";
         return;
     }
+}
 
-    //manca controllo regex
+function checkJobAllFields() 
+{
+	var request = getRequest();
+	request.open("POST", "../utils/checkJobsAllField.php");
+	request.onreadystatechange = validateCheckNewJob(request);
+
+	var formData = new FormData();
+
+	var htmlTagDescription = document.getElementById('modalDescription');
+	var htmlTagCost = document.getElementById('modalCost');
+	var htmlTagDist = document.getElementById('modalDistance');
+	var htmlTagDateS = document.getElementById('modalDateStart');
+	var htmlTagTimeS = document.getElementById('modalTimeStart');
+	var htmlTagDateE = document.getElementById('modalDateEnd');
+	var htmlTagTimeE = document.getElementById('modalTimeEnd');
+	var htmlTagAddress = document.getElementById('modalStreet');
+
+	formData.append(htmlTagDescription.name, htmlTagDescription.value);
+	formData.append(htmlTagCost.name, htmlTagCost.value);
+	formData.append(htmlTagDist.name, htmlTagDist.value);
+	formData.append(htmlTagDateS.name, htmlTagDateS.value);
+	formData.append(htmlTagTimeS.name, htmlTagTimeS.value);
+	formData.append(htmlTagDateE.name, htmlTagDateE.value);
+	formData.append(htmlTagTimeE.name, htmlTagTimeE.value);
+	formData.append(htmlTagAddress.name, htmlTagAddress.value);
+	
+	//formData.append("insert", 0);
+		
+	request.send(formData);
+}
+
+function validateCheckNewJob(request) 
+{
+	return function() {
+		if ( request.readyState === 4 && request.status === 200 ) {
+			if ( request.responseText != null ) {
+				var jsonObj = JSON.parse(request.responseText);	
+		
+				console.log(jsonObj);
+				//lavoro inserito con successo
+				if ( jsonObj == 0 ) {
+					console.log('INSERT OK');
+					return;
+				}
+					
+				//stampa degli errori rilevati
+				/*for(var key in jsonObj) {
+                    console.log(jsonObj[key]);
+                    var notify = document.getElementById(key);
+                    notify.style.fontSize = '0.9em';
+                    notify.style.color = 'darkred';
+                    notify.innerHTML = jsonObj[key];		
+                }*/
+			}		
+		}
+	}
 }

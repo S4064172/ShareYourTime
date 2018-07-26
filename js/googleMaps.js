@@ -3,12 +3,13 @@
 function showMap() {
 	//Autocompletamento google maps per inserire indirizzi nell ricerca in index
 	var addrIndex = document.getElementById('optionMapStreet');
-	var autocompleteIndex = new google.maps.places.Autocomplete(addrIndex,{types:['geocode']});
+	var autocompleteIndex = new google.maps.places.Autocomplete(addrIndex, {types:['geocode']});
 
 	//Autocompletamento google maps per inserire indirizzi in fase di registrazione
 	var addrReg = document.getElementById('addressReg');
-	var autocompleteReg = new google.maps.places.Autocomplete(addrReg,{types:['geocode']});
+	var autocompleteReg = new google.maps.places.Autocomplete(addrReg, {types:['geocode']});
 
+	//via dodecaneso 35 DIBRIS
 	var myLocation = new google.maps.LatLng(44.403425,8.972164);
 
 	var mapProp = {
@@ -37,12 +38,20 @@ function showMap() {
 
 //------------------------------------------------------------------------------------------------
 		//Recupera informazioni quando un utente sceglie un luogo con autocomplete
+		google.maps.event.addListener(autocompleteIndex, 'place_changed', function () {
+                var place = autocompleteIndex.getPlace();
+                console.log(place.name);
+                console.log('cityLat: ' + place.geometry.location.lat());
+                console.log('cityLng: ' + place.geometry.location.lng());
+        });
 		google.maps.event.addListener(autocompleteReg, 'place_changed', function () {
                 var place = autocompleteReg.getPlace();
                 console.log(place.name);
                 console.log('cityLat: ' + place.geometry.location.lat());
                 console.log('cityLng: ' + place.geometry.location.lng());
         });
+	
+
 //------------------------------------------------------------------------------------------------
 
 	//Disegno una cerchi di raggio x

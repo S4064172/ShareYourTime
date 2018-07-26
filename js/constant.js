@@ -23,7 +23,7 @@ const DistanceMin = 0;
 
 
 /*******************Costanti Regex********************/
-const  alphaNumRegex = /^[a-zA-Z0-9]+$/;
+const  alphaNumRegex = /^[a-zA-Z0-9 ]+$/;
 const  addressRegex = /^[a-zA-Z][a-zA-Z0-9, ]+$/;
 const  surnameRegex = /^[a-zA-Z]\' ]+$/;
 const  alphaRegex = /^[a-zA-Z]+$/;

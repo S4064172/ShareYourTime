@@ -1,4 +1,8 @@
-.h3em{
+.mh4em {
+	min-height: 4em;
+}
+
+.h3em {
     height: 3em;
 }
 

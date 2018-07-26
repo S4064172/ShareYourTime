@@ -17,3 +17,6 @@
 
 -> cancellazione utente
     -> disabilitare in fase di modifica
+
+-> controlli su overlap dei lavori
+-> nel modal di inserimento/modifica dei lavori manca il tag {[(! IMPORTANT)]}

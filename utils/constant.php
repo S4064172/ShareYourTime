@@ -18,7 +18,8 @@
     define('DescriptionMinLength',10);
     define('DescriptionMaxLength',150);
     define('TagMaxLength',20);
-
+	define('CostMin',0);
+	define('DistanceMin',0);
 
 
 /*******************Costanti Regex********************/

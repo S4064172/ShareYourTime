@@ -1,9 +1,14 @@
 <?php
     require_once("connection.php");
     require_once("../utils/constant.php");
-    $conn = connectionToDb();
+	
+	$conn = connectionToDb();
     
-    $queryCreateTable[0] = "CREATE TABLE ShareYourUsersTime (
+    $queryCreateTable[0] = "CREATE TABLE ShareYourTagsTime (
+                    Tag char(".TagMaxLength.") PRIMARY KEY
+				);";
+
+    $queryCreateTable[1] = "CREATE TABLE ShareYourUsersTime (
                     User char(".UserNameMaxLength.") PRIMARY KEY,
                     Password char(".PasswordMaxLength.") NOT NULL,
                     Name char(".NameMaxLength.") NOT NULL,
@@ -14,7 +19,7 @@
                     Photo char(".PhotoMaxLength.") NOT NULL
                 );";
 
-    $queryCreateTable[1] = "CREATE TABLE ShareYourJobsTime (
+    $queryCreateTable[2] = "CREATE TABLE ShareYourJobsTime (
                     IdJob int PRIMARY KEY auto_increment,
                     Description char(".DescriptionMaxLength.") NOT NULL,
                     Cost int NOT NULL,
@@ -27,23 +32,14 @@
                     Latitude float NOT NULL,
 					Longitude float NOT NULL,
 					Proposer char(".UserNameMaxLength.") NOT NULL,
-                    Receiver char(".UserNameMaxLength.") default NULL,
+					Receiver char(".UserNameMaxLength.") default NULL,
+					Tag char(".TagMaxLength.") NOT NULL,
+                    FOREIGN KEY (Tag) REFERENCES ShareYourTagsTime (Tag) ON UPDATE CASCADE ON DELETE CASCADE,
                     FOREIGN KEY (Receiver) REFERENCES ShareYourUsersTime (User) ON UPDATE CASCADE ON DELETE CASCADE,
                     FOREIGN KEY (Proposer) REFERENCES ShareYourUsersTime (User) ON UPDATE CASCADE ON DELETE CASCADE
                 );";
 
-    $queryCreateTable[2] = "CREATE TABLE ShareYourTagsTime (
-                    Tag char(".TagMaxLength.") PRIMARY KEY
-                );";
 
-    $queryCreateTable[3] = "CREATE TABLE ShareYourTagsJobsTime (
-                    Tag char(".TagMaxLength."),
-                    IdJob int,
-                    PRIMARY KEY (Tag,IdJob),
-                    FOREIGN KEY (Tag) REFERENCES ShareYourTagsTime (Tag) ON UPDATE CASCADE,
-                    FOREIGN KEY (IdJob) REFERENCES ShareYourJobsTime (IdJob) ON UPDATE CASCADE ON DELETE CASCADE
-                );";
-    
     foreach($queryCreateTable as $query ){     
 
         if ( !($prepared_stmt = mysqli_prepare($conn, $query)) )
