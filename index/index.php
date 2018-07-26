@@ -6,8 +6,11 @@
     }
 
 	if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) {
-        header("Location: ../homepage/homepage.php");
+		header("Location: ../homepage/homepage.php");
 	}
+
+	$_SESSION['page']="index";
+
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +104,7 @@
 			<br>	
 			<?php 
 				require_once('../carousel/carousel.php');
-				showJobsCarousel("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart LIMIT 9",3);
+				showJobsCarousel("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart DESC LIMIT 9",3);
 			?>		
 		</div>
 	</section>
