@@ -6,8 +6,17 @@
     }
 
 	if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) {
-        header("Location: ../homepage/homepage.php");
+		header("Location: ../homepage/homepage.php");
 	}
+
+	$_SESSION['page']="index";
+
+	if ( !isset($_COOKIE['size']) || empty($_COOKIE['size']) ) {
+		$cookie_name = "size";
+		$cookie_value = "3";
+		setcookie($cookie_name, $cookie_value, time() + (600*30), "/");
+	}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,12 +27,15 @@
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
 		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
-		<link rel="stylesheet" type="text/css" href="../table/table.css"/>
+		
 		<link rel="stylesheet" type="text/css" href="../optionMapSearch/optionMapSearch.css"/>
+		<link rel="stylesheet" type="text/css" href="../cardjobs/cardCarousel.css"/>
+		
+		
 
 	</head>
 	
-	<body>
+	<body onresize="resizingCarousel()" onload="resizingCarousel()">
 
 	<?php require ('../navBar/navBar.php'); ?>
 	
@@ -93,13 +105,16 @@
 	</section>
 
 
-	<section id="TabellaLast5">
-		<div class="myContainer text-center pt-5">
-			<h1><b>Cosa proponiamo</b></h1>
-			<br>	
-			<?php require ('../table/showJobsInTable.php'); 
-				showTableJobs("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart LIMIT 5",0);
-			?>		
+	<section id="TabellaLast5" >
+		<div id="idCarousel">
+			<div class="myContainer text-center pt-5"  >
+				<h1><b>Cosa proponiamo</b></h1>
+				<br>	
+				<?php 
+					require_once('../carousel/carousel.php');
+					showJobsCarousel("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart DESC LIMIT 9",$_COOKIE['size']);
+				?>		
+			</div>
 		</div>
 	</section>
 	
