@@ -74,8 +74,38 @@
 	}
 
 
+	/*
+	* 	Questa funzione ci permette
+	*	di controllare nel database
+	*	se un certo elemento è presente 
+	*	nella tabella ShareYourTagTime
+	*/
+	function checkIfTagExistInDb($fieldSearch)
+	{
+		$conn = connectionToDb();
+
+		$fieldSearch = sanitizeToSql($fieldSearch, $conn);
+
+		$querySelectTag = "SELECT Tag FROM ShareYourTagsTime WHERE Tag=?";
+
+		if ( ($prep_stmt = mysqli_prepare($conn, $querySelectTag)) ) {
+			if ( !mysqli_stmt_bind_param($prep_stmt, "s", $fieldSearch) )
+				die ("Errore nell'accoppiamento dei parametri<br>");
+			
+			if ( !mysqli_stmt_execute($prep_stmt) )
+				die ("Errore nell'esecuzione della query<br>");
+
+			mysqli_stmt_store_result($prep_stmt);
+			$row = mysqli_stmt_num_rows($prep_stmt);
+			mysqli_stmt_close($prep_stmt);
+			mysqli_close($conn);
+			return ($row == 1);
+		}
+		die ("Errore nella preparazione della query<br>");
+	}
+
 	/* 
-    *   Questa funzine ci permette di
+    *   Questa funzione ci permette di
     *   verificare se esite un utente
     *   nel db con una certa password
     */
@@ -106,3 +136,42 @@
 		}
 		die ("Errore nella preparazione della query<br>");
 	}
+
+	/* 
+    *   Questa funzione ci permette di
+    *   verificare se ci sono overlap
+    *   di tempi tra i lavori nel db
+    */
+
+	function checkDatesAndTime($dateS, $dateE) 
+	{
+		$dateS = strtotime($dateS);
+		$dateE = strtotime($dateE);
+
+		$now = strtotime(date('Y-m-d H:i'));
+
+		//controlliamo che le date siano in ordine sensato
+		if ($dateS < $now || $dateE < $now || $dateE <= $dateS)
+			return false;
+
+		//controlliamo che non ci siano overlaps con altri lavori
+		session_start();
+		$selectJobsQuery = "SELECT * FROM ShareYourJobsTime WHERE Proposer='".$_SESSION['user']."';";
+		
+		$conn = connectionToDb();
+
+		if ( !($res = mysqli_query($conn, $selectJobsQuery)) ) 
+			die('Errore nella selezione dei lavori');
+
+		while( $row = mysqli_fetch_array($res) ) {
+			if(	($dateS >= strtotime($row['TimeStart']) && $dateE <= strtotime($row['TimeEnd'])) ||
+				($dateE >= strtotime($row['TimeStart']) && $dateE <= strtotime($row['TimeEnd'])) ||
+				($dateS >= strtotime($row['TimeStart']) && $dateS <= strtotime($row['TimeEnd'])) ||
+				($dateS <= strtotime($row['TimeStart']) && $dateE >= strtotime($row['TimeEnd'])) )
+				return false;
+		}	
+
+		mysqli_close($conn);
+		return true;
+	}
+

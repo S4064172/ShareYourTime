@@ -43,15 +43,17 @@ function showMap() {
                 console.log(place.name);
                 console.log('cityLat: ' + place.geometry.location.lat());
                 console.log('cityLng: ' + place.geometry.location.lng());
+				latitude = place.geometry.location.lat();
+				longitude = place.geometry.location.lng();
         });
 		google.maps.event.addListener(autocompleteReg, 'place_changed', function () {
                 var place = autocompleteReg.getPlace();
                 console.log(place.name);
                 console.log('cityLat: ' + place.geometry.location.lat());
                 console.log('cityLng: ' + place.geometry.location.lng());
+				latitude = place.geometry.location.lat();
+				longitude = place.geometry.location.lng();
         });
-	
-
 //------------------------------------------------------------------------------------------------
 
 	//Disegno una cerchi di raggio x

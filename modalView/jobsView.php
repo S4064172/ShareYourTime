@@ -26,7 +26,7 @@
           <div class="row">
             <div class="col-12 text-center">
             <label><b>Inizio Attività</b></label><br>
-            <input onfocusout="checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');" onfocusin="cleanErr('errTime');" id="modalDateStart" class="inputTimeModal" type="date" name="DateStart">
+            <input onfocusout="checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');" onfocusin="cleanErr('errTime');" id="modalDateStart" class="inputTimeModal" type="date" name="dateStart">
             <input onfocusout="checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');" onfocusin="cleanErr('errTime');" id="modalTimeStart" class="inputTimeModal" type="time" name="timeStart">
             </div>
           </div>
@@ -45,26 +45,27 @@
             	<p id="errModalStreet"></p>
         	</div>
             
-		<div class="col-md-4 text-center"> 
-            <label><b>Tag</b></label>
-			<select id="optionModalTag" class="custom-select inputTagModal" name="optionModalTag">
-				<option selected disabled>Scegli il tag</option>
-				<?php
-					require_once('../db/connection.php');
-
-					$getJobsQuery = "SELECT Tag FROM ShareYourTagsTime ORDER BY Tag ASC;";
-					$conn = connectionToDb();
+			<div class="col-md-4 text-center"> 
+        	    <label><b>Tag</b></label>
+				<select id="optionModalTag" onfocusin="cleanErr('errModalTag')" onchange="checkTagField('optionModalTag','errModalTag')" class="inputTagModal" name="optionModalTag">
+					<option selected disabled>Scegli il tag</option>
+					<?php
+						require_once('../db/connection.php');
+	
+						$getJobsQuery = "SELECT Tag FROM ShareYourTagsTime ORDER BY Tag ASC;";
+						$conn = connectionToDb();
 				
-					if ( !($res = mysqli_query($conn, $getJobsQuery)) ) 
-						die('Errore nella selezione dei lavori');
+						if ( !($res = mysqli_query($conn, $getJobsQuery)) ) 
+							die('Errore nella selezione dei lavori');
 
-					while( $row = mysqli_fetch_array($res) ) 
-						echo '<option class="checkbox">'.$row['Tag'].'</option>';
+						while( $row = mysqli_fetch_array($res) ) 
+							echo '<option class="checkbox">'.$row['Tag'].'</option>';
 
-					mysqli_free_result($res);
-					mysqli_close($conn);
-				?>	
-			 </select>
+						mysqli_free_result($res);
+						mysqli_close($conn);
+					?>	
+				 </select>
+				 <p id="errModalTag"></p>
 			</div>
           </div>
         </div>

@@ -30,21 +30,19 @@
 				insertAndCheck($insert_prep_stmt);
 				mysqli_stmt_close($insert_prep_stmt);
 				/*echo("La tupla e' stata inserita correttamente<br>");*/
-				return;
+		} else {
+			die ("Errore nella preparazione della query<br>");
 		}
 		mysqli_close($conn);
-		die ("Errore nella preparazione della query<br>");
-		
 	}
 
-	function insertInto_ShareYourJobsTime($descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $propUser, $tag) {
+	function insertInto_ShareYourJobsTime($descr, $cost, $timeS, $timeE, $dist, $valut, $street, $lat, $long, $propUser, $tag) {
 		$conn = connectionToDb();
 
 		$descr = sanitizeToSql($descr, $conn);
 		$cost = sanitizeToSql($cost, $conn);
 		$timeS = sanitizeToSql($timeS, $conn);
 		$timeE = sanitizeToSql($timeE, $conn);
-		$date = sanitizeToSql($date, $conn);
 		$dist = sanitizeToSql($dist, $conn);
 		$valut = sanitizeToSql($valut, $conn);
 		$street = sanitizeToSql($street, $conn);
@@ -53,19 +51,21 @@
 		$propUser = sanitizeToSql($propUser, $conn);
 		$tag = sanitizeToSql($tag, $conn);
 		
-		$insertQuery = "INSERT INTO ShareYourJobsTime VALUES(DEFAULT,?,?,?,?,?,?,?,?,?,?,?,DEFAULT,?);";
+		$insertQuery = "INSERT INTO ShareYourJobsTime VALUES(DEFAULT,?,?,?,?,?,?,?,?,?,?,DEFAULT,?);";
 
 		if ( ($insert_prep_stmt = mysqli_prepare($conn, $insertQuery)) ) {
-				if ( !mysqli_stmt_bind_param($insert_prep_stmt, "sisssiisddss",
-						$descr, $cost, $timeS, $timeE, $date, $dist, $valut, $street, $lat, $long, $propUser, $tag) )
+				if ( !mysqli_stmt_bind_param($insert_prep_stmt, "sissiisddss",
+						$descr, $cost, $timeS, $timeE, $dist, $valut, $street, $lat, $long, $propUser, $tag) )
 					die ("Errore nell'accoppiamento dei parametri<br>");
 				insertAndCheck($insert_prep_stmt);
 
 				mysqli_stmt_close($insert_prep_stmt);
+		} else {
+			die ("Errore nella preparazione della query<br>");
 		}
-
+		 
 		mysqli_close($conn);
-		echo("La tupla e' stata inserita correttamente<br>");
+		/*echo("La tupla e' stata inserita correttamente<br>");*/
 	}
 
 	function insertInto_ShareYourTagsTime ($tag) {
@@ -84,6 +84,6 @@
 		}
 
 		mysqli_close($conn);
-		echo("La tupla e' stata inserita correttamente<br>");
+		/*echo("La tupla e' stata inserita correttamente<br>");*/
 	}
 

@@ -1,10 +1,14 @@
 "use strict";
 
 /*
-* Questo file racchiude funzioni
+* Questo file racchiude funzioni e variabili
 * generiche che possono essere richiamate
 * in diversi contesti
 */
+
+//variabili globali per google maps
+var latitude;
+var longitude;
 
 function getRequest() 
 {

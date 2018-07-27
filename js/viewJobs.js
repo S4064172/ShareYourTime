@@ -84,5 +84,7 @@ function initAddr()
                 console.log(place.name);
                 console.log('cityLat: ' + place.geometry.location.lat());
                 console.log('cityLng: ' + place.geometry.location.lng());
+				latitude = place.geometry.location.lat();
+				longitude = place.geometry.location.lng();
     });
 }

@@ -1,7 +1,7 @@
 <?php
 
 /*
-	questa php controlla l'esistenza 
+	questo php controlla l'esistenza 
 	del campo passato nel db. Tramite
 	json comunica l'esito del controllo.
 

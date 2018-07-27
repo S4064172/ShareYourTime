@@ -7,6 +7,7 @@
     inserimento sia in locale che in remoto
 */
 
+/*********** Controlli locali ***************/
 function checkDescription(idCheck, idErr)
 {   
     var desc = document.getElementById(idCheck);
@@ -103,10 +104,11 @@ function checkStreet(idCheck, idErr)
     }
 }
 
+/************ Controllo tutti i campi definitivo al submit ******************/
 function checkJobAllFields() 
 {
 	var request = getRequest();
-	request.open("POST", "../utils/checkJobsAllField.php");
+	request.open("POST", "../utils/checkJobsAllField.php", true);
 	request.onreadystatechange = validateCheckNewJob(request);
 
 	var formData = new FormData();
@@ -119,6 +121,7 @@ function checkJobAllFields()
 	var htmlTagDateE = document.getElementById('modalDateEnd');
 	var htmlTagTimeE = document.getElementById('modalTimeEnd');
 	var htmlTagAddress = document.getElementById('modalStreet');
+	var htmlTagTag = document.getElementById('optionModalTag');
 
 	formData.append(htmlTagDescription.name, htmlTagDescription.value);
 	formData.append(htmlTagCost.name, htmlTagCost.value);
@@ -128,6 +131,10 @@ function checkJobAllFields()
 	formData.append(htmlTagDateE.name, htmlTagDateE.value);
 	formData.append(htmlTagTimeE.name, htmlTagTimeE.value);
 	formData.append(htmlTagAddress.name, htmlTagAddress.value);
+	formData.append(htmlTagTag.name, htmlTagTag.value);
+
+	formData.append('lat', latitude);
+	formData.append('long', longitude);
 	
 	//formData.append("insert", 0);
 		
@@ -141,22 +148,52 @@ function validateCheckNewJob(request)
 			if ( request.responseText != null ) {
 				var jsonObj = JSON.parse(request.responseText);	
 		
-				console.log(jsonObj);
 				//lavoro inserito con successo
-				if ( jsonObj == 0 ) {
-					console.log('INSERT OK');
+				if ( jsonObj == 0 )
 					return;
-				}
 					
 				//stampa degli errori rilevati
-				/*for(var key in jsonObj) {
-                    console.log(jsonObj[key]);
+				for(var key in jsonObj) {
+                    //console.log(jsonObj[key]);
                     var notify = document.getElementById(key);
                     notify.style.fontSize = '0.9em';
                     notify.style.color = 'darkred';
                     notify.innerHTML = jsonObj[key];		
-                }*/
+                }
 			}		
+		}
+	}
+}
+
+/************** Controllo campi singoli con ajax *******************/
+function checkTagField (idTag, idErrField) 
+{
+	var formData = new FormData();
+	var request = getRequest();
+	request.open("POST", "../utils/checkJobsSingleField.php", true);
+	request.onreadystatechange = validateCheckSingleJobField(request);
+
+	var tag = document.getElementById(idTag);
+	
+	formData.append(tag.name, tag.value);
+	
+	request.send();
+}
+
+function checkDatesAndTimes(dateS, timeS, dateE, timeE)
+{
+
+}
+
+function validateCheckSingleJobField(request) 
+{
+	return function() {
+		if ( request.readyState === 4 && request.status === 200 ) {
+			if ( request.responseText != null ) {
+				console.log(request.responseText);
+				var jsonObj = JSON.parse(request.responseText);	
+				console.log(jsonObj);
+			}
 		}
 	}
 }

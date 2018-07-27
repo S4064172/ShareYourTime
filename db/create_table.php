@@ -25,7 +25,6 @@
                     Cost int NOT NULL,
                     TimeStart datetime NOT NULL,
                     TimeEnd datetime NOT NULL,
-                    JobDate date NOT NULL,
                     Distance int NOT NULL,
                     Evaluation int default 0,
                     Street char(".StreetMaxLength.") NOT NULL,
