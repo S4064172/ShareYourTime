@@ -171,13 +171,13 @@ function checkTagField (idTag, idErrField)
 	var formData = new FormData();
 	var request = getRequest();
 	request.open("POST", "../utils/checkJobsSingleField.php", true);
-	request.onreadystatechange = validateCheckSingleJobField(request);
+	request.onreadystatechange = validateCheckSingleJobField(request, idErrField);
 
 	var tag = document.getElementById(idTag);
 	
 	formData.append(tag.name, tag.value);
 	
-	request.send();
+	request.send(formData);
 }
 
 function checkDatesAndTimes(dateS, timeS, dateE, timeE)
@@ -185,14 +185,21 @@ function checkDatesAndTimes(dateS, timeS, dateE, timeE)
 
 }
 
-function validateCheckSingleJobField(request) 
+function validateCheckSingleJobField(request, idErrField) 
 {
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
-				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);	
-				console.log(jsonObj);
+				
+				//stampa dell'errore sul campo
+                if ( jsonObj['code'] === -1 ) {
+                    var notify = document.getElementById(idErrField);
+                    notify.style.fontSize = '0.9em';
+                    notify.style.color = 'darkred';
+                    notify.innerHTML = jsonObj['msg'];
+                }
+
 			}
 		}
 	}
