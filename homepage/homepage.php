@@ -8,6 +8,15 @@
 	}
 
 	$_SESSION['page'] = "homepage";
+
+
+	if ( !isset($_COOKIE['size']) || empty($_COOKIE['size']) ) {
+        	$cookie_name = "size";
+			$cookie_value = "3";
+			setcookie($cookie_name, $cookie_value, time() + (600*30), "/");
+	}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,10 +27,10 @@
 		<link rel="stylesheet" type="text/css" href="homepage.css"/>
 		<link rel="stylesheet" type="text/css" href="../contactUs/contactUs.css"/>
 		<link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
-		<link rel="stylesheet" type="text/css" href="../table/table.css"/>
+		<link rel="stylesheet" type="text/css" href="../cardjobs/cardCarousel.css"/>
 	</head>
 	
-	<body>
+	<body onresize="resizingCarousel()" onload="resizingCarousel()">
 
 		<?php require ('../navBar/navBar.php'); ?>
 
@@ -46,19 +55,20 @@
 
 		<section id="job" class="jobs" onClick="hideItem('menu');">
 			<div class="myContainer text-center titleSessionTesto">
-				<h1><b>I tuoi impegni</b></h1>
-				<br>	
-				<?php showTableJobs("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and Receiver is not null and TimeStart > NOW() ORDER BY TimeStart LIMIT 5",1); ?>
-				<a class="btn mt-2" href="../viewJobs/viewJobs.php">Scopri di pi&ugrave;</a>
-			</div>
-		</section>
+				
 
-		<section class="jobs" onClick="hideItem('menu');">
-			<div class="myContainer text-center">
-				<h1><b>Lavori che hai richiesto</b></h1>
-				<br>	
-				<?php showTableJobs("SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart > NOW() ORDER BY TimeStart LIMIT 5",0); ?>	
-				<a class="btn mt-2" href="../viewJobs/viewJobsRequired.php">Scopri di pi&ugrave;</a>
+				<div id="idCarousel">
+					<div class="myContainer text-center">
+						
+						<?php 
+							require_once('../carousel/carouselHomepage.php');
+							showJobsCarousel("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and Receiver is not null and TimeStart > NOW() ORDER BY TimeStart LIMIT 6",
+											"SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart > NOW() ORDER BY TimeStart LIMIT 6",$_COOKIE['size']);
+						?>
+						
+					</div>
+				</div>
+				
 			</div>
 		</section>
 
