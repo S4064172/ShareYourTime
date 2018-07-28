@@ -5,8 +5,8 @@
 
 
 	//Controlli sui tag
-	if ( check_POST_IsSetAndNotEmpty('optionModalTag') ) {
-		if ( checkIfTagExistInDb($_POST['optionModalTag']) ) {
+	if ( check_POST_IsSetAndNotEmpty('tag') ) {
+		if ( checkIfTagExistInDb($_POST['tag']) ) {
 			echo json_encode(array('code' => 0));	
 			return;
 		}
@@ -15,4 +15,4 @@
 		return;
 	}
 
-	echo json_encode(array('code' => -2, 'post' => $_POST['optionModalTag']));
+	echo json_encode(array('code' => -2));

@@ -47,7 +47,7 @@
             
 			<div class="col-md-4 text-center"> 
         	    <label><b>Tag</b></label>
-				<select id="optionModalTag" onfocusin="cleanErr('errModalTag')" onchange="checkTagField('optionModalTag','errModalTag')" class="inputTagModal" name="optionModalTag">
+				<select id="optionModalTag" onfocusin="cleanErr('errModalTag')" onchange="checkTagField('optionModalTag','errModalTag')" class="inputTagModal" name="tag">
 					<option selected disabled>Scegli il tag</option>
 					<?php
 						require_once('../db/connection.php');

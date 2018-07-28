@@ -38,6 +38,15 @@
         </a>
     </div>
     <?php } ?>
+    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="searchjbs") {?>
+    <div>
+        <a href="../searchJobs/searchJobs.php">
+            <button class="btn buttonMenu">
+                Cerca un lavoro
+            </button>
+        </a>
+    </div>
+    <?php } ?>
 
 
 
