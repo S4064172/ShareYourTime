@@ -1,17 +1,9 @@
 <?php
 	require_once('../utils/constant.php');
 	require_once('../utils/utils.php');
-	require_once('../db/insertFunctions.php');
+	require_once('../db/selectFunctions.php');
 	
 	$result = array();
-
-    if( ( !check_POST_IsSetAndNotEmpty('cost') || $_POST['cost'] == "Seleziona il costo" ) && 
-        ( !check_POST_IsSetAndNotEmpty('distance')|| $_POST['distance'] == "Seleziona la distanza") && 
-        !check_POST_IsSetAndNotEmpty('street') &&
-        ( !check_POST_IsSetAndNotEmpty('tag') || $_POST['tag'] == "Scegli il tag") ){
-            //allert
-            return;
-        }
     
 	//Controlli sul costo
 	if (  check_POST_IsSetAndNotEmpty('cost') && $_POST['cost'] != "Seleziona il costo" 
@@ -35,9 +27,27 @@
 		$result['errOptionTag'] = "Il tag inviato non &egrave; valido";
     
     if ( count($result) === 0 ) {
-			session_start();
-			 
+		
+		if(!check_POST_IsSetAndNotEmpty('cost') || $_POST['cost'] == "Seleziona il costo" )
+			$_POST['cost'] = '';
+
+		if(!check_POST_IsSetAndNotEmpty('distance')|| $_POST['distance'] == "Seleziona la distanza")
+			$_POST['distance'] = '';
+
+		if(!check_POST_IsSetAndNotEmpty('street'))
+			$_POST['street'] = '';
+
+		if(  !check_POST_IsSetAndNotEmpty('tag') || $_POST['tag'] == "Scegli il tag" )
+			$_POST['tag'] =	'';
+
+
+
+		$result = searchInto_ShareYourJobsTime($_POST['street'], $_POST['distance'], $_POST['cost'], $_POST['tag'] );
+	
+		
 	}
+
+	
 	
 	
 	//Ritorna errori

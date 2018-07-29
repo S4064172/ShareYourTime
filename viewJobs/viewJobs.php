@@ -36,7 +36,7 @@
 				<br>	
                 <?php 
                     //tutti i lavori inseriti da user che sono stati accettati da altri utenti ancora validi
-                    showJobs("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and Receiver is not NULL and TimeStart > NOW() ORDER BY TimeStart"); 
+                    showJobs("SELECT * FROM ShareYourJobsTime WHERE Proposer = '".$_SESSION['user']."' and Receiver is not NULL and TimeStart > NOW() ORDER BY TimeStart"); 
                 ?>
             </div>
         </section>

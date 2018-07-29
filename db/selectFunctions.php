@@ -2,43 +2,50 @@
 	require_once('connection.php');
 	require_once('../utils/utils.php');
 
-	function insertAndCheck($insert_prep_stmt) {
-		if ( !mysqli_stmt_execute($insert_prep_stmt) )
-			die ("Errore nell'inserimento nel DB<br>");
-		else if ( ($rows = mysqli_stmt_affected_rows($insert_prep_stmt)) != 1 )
-			echo ("Errore: sto eseguendo un rollback...<br>");
-	}
 	
 	function searchInto_ShareYourJobsTime($street, $distance, $cost, $tag) {
+		
 		$conn = connectionToDb();
-
 		$street = sanitizeToSql($street, $conn);
-		$distance = sha1(sanitizeToSql($distance, $conn));
+		$distance = sanitizeToSql($distance, $conn);
 		$cost = sanitizeToSql($cost, $conn);
 		$tag = sanitizeToSql($tag, $conn);
 		
-		$searcQuery = "SELECT * ".
-                      "FROM ShareYourJobsTime ".
-                      "WHERE ( ? IS NULL OR Street = ? ) AND 
-                             ( ? IS NULL OR Distance = ?) AND 
-                             ( ? IS NULL OR Cost = ?) AND 
-                             ( ? IS NULL OR Tag = ?);";
+		$searchQuery = "SELECT * FROM ShareYourJobsTime WHERE 	( '$street'=''   OR Street = '$street' ) AND ( '$distance'=''  OR Distance = '$distance') AND ( '$cost'=''  OR Cost = '$cost') AND ( '$tag'=''  OR Tag = '$tag');";
+		
+		/*if ( ($search_prep_stmt = mysqli_prepare($conn, $searchQuery)) ) {
+			//if ( !mysqli_stmt_bind_param($search_prep_stmt, "ssiiiiss",	$street, $street, $distance, $distance, $cost, $cost, $tag, $tag ) )
+			//echo ("Errore nell'accoppiamento dei parametri");
+			  
+			if ( !mysqli_stmt_execute($insert_prep_stmt) )
+			echo ("Errore nell'aggiornamento nel DB");
 
-		if ( ($insert_prep_stmt = mysqli_prepare($conn, $insertQuery)) ) {
-				if ( !mysqli_stmt_bind_param($insert_prep_stmt, "siis",
-						$street, $distance, $cost, $tag) )
-					die ("Errore nell'accoppiamento dei parametri<br>");
-                
-                    mysqli_stmt_store_result($prep_stmt);
-			        $row = mysqli_stmt_num_rows($prep_stmt);
-                    mysqli_stmt_close($insert_prep_stmt);
+
+			mysqli_stmt_store_result($prep_stmt);
+			$row = mysqli_stmt_num_rows($prep_stmt);
+			mysqli_stmt_close($search_prep_stmt);
                 
 				
 		} else {
-			die ("Errore nella preparazione della query<br>");
+			echo ("Errore nella preparazione della query");
 		}
-        mysqli_close($conn);
-        return $row;
+		mysqli_close($conn);
+		*/
+		if ( !($res = mysqli_query($conn, $searchQuery)) ) 
+			die('Errore nella selezione dei lavori');
+		
+		$result =array();
+		$i=0;
+		while ($row = mysqli_fetch_array($res))
+		{
+			$result[$i++] = $row['IdJob'];
+		}
+		mysqli_free_result($res);
+		mysqli_close($conn);
+		
+		
+
+        return $result;
 	}
 
 	

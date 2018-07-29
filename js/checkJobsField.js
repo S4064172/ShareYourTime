@@ -123,11 +123,6 @@ function checkAllSearchJob()
 	var htmlTagDist = document.getElementById('optionDistance');
     var htmlTagTag = document.getElementById('optionTag');
     
-    console.log(htmlTagAddress.name, htmlTagAddress.value);
-    console.log(htmlTagDist.name, htmlTagDist.value);
-    console.log(htmlTagCost.name, htmlTagCost.value);
-    console.log(htmlTagTag.name, htmlTagTag.value);
-
     formData.append(htmlTagAddress.name, htmlTagAddress.value);
     formData.append(htmlTagDist.name, htmlTagDist.value);
     formData.append(htmlTagCost.name, htmlTagCost.value);
@@ -181,19 +176,19 @@ function validateCheckJob(request)
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
 				var jsonObj = JSON.parse(request.responseText);	
-		
+                console.log(request.responseText);
 				//lavoro inserito con successo
 				if ( jsonObj == 0 )
 					return;
 					
 				//stampa degli errori rilevati
-				for(var key in jsonObj) {
+				/*for(var key in jsonObj) {
                     //console.log(jsonObj[key]);
                     var notify = document.getElementById(key);
                     notify.style.fontSize = '0.9em';
                     notify.style.color = 'darkred';
                     notify.innerHTML = jsonObj[key];		
-                }
+                }*/
 			}		
 		}
 	}
