@@ -32,8 +32,8 @@
 		$result['errModalStreet'] = "L'indirizzo non &egrave; valido";
 
 	//Controlli sul tag
-	if ( !check_POST_IsSetAndNotEmpty('optionModalTag') 
-		 || !checkIfTagExistInDb($_POST['optionModalTag']) )
+	if ( !check_POST_IsSetAndNotEmpty('tag') 
+		 || !checkIfTagExistInDb($_POST['tag']) )
 		$result['errModalTag'] = "Il tag inviato non &egrave; valido";
 
 	//Inserimento nel DB
@@ -43,7 +43,7 @@
 											$_POST['dateStart'].' '.$_POST['timeStart'], $_POST['dateEnd'].' '.$_POST['timeEnd'], 
 											$_POST['distance'], "DEFAULT", $_POST['street'], 
 											$_POST['lat'], $_POST['long'], 
-											$_SESSION['user'], $_POST['optionModalTag'] ); 
+											$_SESSION['user'], $_POST['tag'] ); 
 	}
 	
 	//Ritorna errori

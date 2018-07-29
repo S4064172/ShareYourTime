@@ -38,7 +38,7 @@
             
         <div class="row">
             <div class="col-md-3"> 
-                <input id="optionStreet" onfocusout="checkStreet('optionStreet','errOptionStreet');" onfocusin="cleanErr('errStreetSearch')" class="mySelection" placeholder="Inserisci la via" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?>>
+                <input id="optionStreet" onchange="cleanErr('errStreetSearch');checkStreet('optionStreet','errOptionStreet');" class="mySelection" placeholder="Inserisci la via" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?>>
                 <p id="errOptionStreet"></p>
             </div>
 
@@ -95,7 +95,7 @@
 
         <div class ="row">
             <div class=" offset-md-5 col-md-2"> 
-                <button type="button" class="btn btn-secondary mb-2" id="myButtonSearchMap" onClick="">
+                <button type="button" class="btn btn-secondary mb-2" id="myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');checkAllSearchJob()">
                 <i class="fas fa-search"></i>
                 Cerca
                 </button>

@@ -104,12 +104,46 @@ function checkStreet(idCheck, idErr)
     }
 }
 
+
+
+
+
+
 /************ Controllo tutti i campi definitivo al submit ******************/
+function checkAllSearchJob()
+{
+    var request = getRequest();
+	request.open("POST", "../utils/checkAllSearchJob.php", true);
+	request.onreadystatechange = validateCheckJob(request);
+
+	var formData = new FormData();
+
+	var htmlTagAddress = document.getElementById('optionStreet');
+	var htmlTagCost = document.getElementById('optionCost');
+	var htmlTagDist = document.getElementById('optionDistance');
+    var htmlTagTag = document.getElementById('optionTag');
+    
+    console.log(htmlTagAddress.name, htmlTagAddress.value);
+    console.log(htmlTagDist.name, htmlTagDist.value);
+    console.log(htmlTagCost.name, htmlTagCost.value);
+    console.log(htmlTagTag.name, htmlTagTag.value);
+
+    formData.append(htmlTagAddress.name, htmlTagAddress.value);
+    formData.append(htmlTagDist.name, htmlTagDist.value);
+    formData.append(htmlTagCost.name, htmlTagCost.value);
+    formData.append(htmlTagTag.name, htmlTagTag.value);
+
+    request.send(formData);
+}
+
+
+
+
 function checkJobAllFields() 
 {
 	var request = getRequest();
 	request.open("POST", "../utils/checkJobsAllField.php", true);
-	request.onreadystatechange = validateCheckNewJob(request);
+	request.onreadystatechange = validateCheckJob(request);
 
 	var formData = new FormData();
 
@@ -141,7 +175,7 @@ function checkJobAllFields()
 	request.send(formData);
 }
 
-function validateCheckNewJob(request) 
+function validateCheckJob(request) 
 {
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
