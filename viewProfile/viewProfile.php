@@ -187,6 +187,6 @@
         
         <script type="text/javascript" src="../js/checkProfileUserField.js"></script>
 	    
-           
+        <?php require_once('googleAPIkey.html'); ?>
 	</body>
 </html>
