@@ -97,7 +97,7 @@
         </div>
 
         <div class ="row">
-            <div class="offset-4 col-md-2"> 
+            <div class="offset-md-4 col-md-2"> 
                 <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');checkAllSearchJob()">
                 <i class="fas fa-search"></i>
                 Cerca
@@ -137,7 +137,9 @@
         <script type="text/javascript" src="../js/utils.js"></script>
         <script type="text/javascript" src="../js/navBar.js"></script>
         <script type="text/javascript" src="../js/checkJobsField.js"></script>
+        <script type="text/javascript" src="../js/bookJobs.js"></script>
         <script type="text/javascript" src="../js/searchJobs.js"></script>
+        
 
         <?php require_once('googleAPIkey.html'); ?>
 		
