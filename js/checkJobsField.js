@@ -59,8 +59,13 @@ function checkDistance(idDist, idErr)
 
 function checkTime(idDate1, idTime1, idDate2, idTime2, idErr)
 {
-    var dateStart = new Date(document.getElementById(idDate1).value + ' ' + document.getElementById(idTime1).value);
-    var dateEnd = new Date(document.getElementById(idDate2).value + ' ' + document.getElementById(idTime2).value);
+	var dateS = document.getElementById(idDate1).value;
+	var timeS = document.getElementById(idTime1).value;
+	var dateE = document.getElementById(idDate2).value;
+	var timeE = document.getElementById(idTime2).value;
+
+	var dateStart = new Date(dateS + ' ' + timeS);
+    var dateEnd = new Date(dateE + ' ' + timeE);
     var now = new Date();
    
 	var err = document.getElementById(idErr);
@@ -78,6 +83,30 @@ function checkTime(idDate1, idTime1, idDate2, idTime2, idErr)
         err.innerHTML = "La data di inizio lavoro non pu&ograve; essere successiva a quella di fine";
         return;
     }
+
+	//mando una richiesta al server per controllare eventuali overlaps
+	//la richiesta viene mandata solo in presenza di tutti e 4 i campi
+	//in modo da non esagerare con le chiamate al server
+	if ( dateS === '' || timeS === '' || dateE === '' || timeE === '' )
+		return;
+
+	console.log('************ DEBUG **************');
+	console.log('dateS = ' + dateS);
+	console.log('timeS = ' + timeS);
+	console.log('dateE = ' + dateE);
+	console.log('timeE = ' + timeE);
+	console.log('************ DEBUG **************');
+	
+
+	var formData = new FormData();
+	var request = getRequest();
+	request.open("POST", "../utils/checkJobsSingleField.php", true);
+	request.onreadystatechange = validateCheckSingleJobField(request, idErr);
+
+	formData.append('dateS', dateStart);
+	formData.append('dateE', dateEnd);
+
+	request.send(formData);
 }
 
 function checkStreet(idCheck, idErr)
@@ -146,6 +175,7 @@ function validateCheckNewJob(request)
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
+				console.log(responseText);
 				var jsonObj = JSON.parse(request.responseText);	
 		
 				//lavoro inserito con successo
@@ -179,17 +209,13 @@ function checkTagField (idTag, idErrField)
 	
 	request.send(formData);
 }
-
-function checkDatesAndTimes(dateS, timeS, dateE, timeE)
-{
-
-}
-
+	
 function validateCheckSingleJobField(request, idErrField) 
 {
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
+				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);	
 				
 				//stampa dell'errore sul campo
