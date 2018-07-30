@@ -175,20 +175,30 @@ function validateCheckJob(request)
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
-				var jsonObj = JSON.parse(request.responseText);	
-                console.log(request.responseText);
-				//lavoro inserito con successo
-				if ( jsonObj == 0 )
-					return;
-					
-				//stampa degli errori rilevati
-				/*for(var key in jsonObj) {
-                    //console.log(jsonObj[key]);
-                    var notify = document.getElementById(key);
-                    notify.style.fontSize = '0.9em';
-                    notify.style.color = 'darkred';
-                    notify.innerHTML = jsonObj[key];		
-                }*/
+                try {
+                    var jsonObj = JSON.parse(request.responseText);	
+
+                    //lavoro inserito con successo
+                    if ( jsonObj == 0 )
+                        if(document.getElementById('printCard')!==null)
+                            document.getElementById('printCard').innerHTML='';
+                        else
+                            return;
+            
+                    //stampa degli errori rilevati
+                    for(var key in jsonObj) {
+                        //console.log(jsonObj[key]);
+                        var notify = document.getElementById(key);
+                        notify.style.fontSize = '0.9em';
+                        notify.style.color = 'darkred';
+                        notify.innerHTML = jsonObj[key];		
+                    }
+
+                } catch (error) {
+                    document.getElementById('printCard').innerHTML = request.responseText;
+                }
+                
+				
 			}		
 		}
 	}

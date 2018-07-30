@@ -1,6 +1,10 @@
 <?php
-  
+    
     function showCard($row)  {
+
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 ?>
         <div class="card">
             <div class="card-body">
@@ -11,7 +15,7 @@
                     <li class="list-group-item" id="cardTimeEnd_<?php echo $row['IdJob']?>" value="<?php echo $row['TimeEnd']?>"><?php echo "Fine : ".$row['TimeEnd']?></li>
 					<li class="list-group-item" id="cardDistance_<?php echo $row['IdJob']?>" value="<?php echo $row['Distance']?>"><?php echo "Distanza : ".$row['Distance']?></li>
 					<li class="list-group-item" id="cardTag_<?php echo $row['IdJob']?>" value="<?php echo $row['Tag']?>"><?php echo "Tag : ".$row['Tag']?></li>
-                    <?php if ( $_SESSION['page'] == "index" || $row['TimeStart'] < date('Y-m-d H:i:s') ) {?>
+                    <?php  if ( $_SESSION['page'] == "index" || $row['TimeStart'] < date('Y-m-d H:i:s') ) {?>
                         <li class="list-group-item h3em" id="cardValuation_<?php echo $row['IdJob']?>" value="<?php echo $row['Evaluation']?>">
                             <?php 
                                 //se il lavoro non ha valutazioni si da 
@@ -36,7 +40,7 @@
                         </li>
                     <?php } ?>
                     <li class="list-group-item" id="cardStreet_<?php echo $row['IdJob']?>" value="<?php echo $row['Street']?>"><?php echo $row['Street']?></li>
-                    <?php if ( $_SESSION['page'] == "index" || $_SESSION['page'] == "viewjobsrequired" || $_SESSION['page'] == "homepage" ) {?>
+                    <?php if ( $_SESSION['page'] == "index" || $_SESSION['page'] == "viewjobsrequired" || $_SESSION['page'] == "homepage" || $_SESSION['page'] == "searchjobs" ) {?>
                         <li class="list-group-item" id="cardProposer_<?php echo $row['IdJob']?>" value="<?php echo $row['Proposer']?>">Proposto da: <?php echo $row['Proposer']?></li>
                     <?php } ?>
                     <?php if ( ( $_SESSION['page'] == "viewjobs" || $_SESSION['page'] == "homepage" ) ) {?>

@@ -40,7 +40,7 @@ section {
 	text-align: center;
 }
 
-#myButtonSearchMap{
+.myButtonSearchMap{
 	width: 100%;
 	margin-top: 10px;
 }

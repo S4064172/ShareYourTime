@@ -2,7 +2,13 @@
 	require_once('../utils/constant.php');
 	require_once('../utils/utils.php');
 	require_once('../db/selectFunctions.php');
-	
+	require_once('../cardjobs/singleCard.php');
+
+	if ( session_status() == PHP_SESSION_NONE ) {
+        session_start();
+	}
+
+
 	$result = array();
     
 	//Controlli sul costo
@@ -29,10 +35,10 @@
     if ( count($result) === 0 ) {
 		
 		if(!check_POST_IsSetAndNotEmpty('cost') || $_POST['cost'] == "Seleziona il costo" )
-			$_POST['cost'] = '';
+			$_POST['cost'] = 0;
 
 		if(!check_POST_IsSetAndNotEmpty('distance')|| $_POST['distance'] == "Seleziona la distanza")
-			$_POST['distance'] = '';
+			$_POST['distance'] = 0;
 
 		if(!check_POST_IsSetAndNotEmpty('street'))
 			$_POST['street'] = '';
@@ -40,15 +46,14 @@
 		if(  !check_POST_IsSetAndNotEmpty('tag') || $_POST['tag'] == "Scegli il tag" )
 			$_POST['tag'] =	'';
 
-
-
-		$result = searchInto_ShareYourJobsTime($_POST['street'], $_POST['distance'], $_POST['cost'], $_POST['tag'] );
-	
 		
+		$resQuery = searchInto_ShareYourJobsTime($_POST['street'], $_POST['distance'], $_POST['cost'], $_POST['tag'], $_SESSION['user'] );
+		
+		foreach($resQuery as $singleRes)
+			showCard($singleRes);
+		return;
+	
 	}
-
-	
-	
-	
+		
 	//Ritorna errori
 	echo json_encode($result);

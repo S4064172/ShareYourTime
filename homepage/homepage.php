@@ -10,11 +10,7 @@
 	$_SESSION['page'] = "homepage";
 
 
-	if ( !isset($_COOKIE['size']) || empty($_COOKIE['size']) ) {
-        	$cookie_name = "size";
-			$cookie_value = "3";
-			setcookie($cookie_name, $cookie_value, time() + (600*30), "/");
-	}
+	
 
 
 ?>
@@ -60,7 +56,12 @@
 				<div id="idCarousel">
 					<div class="myContainer text-center">
 						
-						<?php 
+						<?php
+							if ( !isset($_COOKIE['size']) || empty($_COOKIE['size']) ) {
+								$cookie_name = "size";
+								$cookie_value = "3";
+								setcookie($cookie_name, $cookie_value, time() + (600*30), "/");
+							} 
 							require_once('../carousel/carouselHomepage.php');
 							showJobsCarousel("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and Receiver is not null and TimeStart > NOW() ORDER BY TimeStart LIMIT 6",
 											"SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart > NOW() ORDER BY TimeStart LIMIT 6",$_COOKIE['size']);

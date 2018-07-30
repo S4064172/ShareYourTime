@@ -75,11 +75,11 @@
         
         $updateQuery =  "UPDATE ShareYourJobsTime SET ". 
                         "$fieldToUpdate = ?  ".
-                        "WHERE IdJob = $fieldToSearch ;";
+                        "WHERE IdJob = ? ;";
     
         if ( !($update_prep_stmt = mysqli_prepare($conn, $updateQuery)) )
             die ("Errore nella preparazione della query<br>");
-        if ( !mysqli_stmt_bind_param($update_prep_stmt, "s", $fieldValue) )
+        if ( !mysqli_stmt_bind_param($update_prep_stmt, "si", $fieldValue,$fieldToSearch) )
             die ("Errore nell'accoppiamento dei parametri<br>");
         
         upDataAndCheck($update_prep_stmt);

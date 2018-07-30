@@ -11,12 +11,6 @@
 
 	$_SESSION['page']="index";
 
-	if ( !isset($_COOKIE['size']) || empty($_COOKIE['size']) ) {
-		$cookie_name = "size";
-		$cookie_value = "3";
-		setcookie($cookie_name, $cookie_value, time() + (600*30), "/");
-	}
-
 ?>
 
 <!DOCTYPE html>
@@ -111,6 +105,12 @@
 				<h1><b>Cosa proponiamo</b></h1>
 				<br>	
 				<?php 
+
+					if ( !isset($_COOKIE['size']) || empty($_COOKIE['size']) ) {
+						$cookie_name = "size";
+						$cookie_value = "3";
+						setcookie($cookie_name, $cookie_value, time() + (600*30), "/");
+					}
 					require_once('../carousel/carousel.php');
 					showJobsCarousel("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart DESC LIMIT 9",$_COOKIE['size']);
 				?>		
