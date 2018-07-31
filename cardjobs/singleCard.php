@@ -31,8 +31,9 @@
                                     else   
                                         if ( $row['TimeEnd'] > date('Y-m-d H:i:s') ) 
                                             echo "Aggiungi una valutazione";
-                                        else
-                                            echo "<a>Aggiungi una valutazione</a>";
+										else { ?>
+											<a>Aggiungi una valutazione</a>
+										<?php }
                                 }else
                                     for($i=0 ; $i< $row['Evaluation']; $i++)
                                         echo "<i class='far fa-star'></i>";
@@ -66,5 +67,3 @@
             <?php } ?>
         </div>
 <?php } ?>
-
-
