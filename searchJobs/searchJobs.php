@@ -21,19 +21,14 @@
         <link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
         <link rel="stylesheet" type="text/css" href="searchJobs.css"/>
         <link rel="stylesheet" type="text/css" href="../cardjobs/card.css"/>
-       
+        <link rel="stylesheet" type="text/css" href="../alert/alert.css"/>
     </head>
 	
 	<body>
         
         <?php require_once ('../navBar/navBar.php'); ?>
 
-        <div id="alertDelete" class="alert" role="alert">
-            <p id="alertText" style="display:inline;"> </p>
-            <button id="buttonAllert" type="button" onclick="hideItem('alertDelete')" class="close myClose" style="padding-top: 0.35em;" aria-label="Close">
-        	    <span aria-hidden="true">&times;</span>
-			</button>
-		</div>
+        <?php require_once ('../alert/alert.php'); ?>
         
         <section class="optionSearch">
             <?php require_once("../menu/menu.php"); ?>
@@ -142,6 +137,7 @@
         
         <script type="text/javascript" src="../js/constant.js"></script>
         <script type="text/javascript" src="../js/utils.js"></script>
+        <script type="text/javascript" src="../js/alert.js"></script>
         <script type="text/javascript" src="../js/navBar.js"></script>
         <script type="text/javascript" src="../js/checkJobsField.js"></script>
         <script type="text/javascript" src="../js/bookJobs.js"></script>

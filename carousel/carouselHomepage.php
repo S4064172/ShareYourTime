@@ -57,7 +57,7 @@
                         }
                         
                     echo "</div>";
-                    echo "<a class='btn' href='../viewJobs/viewJobs.php'>Scopri di pi&ugrave;</a>";		
+                    echo "<a class='btn linkdown' href='../viewJobs/viewJobs.php'>Scopri di pi&ugrave;</a>";		
                 echo "</div>"; 
             }
                           
@@ -73,7 +73,7 @@
                             }
                             
                         echo "</div>";
-                    echo "<a class='btn' href='../viewJobs/viewJobsRequired.php'>Scopri di pi&ugrave;</a>";
+                    echo "<a class='btn linkdown' href='../viewJobs/viewJobsRequired.php'>Scopri di pi&ugrave;</a>";
                 echo "</div>"; 
         }
 
