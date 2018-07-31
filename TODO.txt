@@ -22,4 +22,4 @@
 -> nel modal di inserimento/modifica dei lavori manca il tag {[(! IMPORTANT)]}
 
 -> prenotazione lavoro
-    -> sistemare notifica a video
+    -> problema se manometto id del lavoro

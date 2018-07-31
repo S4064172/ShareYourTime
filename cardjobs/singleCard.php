@@ -6,7 +6,7 @@
             session_start();
         }
 ?>
-        <div class="card">
+        <div class="card" id="<?php echo $row['IdJob']?>">
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     <h5 class="card-title"><li class="list-group-item p-0 m-0 h3em" id="cardDescription_<?php echo $row['IdJob']?>" value="<?php echo $row['Description']?>" ><?php echo $row['Description']?></li></h5>

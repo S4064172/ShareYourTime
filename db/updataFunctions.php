@@ -7,7 +7,8 @@
 			die ("Errore nell'aggiornamento nel DB<br>");
 		else if ( ($rows = mysqli_stmt_affected_rows($insert_prep_stmt)) > 1 )
             die ("Errore: sto eseguendo un rollback...");
-	}
+        return $rows;
+    }
 
 
     function updataInto_ShareYourUserTime($usr, $psw, $name, $surname, $phone, $email, $street,  $fieldFilter, $file) {
@@ -107,12 +108,13 @@
     
         if ( !($update_prep_stmt = mysqli_prepare($conn, $updateQuery)) )
             die ("Errore nella preparazione della query<br>");
-        if ( !mysqli_stmt_bind_param($update_prep_stmt, "si", $fieldValue,$fieldToSearch) )
+        if ( !mysqli_stmt_bind_param($update_prep_stmt, "si", $fieldValue, $fieldToSearch) )
             die ("Errore nell'accoppiamento dei parametri<br>");
         
-        upDataAndCheck($update_prep_stmt);
+        $rows = upDataAndCheck($update_prep_stmt);
         mysqli_stmt_close($update_prep_stmt);
-        mysqli_close($conn);        
+        mysqli_close($conn);    
+        return $rows;    
     }
 
 

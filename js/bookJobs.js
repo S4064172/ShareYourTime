@@ -5,7 +5,7 @@ function bookJobs(idJob)
 {
     var request = getRequest();
 	request.open("POST", "../utils/bookJobs.php", true);
-	request.onreadystatechange = validateBookJobs(request);
+	request.onreadystatechange = validateBookJobs(request, idJob);
    
    	var formData = new FormData();
     formData.append('IdJob', idJob);
@@ -15,12 +15,28 @@ function bookJobs(idJob)
 }
 
 
-function validateBookJobs(request) 
+function validateBookJobs(request, idJob) 
 {
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
-				console.log("da sistemare segnalazione query effettuata o meno")
+				console.log(request.responseText);
+				var jsonObj = JSON.parse(request.responseText);	
+				if ( jsonObj == 0 ){
+					var htmlTag = document.getElementById("alertDelete");
+					htmlTag.classList.add("alert-success");
+					var htmlTagText = document.getElementById("alertText");
+					htmlTagText.innerHTML="lavoro prenotato con successo";
+					showItem('alertDelete');
+					hideItem(idJob);
+				}else{
+					var htmlTag = document.getElementById("alertDelete");
+					htmlTag.classList.add("alert-danger");
+					var htmlTagText = document.getElementById("alertText");
+					htmlTagText.innerHTML="errore nella prenotazione del lavoro";
+					showItem('alertDelete');
+				}	
+					
 			}		
 		}
 	}

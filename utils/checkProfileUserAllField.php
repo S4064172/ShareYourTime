@@ -127,7 +127,7 @@
 												$_POST['address'], $path);
 			$result = $_POST['registration'];
 			} else {
-				if( check_POST_IsSetAndNotEmpty('psw') )
+				if( !check_POST_IsSetAndNotEmpty('psw') )
 					$_POST['psw'] = NULL;
 					
 				updataInto_ShareYourUserTime(	$_POST['user'], $_POST['psw'],
