@@ -24,10 +24,10 @@
 		
 		if ( ($search_prep_stmt = mysqli_prepare($conn, $searchQuery)) ) {
 			if ( !mysqli_stmt_bind_param($search_prep_stmt, "sssiiiiss",$user,	$street, $street, $distance, $distance, $cost, $cost, $tag, $tag ) )
-				echo ("Errore nell'accoppiamento dei parametri");
+				die ("Errore nell'accoppiamento dei parametri");
 			  
 			if ( !mysqli_stmt_execute($search_prep_stmt) )
-				echo ("Errore nell'aggiornamento nel DB");
+				die ("Errore nell'aggiornamento nel DB");
 
 
 			mysqli_stmt_store_result($search_prep_stmt);
@@ -53,7 +53,7 @@
                 
 				
 		} else {
-			echo ("Errore nella preparazione della query");
+			die ("Errore nella preparazione della query");
 		}
 		mysqli_close($conn);
 		
@@ -74,10 +74,10 @@
 		
 		if ( ($search_prep_stmt = mysqli_prepare($conn, $searchQuery)) ) {
 			if ( !mysqli_stmt_bind_param($search_prep_stmt, "si",$user,	$job ) )
-				echo ("Errore nell'accoppiamento dei parametri");
+				die ("Errore nell'accoppiamento dei parametri");
 			  
 			if ( !mysqli_stmt_execute($search_prep_stmt) )
-				echo ("Errore nell'aggiornamento nel DB");
+				die ("Errore nell'aggiornamento nel DB");
 
 			mysqli_stmt_store_result($search_prep_stmt);
 			$rows = mysqli_stmt_num_rows($search_prep_stmt);
@@ -85,7 +85,7 @@
                 
 				
 		} else {
-			echo ("Errore nella preparazione della query");
+			die ("Errore nella preparazione della query");
 		}
 		mysqli_close($conn);
 		return $rows;

@@ -134,6 +134,7 @@ function emptyErrorModalJobs()
 	document.getElementById('errModalTag').innerHTML = "";
 }
 
-function closeDialog(id) {
+function closeModal(id) {
     $(id).modal('hide');
 }
+

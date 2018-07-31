@@ -34,16 +34,17 @@ function validateconfirmOperation(request, idErrPsw, idJob)
     return function() {
         if ( request.readyState === 4 && request.status === 200 ) {
             if ( request.responseText != null ) {
+                console.log(request.responseText);
                 var jsonObj = JSON.parse(request.responseText);
                 if ( jsonObj === '1' ){
                     showAlertSuccess("Lavoro rimosso con successo");
-                    closeDialog('#confirmDelete');
+                    closeModal('#confirmDelete');
                     hideItem(idJob);
                     return;
                 }
                 if(jsonObj === '-1'){
-                    showAlertError("Errore rimozione con successo");
-                    closeDialog('#confirmDelete');
+                    showAlertError("Errore rimozione");
+                    closeModal('#confirmDelete');
                     return;
                 }
                 if ( jsonObj === '0' ) {
