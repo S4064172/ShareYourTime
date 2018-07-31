@@ -153,7 +153,7 @@
 	
 
 
-	<?php require('../googleAPIkey.html') ?>
+	<?php require('googleAPIkey.html') ?>
 
 	</body>
 </html>

@@ -16,6 +16,7 @@
 						"FROM ShareYourJobsTime ". 
 						"WHERE 	TimeStart > NOW()
 								AND  Proposer != ?
+								AND  Receiver is NULL
 								AND ( ?=''   OR Street = ? ) 
 								AND ( ?=0  OR Distance = ? ) 
 								AND ( ?=0  OR Cost < ? ) 

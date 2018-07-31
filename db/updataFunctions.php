@@ -7,10 +7,11 @@
 			die ("Errore nell'aggiornamento nel DB<br>");
 		else if ( ($rows = mysqli_stmt_affected_rows($insert_prep_stmt)) > 1 )
             die ("Errore: sto eseguendo un rollback...");
-	}
+        return $rows;
+    }
 
 
-    function updataInto_ShareYourUserTime($usr, $psw, $name, $surname, $phone, $email, $street,  $fieldFilter) {
+    function updataInto_ShareYourUserTime($usr, $psw, $name, $surname, $phone, $email, $street,  $fieldFilter, $file) {
 		$conn = connectionToDb();
 
 		$usr = sanitizeToSql($usr, $conn);
@@ -19,8 +20,35 @@
 		$phone = sanitizeToSql($phone, $conn);
 		$email = sanitizeToSql($email, $conn);
         $street = sanitizeToSql($street, $conn);
+        $fieldFilter = sanitizeToSql($fieldFilter, $conn);
 
-        $path_temp = '../../profile_imgs/'.$usr.'.jpg';
+        //Recupero vecchio path della foto
+        $getPathQuery= "SELECT Photo FROM ShareYourUsersTime WHERE user=?;";
+        if ( ($prep_stmt = mysqli_prepare($conn, $getPathQuery)) ) {
+            if ( !mysqli_stmt_bind_param($prep_stmt, "s", $fieldFilter) )
+                echo ("Errore nell'accoppiamento dei parametri");
+                
+            if ( !mysqli_stmt_execute($prep_stmt) )
+                echo ("Errore nell'aggiornamento nel DB");
+
+            mysqli_stmt_store_result($prep_stmt);
+            mysqli_stmt_bind_result($prep_stmt, $path_temp);
+            mysqli_stmt_fetch($prep_stmt);
+            $pathOld = $path_temp; 
+            mysqli_stmt_close($prep_stmt);
+        }
+        
+		
+        if(!empty($file)){
+            //se è settato costruisco il path con la nuova foto
+            $imageFileType = strtolower(pathinfo($file['photo']['name'], PATHINFO_EXTENSION));
+            $path = '../../profile_imgs/'.$usr.'.'.$imageFileType; 
+        }else{
+            //se non è settato costruisco il path cambiano solo il nome
+            $path = '../../profile_imgs/'.$usr.substr($pathOld,strlen($pathOld)-4);     
+        }
+        
+        
 
         if( $psw != null ){
             $psw = sha1(sanitizeToSql($psw, $conn));
@@ -38,7 +66,7 @@
             if ( !($update_prep_stmt = mysqli_prepare($conn, $updateQuery)) )
                 die ("Errore nella preparazione della query<br>");
             if ( !mysqli_stmt_bind_param($update_prep_stmt, "ssssssss",
-                $usr, $psw, $name, $surname, $phone, $email, $street, $path_temp) )
+                $usr, $psw, $name, $surname, $phone, $email, $street, $path) )
                 die ("Errore nell'accoppiamento dei parametri<br>");
         } else {
             $updateQuery =  "UPDATE ShareYourUsersTime SET ". 
@@ -55,16 +83,17 @@
             if ( !($update_prep_stmt = mysqli_prepare($conn, $updateQuery)) )
                 die ("Errore nella preparazione della query<br>");
             if ( !mysqli_stmt_bind_param($update_prep_stmt, "sssssss",
-                $usr,  $name, $surname, $phone, $email, $street,$path_temp) )
+                $usr,  $name, $surname, $phone, $email, $street,$path) )
                 die ("Errore nell'accoppiamento dei parametri<br>");
         }
         upDataAndCheck($update_prep_stmt);
         mysqli_stmt_close($update_prep_stmt);
         mysqli_close($conn);
+        rename($pathOld,$path);
 
     }
     
-
+    
     function updataInto_ShareYourJobsTime($fieldToUpdate, $fieldValue, $fieldToSearch) {
 		$conn = connectionToDb();
 
@@ -79,10 +108,13 @@
     
         if ( !($update_prep_stmt = mysqli_prepare($conn, $updateQuery)) )
             die ("Errore nella preparazione della query<br>");
-        if ( !mysqli_stmt_bind_param($update_prep_stmt, "si", $fieldValue,$fieldToSearch) )
+        if ( !mysqli_stmt_bind_param($update_prep_stmt, "si", $fieldValue, $fieldToSearch) )
             die ("Errore nell'accoppiamento dei parametri<br>");
         
-        upDataAndCheck($update_prep_stmt);
+        $rows = upDataAndCheck($update_prep_stmt);
         mysqli_stmt_close($update_prep_stmt);
-        mysqli_close($conn);        
-	}
+        mysqli_close($conn);    
+        return $rows;    
+    }
+
+

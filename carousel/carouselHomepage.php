@@ -24,7 +24,10 @@
         <li class='mb-2' data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
         <?php 
            
-            for( $i=$size ; $i< ( $rows1+$rows2 ); $i+= $size ){
+            for( $i=$size ; $i < ( $rows1 ); $i+= $size ){
+                echo "<li class='mb-2' data-target='#carouselIndicators' data-slide-to='".$i."'></li>";
+            }
+            for( $i=0 ; $i < ( $rows2 ); $i+= $size ){
                 echo "<li class='mb-2' data-target='#carouselIndicators' data-slide-to='".$i."'></li>";
             }
        ?>

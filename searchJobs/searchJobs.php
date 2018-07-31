@@ -19,14 +19,22 @@
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
 		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
         <link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
-        <link rel="stylesheet" type="text/css" href="../searchJobs/searchJobs.css"/>
+        <link rel="stylesheet" type="text/css" href="searchJobs.css"/>
         <link rel="stylesheet" type="text/css" href="../cardjobs/card.css"/>
+       
     </head>
 	
 	<body>
         
         <?php require_once ('../navBar/navBar.php'); ?>
 
+        <div id="alertDelete" class="alert" role="alert">
+            <p id="alertText" style="display:inline;"> </p>
+            <button id="buttonAllert" type="button" onclick="hideItem('alertDelete')" class="close myClose" style="padding-top: 0.35em;" aria-label="Close">
+        	    <span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+        
         <section class="optionSearch">
             <?php require_once("../menu/menu.php"); ?>
             <div class="myContainer text-center titleSessionTesto">
@@ -36,10 +44,10 @@
 
         <section class="optionSearch" onClick="hideItem('menu');">
             
-        <div id="resetOption">
+        <div class="myContainer" id="resetOption">
             <div class="row" id="resetOption">
                 <div class="col-md-3"> 
-                    <input id="optionStreet" onchange="cleanErr('optionStreet');checkStreet('optionStreet','errOptionStreet');" class="mySelection" placeholder="Inserisci la via" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?>>
+                    <input id="optionStreet" onchange="cleanErr('errOptionStreet');checkStreet('optionStreet','errOptionStreet');" class="mySelection" placeholder="Inserisci la via" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?>>
                     <p id="errOptionStreet"></p>
                 </div>
 
@@ -96,7 +104,7 @@
         </div>
 
         <div class ="row">
-            <div class="offset-4 col-md-2"> 
+            <div class="offset-md-4 col-md-2"> 
                 <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');checkAllSearchJob()">
                 <i class="fas fa-search"></i>
                 Cerca
@@ -136,7 +144,9 @@
         <script type="text/javascript" src="../js/utils.js"></script>
         <script type="text/javascript" src="../js/navBar.js"></script>
         <script type="text/javascript" src="../js/checkJobsField.js"></script>
+        <script type="text/javascript" src="../js/bookJobs.js"></script>
         <script type="text/javascript" src="../js/searchJobs.js"></script>
+        
 
         <?php require_once('googleAPIkey.html'); ?>
 		

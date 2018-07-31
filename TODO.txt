@@ -20,3 +20,6 @@
 
 -> controlli su overlap dei lavori
 -> nel modal di inserimento/modifica dei lavori manca il tag {[(! IMPORTANT)]}
+
+-> prenotazione lavoro
+    -> problema se manometto id del lavoro

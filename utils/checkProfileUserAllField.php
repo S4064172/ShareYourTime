@@ -128,16 +128,13 @@
 												$_POST['address'], $path);
 			$result = $_POST['registration'];
 			} else {
-				if( check_POST_IsSetAndNotEmpty('psw') )
-					updataInto_ShareYourUserTime(	$_POST['user'], $_POST['psw'],
-													$_POST['name'], $_POST['surname'],
-													$_POST['phone'], $_POST['email'],
-													$_POST['address'], $_POST['checkUser']);
-					else
-						updataInto_ShareYourUserTime(	$_POST['user'], null,
-														$_POST['name'], $_POST['surname'],
-														$_POST['phone'], $_POST['email'],
-														$_POST['address'], $_POST['checkUser']);
+				if( !check_POST_IsSetAndNotEmpty('psw') )
+					$_POST['psw'] = NULL;
+					
+				updataInto_ShareYourUserTime(	$_POST['user'], $_POST['psw'],
+												$_POST['name'], $_POST['surname'],
+												$_POST['phone'], $_POST['email'],
+												$_POST['address'], $_POST['checkUser'], $_FILES);
 				$result = $_POST['registration'];
 				session_start();
 				session_unset();
