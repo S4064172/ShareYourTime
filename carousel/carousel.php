@@ -2,9 +2,7 @@
     require ('../cardjobs/singleCard.php');
     function showJobsCarousel($getJobsQuery, $size) {
         require_once('../db/connection.php');
-		var_dump($size);
 		$size = intVal($size);
-		var_dump($size);
         $conn = connectionToDb();
         
         if ( !($res = mysqli_query($conn, $getJobsQuery)) ) 
