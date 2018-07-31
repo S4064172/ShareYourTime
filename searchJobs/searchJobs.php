@@ -28,7 +28,7 @@
         
         <?php require_once ('../navBar/navBar.php'); ?>
 
-        <div id="alertDelete" class="alert" style="z-index:50; margin-top: 4em; display:none; position: fixed; width: 100%; font-size: 24px;" role="alert">
+        <div id="alertDelete" class="alert" role="alert">
             <p id="alertText" style="display:inline;"> </p>
             <button id="buttonAllert" type="button" onclick="hideItem('alertDelete')" class="close myClose" style="padding-top: 0.35em;" aria-label="Close">
         	    <span aria-hidden="true">&times;</span>

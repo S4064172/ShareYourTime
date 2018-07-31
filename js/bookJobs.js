@@ -25,6 +25,7 @@ function validateBookJobs(request, idJob)
 				if ( jsonObj == 0 ){
 					var htmlTag = document.getElementById("alertDelete");
 					htmlTag.classList.add("alert-success");
+					htmlTag.classList.add("myAllert");
 					var htmlTagText = document.getElementById("alertText");
 					htmlTagText.innerHTML="lavoro prenotato con successo";
 					showItem('alertDelete');
@@ -32,6 +33,7 @@ function validateBookJobs(request, idJob)
 				}else{
 					var htmlTag = document.getElementById("alertDelete");
 					htmlTag.classList.add("alert-danger");
+					htmlTag.classList.add("myAllert");
 					var htmlTagText = document.getElementById("alertText");
 					htmlTagText.innerHTML="errore nella prenotazione del lavoro";
 					showItem('alertDelete');
