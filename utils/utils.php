@@ -143,7 +143,7 @@
     *   di tempi tra i lavori nel db
     */
 
-	function checkDatesAndTime($dateS, $dateE) 
+	function checkDatesAndTime($dateS, $dateE, $sameJob) 
 	{
 		$dateS = strtotime($dateS);
 		$dateE = strtotime($dateE);
@@ -156,7 +156,10 @@
 
 		//controlliamo che non ci siano overlaps con altri lavori
 		session_start();
-		$selectJobsQuery = "SELECT * FROM ShareYourJobsTime WHERE Proposer='".$_SESSION['user']."';";
+		$selectJobsQuery = "SELECT * FROM ShareYourJobsTime WHERE Proposer='".$_SESSION['user']."' ";
+		
+		if ( $sameJob != null )
+			$selectJobsQuery .= "AND IdJob <> $sameJob ;";
 		
 		$conn = connectionToDb();
 

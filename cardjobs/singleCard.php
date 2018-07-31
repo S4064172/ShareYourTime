@@ -44,7 +44,7 @@
             
                 <div class="card-footer mh4em">
             <?php if ( $_SESSION['page'] == "viewjobs" && $row['Receiver'] == null ) {?>
-                    <button type="button" onClick="fillModalFieldJobs('modalModify_<?php echo $row['IdJob']?>')" id="modalModify_<?php echo $row['IdJob']?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#jobsModal">Modifica</button>
+                    <button type="button" onClick="emptyErrorModalJobs(); fillModalFieldJobs('modalModify_<?php echo $row['IdJob']?>')" id="modalModify_<?php echo $row['IdJob']?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#jobsModal">Modifica</button>
                     <a href="#" id="modalDelete_<?php echo $row['IdJob']?>" class="btn btn-danger ">Cancella</a>
             <?php } ?>
                 </div>

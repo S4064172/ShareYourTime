@@ -57,8 +57,9 @@ function checkDistance(idDist, idErr)
     }
 }
 
-function checkTime(idDate1, idTime1, idDate2, idTime2, idErr)
+function checkTime(idDate1, idTime1, idDate2, idTime2, idErr, idJob)
 {
+	console.log('CHECK TIME --- DEBUG');
 	var dateS = document.getElementById(idDate1).value;
 	var timeS = document.getElementById(idTime1).value;
 	var dateE = document.getElementById(idDate2).value;
@@ -90,18 +91,13 @@ function checkTime(idDate1, idTime1, idDate2, idTime2, idErr)
 	if ( dateS === '' || timeS === '' || dateE === '' || timeE === '' )
 		return;
 
-	console.log('************ DEBUG **************');
-	console.log('dateS = ' + dateS);
-	console.log('timeS = ' + timeS);
-	console.log('dateE = ' + dateE);
-	console.log('timeE = ' + timeE);
-	console.log('************ DEBUG **************');
-	
-
 	var formData = new FormData();
 	var request = getRequest();
 	request.open("POST", "../utils/checkJobsSingleField.php", true);
 	request.onreadystatechange = validateCheckSingleJobField(request, idErr);
+
+	if (idJob != null)
+		formData.append('sameJob', idJob);
 
 	formData.append('dateS', dateStart);
 	formData.append('dateE', dateEnd);
@@ -175,12 +171,14 @@ function validateCheckNewJob(request)
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
-				console.log(responseText);
+				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);	
 		
 				//lavoro inserito con successo
-				if ( jsonObj == 0 )
+				if ( jsonObj == 0 ) {
+					window.location.href = '../viewJobs/viewJobs.php';
 					return;
+				}
 					
 				//stampa degli errori rilevati
 				for(var key in jsonObj) {

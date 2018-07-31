@@ -26,15 +26,15 @@
           <div class="row">
             <div class="col-12 text-center">
             <label><b>Inizio Attività</b></label><br>
-            <input onfocusout="checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');" onfocusin="cleanErr('errTime');" id="modalDateStart" class="inputTimeModal" type="date" name="dateStart">
-            <input onfocusout="checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');" onfocusin="cleanErr('errTime');" id="modalTimeStart" class="inputTimeModal" type="time" name="timeStart">
+			<input onfocusout="/*checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');*/" onfocusin="cleanErr('errTime');" id="modalDateStart" class="inputTimeModal" type="date" name="dateStart">
+			<input onfocusout="/*checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');*/" onfocusin="cleanErr('errTime');" id="modalTimeStart" class="inputTimeModal" type="time" name="timeStart">
             </div>
           </div>
           <div class="row">
             <div class="col-12 text-center">
 	            <label><b>Fine Attività</b></label><br>
-    	        <input onfocusout="checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');" onfocusin="cleanErr('errTime');" id="modalDateEnd" class="inputTimeModal" type="date" name="dateEnd">
-        	    <input onfocusout="checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');" onfocusin="cleanErr('errTime');" id="modalTimeEnd" class="inputTimeModal" type="time" name="timeEnd">
+				<input onfocusout="/*checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');*/" onfocusin="cleanErr('errTime');" id="modalDateEnd" class="inputTimeModal" type="date" name="dateEnd">
+				<input onfocusout="/*checkTime('modalDateStart','modalTimeStart','modalDateEnd','modalTimeEnd','errTime');*/" onfocusin="cleanErr('errTime');" id="modalTimeEnd" class="inputTimeModal" type="time" name="timeEnd">
             	<p id="errTime"></p>
             </div>
           </div>
