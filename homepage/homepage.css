@@ -23,10 +23,13 @@ section {
 	background-size: cover;
 }
 
-.jobs{
+.jobs {
 	width: 100%;
 	min-height: 70vh;
-	background-color: lightgrey;
+	background-image: url("../img/carouselHome.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 #myTitleContaitner{

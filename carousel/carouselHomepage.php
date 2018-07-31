@@ -18,6 +18,7 @@
         mysqli_close($conn);
         
 ?>
+
     <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li class='mb-2' data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
@@ -40,7 +41,7 @@
                         }
                         
                     echo "</div>";
-                echo "<a class='btn' href='../viewJobs/viewJobs.php'>Scopri di pi&ugrave;</a>";		
+                echo "<a class='btn linkdown' href='../viewJobs/viewJobs.php'>Scopri di pi&ugrave;</a>";		
             echo "</div>";
           
             for ($i=$size ; $i < $rows1 ; $i += $size){

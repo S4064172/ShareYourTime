@@ -26,7 +26,7 @@
         <?php
                 echo "<div class='carousel-item active'>";
                     echo "<div class='card-columns'>";
-                       for( $i = 0 ; $i < $size && ($row = mysqli_fetch_array( $res )) ; $i++ ) {
+                       for( $i = 0 ; $i < $size && ($row = mysqli_fetch_array($res)) ; $i++ ) {
                             showCard($row);
                         }
                     echo "</div>";
@@ -36,7 +36,7 @@
                 
                     echo "<div class='carousel-item'>";
                         echo "<div class='card-columns'>";
-                            for( $j = 0 ; $j < $size && $row = mysqli_fetch_array( $res ); $j++ ) {
+                            for( $j = 0 ; $j < $size && ($row = mysqli_fetch_array($res)); $j++ ) {
                                 showCard($row);
                             }
                         echo "</div>";
