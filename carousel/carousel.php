@@ -2,7 +2,9 @@
     require ('../cardjobs/singleCard.php');
     function showJobsCarousel($getJobsQuery, $size) {
         require_once('../db/connection.php');
-        $size=(int)$size;
+		var_dump($size);
+		$size = intVal($size);
+		var_dump($size);
         $conn = connectionToDb();
         
         if ( !($res = mysqli_query($conn, $getJobsQuery)) ) 
@@ -16,7 +18,7 @@
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <?php 
-            for( $i=$size ; $i<$rows; $i+= $size ){
+            for( $i = $size; $i < $rows; $i += $size ){
                 echo "<li data-target='#carouselExampleIndicators' data-slide-to='".$i."'></li>";
             }
        ?>

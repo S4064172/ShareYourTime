@@ -108,28 +108,27 @@ function getCookie(cname) {
 function resizingCarousel() {
 	var w = $("#idCarousel").width();
 	
-	var cookie = getCookie("size");
+	var cookie = getCookie("sizeC");
 	
 	if(w > 1600){
-		if(cookie !== "3"){
-			setCookie("size","3",1);
+		if(cookie === "" || cookie !== "3"){
+			setCookie("sizeC", "3", 1);
 			//document.cookie="size = 3";
 			$("#idCarousel").load(location.href + " #idCarousel");
 		}
 	}else{
 		if(w > 800){
-			if(cookie !== "2"){
-				setCookie("size","2",1);
+			if(cookie === "" || cookie !== "2") {
+				setCookie("sizeC", "2", 1);
 				//document.cookie="size = 2";
 				$("#idCarousel").load(location.href + " #idCarousel");
 			}		
 		}else{
-				if(cookie !== "1"){
-					setCookie("size","1",1);
-					//document.cookie="size = 1";	
-					$("#idCarousel").load(location.href + " #idCarousel");
-				}
-		
+			if(cookie === "" || cookie !== "1"){
+				setCookie("sizeC", "1", 1);
+				//document.cookie="size = 1";	
+				$("#idCarousel").load(location.href + " #idCarousel");
+			}
 		}
 	}
 }
