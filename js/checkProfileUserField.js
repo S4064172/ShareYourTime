@@ -151,6 +151,7 @@ function validateCheckGenericAllField(idWait, request)
         hideItem(idWait)
         if ( request.readyState === 4 && request.status === 200 ) {
             if ( request.responseText != null ) {
+				console.log(request.responseText);
                 var jsonObj = JSON.parse(request.responseText);
                 
                 // mi sono registrato con successo

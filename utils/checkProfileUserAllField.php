@@ -2,6 +2,7 @@
 	require_once('../utils/constant.php');
 	require_once('../utils/utils.php');
 	require_once('../db/updataFunctions.php');
+	require_once('../db/insertFunctions.php');
 	require_once('../db/connection.php');
 
 	$result = array();
@@ -62,9 +63,9 @@
 	//Controlli sul cognome
 	if( !check_POST_IsSetAndNotEmpty('surname') || notValidString($_POST['surname'], surnameRegex, SurnameMinLength, SurnameMaxLength) ) {
 		if( $_POST['registration'] === '0' )
-			$result['errSurname'] = "Il cognome inserito non &egrave; valido";
+			$result['errSurname'] = "Il cognome inserito non &egrave; valido1";
 		else
-			$result['errSurnameModified'] = "Il cognome inserito non &egrave; valido";
+			$result['errSurnameModified'] = "Il cognome inserito non &egrave; valido2";
 	}
 	
 	//Controlli sull'indirizzo
@@ -123,7 +124,7 @@
 			$_SESSION['user'] = $_POST['user'];
 				insertInto_ShareYourUserTime(	$_POST['user'], $_POST['psw'],
 												$_POST['name'], $_POST['surname'],
-												$_POST['telephone'], $_POST['email'],
+												$_POST['phone'], $_POST['email'],
 												$_POST['address'], $path);
 			$result = $_POST['registration'];
 			} else {

@@ -23,7 +23,7 @@
 	//Controlli sulle date e sui tempi
 	if ( !check_POST_IsSetAndNotEmpty('dateStart') || !check_POST_IsSetAndNotEmpty('timeStart') 
 		 || !check_POST_IsSetAndNotEmpty('dateEnd') || !check_POST_IsSetAndNotEmpty('timeEnd') 
-		 || !checkDatesAndTime($_POST['dateStart'].' '.$_POST['timeStart'], $_POST['dateEnd'].' '.$_POST['timeEnd']) )
+		 || !checkDatesAndTime($_POST['dateStart'].' '.$_POST['timeStart'], $_POST['dateEnd'].' '.$_POST['timeEnd'], null) )
 		$result['errTime'] = "Le date inserite non sono valide";
 	
 	//Controlli sull'indirizzo
@@ -37,13 +37,16 @@
 		$result['errModalTag'] = "Il tag inviato non &egrave; valido";
 
 	//Inserimento nel DB
-	if ( count($result) === 0 ) {
-			session_start();
-			insertInto_ShareYourJobsTime(	$_POST['description'], $_POST['cost'], 
-											$_POST['dateStart'].' '.$_POST['timeStart'], $_POST['dateEnd'].' '.$_POST['timeEnd'], 
-											$_POST['distance'], "DEFAULT", $_POST['street'], 
-											$_POST['lat'], $_POST['long'], 
-											$_SESSION['user'], $_POST['tag'] ); 
+	if ( count($result) === 0 ) {	
+    	if ( session_status() == PHP_SESSION_NONE ) {
+	        session_start();
+		}
+		insertInto_ShareYourJobsTime(	$_POST['description'], $_POST['cost'], 
+										$_POST['dateStart'].' '.$_POST['timeStart'], 
+										$_POST['dateEnd'].' '.$_POST['timeEnd'], 
+										$_POST['distance'], "DEFAULT", $_POST['street'], 
+										$_POST['lat'], $_POST['long'], 
+										$_SESSION['user'], $_POST['optionModalTag'] ); 
 	}
 	
 	//Ritorna errori

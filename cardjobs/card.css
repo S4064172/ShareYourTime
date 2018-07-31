@@ -10,6 +10,27 @@
     height: 2em;
 }
 
+.cardBack {
+	background: rgb(188, 203, 221);
+}
+
+.card-title {
+	font-size: 25px;	
+}
+
+@media (min-width: 279px) {
+	.card-title {
+		font-size: 14px;	
+	}
+}
+
+@media (min-width: 630px) {
+	.card-title {
+		
+		font-size: 16px;	
+	}
+}
+
 @media (min-width: 576px) {
     .card-columns {
         column-count: 2;
@@ -21,6 +42,9 @@
     .card-columns {
         column-count: 3;
     }
+	.card-title {
+		font-size: 18px;	
+	}
 }
 
 @media (min-width: 1700px) {

@@ -57,10 +57,16 @@ function checkDistance(idDist, idErr)
     }
 }
 
-function checkTime(idDate1, idTime1, idDate2, idTime2, idErr)
+function checkTime(idDate1, idTime1, idDate2, idTime2, idErr, idJob)
 {
-    var dateStart = new Date(document.getElementById(idDate1).value + ' ' + document.getElementById(idTime1).value);
-    var dateEnd = new Date(document.getElementById(idDate2).value + ' ' + document.getElementById(idTime2).value);
+	console.log('CHECK TIME --- DEBUG');
+	var dateS = document.getElementById(idDate1).value;
+	var timeS = document.getElementById(idTime1).value;
+	var dateE = document.getElementById(idDate2).value;
+	var timeE = document.getElementById(idTime2).value;
+
+	var dateStart = new Date(dateS + ' ' + timeS);
+    var dateEnd = new Date(dateE + ' ' + timeE);
     var now = new Date();
    
 	var err = document.getElementById(idErr);
@@ -78,6 +84,25 @@ function checkTime(idDate1, idTime1, idDate2, idTime2, idErr)
         err.innerHTML = "La data di inizio lavoro non pu&ograve; essere successiva a quella di fine";
         return;
     }
+
+	//mando una richiesta al server per controllare eventuali overlaps
+	//la richiesta viene mandata solo in presenza di tutti e 4 i campi
+	//in modo da non esagerare con le chiamate al server
+	if ( dateS === '' || timeS === '' || dateE === '' || timeE === '' )
+		return;
+
+	var formData = new FormData();
+	var request = getRequest();
+	request.open("POST", "../utils/checkJobsSingleField.php", true);
+	request.onreadystatechange = validateCheckSingleJobField(request, idErr);
+
+	if (idJob != null)
+		formData.append('sameJob', idJob);
+
+	formData.append('dateS', dateStart);
+	formData.append('dateE', dateEnd);
+
+	request.send(formData);
 }
 
 function checkStreet(idCheck, idErr)
@@ -180,10 +205,12 @@ function validateCheckJob(request)
 
                     //lavoro inserito con successo
                     if ( jsonObj == 0 )
-                        if(document.getElementById('printCard')!==null)
-                            document.getElementById('printCard').innerHTML='';
-                        else
-                            return;
+                        if(document.getElementById('printCard') != null) {
+                            document.getElementById('printCard').innerHTML = '';
+						} else {
+                        	window.location.href = '../viewJobs/viewJobs.php';
+							return;
+						}
             
                     //stampa degli errori rilevati
                     for(var key in jsonObj) {
@@ -197,8 +224,6 @@ function validateCheckJob(request)
                 } catch (error) {
                     document.getElementById('printCard').innerHTML = request.responseText;
                 }
-                
-				
 			}		
 		}
 	}
@@ -218,17 +243,13 @@ function checkTagField (idTag, idErrField)
 	
 	request.send(formData);
 }
-
-function checkDatesAndTimes(dateS, timeS, dateE, timeE)
-{
-
-}
-
+	
 function validateCheckSingleJobField(request, idErrField) 
 {
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
+				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);	
 				
 				//stampa dell'errore sul campo
