@@ -56,8 +56,9 @@
             <?php if ( $_SESSION['page'] != "homepage" && $_SESSION['page'] != "index" ) { ?>	
                 <div class="card-footer mh4em">
                     <?php if ( $_SESSION['page'] == "viewjobs" && $row['Receiver'] == null ) {?>
+                        <?php require_once("../modalView/confirmOperation.php"); ?>
                         <button type="button" onClick="fillModalFieldJobs('modalModify_<?php echo sanitizeToHtml( $row['IdJob']) ?>')" id="modalModify_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#jobsModal">Modifica</button>
-                        <a href="#" id="modalDelete_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-danger ">Cancella</a>
+                        <button  id="modalDelete_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-danger " data-toggle="modal" data-target="#confirmDelete">Elimina</button>
                     <?php } ?>
                     <?php if ( $_SESSION['page'] == "searchjobs") {?>
                         <button type="button" onClick="bookJobs('<?php echo sanitizeToHtml( $row['IdJob']) ?>')" id="addJob_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-success mr-5">Prenota</button>

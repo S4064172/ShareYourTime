@@ -44,7 +44,7 @@
         <section id="viewProfile" onClick="hideItem('menu');">
 
             <?php require_once("../menu/menu.php"); ?>
-            <?php require_once("../modalView/confirmPsw.php"); ?>
+            <?php require_once("../modalView/confirmOperation.php"); ?>
             <div class="myContainer titleSessionTesto">
                 <div class="wait" id="waitRegistration">
                     <img class="imgWait" src="../img/sandclock.png">
@@ -159,7 +159,7 @@
                                     
                                 </div>
                                 <div class="col-md-3">
-                                    <button  class="btn btn-danger" id="bntDelete" data-toggle="modal" data-target="#confirmDeleteAccount">Elimina profilo</button>
+                                    <button  class="btn btn-danger" id="bntDelete" data-toggle="modal" data-target="#confirmDelete">Elimina profilo</button>
                                 </div>
                                 <div class="col-md-3">
                                     <a href="../homepage/homepage.php" class="btn btn-success" id="bntExit">Torna alla homepage</a>

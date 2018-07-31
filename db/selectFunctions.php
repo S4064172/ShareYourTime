@@ -60,4 +60,34 @@
         return $result;
 	}
 
-	
+	function checkIfUserHaveThatJob($user, $job)
+	{
+		$conn = connectionToDb();
+		$user = sanitizeToSql($user, $conn);
+		$job = sanitizeToSql($job, $conn);
+		
+
+		$searchQuery =  "SELECT * ".
+						"FROM ShareYourJobsTime ". 
+						"WHERE 	Proposer = ? AND 
+								IdJob = ?";
+		
+		if ( ($search_prep_stmt = mysqli_prepare($conn, $searchQuery)) ) {
+			if ( !mysqli_stmt_bind_param($search_prep_stmt, "si",$user,	$job ) )
+				echo ("Errore nell'accoppiamento dei parametri");
+			  
+			if ( !mysqli_stmt_execute($search_prep_stmt) )
+				echo ("Errore nell'aggiornamento nel DB");
+
+			mysqli_stmt_store_result($search_prep_stmt);
+			$rows = mysqli_stmt_num_rows($search_prep_stmt);
+			mysqli_stmt_close($search_prep_stmt);
+                
+				
+		} else {
+			echo ("Errore nella preparazione della query");
+		}
+		mysqli_close($conn);
+		return $rows;
+        
+	}

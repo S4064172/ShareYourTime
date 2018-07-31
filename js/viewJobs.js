@@ -133,3 +133,7 @@ function emptyErrorModalJobs()
     document.getElementById('errModalStreet').innerHTML = "";
 	document.getElementById('errModalTag').innerHTML = "";
 }
+
+function closeDialog(id) {
+    $(id).modal('hide');
+}

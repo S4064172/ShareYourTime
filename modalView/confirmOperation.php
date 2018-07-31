@@ -1,4 +1,4 @@
-<div class="modal fade" id="confirmDeleteAccount" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteAccountLabel" aria-hidden="true">
+<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 
@@ -15,7 +15,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
-                <button type="button" class="btn btn-primary" onClick="confirmPsw('<?php echo $_SESSION['user'] ?>','modalPswDelete','errModalPswDelete')">Conferma</button>
+                <?php if($_SESSION['page'] == "viewprofile"){ ?>
+                    <button type="button" class="btn btn-primary" onclick="confirmOperation('modalPswDelete','errModalPswDelete')">Conferma</button>
+                <?php } ?>
+                <?php if($_SESSION['page'] == "viewjobs"){ ?>
+                    <button type="button" class="btn btn-primary" onclick="confirmOperation('modalPswDelete','errModalPswDelete',<?php echo sanitizeToHtml( $row['IdJob']) ?>)">Conferma</button>
+                <?php } ?>
             </div>
         </div>
     </div>
