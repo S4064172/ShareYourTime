@@ -15,7 +15,7 @@
         }
     }
 
-    if(checkIfUserWithPswExistInDb($_POST['checkUser'],$_POST['checkPsw']))
+    if( checkIfUserWithPswExistInDb($_POST['checkUser'], $_POST['checkPsw']) )
         echo json_encode("0");
     else    
         echo json_encode("La password inserita non &egrave; valida");

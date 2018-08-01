@@ -52,3 +52,15 @@
         column-count: 5;
     }
 }
+
+.paddingbutton {
+	padding-top: 0.5em;
+}
+
+.evalbtn {
+	width: 50%;
+	height: auto;
+	border-radius: 25px;
+	background-color: rgb(196,160, 0, 0.3);
+	color: black;
+}

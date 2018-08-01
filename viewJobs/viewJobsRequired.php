@@ -1,5 +1,5 @@
 <?php
-     if ( session_status() == PHP_SESSION_NONE ) {
+    if ( session_status() == PHP_SESSION_NONE ) {
         session_start();
 	}
 	
@@ -22,16 +22,29 @@
         <link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
         <link rel="stylesheet" type="text/css" href="../cardjobs/card.css"/>
 
+		<link rel="stylesheet" type="text/css" href="../modalView/evalMod.css"/>
+		
     </head>
 
     <body>
         <?php require_once("../cardjobs/showAllCard.php");?>
-        <?php require_once ('../navBar/navBar.php'); ?>
+		<?php require_once ('../navBar/navBar.php'); ?>
+
 
         <section class="viewJobs" onClick="hideItem('menu');">
 
             <?php require_once("../menu/menu.php"); ?>
             <?php require_once("../modalView/jobsView.php");?>
+			<?php if ( isset($_SESSION['errorEval']) && !empty($_SESSION['errorEval']) ) { ?>
+					<div id="alertDelete" class="alert alert-danger" style="z-index:50; margin-top: 4em; position: fixed; width: 100%; font-size: 18px;" role="alert">
+						<?php echo $_SESSION['errorEval']; ?>
+						<button type="button" onclick="hideItem('alertDelete')" class="close myClose" style="padding-top: 0.35em;" aria-label="Close">
+		        	    	<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				<?php
+   					unset($_SESSION['errorEval']);	
+				} ?>
             <div class="myContainer text-center titleSessionTesto">
 				<h1><b class="colorTitle">Lavori richiesti</b></h1>
 				<br>	

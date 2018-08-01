@@ -21,7 +21,7 @@
         <link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
         <link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
         <link rel="stylesheet" type="text/css" href="viewJobs.css"/>
-        <link rel="stylesheet" type="text/css" href="../cardjobs/card.css"/>
+		<link rel="stylesheet" type="text/css" href="../cardjobs/card.css"/>
 	</head>
 	
 	<body>
