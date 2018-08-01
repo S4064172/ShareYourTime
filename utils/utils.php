@@ -183,3 +183,34 @@
 		return true;
 	}
 
+	function checkIfReceiverIsNull($idJob)
+	{
+		$conn = connectionToDb();
+
+        $idJob = sanitizeToSql($idJob, $conn);
+        
+		$querySelectReceiver = 	"SELECT Receiver ".
+								"FROM ShareYourJobsTime ".
+								"WHERE IdJob=?";
+
+		if ( ($prep_stmt = mysqli_prepare($conn, $querySelectReceiver)) ) {
+			if ( !mysqli_stmt_bind_param($prep_stmt, "i", $idJob ) )
+				die ("Errore nell'accoppiamento dei parametri<br>");
+			
+			if ( !mysqli_stmt_execute($prep_stmt) )
+				die ("Errore nell'esecuzione della query<br>");
+
+			mysqli_stmt_store_result($prep_stmt);
+			$row = mysqli_stmt_num_rows($prep_stmt);
+
+			mysqli_stmt_bind_result($prep_stmt, $Receiver);
+			mysqli_stmt_fetch($prep_stmt);
+
+			mysqli_stmt_close($prep_stmt);
+			mysqli_close($conn);
+
+			return ( ($row == 1) && ($Receiver == null ));
+
+		}
+		die ("Errore nella preparazione della query<br>");
+	}
