@@ -23,20 +23,10 @@ function validateBookJobs(request, idJob)
 				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);	
 				if ( jsonObj == 0 ){
-					var htmlTag = document.getElementById("alertDelete");
-					htmlTag.classList.add("alert-success");
-					htmlTag.classList.add("myAllert");
-					var htmlTagText = document.getElementById("alertText");
-					htmlTagText.innerHTML="lavoro prenotato con successo";
-					showItem('alertDelete');
+					showAlertSuccess("Lavoro prenotato con successo");
 					hideItem(idJob);
 				}else{
-					var htmlTag = document.getElementById("alertDelete");
-					htmlTag.classList.add("alert-danger");
-					htmlTag.classList.add("myAllert");
-					var htmlTagText = document.getElementById("alertText");
-					htmlTagText.innerHTML="errore nella prenotazione del lavoro";
-					showItem('alertDelete');
+					showAlertError("Errore prenotazione lavoro");
 				}	
 					
 			}		

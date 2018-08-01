@@ -48,7 +48,7 @@
 			</div>
 		</section>
 
-		<?php require_once ('../table/showJobsInTable.php'); ?>
+		
 
 		<section id="job" class="jobs" onClick="hideItem('menu');">
 			<div class="myContainer text-center titleSessionTesto">

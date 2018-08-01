@@ -21,17 +21,23 @@
         <link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
         <link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
         <link rel="stylesheet" type="text/css" href="viewJobs.css"/>
-		<link rel="stylesheet" type="text/css" href="../cardjobs/card.css"/>
+        <link rel="stylesheet" type="text/css" href="../cardjobs/card.css"/>
+        <link rel="stylesheet" type="text/css" href="../alert/alert.css"/>
 	</head>
 	
 	<body>
         <?php require_once("../cardjobs/showAllCard.php");?>
         <?php require_once ('../navBar/navBar.php'); ?>
+        <?php require_once ('../alert/alert.php'); ?>
+       
 
         <section class="viewJobs" onClick="hideItem('menu');">
             <?php require_once("../menu/menu.php"); ?>
             <?php require_once("../modalView/jobsView.php");?>
-            <div class="myContainer text-center titleSessionTesto">
+            <?php require_once("../modalView/confirmOperation.php"); ?>
+            
+
+            <div class="myContainer text-center titleSessionTesto" id="prova">
 				<h1><b class="colorTitle">I tuoi impegni</b></h1>
 				<br>	
                 <?php 
@@ -73,9 +79,11 @@
     
         <script type="text/javascript" src="../js/constant.js"></script>
         <script type="text/javascript" src="../js/utils.js"></script>
+        <script type="text/javascript" src="../js/alert.js"></script>
 	    <script type="text/javascript" src="../js/navBar.js"></script>
         <script type="text/javascript" src="../js/viewJobs.js"></script>
         <script type="text/javascript" src="../js/checkJobsField.js"></script>
+        <script type="text/javascript" src="../js/checkProfileUserField.js"></script>
 
 		<?php require_once('googleAPIkey.html'); ?>
 	</body>

@@ -133,3 +133,13 @@ function emptyErrorModalJobs()
     document.getElementById('errModalStreet').innerHTML = "";
 	document.getElementById('errModalTag').innerHTML = "";
 }
+
+function closeModal() {
+    $('#confirmDelete').modal('hide');
+}
+
+function addEvent(num)
+{
+    $("#btnConfirm").unbind('click').click(confirmOperation('modalPswDelete','errModalPswDelete',num));
+}
+

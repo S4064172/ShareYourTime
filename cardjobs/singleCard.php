@@ -8,6 +8,7 @@
             session_start();
         }
 ?>
+        
         <div class="card" id="<?php echo sanitizeToHtml($row['IdJob'])?>">
             <div class="card-body cardBack">
                 <ul class="list-group list-group-flush">
@@ -34,13 +35,13 @@
                                         if ( $row['TimeEnd'] > date('Y-m-d H:i:s') ) 
                                             echo "Aggiungi una valutazione";
 										else { 
-											
-											?>
+											$_SESSION['id'.$row['IdJob']]="valuta";
+                            ?>
 											<button class="evalbtn" data-toggle="modal" data-target="#evalModal">
 												<i class="fas fa-medal"></i>
 												<span>Valuta questo lavoro !</span>
 											</button>
-										<?php }
+                            <?php       } 
 								}else
 										for($i = 0; $i < 5; $i++)
 											if ( $i < $row['Evaluation'] )
@@ -66,11 +67,15 @@
 
             <?php if ( $_SESSION['page'] != "homepage" && $_SESSION['page'] != "index" ) { ?>	
                 <div class="card-footer mh4em">
-                    <?php if ( $_SESSION['page'] == "viewjobs" && $row['Receiver'] == null ) {?>
+                    <?php if ( $_SESSION['page'] == "viewjobs" && $row['Receiver'] == null ) {
+                        
+                            $_SESSION['id'.$row['IdJob']]="modOrDel";
+                        ?>
                         <button type="button" onClick="fillModalFieldJobs('modalModify_<?php echo sanitizeToHtml( $row['IdJob']) ?>')" id="modalModify_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#jobsModal">Modifica</button>
-                        <a href="#" id="modalDelete_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-danger ">Cancella</a>
+                        <button id="modalDelete_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-danger" onClick="addEvent(<?php echo sanitizeToHtml( $row['IdJob']) ?>);" data-toggle="modal" data-target="#confirmDelete">Elimina</button>
                     <?php } ?>
-					<?php if ( $_SESSION['page'] == "searchjobs") { ?>
+                    <?php if ( $_SESSION['page'] == "searchjobs" ) {
+                            $_SESSION['id'.$row['IdJob']]="prenota";  ?>
                         <button type="button" onClick="bookJobs('<?php echo sanitizeToHtml( $row['IdJob']) ?>')" id="addJob_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-success mr-5">Prenota</button>
                         <?php } ?>       
                 </div>

@@ -16,32 +16,49 @@
  *  operazioni sensibili
  */
 
-function confirmPsw(user, idPsw, idErrPsw) 
+function confirmOperation(idPsw, idErrPsw, id) 
 {  
-    var request = getRequest();
-    request.open("POST", "../utils/checkConfirmPsw.php", true);	
-    request.onreadystatechange = validateConfirmPsw(request, idErrPsw);
-    var psw = document.getElementById(idPsw).value;
-    var formData = new FormData();
-    formData.append('checkUser', user);
-    formData.append('checkPsw', psw);
-    request.send(formData);
+    return function(){
+        var request = getRequest();
+        request.open("POST", "../utils/checkConfirmOperation.php", true);	
+        request.onreadystatechange = validateconfirmOperation(request, idErrPsw, id);
+        var psw = document.getElementById(idPsw).value;
+        var formData = new FormData();
+        formData.append('checkPsw', psw);
+        if( id!= null )
+            formData.append('idJob', id);
+        request.send(formData);
+    }
 }
 
-function validateConfirmPsw(request, idErrPsw)
+function validateconfirmOperation(request, idErrPsw, idJob)
 {
     return function() {
         if ( request.readyState === 4 && request.status === 200 ) {
             if ( request.responseText != null ) {
+                console.log(request.responseText);
                 var jsonObj = JSON.parse(request.responseText);
+                if ( jsonObj === '1' ){
+                    showAlertSuccess("Lavoro rimosso con successo");
+                    closeModal();
+                    hideItem(idJob);
+                    return;
+                }
+                if(jsonObj === '-1'){
+                    showAlertError("Errore rimozione lavoro");
+                    closeModal();
+                    return;
+                }
                 if ( jsonObj === '0' ) {
                     window.location.href = '../utils/deleteAccount.php';
-                } else {
-                    var tagHtml = document.getElementById(idErrPsw);
-                    tagHtml.style.fontSize = '0.9em';
-                    tagHtml.style.color = 'darkred';
-                    tagHtml.innerHTML = jsonObj;
-                }
+                    return;
+                } 
+
+                var tagHtml = document.getElementById(idErrPsw);
+                tagHtml.style.fontSize = '0.9em';
+                tagHtml.style.color = 'darkred';
+                tagHtml.innerHTML = jsonObj;
+            
             }
         }
     }
