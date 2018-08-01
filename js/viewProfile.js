@@ -108,3 +108,8 @@ function initAddr()
 				longitude = place.geometry.location.lng();
     });
 }
+
+function addEvent()
+{
+    $("#btnConfirm").unbind('click').click(confirmOperation('modalPswDelete','errModalPswDelete'));
+}

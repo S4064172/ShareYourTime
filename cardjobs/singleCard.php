@@ -59,12 +59,12 @@
 
             <?php if ( $_SESSION['page'] != "homepage" && $_SESSION['page'] != "index" ) { ?>	
                 <div class="card-footer mh4em">
-                    <?php if ( $_SESSION['page'] == "viewjobs" && $row['Receiver'] == null ) {?>
-                        <?php require_once("../modalView/confirmOperation.php");
+                    <?php if ( $_SESSION['page'] == "viewjobs" && $row['Receiver'] == null ) {
+                        
                             $_SESSION['id'.$row['IdJob']]="modOrDel";
                         ?>
                         <button type="button" onClick="fillModalFieldJobs('modalModify_<?php echo sanitizeToHtml( $row['IdJob']) ?>')" id="modalModify_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#jobsModal">Modifica</button>
-                        <button id="modalDelete_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-danger " data-toggle="modal" data-target="#confirmDelete_<?php echo sanitizeToHtml( $row['IdJob']) ?>">Elimina</button>
+                        <button id="modalDelete_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-danger" onClick="addEvent(<?php echo sanitizeToHtml( $row['IdJob']) ?>);" data-toggle="modal" data-target="#confirmDelete">Elimina</button>
                     <?php } ?>
                     <?php if ( $_SESSION['page'] == "searchjobs") {
                             $_SESSION['id'.$row['IdJob']]="prenota";  ?>

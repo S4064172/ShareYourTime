@@ -134,8 +134,12 @@ function emptyErrorModalJobs()
 	document.getElementById('errModalTag').innerHTML = "";
 }
 
-function closeModal(id) {
-    $('#confirmDelete_'+id).modal('hide');
+function closeModal() {
+    $('#confirmDelete').modal('hide');
 }
 
+function addEvent(num)
+{
+    $("#btnConfirm").unbind('click').click(confirmOperation('modalPswDelete','errModalPswDelete',num));
+}
 

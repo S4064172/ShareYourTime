@@ -34,6 +34,7 @@
         <section class="viewJobs" onClick="hideItem('menu');">
             <?php require_once("../menu/menu.php"); ?>
             <?php require_once("../modalView/jobsView.php");?>
+            <?php require_once("../modalView/confirmOperation.php"); ?>
             
 
             <div class="myContainer text-center titleSessionTesto" id="prova">

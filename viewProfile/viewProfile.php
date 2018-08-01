@@ -159,7 +159,7 @@
                                     
                                 </div>
                                 <div class="col-md-3">
-                                    <button  class="btn btn-danger" id="bntDelete" data-toggle="modal" data-target="#confirmDelete">Elimina profilo</button>
+                                    <button  class="btn btn-danger" id="bntDelete" onclick="addEvent();" data-toggle="modal" data-target="#confirmDelete">Elimina profilo</button>
                                 </div>
                                 <div class="col-md-3">
                                     <a href="../homepage/homepage.php" class="btn btn-success" id="bntExit">Torna alla homepage</a>
