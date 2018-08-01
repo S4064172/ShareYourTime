@@ -44,3 +44,13 @@ section {
 	width: 100%;
 	margin-top: 10px;
 }
+
+.viewSearch{
+	display: block;
+    min-height: 100vh;
+    background-image: url("../img/searchTime.jpg");
+	background-attachment: fixed; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}

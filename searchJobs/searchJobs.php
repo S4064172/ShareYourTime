@@ -32,7 +32,7 @@
         
         <section class="optionSearch">
             <?php require_once("../menu/menu.php"); ?>
-            <div class="myContainer text-center titleSessionTesto">
+            <div class="text-center titleSessionTesto viewSearch">
                 <h1><b>Cerca un lavoro</b></h1>
             </div>
         </section>
@@ -97,24 +97,22 @@
                 </div>
             </div>
         </div>
+        <div class="myContainer">
+            <div class ="row">
+                <div class="offset-md-4 col-md-2"> 
+                    <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');checkAllSearchJob()">
+                    <i class="fas fa-search"></i>
+                    Cerca
+                    </button>
+                </div>
 
-        <div class ="row">
-            <div class="offset-md-4 col-md-2"> 
-                <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');checkAllSearchJob()">
-                <i class="fas fa-search"></i>
-                Cerca
-                </button>
-            </div>
-
-            <div class="col-md-2"> 
-                <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');resetSearch();">
-                <i class="fas fa-eraser"></i>
-                    Azzera ricerca
-                </button>
-            </div>
-
-            
-
+                <div class="col-md-2"> 
+                    <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');resetSearch();">
+                    <i class="fas fa-eraser"></i>
+                        Azzera ricerca
+                    </button>
+                </div>
+            </div>  
         </div>
 
         <div class="myContainer text-center titleSessionTesto" id="resetResault">
