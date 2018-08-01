@@ -1,4 +1,9 @@
-<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+<?php if($_SESSION['page'] == "viewprofile"){ ?>
+    <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+<?php } ?>
+<?php if($_SESSION['page'] == "viewjobs"){ ?>
+    <div class="modal fade" id="confirmDelete_<?php echo sanitizeToHtml( $row['IdJob']) ?>" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+<?php } ?>
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 

@@ -1,7 +1,7 @@
 <?php
 
     require_once('connection.php');
-    
+    require_once('../utils/utils.php');
 
 
     function deleteAccount($user)

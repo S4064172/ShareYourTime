@@ -11,6 +11,11 @@
 		return isset($_COOKIE["$field"]) && !empty($_COOKIE["$field"]);
 	}
 
+	function check_SESSION_IsSetAndNotEmpty($field) 
+	{
+		return isset($_SESSION["$field"]) && !empty($_SESSION["$field"]);
+	}
+
 	function checkMatchRegex($inputSent, $regexToMatch) 
 	{
 		return preg_match($regexToMatch, $inputSent);

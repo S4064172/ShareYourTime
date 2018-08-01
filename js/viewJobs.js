@@ -135,6 +135,7 @@ function emptyErrorModalJobs()
 }
 
 function closeModal(id) {
-    $(id).modal('hide');
+    $('#confirmDelete_'+id).modal('hide');
 }
+
 

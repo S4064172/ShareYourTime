@@ -38,13 +38,13 @@ function validateconfirmOperation(request, idErrPsw, idJob)
                 var jsonObj = JSON.parse(request.responseText);
                 if ( jsonObj === '1' ){
                     showAlertSuccess("Lavoro rimosso con successo");
-                    closeModal('#confirmDelete');
+                    closeModal(idJob);
                     hideItem(idJob);
                     return;
                 }
                 if(jsonObj === '-1'){
-                    showAlertError("Errore rimozione");
-                    closeModal('#confirmDelete');
+                    showAlertError("Errore rimozione lavoro");
+                    closeModal(idJob);
                     return;
                 }
                 if ( jsonObj === '0' ) {
