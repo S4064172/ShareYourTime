@@ -37,7 +37,7 @@
 										else { 
 											$_SESSION['id'.$row['IdJob']]="valuta";
                             ?>
-											<button class="evalbtn" data-toggle="modal" data-target="#evalModal">
+											<button class="evalbtn" onclick="addEventToEvalModal(<?php echo $row['IdJob'] ?>)" data-toggle="modal" data-target="#evalModal" > 
 												<i class="fas fa-medal"></i>
 												<span>Valuta questo lavoro !</span>
 											</button>

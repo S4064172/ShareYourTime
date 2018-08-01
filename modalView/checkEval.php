@@ -11,8 +11,8 @@
 		header('Location: ../viewJobs/viewJobsRequired.php');	
 	}
 
-
-	if ( !check_POST_IsSetAndNotEmpty('star') || !isset($_SESSION['id']) || empty($_SESSION['id']) ) {
+	//var_dump($_POST);
+	if ( !check_POST_IsSetAndNotEmpty('star') || !check_POST_IsSetAndNotEmpty('IdJob') ) {
 		returnToPageWithError('Riscontrato errore nella valutazione');	
 		return;
 	}
@@ -24,5 +24,5 @@
 		return;
 	}
 
-	updataInto_ShareYourJobsTime('Evaluation', $user_val, $_SESSION['id']); 
-	unset($_SESSION['id']);
+	updataInto_ShareYourJobsTime('Evaluation', $user_val, $_POST['IdJob']); 
+	header('Location: ../viewJobs/viewJobsRequired.php');

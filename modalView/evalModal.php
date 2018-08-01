@@ -27,7 +27,7 @@
 									</div>
 									<br>	
 									<div>
-										<input type="submit" value="Ok"></input>
+										<input id="evalOk" type="submit" value="Ok"></input>
 									</div>
 								</form>
 							</div>

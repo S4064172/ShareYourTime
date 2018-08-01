@@ -81,7 +81,8 @@
         <script type="text/javascript" src="../js/utils.js"></script>
         <script type="text/javascript" src="../js/navBar.js"></script>
         <script type="text/javascript" src="../js/viewJobs.js"></script>
-        <script type="text/javascript" src="../js/checkJobsField.js"></script>
+		<script type="text/javascript" src="../js/checkJobsField.js"></script>
+		<script type="text/javascript" src="../js/viewJobsRequired.js"></script>
 
     </body>
 </html>
