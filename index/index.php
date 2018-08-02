@@ -78,7 +78,7 @@
 				<h1><b>Share Your Time</b></h1>
 				<br>
 				<div class="row">
-					<div class="col-md-4 border-right">
+					<div class="col-md-4">
 						<p class="myDescription">
 							In <i>ShareYourTime</i> puoi mettere a disposizione
 							<br>il tuo tempo per svolgere lavori utili agli altri.
@@ -93,19 +93,19 @@
 							<br> Sei la persona che fa per noi !
 						</p> 
 					</div>
-					<div class="col-md-4 border-left">
+					<div class="col-md-4">
 						 <p class="myDescription"> 
 							La prima piattaforma italiana di <i>Time Sharing</i> 
 						</p>
-						<a  href="#RicercaMappa" class="btn btn-scroll mt-3 p-2" id ="mapBtn" >Trova un lavoro per te !</a>
+						<a  href="#RicercaMappa" class="btn btn-scroll mb-2" id ="mapBtn" >Trova un lavoro per te !</a>
 				</div>
 			<div>
 	</section>
 
 
-	<section id="TabellaLast5" >
+	<section id="CarouselShowJobs" >
 		<div id="idCarousel">
-			<div class="myContainer text-center pt-5"  >
+			<div class="myContainer text-center pt-2">
 				<h1><b>Cosa proponiamo</b></h1>
 				<br>	
 				<?php 

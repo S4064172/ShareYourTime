@@ -17,15 +17,15 @@
         <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
         <?php 
             for( $i = $size; $i < $rows; $i += $size ){
-                echo "<li data-target='#carouselExampleIndicators' data-slide-to='".$i."'></li>";
+                echo "<li data-target='#carouselIndicators' data-slide-to='".$i."'></li>";
             }
        ?>
     </ol>
 <div class="container">
     <div class="carousel-inner">
         <?php
-                echo "<div class='carousel-item active'>";
-                    echo "<div class='card-columns'>";
+                echo "<div class='carousel-item active pb-5'>";
+                    echo "<div class='card-columns '>";
                        for( $i = 0 ; $i < $size && ($row = mysqli_fetch_array($res)) ; $i++ ) {
                             showCard($row);
                         }
@@ -34,7 +34,7 @@
           
            for ($i=$size ; $i < $rows ; $i += $size){
                 
-                    echo "<div class='carousel-item'>";
+                    echo "<div class='carousel-item pb-5'>";
                         echo "<div class='card-columns'>";
                             for( $j = 0 ; $j < $size && ($row = mysqli_fetch_array($res)); $j++ ) {
                                 showCard($row);

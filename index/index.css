@@ -22,6 +22,7 @@ section {
     padding: 16px;
 }
 
+/*************HOMEVIEW*******************/
 #homeView {
 	min-height: 100%;
 	background-image: url("../img/SfondoTime.jpeg");
@@ -29,24 +30,6 @@ section {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-}
-
-#DettagliSito {
-	min-height: 35%;
-	background-color: rgb(54, 44, 34,0.7);
-}
-
-#DettagliSitoTesto {
-	padding-top: 6em;
-}
-
-#TabellaLast5 {
-	min-height: 65%;
-	background-color: rgb(54, 44, 34,0.7);
-}
-
-#RicercaMappa{
-	min-height: 100%;
 }
 
 #myTitleContaitner{
@@ -76,6 +59,36 @@ section {
 	color: rgb(238, 226, 200);
 	background-color: rgb(146, 114, 84);
 }
+/*
+@media screen and (max-width: 1000px) {
+	.myTitle{
+		padding-top:20.5vh;
+		font-size: 12vh;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.myTitle{
+		font-size: 10vh;
+	}
+}
+*/
+/*************DETTAGLISITO*******************/
+
+#DettagliSito {
+	min-height: 25%;
+	background-color: rgb(54, 44, 34,0.7);
+}
+
+#DettagliSitoTesto {
+	padding-top: 6em;
+}
+
+.myDescription {
+	font-size: 1.3em;
+	margin: 1em;
+	
+}
 
 #mapBtn{
 	font-family: Old Standard TT;
@@ -85,27 +98,21 @@ section {
 	background-color: rgb(238, 226, 200);
 }
 
+/*************CAROUSEL*******************/
 
-.myDescription {
-	font-size: 1.3em;
+#CarouselShowJobs {
+	min-height: 75%;
+	background-color: rgb(54, 44, 34,0.7);
 }
 
+/*************RICERCAMAPPA*******************/
+
+#RicercaMappa{
+	min-height: 100%;
+}
  
 #googleMap{
 	width:100%;
 	height:65vh;
 }
 
-
-
-@media  screen and (max-width: 800px) {
-	.mySelection {
-		font-size: 70%;
-	}
-}
-
-@media screen and (max-width: 766px ){
-	.mySelection {
-		font-size: 80%;
-	}
-}
