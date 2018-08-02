@@ -1,5 +1,11 @@
 <?php
-	require_once('../utils/utils.php');
+	require_once('../utils/utils.php');	
+
+	if ( !check_COOKIE_IsSetAndNotEmpty('sizeC') ) {
+		$cookie_name = "sizeC";
+		$cookie_value = "3";
+		setcookie($cookie_name, $cookie_value, time() + (600*30), "/");
+	}
 
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
@@ -24,13 +30,11 @@
 		
 		<link rel="stylesheet" type="text/css" href="../optionMapSearch/optionMapSearch.css"/>
 		<link rel="stylesheet" type="text/css" href="../cardjobs/cardCarousel.css"/>
-		
-		
-
 	</head>
 	
 	<body onresize="resizingCarousel()" onload="resizingCarousel()">
 
+	<?php require('../noscript/noscript.html'); ?>
 	<?php require ('../navBar/navBar.php'); ?>
 	
 	<?php if (check_COOKIE_IsSetAndNotEmpty('deleted') && $_COOKIE['deleted'] === "del") { ?>
@@ -105,14 +109,8 @@
 				<h1><b>Cosa proponiamo</b></h1>
 				<br>	
 				<?php 
-
-					if ( !isset($_COOKIE['size']) || empty($_COOKIE['size']) ) {
-						$cookie_name = "size";
-						$cookie_value = "3";
-						setcookie($cookie_name, $cookie_value, time() + (600*30), "/");
-					}
 					require_once('../carousel/carousel.php');
-					showJobsCarousel("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart DESC LIMIT 9",$_COOKIE['size']);
+					showJobsCarousel("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart DESC LIMIT 9",$_COOKIE['sizeC']);
 				?>		
 			</div>
 		</div>
@@ -127,7 +125,7 @@
 			
 			<?php require_once('../optionMapSearch/optionMapSearch.php')?>
 
-			<div class="mb-2" id="googleMap" ></div>
+			<div class="mb-2" id="googleMap"></div>
 		</div>
 			
 	</section>
@@ -151,7 +149,6 @@
 	
 	<script type="text/javascript" src="../js/checkProfileUserField.js"></script>
 	
-
 
 	<?php require('googleAPIkey.html') ?>
 

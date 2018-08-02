@@ -16,8 +16,8 @@
     <div class="card-columns">
         <?php
             require_once("singleCard.php");
-            if( $rows > 0 ){
-                while( $row = mysqli_fetch_array($res) ) 
+			if( $rows > 0 ) {
+				while( $row = mysqli_fetch_array($res) ) 
                     showCard($row);
             }else{
         ?> 

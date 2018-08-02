@@ -1,5 +1,11 @@
 <?php
-    if ( session_status() == PHP_SESSION_NONE ) {
+ 	if ( !isset($_COOKIE['sizeC']) || empty($_COOKIE['sizeC']) ) {
+		$cookie_name = "sizeC";
+		$cookie_value = "3";
+		setcookie($cookie_name, $cookie_value, time() + (600*30), "/");
+	} 
+
+   if ( session_status() == PHP_SESSION_NONE ) {
         session_start();
 	}
 	
@@ -8,11 +14,6 @@
 	}
 
 	$_SESSION['page'] = "homepage";
-
-
-	
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,8 +29,8 @@
 	
 	<body onresize="resizingCarousel()" onload="resizingCarousel()">
 
+		<?php require('../noscript/noscript.html'); ?>
 		<?php require ('../navBar/navBar.php'); ?>
-
 
 		<section id="home" onClick="hideItem('menu');">
 			<?php require_once("../menu/menu.php"); ?>
@@ -57,14 +58,9 @@
 					<div class="myContainer text-center">
 						
 						<?php
-							if ( !isset($_COOKIE['size']) || empty($_COOKIE['size']) ) {
-								$cookie_name = "size";
-								$cookie_value = "3";
-								setcookie($cookie_name, $cookie_value, time() + (600*30), "/");
-							} 
 							require_once('../carousel/carouselHomepage.php');
 							showJobsCarousel("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and Receiver is not null and TimeStart > NOW() ORDER BY TimeStart LIMIT 6",
-											"SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart > NOW() ORDER BY TimeStart LIMIT 6",$_COOKIE['size']);
+											 "SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart > NOW() ORDER BY TimeStart LIMIT 6", $_COOKIE['sizeC']);
 						?>
 						
 					</div>
