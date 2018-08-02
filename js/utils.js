@@ -7,8 +7,8 @@
 */
 
 //variabili globali per google maps
-var latitude;
-var longitude;
+var latitude=100;
+var longitude=100;
 
 function getRequest() 
 {

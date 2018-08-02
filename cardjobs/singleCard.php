@@ -1,9 +1,8 @@
 <?php
 	require_once("../utils/utils.php");
-	require_once('../modalView/evalModal.php'); 
+	 
 
     function showCard($row)  {
-
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -51,7 +50,7 @@
                             ?>
                         </li>
                     <?php } ?>
-                    <li class="list-group-item cardBack" id="cardStreet_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['Street']) ?>"><?php echo sanitizeToHtml( $row['Street']) ?></li>
+                    <li class="list-group-item cardBack h5em" id="cardStreet_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['Street']) ?>"><?php echo sanitizeToHtml( $row['Street']) ?></li>
                     <?php if ( $_SESSION['page'] == "index" || $_SESSION['page'] == "viewjobsrequired" || $_SESSION['page'] == "homepage" || $_SESSION['page'] == "searchjobs" ) {?>
                         <li class="list-group-item cardBack" id="cardProposer_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['Proposer']) ?>">Proposto da <?php echo sanitizeToHtml( $row['Proposer']) ?></li>
                     <?php } ?>

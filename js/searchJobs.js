@@ -1,9 +1,23 @@
 "use strict"
 
-function resetSearch(){
-    $("#resetResault").load(location.href + " #resetResault");
-    $("#resetOption").load(location.href + " #resetOption");    
+
+function resetOptionSearch(){
+    document.getElementById("optionTag").value="Scegli il tag";
+    document.getElementById("optionDistance").value="Seleziona la distanza";
+    document.getElementById("optionCost").value="Seleziona il costo";
+    document.getElementById("optionStreet").value="";
+    
 }
+
+
+function resetSearch(){
+    resetOptionSearch();
+    $("#resetResault").load(location.href + " #resetResault");
+    
+}
+
+
+
 
 /*
  * @description

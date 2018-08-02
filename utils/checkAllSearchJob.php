@@ -17,14 +17,14 @@
 	  	$result['errOptionCost'] = "Il costo non &egrave; valido";
 
 	//Controlli sulla distanza
-	if ( check_POST_IsSetAndNotEmpty('distance') && ($_POST['distance'] != "Seleziona la distanza"
-		 && $_POST['distance'] < DistanceMin ) )
+	if ( check_POST_IsSetAndNotEmpty('distance') &&  $_POST['distance'] != "Seleziona la distanza"
+		 && $_POST['distance'] < DistanceMin  && !check_POST_IsSetAndNotEmpty('street') ) 
 	  	$result['errOptionDistance'] = "La distanza non &egrave; valida";
 
 	
 	//Controlli sull'indirizzo
 	if ( check_POST_IsSetAndNotEmpty('street')
-		 && notValidString($_POST['street'], addressRegex, StreetMinLength, StreetMaxLength))	
+		 && notValidString($_POST['street'], addressRegex, StreetMinLength, StreetMaxLength)) 
 		$result['errOptionStreet'] = "L'indirizzo non &egrave; valido";
 
 	//Controlli sul tag
@@ -46,8 +46,7 @@
 		if(  !check_POST_IsSetAndNotEmpty('tag') || $_POST['tag'] == "Scegli il tag" )
 			$_POST['tag'] =	'';
 
-		
-		$resQuery = searchInto_ShareYourJobsTime($_POST['street'], $_POST['distance'], $_POST['cost'], $_POST['tag'], $_SESSION['user'] );
+		$resQuery = searchInto_ShareYourJobsTime($_POST['street'], $_POST['distance'], $_POST['cost'], $_POST['tag'], $_SESSION['user'], $_POST['lat'], $_POST['lon'] );
 		
 		foreach($resQuery as $singleRes)
 			showCard($singleRes);
@@ -57,3 +56,4 @@
 		
 	//Ritorna errori
 	echo json_encode($result);
+	

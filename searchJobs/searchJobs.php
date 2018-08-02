@@ -42,12 +42,12 @@
         <div class="myContainer" id="resetOption">
             <div class="row" id="resetOption">
                 <div class="col-md-3"> 
-                    <input id="optionStreet" onchange="cleanErr('errOptionStreet');checkStreet('optionStreet','errOptionStreet');" class="mySelection" placeholder="Inserisci la via" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?>>
+                    <input id="optionStreet" onchange="cleanErr('errOptionStreet');checkStreetSearch('optionStreet','errOptionStreet');" class="mySelection" placeholder="Inserisci la via" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?>>
                     <p id="errOptionStreet"></p>
                 </div>
 
                 <div class="col-md-3"> 
-                    <select class="custom-select mySelection"  onchange="cleanErr('errOptionDistance');checkDistance('optionDistance','errOptionDistance');" id="optionDistance" name="distance">
+                    <select class="custom-select mySelection"  onchange="cleanErr('errOptionDistance');checkDistanceSearch('optionStreet','optionDistance','errOptionDistance');" id="optionDistance" name="distance">
                     <option selected disabled>Seleziona la distanza</option>
                     <?php
                         for($i = 1; $i < 10; $i++)

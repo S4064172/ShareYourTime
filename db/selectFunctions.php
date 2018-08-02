@@ -3,7 +3,7 @@
 	require_once('../utils/utils.php');
 	
 	
-	function searchInto_ShareYourJobsTime($street, $distance, $cost, $tag, $user) {
+	function searchInto_ShareYourJobsTime($street, $distance, $cost, $tag, $user, $lat, $lon) {
 		
 		$conn = connectionToDb();
 		$street = sanitizeToSql($street, $conn);
@@ -11,19 +11,37 @@
 		$cost = sanitizeToSql($cost, $conn);
 		$tag = sanitizeToSql($tag, $conn);
 		$user = sanitizeToSql($user, $conn);
+		$lat = sanitizeToSql($lat, $conn);
+		$lon = sanitizeToSql($lon, $conn);
+
+
+		$earthRadius = 6378.1;
+		$num = "POW(COS(RADIANS(Latitude)) * SIN(RADIANS($lon) - RADIANS(Longitude)), 2) + (COS(RADIANS($lat)) * SIN(RADIANS(Latitude)) - SIN(RADIANS($lat)) * COS(RADIANS(Latitude)) * COS(POW(RADIANS($lon) - RADIANS(Longitude), 2)))";
+		$den = "SIN(RADIANS($lat)) * SIN(RADIANS(Latitude)) + COS(RADIANS($lat)) * COS(RADIANS(Latitude)) * COS(RADIANS($lon) - RADIANS(Longitude))";
+		$big_formula = "ATAN2( (SQRT($num)) / ($den))";
+
 
 		$searchQuery =  "SELECT IdJob, Description, Cost, TimeStart, TimeEnd, Distance, Evaluation, Street, Proposer, Tag ". 
 						"FROM ShareYourJobsTime ". 
 						"WHERE 	TimeStart > NOW()
 								AND  Proposer != ?
 								AND  Receiver is NULL
-								AND ( ?=''   OR Street = ? ) 
-								AND ( ?=0  OR Distance = ? ) 
+								AND ( ?='' OR ?<>0  OR Street = ? ) 
+								AND ( ?=0  OR ( 
+											? >= (?*SQRT(RADIANS( ? - Latitude)*RADIANS(? - Latitude) + RADIANS( ? - Longitude)*RADIANS(? -  Longitude) ) )  
+											AND
+											Distance >= ( ? *SQRT(RADIANS( ? - Latitude)*RADIANS( ? - Latitude) + RADIANS( ? - Longitude)*RADIANS( ? -  Longitude) ) ) ) ) 
 								AND ( ?=0  OR Cost < ? ) 
 								AND ( ?=''  OR Tag = ?);";
 		
 		if ( ($search_prep_stmt = mysqli_prepare($conn, $searchQuery)) ) {
-			if ( !mysqli_stmt_bind_param($search_prep_stmt, "sssiiiiss",$user,	$street, $street, $distance, $distance, $cost, $cost, $tag, $tag ) )
+			if ( !mysqli_stmt_bind_param($search_prep_stmt, "ssisiiiiiiiiiiiiiiss",	$user, 
+																					$street, $distance, $street,
+																					$distance, 
+																						$distance, $earthRadius, $lat, $lat, $lon, $lon, 
+																						$earthRadius, $lat, $lat, $lon, $lon,
+																					$cost, $cost, 
+																					$tag, $tag ) )
 				die ("Errore nell'accoppiamento dei parametri");
 			  
 			if ( !mysqli_stmt_execute($search_prep_stmt) )

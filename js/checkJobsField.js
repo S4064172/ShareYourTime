@@ -57,6 +57,19 @@ function checkDistance(idDist, idErr)
     }
 }
 
+function checkDistanceSearch(idStreer, idDist, idErr)
+{
+    if( document.getElementById(idStreer).value !== '' ){
+        checkDistance(idDist, idErr)
+        return;
+    }
+    console.log(document.getElementById(idStreer).value);
+    var errDist = document.getElementById(idErr);
+    errDist.style.fontSize = '0.9em';
+    errDist.style.color = 'darkred';
+    errDist.innerHTML = "Via non settata";
+}
+
 function checkTime(idDate1, idTime1, idDate2, idTime2, idErr, idJob)
 {
 	console.log('CHECK TIME --- DEBUG');
@@ -129,7 +142,14 @@ function checkStreet(idCheck, idErr)
     }
 }
 
+function checkStreetSearch(idCheck, idErr)
+{
 
+    if(document.getElementById(idCheck).value === '')
+        return;
+
+    checkStreet(idCheck, idErr);
+}
 
 
 
@@ -152,7 +172,12 @@ function checkAllSearchJob()
     formData.append(htmlTagDist.name, htmlTagDist.value);
     formData.append(htmlTagCost.name, htmlTagCost.value);
     formData.append(htmlTagTag.name, htmlTagTag.value);
-
+    formData.append('lat',latitude);
+    formData.append('lon',longitude);
+    console.log(latitude);
+    
+    latitude=100;
+    longitude=100;
     request.send(formData);
 }
 
@@ -186,9 +211,11 @@ function checkJobAllFields()
 	formData.append(htmlTagTimeE.name, htmlTagTimeE.value);
 	formData.append(htmlTagAddress.name, htmlTagAddress.value);
 	formData.append(htmlTagTag.name, htmlTagTag.value);
-
+    
 	formData.append('lat', latitude);
-	formData.append('long', longitude);
+    formData.append('long', longitude);
+    latitude=100;
+    longitude=100;
 	
 	//formData.append("insert", 0);
 		
@@ -201,6 +228,7 @@ function validateCheckJob(request)
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
                 try {
+                    console.log(request.responseText);
                     var jsonObj = JSON.parse(request.responseText);	
 
                     //lavoro inserito con successo
@@ -222,6 +250,7 @@ function validateCheckJob(request)
                     }
 
                 } catch (error) {
+                    resetOptionSearch();
                     document.getElementById('printCard').innerHTML = request.responseText;
                 }
 			}		

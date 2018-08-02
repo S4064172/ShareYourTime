@@ -1,9 +1,10 @@
 <?php
- 	if ( !isset($_COOKIE['sizeC']) || empty($_COOKIE['sizeC']) ) {
+	require_once("../utils/utils.php");
+ 	if ( !check_COOKIE_IsSetAndNotEmpty('sizeC') ) {
 		$cookie_name = "sizeC";
 		$cookie_value = "3";
 		setcookie($cookie_name, $cookie_value, time() + (600*30), "/");
-	} 
+	}
 
    if ( session_status() == PHP_SESSION_NONE ) {
         session_start();
@@ -59,8 +60,12 @@
 						
 						<?php
 							require_once('../carousel/carouselHomepage.php');
-							showJobsCarousel("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and Receiver is not null and TimeStart > NOW() ORDER BY TimeStart LIMIT 6",
-											 "SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart > NOW() ORDER BY TimeStart LIMIT 6", $_COOKIE['sizeC']);
+							if (check_COOKIE_IsSetAndNotEmpty('sizeC'))
+								showJobsCarousel("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and Receiver is not null and TimeStart > NOW() ORDER BY TimeStart LIMIT 6",
+												 "SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart > NOW() ORDER BY TimeStart LIMIT 6", $_COOKIE['sizeC']);
+							else
+								showJobsCarousel("SELECT * FROM ShareYourJobsTime where Proposer = '".$_SESSION['user']."' and Receiver is not null and TimeStart > NOW() ORDER BY TimeStart LIMIT 6",
+												 "SELECT * FROM ShareYourJobsTime where Receiver = '".$_SESSION['user']."' and TimeStart > NOW() ORDER BY TimeStart LIMIT 6", 3);
 						?>
 						
 					</div>

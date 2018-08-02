@@ -2,6 +2,10 @@
 	min-height: 4em;
 }
 
+.h5em {
+    height: 5em;
+}
+
 .h3em {
     height: 3em;
 }
@@ -31,7 +35,14 @@
 	}
 }
 
-@media (min-width: 576px) {
+@media (min-width: 100px) {
+    .card-columns {
+        column-count: 1;
+    }
+}
+
+
+@media (min-width: 700px) {
     .card-columns {
         column-count: 2;
     }

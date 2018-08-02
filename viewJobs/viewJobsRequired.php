@@ -30,7 +30,7 @@
 		<?php require('../noscript/noscript.html'); ?>
         <?php require_once("../cardjobs/showAllCard.php");?>
 		<?php require_once ('../navBar/navBar.php'); ?>
-
+        <?php  require_once('../modalView/evalModal.php'); ?>
 
         <section class="viewJobs" onClick="hideItem('menu');">
 
