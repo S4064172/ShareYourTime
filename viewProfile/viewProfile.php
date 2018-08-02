@@ -33,12 +33,10 @@
         <link rel="stylesheet" type="text/css" href="viewProfile.css"/>
         <link rel="stylesheet" type="text/css" href="../contactUs/contactUs.css"/>
         <link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
-        
-
 	</head>
 	
 	<body>
-
+		<?php require('../noscript/noscript.html'); ?>
         <?php require ('../navBar/navBar.php'); ?>
 
         <section id="viewProfile" onClick="hideItem('menu');">

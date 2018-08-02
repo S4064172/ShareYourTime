@@ -29,8 +29,8 @@
 	
 	<body onresize="resizingCarousel()" onload="resizingCarousel()">
 
+		<?php require('../noscript/noscript.html'); ?>
 		<?php require ('../navBar/navBar.php'); ?>
-
 
 		<section id="home" onClick="hideItem('menu');">
 			<?php require_once("../menu/menu.php"); ?>
