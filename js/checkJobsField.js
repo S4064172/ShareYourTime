@@ -59,7 +59,6 @@ function checkDistance(idDist, idErr)
 
 function checkTime(idDate1, idTime1, idDate2, idTime2, idErr, idJob)
 {
-	console.log('CHECK TIME --- DEBUG');
 	var dateS = document.getElementById(idDate1).value;
 	var timeS = document.getElementById(idTime1).value;
 	var dateE = document.getElementById(idDate2).value;
@@ -159,40 +158,48 @@ function checkAllSearchJob()
 
 
 
-function checkJobAllFields() 
+function checkJobAllFields(op, id) 
 {
-	var request = getRequest();
-	request.open("POST", "../utils/checkJobsAllField.php", true);
-	request.onreadystatechange = validateCheckJob(request);
+	return function() {
+		var request = getRequest();
+		request.open("POST", "../utils/checkJobsAllField.php", true);
+		request.onreadystatechange = validateCheckJob(request);
 
-	var formData = new FormData();
+		var formData = new FormData();
 
-	var htmlTagDescription = document.getElementById('modalDescription');
-	var htmlTagCost = document.getElementById('modalCost');
-	var htmlTagDist = document.getElementById('modalDistance');
-	var htmlTagDateS = document.getElementById('modalDateStart');
-	var htmlTagTimeS = document.getElementById('modalTimeStart');
-	var htmlTagDateE = document.getElementById('modalDateEnd');
-	var htmlTagTimeE = document.getElementById('modalTimeEnd');
-	var htmlTagAddress = document.getElementById('modalStreet');
-	var htmlTagTag = document.getElementById('optionModalTag');
+		var htmlTagDescription = document.getElementById('modalDescription');
+		var htmlTagCost = document.getElementById('modalCost');
+		var htmlTagDist = document.getElementById('modalDistance');
+		var htmlTagDateS = document.getElementById('modalDateStart');
+		var htmlTagTimeS = document.getElementById('modalTimeStart');
+		var htmlTagDateE = document.getElementById('modalDateEnd');
+		var htmlTagTimeE = document.getElementById('modalTimeEnd');
+		var htmlTagAddress = document.getElementById('modalStreet');
+		var htmlTagTag = document.getElementById('optionModalTag');
 
-	formData.append(htmlTagDescription.name, htmlTagDescription.value);
-	formData.append(htmlTagCost.name, htmlTagCost.value);
-	formData.append(htmlTagDist.name, htmlTagDist.value);
-	formData.append(htmlTagDateS.name, htmlTagDateS.value);
-	formData.append(htmlTagTimeS.name, htmlTagTimeS.value);
-	formData.append(htmlTagDateE.name, htmlTagDateE.value);
-	formData.append(htmlTagTimeE.name, htmlTagTimeE.value);
-	formData.append(htmlTagAddress.name, htmlTagAddress.value);
-	formData.append(htmlTagTag.name, htmlTagTag.value);
+		formData.append(htmlTagDescription.name, htmlTagDescription.value);
+		formData.append(htmlTagCost.name, htmlTagCost.value);
+		formData.append(htmlTagDist.name, htmlTagDist.value);
+		formData.append(htmlTagDateS.name, htmlTagDateS.value);
+		formData.append(htmlTagTimeS.name, htmlTagTimeS.value);
+		formData.append(htmlTagDateE.name, htmlTagDateE.value);
+		formData.append(htmlTagTimeE.name, htmlTagTimeE.value);
+		formData.append(htmlTagAddress.name, htmlTagAddress.value);
+		formData.append(htmlTagTag.name, htmlTagTag.value);
 
-	formData.append('lat', latitude);
-	formData.append('long', longitude);
+		formData.append('lat', latitude);
+		formData.append('long', longitude);
 	
-	//formData.append("insert", 0);
-		
-	request.send(formData);
+		if ( op === "insert" )
+			formData.append("insert", true);
+		else if ( op === "modify" ) 
+			formData.append("insert", false);
+
+		if (id != null) 
+			formData.append("IdJob", id);
+
+		request.send(formData);
+	}
 }
 
 function validateCheckJob(request) 
@@ -201,8 +208,9 @@ function validateCheckJob(request)
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
                 try {
+					//console.log(request.responseText);
                     var jsonObj = JSON.parse(request.responseText);	
-
+					
                     //lavoro inserito con successo
                     if ( jsonObj == 0 )
                         if(document.getElementById('printCard') != null) {
@@ -214,7 +222,6 @@ function validateCheckJob(request)
             
                     //stampa degli errori rilevati
                     for(var key in jsonObj) {
-                        //console.log(jsonObj[key]);
                         var notify = document.getElementById(key);
                         notify.style.fontSize = '0.9em';
                         notify.style.color = 'darkred';
@@ -249,7 +256,7 @@ function validateCheckSingleJobField(request, idErrField)
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
-				console.log(request.responseText);
+				//console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);	
 				
 				//stampa dell'errore sul campo

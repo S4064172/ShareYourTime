@@ -76,7 +76,7 @@
                     <?php } ?>
                     <?php if ( $_SESSION['page'] == "searchjobs" ) {
                             $_SESSION['id'.$row['IdJob']]="prenota";  ?>
-                        <button type="button" onClick="bookJobs('<?php echo sanitizeToHtml( $row['IdJob']) ?>')" id="addJob_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-success mr-5">Prenota</button>
+                        <button type="button" onClick="bookJobs('<?php echo sanitizeToHtml( $row['IdJob']) ?>')" id="addJob_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-success">Prenota</button>
                         <?php } ?>       
                 </div>
             <?php } ?>

@@ -110,7 +110,7 @@
 				<br>	
 				<?php 
 					require_once('../carousel/carousel.php');
-					showJobsCarousel("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart DESC LIMIT 9",$_COOKIE['sizeC']);
+					showJobsCarousel("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart DESC LIMIT 9", $_COOKIE['sizeC']);
 				?>		
 			</div>
 		</div>
