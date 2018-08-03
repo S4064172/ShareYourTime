@@ -6,29 +6,23 @@
     gestire viewJobs
 */
 
-/**
- * @description
- * questa funzione ci permette
- * di riempire il modalJobs in 
- * fase di modifica 
- */
 
 function timeFunction(oldValue, idValue, idJob) 
 {
 	return function() {
 		var value = document.getElementById(idValue).value;
 	
-		console.log('************** DEBUG *************');
-		console.log('value = ' + value);
-		console.log('oldValue = ' + oldValue);
-		console.log('idValue = ' + idValue);
-		console.log('************** DEBUG *************');
-
 		if (oldValue !== value)
 			checkTime('modalDateStart', 'modalTimeStart', 'modalDateEnd', 'modalTimeEnd', 'errTime', idJob);
 	}
 }
 
+/**
+ * @description
+ * questa funzione ci permette
+ * di riempire il modalJobs in 
+ * fase di modifica 
+ */
 function fillModalFieldJobs(id)
 {
     var num = id.split("_");
@@ -65,6 +59,7 @@ function fillModalFieldJobs(id)
 	//bottone all'interno del modal
 	var button = document.getElementById('modButton');
 	button.innerHTML = 'Salva modifiche';
+	button.addEventListener('click', checkJobAllFields('modify', num[1]));
 }
 
 /**
@@ -88,7 +83,8 @@ function emptyModalJobs()
 	//bottone all'interno del modal
 	var button = document.getElementById('modButton');
 	button.innerHTML = 'Inserisci lavoro';
-	
+	button.addEventListener('click', checkJobAllFields('insert'));
+
 	document.getElementById('modalDateStart').addEventListener('focusout', timeFunction('', 'modalDateStart', null));
 	document.getElementById('modalTimeStart').addEventListener('focusout', timeFunction('', 'modalTimeStart', null));
 	document.getElementById('modalDateEnd').addEventListener('focusout', timeFunction('', 'modalDateEnd', null));

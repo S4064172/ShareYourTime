@@ -2,7 +2,8 @@
     require_once('connection.php');
     require_once('../utils/utils.php');
     
-    function upDataAndCheck($insert_prep_stmt) {
+	function updateAndCheck($insert_prep_stmt) 
+	{
 		if ( !mysqli_stmt_execute($insert_prep_stmt) )
 			die ("Errore nell'aggiornamento nel DB<br>");
 		else if ( ($rows = mysqli_stmt_affected_rows($insert_prep_stmt)) > 1 )
@@ -11,7 +12,8 @@
     }
 
 
-    function updataInto_ShareYourUserTime($usr, $psw, $name, $surname, $phone, $email, $street,  $fieldFilter, $file) {
+	function updataInto_ShareYourUserTime($usr, $psw, $name, $surname, $phone, $email, $street,  $fieldFilter, $file) 
+	{
 		$conn = connectionToDb();
 
 		$usr = sanitizeToSql($usr, $conn);
@@ -39,28 +41,28 @@
         }
         
 		
-        if(!empty($file)){
+        if( !empty($file) ) {
             //se è settato costruisco il path con la nuova foto
             $imageFileType = strtolower(pathinfo($file['photo']['name'], PATHINFO_EXTENSION));
             $path = '../../profile_imgs/'.$usr.'.'.$imageFileType; 
-        }else{
+        } else {
             //se non è settato costruisco il path cambiano solo il nome
             $path = '../../profile_imgs/'.$usr.substr($pathOld,strlen($pathOld)-4);     
         }
         
         
 
-        if( $psw != null ){
+        if( $psw != null ) {
             $psw = sha1(sanitizeToSql($psw, $conn));
             $updateQuery =  "UPDATE ShareYourUsersTime SET ". 
-                            "user = ? , ".
-                            "password = ? , ".
-                            "name = ? , ".
-                            "surname = ? , ".
-                            "phone = ? , ".
-                            "email = ? , ".
-                            "street = ? , ".
-                            "photo = ? ".
+                            "User = ? , ".
+                            "Password = ? , ".
+                            "Name = ? , ".
+                            "Surname = ? , ".
+                            "Phone = ? , ".
+                            "Email = ? , ".
+                            "Street = ? , ".
+                            "Photo = ? ".
                             "WHERE user='$fieldFilter';";
 
             if ( !($update_prep_stmt = mysqli_prepare($conn, $updateQuery)) )
@@ -70,14 +72,14 @@
                 die ("Errore nell'accoppiamento dei parametri<br>");
         } else {
             $updateQuery =  "UPDATE ShareYourUsersTime SET ". 
-                            "user = ? , ".
-                            "name = ? , ".
-                            "surname = ? , ".
-                            "phone = ? , ".
-                            "email = ? , ".
-                            "street = ? ,".
-                            "photo = ? ".
-                            "WHERE user='$fieldFilter';";
+                            "User = ? , ".
+                            "Name = ? , ".
+                            "Surname = ? , ".
+                            "Phone = ? , ".
+                            "Email = ? , ".
+                            "Street = ? ,".
+                            "Photo = ? ".
+                            "WHERE User='$fieldFilter';";
 
                          
             if ( !($update_prep_stmt = mysqli_prepare($conn, $updateQuery)) )
@@ -86,7 +88,7 @@
                 $usr,  $name, $surname, $phone, $email, $street,$path) )
                 die ("Errore nell'accoppiamento dei parametri<br>");
         }
-        upDataAndCheck($update_prep_stmt);
+        updateAndCheck($update_prep_stmt);
         mysqli_stmt_close($update_prep_stmt);
         mysqli_close($conn);
         rename($pathOld,$path);
@@ -111,10 +113,47 @@
         if ( !mysqli_stmt_bind_param($update_prep_stmt, "si", $fieldValue, $fieldToSearch) )
             die ("Errore nell'accoppiamento dei parametri<br>");
         
-        $rows = upDataAndCheck($update_prep_stmt);
+        $rows = updateAndCheck($update_prep_stmt);
         mysqli_stmt_close($update_prep_stmt);
         mysqli_close($conn);    
         return $rows;    
-    }
+	}
 
+	function updateInto_ShareYourJobsTimeAll($descr, $cost, $timeS, $timeE, $dist, $street, $lat, $long, $tag, $id)
+	{
+		$conn = connectionToDb();
 
+		$descr = sanitizeToSql($descr, $conn);
+		$cost = sanitizeToSql($cost, $conn);
+		$timeS = sanitizeToSql($timeS, $conn);
+		$timeE = sanitizeToSql($timeE, $conn);
+		$dist = sanitizeToSql($dist, $conn);
+		$street = sanitizeToSql($street, $conn);
+		$lat = sanitizeToSql($lat, $conn);
+		$long = sanitizeToSql($long, $conn);
+		$tag = sanitizeToSql($tag, $conn);
+		$id = sanitizeToSql($id, $conn); 
+
+		$updateJobQuery = "UPDATE ShareYourJobsTime SET ".
+					   	  "Description = ? ,".
+						  "Cost = ? ,".
+						  "TimeStart = ? ,".
+						  "TimeEnd = ? ,".
+						  "Distance = ? ,".
+						  "Street = ? ,".
+						  "Latitude = ? ,".
+						  "Longitude = ? ,".
+						  "Tag = ? " .
+						  "WHERE IdJob = ? ;";
+
+		if ( !($update_prep_stmt = mysqli_prepare($conn, $updateJobQuery)) )
+			die ("Errore nella preparazione della query<br>");
+		if ( !mysqli_stmt_bind_param($update_prep_stmt, "sissisddsi",
+				$descr, $cost, $timeS, $timeE, $dist, $street, $lat, $long, $tag, $id) )
+			die("Errore nell'accoppiamento dei parametri<br>");
+
+		$rows = updateAndCheck($update_prep_stmt);
+		mysqli_stmt_close($update_prep_stmt);
+		mysqli_close($conn);
+		return $rows;
+	}	

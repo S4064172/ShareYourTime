@@ -75,8 +75,8 @@ function checkMaxLength(string, max)
 function notValidString(string, regex, minLen, maxLen) 
 {
 	return !checkMinLength(string, minLen) ||
-			!checkMaxLength(string, maxLen) ||
-			!checkMatchRegex(string, regex);
+		   !checkMaxLength(string, maxLen) ||
+		   !checkMatchRegex(string, regex);
 }
 
 
