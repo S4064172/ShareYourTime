@@ -1,9 +1,6 @@
-#myContainerNavBar {
-    position: relative;
-    display: inline;
-    width: 100%;
+.myNavBar{
+    min-height: 4em;
 }
-
 button:hover {
     opacity: 0.8;
 }
