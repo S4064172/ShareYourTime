@@ -25,17 +25,19 @@
         <link rel="stylesheet" type="text/css" href="../alert/alert.css"/>
 	</head>
 	
-	<body>
-		<?php require('../noscript/noscript.html'); ?>
-        <?php require_once("../cardjobs/showAllCard.php");?>
+	<body onclick="myCollapseHide();">
         <?php require_once ('../navBar/navBar.php'); ?>
-        <?php require_once ('../alert/alert.php'); ?>
+		<?php require_once('../noscript/noscript.html'); ?>
+        <?php require_once("../cardjobs/showAllCard.php");?>
+       
+       
        
 
         <section class="viewJobs" onClick="hideItem('menu');">
             <?php require_once("../menu/menu.php"); ?>
             <?php require_once("../modalView/jobsView.php");?>
             <?php require_once("../modalView/confirmOperation.php"); ?>
+            <?php require_once ('../alert/alert.php'); ?>
             
 
             <div class="myContainer text-center titleSessionTesto" id="prova">

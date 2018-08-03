@@ -35,9 +35,9 @@
         <link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
 	</head>
 	
-	<body>
-		<?php require('../noscript/noscript.html'); ?>
-        <?php require ('../navBar/navBar.php'); ?>
+	<body onclick="myCollapseHide();">
+        <?php require_once ('../navBar/navBar.php'); ?>
+        <?php require_once('../noscript/noscript.html'); ?>
 
         <section id="viewProfile" onClick="hideItem('menu');">
 

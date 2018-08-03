@@ -24,14 +24,13 @@
         <link rel="stylesheet" type="text/css" href="../alert/alert.css"/>
     </head>
 	
-	<body>
-        
+	<body onclick="myCollapseHide();">
         <?php require_once ('../navBar/navBar.php'); ?>
-
-        <?php require_once ('../alert/alert.php'); ?>
+        <?php require_once('../noscript/noscript.html'); ?>
         
-        <section class="optionSearch">
+        <section class="optionSearch" onClick="hideItem('menu');">
             <?php require_once("../menu/menu.php"); ?>
+            <?php require_once ('../alert/alert.php'); ?>
             <div class="text-center titleSessionTesto viewSearch">
                 <h1><b>Cerca un lavoro</b></h1>
             </div>
@@ -99,14 +98,14 @@
         </div>
         <div class="myContainer">
             <div class ="row">
-                <div class="offset-md-4 col-md-2"> 
+                <div class="offset-md-3 col-md-3"> 
                     <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');checkAllSearchJob()">
                     <i class="fas fa-search"></i>
                     Cerca
                     </button>
                 </div>
 
-                <div class="col-md-2"> 
+                <div class="col-md-3"> 
                     <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');resetSearch();">
                     <i class="fas fa-eraser"></i>
                         Azzera ricerca

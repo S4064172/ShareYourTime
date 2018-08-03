@@ -28,7 +28,7 @@
                     </li>
 					<?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  ($_SESSION['page'] == "viewjobs") ) {?>
 					<li class="nav-item active">
-						<a class="nav-link clickable" data-toggle="modal" data-target="#jobsModal" onclick="emptyErrorModalJobs(); emptyModalJobs()">
+						<a class="nav-link clickable " data-toggle="modal" data-target="#jobsModal" onclick="emptyErrorModalJobs(); emptyModalJobs()">
 							<i class="fas fa-plus"></i>
 							<span>Aggiungi un lavoro</span>
                         </a>

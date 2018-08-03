@@ -25,7 +25,10 @@ function getRequest()
 
 function showItem(idItem)
 {
-	document.getElementById(idItem).style.display = "block"; 
+	var htmlTag = document.getElementById(idItem);
+	if (htmlTag.style.display != "block" )
+		htmlTag.style.display = "block"; 
+	
 }
 
 /** @description
@@ -35,7 +38,10 @@ function showItem(idItem)
 
 function hideItem(idItem)
 {
-	document.getElementById(idItem).style.display = "none"; 
+	var htmlTag = document.getElementById(idItem);
+	if (htmlTag.style.display != "none" )
+		htmlTag.style.display = "none"; 
+		  
 }
 
 
@@ -49,6 +55,7 @@ function hideItem(idItem)
 function cleanErr(id)
 {
 	var notify = document.getElementById(id);
+	if ( notify.innerHTML != "")
 	notify.innerHTML = "";
 }
 

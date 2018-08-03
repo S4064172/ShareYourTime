@@ -28,10 +28,10 @@
 		<link rel="stylesheet" type="text/css" href="../cardjobs/cardCarousel.css"/>
 	</head>
 	
-	<body onresize="resizingCarousel()" onload="resizingCarousel()">
-
-		<?php require('../noscript/noscript.html'); ?>
-		<?php require ('../navBar/navBar.php'); ?>
+	<body onresize="resizingCarousel()" onload="resizingCarousel()" onclick="myCollapseHide()">
+		<?php require_once ('../navBar/navBar.php'); ?>
+		<?php require_once('../noscript/noscript.html'); ?>
+		
 
 		<section id="home" onClick="hideItem('menu');">
 			<?php require_once("../menu/menu.php"); ?>

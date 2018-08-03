@@ -32,7 +32,7 @@
 		<link rel="stylesheet" type="text/css" href="../cardjobs/cardCarousel.css"/>
 	</head>
 	
-	<body onresize="resizingCarousel()" onload="resizingCarousel()">
+	<body onresize="resizingCarousel()" onload="resizingCarousel()"  onclick="myCollapseHide()">
 
 	<?php require('../noscript/noscript.html'); ?>
 	<?php require ('../navBar/navBar.php'); ?>

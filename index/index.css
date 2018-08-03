@@ -59,7 +59,7 @@ section {
 	color: rgb(238, 226, 200);
 	background-color: rgb(146, 114, 84);
 }
-/*
+
 @media screen and (max-width: 1000px) {
 	.myTitle{
 		padding-top:20.5vh;
@@ -72,7 +72,7 @@ section {
 		font-size: 10vh;
 	}
 }
-*/
+
 /*************DETTAGLISITO*******************/
 
 #DettagliSito {

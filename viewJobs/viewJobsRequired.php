@@ -26,14 +26,13 @@
 		
     </head>
 
-    <body>
-		<?php require('../noscript/noscript.html'); ?>
+    <body onclick="myCollapseHide();">
+        <?php require_once ('../navBar/navBar.php'); ?>
+		<?php require_once('../noscript/noscript.html'); ?>
         <?php require_once("../cardjobs/showAllCard.php");?>
-		<?php require_once ('../navBar/navBar.php'); ?>
-        <?php  require_once('../modalView/evalModal.php'); ?>
+        <?php require_once('../modalView/evalModal.php'); ?>
 
         <section class="viewJobs" onClick="hideItem('menu');">
-
             <?php require_once("../menu/menu.php"); ?>
             <?php require_once("../modalView/jobsView.php");?>
 			<?php if ( isset($_SESSION['errorEval']) && !empty($_SESSION['errorEval']) ) { ?>
