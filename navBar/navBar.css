@@ -20,6 +20,6 @@ a:focus {
 	outline: none;
 }
 
-#clickable{
+.clickable{
     cursor: pointer;
 }

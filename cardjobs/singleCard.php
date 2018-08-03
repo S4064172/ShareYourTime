@@ -17,7 +17,7 @@
                     <li class="list-group-item cardBack" id="cardTimeEnd_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['TimeEnd']) ?>"><?php echo  "Fine  ".sanitizeToHtml($row['TimeEnd']) ?></li>
 					<li class="list-group-item cardBack" id="cardDistance_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['Distance']) ?>"><?php echo  "Nel raggio di ".sanitizeToHtml($row['Distance'])." Km" ?></li>
 					<li class="list-group-item cardBack" id="cardTag_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['Tag']) ?>"><?php echo "Categoria : ".sanitizeToHtml($row['Tag']) ?></li>
-                    <?php  if ($row['TimeStart'] < date('Y-m-d H:i:s') ) {?>
+                    <?php  if ($_SESSION['page'] != "index" && $row['TimeStart'] < date('Y-m-d H:i:s') ) {?>
                         <li class="list-group-item h3em cardBack paddingbutton" id="cardValuation_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['Evaluation']) ?>">
                             <?php 
                                 //se il lavoro non ha valutazioni si da 

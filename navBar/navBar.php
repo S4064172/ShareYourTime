@@ -15,7 +15,7 @@
 
                 <?php if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) { ?>
                     <li class="nav-item active ">
-                        <a class="nav-link" id="clickable" onClick="showOrHideMenu('menu');myCollapseHide();">
+                        <a class="nav-link clickable" onClick="showOrHideMenu('menu');myCollapseHide();">
                             <i class="fas fa-bars"></i>
                             <span class="d-inline d-md-none">Menu</span>
                         </a>
@@ -28,10 +28,10 @@
                     </li>
 					<?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  ($_SESSION['page'] == "viewjobs") ) {?>
 					<li class="nav-item active">
-						<button class="btn nav-link" data-toggle="modal" data-target="#jobsModal" onclick="emptyErrorModalJobs(); emptyModalJobs()">
+						<a class="nav-link clickable" data-toggle="modal" data-target="#jobsModal" onclick="emptyErrorModalJobs(); emptyModalJobs()">
 							<i class="fas fa-plus"></i>
 							<span>Aggiungi un lavoro</span>
-						</button>
+                        </a>
 					</li>
 					<?php }
 						if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  ($_SESSION['page'] == "homepage") ) {?>

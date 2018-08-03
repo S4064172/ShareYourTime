@@ -19,9 +19,7 @@
 			if( $rows > 0 ) {
 				while( $row = mysqli_fetch_array($res) ) 
                     showCard($row);
-            }else{
+            }
         ?> 
-            <h1>NON CI SONO LAVORI</h1>
-        <?php } ?>    
     </div>
 <?php } ?>
