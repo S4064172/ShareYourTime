@@ -93,19 +93,27 @@
 
 
 <nav class="navbar navbar-expand-md mb-3 bg-dark navbar-dark navbar-shrink fixed-top myNavBar" id="navBar">  
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarTogglerSignupLogin" aria-controls="navbarTogglerSignupLogin" aria-expanded="false" aria-label="Toggle navigation">
+    
+    
+    <div class="myContainer">
+
+            <div class="row">
+            <div class="offset-3 offset-sm-4">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarTogglerSignupLogin" aria-controls="navbarTogglerSignupLogin" aria-expanded="false" aria-label="Toggle navigation">
         <span>
             <img class="sizeTitle" src="../img/Time1.png">
                 ShareYourTime
         </span>
     </button>
-    <div class="myContainer">
+            </div>
+            </div>
+
             <div class="row">
-                <div class="col-md-4 collapse navbar-collapse navbarTogglerSignupLogin">
+                <div class="offset-4 offset-sm-5 offset-md-0 col-md-4 collapse navbar-collapse navbarTogglerSignupLogin">
                 <ul class="navbar-nav">
 
                 <?php if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) { ?>
-                    <li class="nav-item active ">
+                    <li class="nav-item active  m-5">
                         <a class="nav-link clickable" onClick="showOrHideMenu('menu');myCollapseHide();">
                             <i class="fas fa-bars"></i>
                             <span>Menu</span>
@@ -152,7 +160,7 @@
                 </div> 
 
 
-                <div class="col-md-4 d-none d-md-inline text-center">
+                <div class="col-md-3 d-none d-md-inline text-center">
                 <a class="navbar-brand mt-2" href="#">
             <img src="../img/Time1.png" class="sizeTitle">
             ShareYourTime
@@ -162,23 +170,31 @@
 
 
 
-                <div class="col-md-4 collapse navbar-collapse navbarTogglerSignupLogin ">
+                <div class="offset-4 offset-md-0 col-md-5 collapse navbar-collapse navbarTogglerSignupLogin">
                 <?php if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) {?>
-            <form action="../utils/logout.php" >
-                <button type='submit' class='btn btn-warning mt-2 mr-2 d-block d-sm-inline btnSize mr-0'>
+            <form class="dimW100" action="../utils/logout.php" >
+            
+                <button type='submit' class='btn btn-warning mt-2 mr-2 d-block d-sm-inline btnSize float-md-right mr-0'>
                     <i class='fa fa-sign-out-alt'></i>
                     Logout
                 </button>
+                
             </form> 
         <?php }else{ ?>
-            <button type='button' href='#' class='btn btn-primary mr-2 d-block d-sm-inline btnSize' onClick='myCollapseHide()' data-toggle='modal' data-target='#signUpModalTarget'>
+            <div class="dimW100">
+            
+            <button type='button' href='#' class='btn btn-primary mr-2 d-block d-sm-inline btnSize float-md-right' onClick='myCollapseHide()' data-toggle='modal' data-target='#signUpModalTarget'>
                 <i class='fa fa-user-plus'></i>
                 Registrati
             </button>
-            <button type='button' class='btn btn-success mt-2 mt-sm-0  ml-3 ml-sm-0 btnSize' onClick='myCollapseHide()' data-toggle='modal' data-target='#loginModalTarget'>
+        
+            <button type='button' class='btn btn-success mt-2 mt-sm-0  ml-3 ml-sm-0 btnSize float-md-right' onClick='myCollapseHide()' data-toggle='modal' data-target='#loginModalTarget'>
                 <i class='fas fa-sign-in-alt'></i>
                 Login
             </button>
+
+        
+        </div>
         <?php  }  ?>
                 </div> 
             </div>
