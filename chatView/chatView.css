@@ -1,0 +1,47 @@
+.viewChat{
+    min-height: 100vh;
+    width: auto;
+    background-color: blue;
+}
+
+#idUserLog{
+    margin-top: 4.5em;
+    min-height: 85vh;
+    width: 300px;
+    background-color: black;
+}
+
+
+#bntUserChat{
+    margin-top: 4.5em;
+    width: 100%;
+    background-color: aliceblue; 
+}
+
+#idViewMessage{
+    margin-top: 4.5em;
+    min-height: 80vh;
+    width: 100%;
+    
+    background-color: red;
+}
+
+.myContainer {
+	width: 95%;
+	margin-left: 2.5%;
+}
+
+
+#textSendChat{
+    width: 100%;
+    background-color: greenyellow;
+}
+
+#bntSendMsg{
+    width: 100%;
+    background-color: green;
+}
+
+/*
+ media query md per annulare margin-top
+*/

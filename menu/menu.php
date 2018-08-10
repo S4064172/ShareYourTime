@@ -48,6 +48,15 @@
         </a>
     </div>
     <?php } ?> 
+    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="chatView") {?>
+    <div>
+        <a href="../chatView/chatView.php">
+            <button class="btn buttonMenu myOver">
+                Chat
+            </button>
+        </a>
+    </div>
+    <?php } ?> 
 
 
 

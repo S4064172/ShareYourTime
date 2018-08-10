@@ -23,3 +23,9 @@
 
 -> prenotazione lavoro
     -> problema se manometto id del lavoro
+
+
+/*******************/
+ problemi :
+    -> la navBar in homePage cambia dimensione ma non so il perchè;
+    -> la chat è fatta una bozza, bisogna mettere un po di media query per sistemate il tutto ma direi che è una buona bozza

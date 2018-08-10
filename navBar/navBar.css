@@ -1,6 +1,12 @@
 .myNavBar{
     min-height: 4em;
 }
+
+.myContainerNavBar {
+	width: 97%;
+	margin-left: 1.5%;
+}
+
 button:hover {
     opacity: 0.8;
 }

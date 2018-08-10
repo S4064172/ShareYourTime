@@ -16,8 +16,13 @@ section {
 }
 
 .optionSearch{
-	min-height: 100%;
-
+	display: block;
+    min-height: 100vh;
+    background-image: url("../img/carouselHome.jpg");
+	background-attachment: fixed; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .myContainer {
@@ -49,3 +54,5 @@ section {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+
