@@ -1,29 +1,29 @@
 .viewChat{
     min-height: 100vh;
     width: auto;
-    background-color: blue;
+	background-image: url("../img/sfondoChat.jpg");
+	background-size: cover;
 }
 
-#idUserLog{
+#userListView {
     margin-top: 4.5em;
     min-height: 85vh;
     width: 300px;
-    background-color: black;
+    background-color: rgb(10, 10, 10, 0.6);
 }
 
 
-#bntUserChat{
+#bntUserChat {
     margin-top: 4.5em;
     width: 100%;
     background-color: aliceblue; 
 }
 
-#idViewMessage{
+#chatView {
     margin-top: 4.5em;
     min-height: 80vh;
     width: 100%;
-    
-    background-color: red;
+	background-color: rgb(200, 200, 200, 0.3);
 }
 
 .myContainer {
@@ -31,15 +31,12 @@
 	margin-left: 2.5%;
 }
 
-
 #textSendChat{
     width: 100%;
-    background-color: greenyellow;
 }
 
 #bntSendMsg{
     width: 100%;
-    background-color: green;
 }
 
 /*
