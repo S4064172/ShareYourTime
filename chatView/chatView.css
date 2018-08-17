@@ -35,8 +35,15 @@
     width: 100%;
 }
 
-#bntSendMsg{
+#btnSendMsg{
     width: 100%;
+}
+
+h1 {
+	font-size: 24px; 
+	color: white; 
+	padding-top: 3.5em; 
+	width: 100%
 }
 
 /*

@@ -86,15 +86,18 @@ function connectToServer(userSYT) {
                 msgContent = "(" + time + ") <b>" + msgFromServer.userWhoSentTheMsg + "</b>: " + msgFromServer.msgText + "<br>";
                 break;
             case 'msgFromUser':
-                msgContent = "(" + time + ") <b style='color:red'>" + msgFromServer.userWhoSentTheMsg + "</b>: <i>" + msgFromServer.msgText + "</i><br>";
+                msgContent = "(" + time + ") <b style='color:darkred'>" + msgFromServer.userWhoSentTheMsg + "</b>: <i style='color: darkred'>" + msgFromServer.msgText + "</i><br>";
                 break;
             case 'listOfUsers':
                 var user_list = "";
                 for (var i = 0; i < msgFromServer.listOfUsers.length; i++) {
-                	user_list += "<b style='color: white'>" + msgFromServer.listOfUsers[i] + "<br>";
+                	user_list += "<b style='color: white'>" + msgFromServer.listOfUsers[i] + "</b><br>";
                 }
                 document.getElementById("userListView").innerHTML = user_list;
                 break;
+			case 'error':
+				msgContent = "<b style='color: darkred'>" + msgFromServer.msgText + "</b><br>";
+				break;
             default:
                 alert('Errore nel server ! ' +  msgFromServer.type);
                 return;

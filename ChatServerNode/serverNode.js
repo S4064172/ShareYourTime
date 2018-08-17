@@ -136,6 +136,15 @@ serverWS_chat.on(
                             newMsg.date = new Date();
                             newMsg.userWhoSentTheMsg = clientConn.clientId;
                             newMsg.msgText = msgReceivedFromClient.msgText.replace(/(<([^>]+)>)/ig,"");
+							var toSock = getClientSocketById(msgReceivedFromClient.userTo);
+						
+							if (toSock == null) {
+								newMsg.msgText = 'L\'utente che vuoi contattare non esiste o non &egrave; online';
+								newMsg.type = 'error';
+								clientConn.sendUTF(JSON.stringify(newMsg));
+								return;
+							}
+
                             for (var j = 0; j < connectedUsers.length; j++) {
                                 if (connectedUsers[j].clientId == msgReceivedFromClient.userTo || connectedUsers[j].clientId == msgReceivedFromClient.id) {
                                     connectedUsers[j].sendUTF(JSON.stringify(newMsg));

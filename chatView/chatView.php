@@ -33,9 +33,11 @@
     	</button>
 			
 			<div class="myContainer">
+				<div class="row text-center">
+					<h1>Se vuoi scrivere un messaggio privato scrivi @<i>NomeUtente</i> e poi il tuo messaggio</h1>
+				</div>
 				<div class="row">		
-					<div class="col-md-2 collapse navbar-collapse" id="userListView">
-					</div>
+					<div class="col-md-2 collapse navbar-collapse" id="userListView"></div>
 
 					<iframe class="col-md-10" id="chatView"></iframe>
 				</div>
