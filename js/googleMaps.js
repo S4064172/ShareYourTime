@@ -92,8 +92,8 @@ function showMap()
 	);
 
 	//Recupera informazioni quando un utente sceglie un luogo con autocomplete
-	google.maps.event.addListener(autocompleteIndex, 'place_changed', listenerAutocomplete);
-	google.maps.event.addListener(autocompleteReg, 'place_changed', listenerAutocomplete);
+	google.maps.event.addListener(autocompleteIndex, 'place_changed', listenerAutocomplete(autocompleteIndex));
+	google.maps.event.addListener(autocompleteReg, 'place_changed', listenerAutocomplete(autocompleteReg));
 
 	//Disegno una cerchi di raggio x
 	var circle = new google.maps.Circle({
@@ -108,12 +108,14 @@ function showMap()
 	circle.setMap(map);
 }
 
-function listenerAutocomplete() 
+function listenerAutocomplete(autocomplete) 
 {
-	var place = autocompleteReg.getPlace();
-    console.log(place.name);
-    console.log('cityLat: ' + place.geometry.location.lat());
-    console.log('cityLng: ' + place.geometry.location.lng());
-	latitude = place.geometry.location.lat();
-	longitude = place.geometry.location.lng();
+	return function() {
+		var place = autocomplete.getPlace();
+    	console.log(place.name);
+	    console.log('cityLat: ' + place.geometry.location.lat());
+    	console.log('cityLng: ' + place.geometry.location.lng());
+		latitude = place.geometry.location.lat();
+		longitude = place.geometry.location.lng();
+	}
 }
