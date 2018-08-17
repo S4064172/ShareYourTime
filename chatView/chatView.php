@@ -1,12 +1,7 @@
 <?php
 	require_once("../utils/utils.php");
- 	if ( !check_COOKIE_IsSetAndNotEmpty('sizeC') ) {
-		$cookie_name = "sizeC";
-		$cookie_value = "3";
-		setcookie($cookie_name, $cookie_value, time() + (600*30), "/");
-	}
 
-   if ( session_status() == PHP_SESSION_NONE ) {
+    if ( session_status() == PHP_SESSION_NONE ) {
         session_start();
 	}
 	
