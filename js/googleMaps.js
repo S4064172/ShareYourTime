@@ -1,7 +1,6 @@
 "use strict";
 function retrieveLastFive (map) 
 {
-	var formData = new FormData();
 	var request = getRequest();
 	request.open("POST", "../utils/worksForMap.php", true);
 	request.onreadystatechange = printFields(request, map);
@@ -13,39 +12,40 @@ function printFields(request, map)
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
-				//console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);	
-							
+
+				var workMark = [];
+				var infoText = [];
+				var str = '';
+
 				for (var i = 0; i < 5; i++) {
-					var str = jsonObj[i].split('@');
-
-					console.log('DEBUG:');
-					console.log(str[0]);
-					console.log(str[1]);
-					console.log(str[2]);
-					console.log();
-
-					//Marker di lavori
+					str = jsonObj[i].split('@');
+								
+					//Marker dei lavori
 					var workLocation = new google.maps.LatLng(str[1], str[2]);
 	
-					var workMark = new google.maps.Marker({
+					workMark[i] = new google.maps.Marker({
 							position: workLocation,
 					});
-					workMark.setMap(map);
+					workMark[i].setMap(map);
 					
 					//Testo del marker
-					var infoText = new google.maps.InfoWindow({
+					infoText[i] = new google.maps.InfoWindow({
 						content: str[0]
 					});
-					infoText.open(map, workMark);
-					google.maps.event.addListener(workMark, 'click',
-						function () {
-							infoText.open(map, workMark);
-						}
-					);
+
+					infoText[i].open(map, workMark[i]);
+					google.maps.event.addListener(workMark[i], 'click', listenerClickMarker(infoText[i], map, workMark[i]));
 				}
 			}
 		}
+	}
+}
+
+function listenerClickMarker(infoT, map, workM) 
+{
+	return function() {
+		infoT.open(map, workM);
 	}
 }
 
@@ -64,7 +64,7 @@ function showMap()
 
 	var mapProp = {
 	    center: hqLocation,
-		zoom: 12,
+		zoom: 14,
 		mapTypeId: google.maps.TERRAIN
 	};
 	
@@ -86,9 +86,9 @@ function showMap()
 	});
 	infoText.open(map, headQuarter);
 	google.maps.event.addListener(headQuarter, 'click',
-			function () {
-				infoText.open(map, headQuarter);
-			}
+		function () {
+			infoText.open(map, headQuarter);
+		}
 	);
 
 	//Recupera informazioni quando un utente sceglie un luogo con autocomplete
@@ -100,7 +100,7 @@ function showMap()
 		center: hqLocation,
 	  	radius: 1000, //In metri
 	  	strokeColor: "#0000FF",
-		strokeOpacity:0.8,
+		strokeOpacity: 0.8,
 		strokeWeight: 2,
   		fillColor: "#0000FF",
 	  	fillOpacity: 0.4

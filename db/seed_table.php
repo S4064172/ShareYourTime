@@ -34,30 +34,30 @@
 	insertInto_ShareYourUserTime("kenny", "987654321Qq?", "John", "Kennedy", "0987654321", "ken@bbb.it", "corso buenos aires 173", "../../profile_imgs/kenny.jpg");
 
 
-	insertInto_ShareYourJobsTime("Insegno ad usare il pacchetto Office2017", 5, $time1S, $time1E, 2, "DEFAULT", "Via Fereggiano, Genoa, Metropolitan City of Genoa, Italy", 44.4167606, 8.961800900000071, "pippo", "INFORMATICA");
+	insertInto_ShareYourJobsTime("Insegno ad usare il pacchetto Office2017", 5, $time1S, $time1E, 2, "DEFAULT", "Via Fereggiano", 44.4167606, 8.961800900000071, "pippo", "INFORMATICA");
 	//updataInto_ShareYourJobsTime('Receiver','kenny' , 1);
 	
-	insertInto_ShareYourJobsTime("Riparo tubature e condotti idraulici tra cui impianti di irrigazione", 20, $time2S, $time2E, 4, "DEFAULT", "corso ricci", 12.39, 36.88, "kenny", "IDRAULICA");
+	insertInto_ShareYourJobsTime("Riparo tubature e condotti idraulici tra cui impianti di irrigazione", 20, $time2S, $time2E, 4, "DEFAULT", "Via Sturla", 44.3999293, 8.978978999999981, "kenny", "IDRAULICA");
 	updataInto_ShareYourJobsTime('Receiver', 'pippo', 2);
 	
 	insertInto_ShareYourJobsTime("Insegno a fare gli aquiloni", 10, $time3S, $time3E, 2, "DEFAULT", "Corso Alessandro de Stefanis, Genoa, Metropolitan City of Genoa, Italy", 44.4167606, 8.952091800000062, "pippo", "FAI DA TE");
 	//updataInto_ShareYourJobsTime('Receiver', 'kenny', 3);
 	
 	insertInto_ShareYourJobsTime("Taglio il prato e gli alberi che ostacolano la strada", 50, $time4S, $time4E, 10, "DEFAULT", "Via Giovanni Amarena, Genoa, Metropolitan City of Genoa, Italy", 44.41349769999999, 8.95928189999995, "pippo", "GIARDINAGGIO");
-	insertInto_ShareYourJobsTime("Preparo pranzo a domicilio", 15, $time5S, $time5E, 1, "DEFAULT", "corso viglienzoni", 7.56, 8.94, "kenny", "CUCINA");
-	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti", 60, $time6S, $time6E, 2, "DEFAULT", "Via XX Settembre, Genoa, Metropolitan City of Genoa, Italy", 44.4059247, 8.939580200000023, "pippo", "LAVAGGIO");
+	insertInto_ShareYourJobsTime("Preparo pranzo a domicilio", 15, $time5S, $time5E, 1, "DEFAULT", "Viale delle Brigate Partigiane", 44.3986179, 8.94487730000003, "kenny", "CUCINA");
+	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti", 60, $time6S, $time6E, 2, "DEFAULT", "Via XX Settembre", 44.4059247, 8.939580200000023, "pippo", "LAVAGGIO");
 
 	
-	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti1", 60, $time7S, $time7E, 2, "DEFAULT", "via gramsci", 55.99, 23.31, "pippo", "LAVAGGIO");
+	insertInto_ShareYourJobsTime("Lavo la macchina nei garage in giro per Genova", 40, $time7S, $time7E, 2, "DEFAULT", "Via San Martino", 44.4058381, 8.970980999999938, "pippo", "LAVAGGIO");
 	updataInto_ShareYourJobsTime('Receiver', 'kenny', 7);
 	updataInto_ShareYourJobsTime('Evaluation', 5, 7);
 
-	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti2", 60, $time8S, $time8E, 2, "DEFAULT", "via gramsci", 55.99, 23.31, "kenny", "LAVAGGIO");
-	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti3", 60, $time7S, $time7E, 2, "DEFAULT", "via gramsci", 55.99, 23.31, "kenny", "LAVAGGIO");
+	insertInto_ShareYourJobsTime("Insegno a preparare le torte dolci", 17, $time8S, $time8E, 2, "DEFAULT", "Via Silvio Lagustena", 44.4065962, 8.976878700000043, "kenny", "CUCINA");
+	insertInto_ShareYourJobsTime("Design di siti web e consulenza", 100, $time7S, $time7E, 2, "DEFAULT", "Piazza Dante", 44.4052777, 8.935792699999979, "kenny", "INFORMATICA");
 	
-	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti4", 60, $time7S, $time7E, 2, "DEFAULT", "via gramsci", 55.99, 23.31, "kenny", "LAVAGGIO");
+	insertInto_ShareYourJobsTime("Incontro di patchwork", 5, $time7S, $time7E, 2, "DEFAULT", "Corso Torino", 44.4013028, 8.950326099999984, "kenny", "FAI DA TE");
 	updataInto_ShareYourJobsTime('Receiver', 'pippo', 10);
 	updataInto_ShareYourJobsTime('Evaluation', 4, 10);
 
-	insertInto_ShareYourJobsTime("Lavo le scale negli appartamenti5", 60, $time7S, $time7E, 2, "DEFAULT", "via gramsci", 55.99, 23.31, "pippo", "LAVAGGIO");
+	insertInto_ShareYourJobsTime("Riparo i motorini e le biciclette", 85, $time7S, $time7E, 2, "DEFAULT", "Via Casaregis", 44.4048195, 8.952552800000035, "pippo", "RIPARAZIONI");
 	updataInto_ShareYourJobsTime('Receiver', 'kenny', 11);
