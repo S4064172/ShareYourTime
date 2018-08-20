@@ -5,17 +5,19 @@
                 <h1><b>Contattaci</b></h1>
                 <br>
             </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-12 col-md-6">
-                <textarea id="myTextArea" rows=15 ></textarea> 
-            </div>
-        </div>
+		</div>
+		<form action="../contactUs/emailAdmin.php" method="POST">
+	        <div class="row text-center">
+    	        <div class="col-12 col-md-6">
+        	        <textarea id="myTextArea" rows=15 name="textEmail"></textarea> 
+            	</div>
+	        </div>
         
-        <div class="row text-center">
-            <div class="col-12 col-md-6">
-                <button class="btn btn-primary mt-2" id="myBntContatUs">Invia</button>
-            </div>
-        </div>
+    	    <div class="row text-center">
+        	    <div class="col-12 col-md-6">
+            	    <input type="submit" class="btn btn-primary mt-2" id="btnContatUs" value="INVIA"/>
+	            </div> 
+    	    </div>
+		</form>
     <div>
 </section>
