@@ -20,6 +20,8 @@
     define('TagMaxLength',20);
 	define('CostMin',0);
 	define('DistanceMin',0);
+	define('MsgMaxLength',250);
+	define('ObjMaxLength',50);
 
 
 /*******************Costanti Regex********************/

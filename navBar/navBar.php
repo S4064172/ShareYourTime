@@ -192,7 +192,7 @@
                             Registrati
                         </button>
 
-                        <button type='button' class='btn btn-success mt-2 mt-sm-0  ml-3 ml-sm-0 btnSize float-md-right' onClick='myCollapseHide()' data-toggle='modal' data-target='#loginModalTarget'>
+                        <button type='button' class='btn btn-success mt-2 mt-sm-0  ml-3 ml-sm-0 btnSize float-md-right mr-2' onClick='myCollapseHide()' data-toggle='modal' data-target='#loginModalTarget'>
                             <i class='fas fa-sign-in-alt'></i>
                             Login
                         </button>

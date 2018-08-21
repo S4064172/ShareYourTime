@@ -156,4 +156,24 @@
 		mysqli_stmt_close($update_prep_stmt);
 		mysqli_close($conn);
 		return $rows;
+	}
+
+	function updateInto_ShareYourPvtMsgTime_ReadMsg($sender, $receiver)
+	{
+		$conn = connectionToDb();
+
+		$sender = sanitizeToSql($sender, $conn);
+		$receiver = sanitizeToSql($receiver, $conn);
+
+		$readQuery = "UPDATE ShareYourPvtMsgTime SET ReadYet=TRUE WHERE Sender=? AND Receiver=? ;";
+
+		if ( !($update_prep_stmt = mysqli_prepare($conn, $readQuery)) )
+			die ("Errore nella preparazione della query<br>");
+		if ( !mysqli_stmt_bind_param($update_prep_stmt, "ss", $sender, $receiver) )
+			die("Errore nell'accoppiamento dei parametri<br>");
+
+		if ( !mysqli_stmt_execute($update_prep_stmt) )
+			die ("Errore nell'aggiornamento nel DB<br>");
+			
+		mysqli_close($conn);
 	}	

@@ -32,6 +32,8 @@
 	
 	insertInto_ShareYourUserTime("pippo", "11111111aA!", "Pippo", "Regex", "1234567890", "pippo@aaa.it", "via topolinia 44", "../../profile_imgs/pippo.jpg");
 	insertInto_ShareYourUserTime("kenny", "987654321Qq?", "John", "Kennedy", "0987654321", "ken@bbb.it", "corso buenos aires 173", "../../profile_imgs/kenny.jpg");
+	insertInto_ShareYourUserTime("ironman55", "Iam1ronM@n", "Tony", "Stark", "5791284523", "stark@industries.usa", "Via Dodecaneso", "../../profile_imgs/ironman55.jpg");
+	insertInto_ShareYourUserTime("theQueen", "boh&m1AnRap", "Freddie", "Mercury", "8724689105", "brian@may.uk", "Corso Europa", "../../profile_imgs/theQueen.jpg");
 
 
 	insertInto_ShareYourJobsTime("Insegno ad usare il pacchetto Office2017", 5, $time1S, $time1E, 2, "DEFAULT", "Via Fereggiano", 44.4167606, 8.961800900000071, "pippo", "INFORMATICA");

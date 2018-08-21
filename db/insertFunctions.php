@@ -65,7 +65,6 @@
 		}
 		 
 		mysqli_close($conn);
-		/*echo("La tupla e' stata inserita correttamente<br>");*/
 	}
 
 	function insertInto_ShareYourTagsTime ($tag) {
@@ -84,6 +83,30 @@
 		}
 
 		mysqli_close($conn);
-		/*echo("La tupla e' stata inserita correttamente<br>");*/
+	}
+	
+	function insertInto_ShareYourPvtMsgTime($text, $obj, $sender, $receiver, $dateMsg) {
+		$conn = connectionToDb();
+
+		$text = sanitizeToSql($text, $conn);
+		$obj = sanitizeToSql($obj, $conn);
+		$sender = sanitizeToSql($sender, $conn);
+		$receiver = sanitizeToSql($receiver, $conn);
+		$dateMsg = sanitizeToSql($dateMsg, $conn);
+		
+		$insertQuery = "INSERT INTO ShareYourPvtMsgTime VALUES(DEFAULT,?,?,?,?,?,DEFAULT);";
+
+		if ( ($insert_prep_stmt = mysqli_prepare($conn, $insertQuery)) ) {
+				if ( !mysqli_stmt_bind_param($insert_prep_stmt, "sssss",
+						$text, $obj, $sender, $receiver, $dateMsg) ) 
+					die ("Errore nell'accoppiamento dei parametri<br>");
+				insertAndCheck($insert_prep_stmt);
+
+				mysqli_stmt_close($insert_prep_stmt);
+		} else {
+			die ("Errore nella preparazione della query<br>");
+		}
+		 
+		mysqli_close($conn);
 	}
 

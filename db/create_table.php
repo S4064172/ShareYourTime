@@ -37,7 +37,18 @@
                     FOREIGN KEY (Receiver) REFERENCES ShareYourUsersTime (User) ON UPDATE CASCADE ON DELETE CASCADE,
                     FOREIGN KEY (Proposer) REFERENCES ShareYourUsersTime (User) ON UPDATE CASCADE ON DELETE CASCADE
                 );";
-
+	
+	$queryCreateTable[3] = "CREATE TABLE ShareYourPvtMsgTime (
+                   	IdMsg int PRIMARY KEY auto_increment,
+					Text char(".MsgMaxLength.") NOT NULL,
+					Obj char(".ObjMaxLength.") NOT NULL,
+					Sender char(".UserNameMaxLength.") NOT NULL,
+					Receiver char(".UserNameMaxLength.") NOT NULL,
+					Date datetime NOT NULL,
+					ReadYet BOOLEAN default FALSE NOT NULL,
+                    FOREIGN KEY (Sender) REFERENCES ShareYourUsersTime (User) ON UPDATE CASCADE ON DELETE CASCADE,
+                    FOREIGN KEY (Receiver) REFERENCES ShareYourUsersTime (User) ON UPDATE CASCADE ON DELETE CASCADE
+     			);";
 
     foreach($queryCreateTable as $query ){     
 

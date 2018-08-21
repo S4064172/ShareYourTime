@@ -56,7 +56,7 @@ function cleanErr(id)
 {
 	var notify = document.getElementById(id);
 	if ( notify.innerHTML != "")
-	notify.innerHTML = "";
+		notify.innerHTML = "";
 }
 
 function checkMatchRegex(inputSent, regexToMatch) 
@@ -88,7 +88,10 @@ function notValidString(string, regex, minLen, maxLen)
 
 
 /***************************/
-
+/*
+ * @description
+ * Questa funzione permette di salvare un cookie
+ */
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -96,7 +99,10 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-
+/*
+ * @description
+ * Questa funzione permette di leggere un cookie
+ */
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -112,6 +118,11 @@ function getCookie(cname) {
     return "";
 }
 
+/*
+ * @description
+ * Questa funzione permette di ridimensionare il
+ * carosello dei lavori
+ */
 function resizingCarousel() {
 	var w = $("#idCarousel").width();
 	

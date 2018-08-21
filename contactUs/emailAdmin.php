@@ -42,16 +42,15 @@
 			$message = wordwrap($_POST['textEmail'], 70, '\n');
 
 			/*
-			 *	Questa funzionalita' va bene se il server e' abilitato a
-			 *	inviare mail all'esterno.
+			 *	Questa funzionalita' va bene se il server e' 
+			 *	abilitato a	inviare mail all'esterno.
 			 */
 			if ( mail($emailTo, $object, $message, $header) ) 
 				echo 'Email inviata con successo<br>';
 			else
 				echo 'Errore nell\'invio della mail<br>';
 
-			echo 'OK<br>';
-			//header('Location: ../homepage/homepage.php');
+			header('Location: ../homepage/homepage.php');
 			return;
 	}
 	die ("Errore nella preparazione della query<br>");

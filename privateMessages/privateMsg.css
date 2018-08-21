@@ -1,0 +1,56 @@
+#viewMessages {
+	background-image: url("../img/sfondoChat.jpg");	
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+}
+
+.chatSection {
+	border: solid 1px white;
+	height: 30em;
+}
+
+#currChat, #prevChat {
+	overflow-y: auto;
+}
+
+.selector {
+	margin-top: 6em;
+	width: 100%;
+	height: auto;
+}
+
+#sendPvt {
+	height: 2em;
+	width: 100%;
+}
+
+.prevChatBtn {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin-bottom: 0.5em;
+}
+
+#noChat {
+	color: white;
+   	font-size: 16px;
+}
+
+#errMsg {
+	color: darkred;
+	font-size: 20px;
+}
+
+.w100 {
+	width: 100%;
+}
+
+p {
+	word-break: break-all;
+}
+
+.redEnv {
+	color: red;
+}

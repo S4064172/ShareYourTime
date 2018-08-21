@@ -19,7 +19,7 @@
     </div>
 
     <div class="col-md-3"> 
-        <select class="custom-select mySelection"  id="optionMapCost" name="optionMapCost">
+        <select class="custom-select mySelection" id="optionMapCost" name="optionMapCost">
         <option selected disabled>Seleziona il costo</option>
         <?php
             for($i = 1; $i < 10; $i++)

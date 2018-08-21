@@ -4,8 +4,9 @@
     $conn = connectionToDb();
     
     $queryDeleteTable[0] =  "DROP TABLE ShareYourJobsTime";
-    $queryDeleteTable[1] =  "DROP TABLE ShareYourUsersTime";
+    $queryDeleteTable[1] =  "DROP TABLE ShareYourPvtMsgTime";
     $queryDeleteTable[2] =  "DROP TABLE ShareYourTagsTime";
+    $queryDeleteTable[3] =  "DROP TABLE ShareYourUsersTime";
 
     foreach($queryDeleteTable as $query )  {   
         

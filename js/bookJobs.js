@@ -1,6 +1,5 @@
 "use strict";
 
-
 function bookJobs(idJob)
 {
     var request = getRequest();
@@ -11,9 +10,7 @@ function bookJobs(idJob)
     formData.append('IdJob', idJob);
 	
 	request.send(formData);
-	
 }
-
 
 function validateBookJobs(request, idJob) 
 {
@@ -25,10 +22,9 @@ function validateBookJobs(request, idJob)
 				if ( jsonObj == 0 ){
 					showAlertSuccess("Lavoro prenotato con successo");
 					hideItem(idJob);
-				}else{
+				} else {
 					showAlertError("Errore prenotazione lavoro");
 				}	
-					
 			}		
 		}
 	}

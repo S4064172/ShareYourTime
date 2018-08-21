@@ -1,4 +1,4 @@
-.myNavBar{
+.myNavBar {
     min-height: 4em;
 }
 
@@ -11,7 +11,7 @@ button:hover {
     opacity: 0.8;
 }
 
-.dimW100{
+.dimW100 {
     width: 100%;
 }
 
@@ -27,6 +27,6 @@ a:focus {
 	outline: none;
 }
 
-.clickable{
+.clickable {
     cursor: pointer;
 }
