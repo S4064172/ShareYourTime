@@ -36,7 +36,7 @@
 			mysqli_stmt_close($prep_stmt);
 			mysqli_close($conn);
 
-			$emailTo = 'share_your_time@gmail.com';	
+			$emailTo = 'andrepurti@hotmail.it';//'share_your_time@gmail.com';	
 			$object = 'Message from '.$_SESSION['user'];
 			$header = "From: ".$emailFrom." \r\n";
 			$message = wordwrap($_POST['textEmail'], 70, '\n');

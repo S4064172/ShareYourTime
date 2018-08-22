@@ -27,13 +27,10 @@ function createMsg(jsonObj, userTo)
 	var chat = document.getElementById('currChat');
 
 	var msg = document.createElement('p');
-	if (jsonObj.Receiver === userTo) {
-		msg.setAttribute('style', 'background-color: black; color: white; heigth: 1em; width: auto; border-radius: 25px; padding-right: 2em;');
-		msg.setAttribute('class', 'text-right');
-	} else {
-		msg.setAttribute('style', 'background-color: white; color: black; heigth: 1em; width: auto; border-radius: 25px; padding-left: 2em');
-		msg.setAttribute('class', 'text-left');
-	}
+	if (jsonObj.Receiver === userTo) 
+		msg.setAttribute('class', 'text-right sendMsg');
+	else 
+		msg.setAttribute('class', 'text-left recvMsg');
 	msg.innerHTML = 'Oggetto: ' + jsonObj.Obj + '<br>Data: ' + jsonObj.Date + '<br><br>' + jsonObj.Text;
 		
 	chat.appendChild(msg);

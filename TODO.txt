@@ -6,8 +6,6 @@
 -> insertFunction.php
     -> modificare le insert coi default per i campi non necessari
 
--> controllo sessione
-
 -> oscurare le cartelle/pagine secondarie
 
 -> controlli sulle vaire funzioni del db
@@ -28,4 +26,3 @@
 /*******************/
  problemi :
     -> la navBar in homePage cambia dimensione ma non so il perchè;
-    -> la chat è fatta una bozza, bisogna mettere un po di media query per sistemate il tutto ma direi che è una buona bozza

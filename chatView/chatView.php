@@ -17,18 +17,20 @@
 		<?php require ('../header/header.html'); ?>
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
 		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
 		<link rel="stylesheet" type="text/css" href="chatView.css"/>
 
 	</head>
 	
 	<body onload="connectToServer('<?php echo $_SESSION['user']?>')">
 		<?php require('../noscript/noscript.html'); ?>
-		<?php require_once ('../navBar/navBar.php'); ?>
+		<?php require_once('../navBar/navBar.php'); ?>
+		<?php require_once('../menu/menu.php'); ?>
     
 		<section class="navbar navbar-expand-md viewChat">
 			<button class="navbar-toggler text-center" id="bntUserChat" type="button" data-toggle="collapse" data-target=".UserInChat" aria-controls="UserInChat" aria-expanded="false" aria-label="Toggle navigation">
-        	<span>
-                	User
+        	<span style="color: black;">
+                	Users
         	</span>
     	</button>
 			
@@ -41,13 +43,13 @@
 
 					<iframe class="col-md-10" id="chatView"></iframe>
 				</div>
-
+				<br>
 				<div class="row">
 					<div class="offset-md-2 col-md-8" id="textSendChat">
-			            <input id="msgChat" class="offset-md-1" type="text" name="msgChat" size="80" maxlength="256" placeholder="Scrivi qui il tuo messaggio" autocomplete="off" onkeyup="handleKey(event)">
+			            <input id="msgChat" class="offset-md-1 col-md-10" type="text" name="msgChat" maxlength="256" placeholder="Scrivi qui il tuo messaggio" autocomplete="off" onkeyup="handleKey(event)">
 					</div>
 					<div class="col-md-2" id="bntSendMsg">
-            			<input class="offset-md-4" type="button" id="sendButton" name="sendButton" value="Invia" onclick="sendMessage()">
+            			<input type="button" id="sendButton" name="sendButton" value="Invia" onclick="sendMessage()">
 					</div>
 				</div>
 			</div>
@@ -63,6 +65,9 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
 		<script type="text/javascript" src="../js/chatWebSocket.js"></script>
+		
+		<script type="text/javascript" src="../js/utils.js"></script>
+		<script type="text/javascript" src="../js/navBar.js"></script>
 	
     </body>
 </html>

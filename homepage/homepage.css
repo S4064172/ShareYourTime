@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Galada');
 
 body, html {
-	/*font-family: Sans-Serif;*/
 	height: 100%;
 	width: 100%;
 	scroll-behavior: smooth;
@@ -13,7 +12,7 @@ section {
 	width: 100%;
 }
 
-#home{	
+#home {	
 	width: 100%;
 	min-height: 100vh;
 	background-image: url("../img/homepage.jpeg");
@@ -32,11 +31,11 @@ section {
 	background-size: cover;
 }
 
-#myTitleContaitner{
+#myTitleContaitner {
 	height: 100vh;
 }
 
-.myTitle{
+.myTitle {
 	font-family: galada; 
 	padding-top:31.5vh;
 	font-size: 15vh;
