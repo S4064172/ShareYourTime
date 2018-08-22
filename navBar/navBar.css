@@ -1,5 +1,6 @@
 .myNavBar {
     min-height: 4em;
+	max-height: 4em;
 }
 
 .myContainerNavBar {

@@ -94,7 +94,6 @@
 
 <nav class="navbar navbar-expand-md mb-3 bg-dark navbar-dark navbar-shrink fixed-top myNavBar" id="navBar">  
     
-    
     <div class="myContainerNavBar">
         <div class="row">
             <div class="offset-3 offset-sm-4">
