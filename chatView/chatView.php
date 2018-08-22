@@ -9,7 +9,7 @@
         header("Location: ../index/index.php");
 	}
 
-	$_SESSION['page'] = "chatView";
+	$_SESSION['page'] = "chatview";
 ?>
 <!DOCTYPE html>
 <html>

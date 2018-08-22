@@ -7,7 +7,7 @@
        header("Location: ../index/index.php");
 	}
 
-    $_SESSION['page'] = "privateMsg";
+    $_SESSION['page'] = "privatemsg";
 
 	require_once('../utils/utils.php');
 	require_once('../utils/constant.php');

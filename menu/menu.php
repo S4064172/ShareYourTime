@@ -1,63 +1,32 @@
+<?php
+	require_once('../utils/utils.php');
+
+	function createButtonInMenu($page, $text, $href) 
+	{
+		if ( check_SESSION_IsSetAndNotEmpty('page') && $_SESSION['page'] !== $page) { ?>
+		    <div>
+				<a href="<?php echo $href; ?>">
+	            	<button class="btn buttonMenu myOver">
+						<?php echo $text; ?>
+        	    	</button>
+        		</a>
+    		</div>
+<?php 
+		}
+	} 
+?>
+
 <div id="showMenu" onmouseover="showItem('menu');"></div>
 
 <div id="menu" onmouseover="showItem('menu');" onmouseout="hideItem('menu');" onClick="hideItem('menu');">
-    <div id="optionMenu"></div>
-    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="homepage") {?>
-    <div>
-        <a href="../homepage/homepage.php">
-            <button class="btn buttonMenu myOver">
-                Home
-            </button>
-        </a>
-    </div>
-    <?php } ?> 
-     
-    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="viewprofile") {?>
-    <div>
-        <a href="../viewProfile/viewProfile.php">
-            <button class="btn buttonMenu myOver">
-                Profilo
-            </button>
-        </a>
-    </div>
-    <?php } ?>
-    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="viewjobs") {?>
-    <div>
-        <a href="../viewJobs/viewJobs.php">
-            <button class="btn buttonMenu myOver">
-                I tuoi lavori
-            </button>
-        </a>
-    </div>
-    <?php } ?>
-    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="viewjobsrequired") {?>
-    <div>
-        <a href="../viewJobs/viewJobsRequired.php">
-            <button class="btn buttonMenu myOver">
-                I lavori richiesti
-            </button>
-        </a>
-    </div>
-    <?php } ?>
-    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="searchjobs") {?>
-    <div>
-        <a href="../searchJobs/searchJobs.php">
-            <button class="btn buttonMenu myOver">
-                Cerca un lavoro
-            </button>
-        </a>
-    </div>
-    <?php } ?> 
-    <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) &&  $_SESSION['page']!="chatView") {?>
-    <div>
-        <a href="../chatView/chatView.php">
-            <button class="btn buttonMenu myOver">
-                Chat
-            </button>
-        </a>
-    </div>
-    <?php } ?> 
-
-
-
+	<div id="optionMenu"></div>
+	<?php 
+			createButtonInMenu('homepage', 'Home', '../homepage/homepage.php');
+			createButtonInMenu('viewprofile', 'Profilo', '../viewProfile/viewProfile.php'); 
+			createButtonInMenu('viewjobs', 'I tuoi lavori', '../viewJobs/viewJobs.php'); 
+			createButtonInMenu('viewjobsrequired', 'I lavori richiesti', '../viewJobs/viewJobsRequired.php'); 
+			createButtonInMenu('searchjobs', 'Cerca un lavoro', '../searchJobs/searchJobs.php'); 
+			createButtonInMenu('chatview', 'Chat', '../chatView/chatView.php'); 
+			createButtonInMenu('privatemsg', 'Messaggi privati', '../privateMessages/privateMsg.php'); 
+	?>
 </div>
