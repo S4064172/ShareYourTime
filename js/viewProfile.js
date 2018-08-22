@@ -54,6 +54,7 @@ function addReadOnly()
 
 function enableChanges()
 {
+    hideItem('bntDelete');
     hideItem('bntModify');
     showItem('pswLabel');
     showItem('pswModified');
@@ -80,6 +81,7 @@ function disableChanges()
     hideItem('imgModified');
     addReadOnly();
     showItem('bntModify');
+    showItem('bntDelete');
 }
 
 function refreshImg(path)

@@ -8,20 +8,17 @@
 
 -> oscurare le cartelle/pagine secondarie
 
--> controlli sulle vaire funzioni del db
-
--> viewJobsReqiured
-    -> modifica valutazione da fare
-
--> cancellazione utente
-    -> disabilitare in fase di modifica
-
--> controlli su overlap dei lavori
--> nel modal di inserimento/modifica dei lavori manca il tag {[(! IMPORTANT)]}
+-> controlli sulle varie funzioni del db
 
 -> prenotazione lavoro
     -> problema se manometto id del lavoro
 
+-> index.php, searchJobs.php
+	-> ricerca per utente
+	(-> ricerca per parola chiave ?)
+
+-> chat e messaggi privati
+	-> responsive
 
 /*******************/
  problemi :
