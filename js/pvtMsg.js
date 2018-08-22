@@ -96,8 +96,10 @@ function sendPvtMessage()
 	var msg = document.getElementById('textMsg');
 	var obj = document.getElementById('obj');
 	
-	if (msg.value === '' || obj.value === '') 
+	if (msg.value === '' || obj.value === '') { 
+		document.getElementById('errMsg').innerHTML = 'IL messaggio e l\'oggetto devono essere presenti';
 		return;
+	}
 	
 	var userTo = document.getElementById('msgTo').value
 

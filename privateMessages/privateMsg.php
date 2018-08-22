@@ -94,7 +94,7 @@
 				<div class="col-md-4">
 					<div class="row">
 						<div class="col-md-6">
-							<b class="col-md-2 offset-md-4 ylwText f1-3em">Contatto &nbsp;</b>
+							<b class="col-md-4 ylwText f1-3em">Contatto &nbsp;</b>
 						</div>
 						<div class="col-md-6">
 							<input type="text" class="text-center w100" id="msgTo" disabled>
@@ -102,14 +102,14 @@
 					</div>
 					<div class="row">
 						<div class="col-md-6">
-							<b class="col-md-2 offset-md-4 ylwText f1-3em">Oggetto &nbsp;</b>
+							<b class="col-md-4 ylwText f1-3em">Oggetto &nbsp;</b>
 						</div>
 						<div class="col-md-6">
-							<input class="w100" type="text" id="obj" maxlength="<?php echo ObjMaxLength;?>" disabled>
+							<input class="w100" type="text" id="obj" onfocusin="cleanErr('errMsg')" maxlength="<?php echo ObjMaxLength;?>" disabled>
 						</div>
 					</div>
 					<div class="row">
-						<textarea cols="60" rows="10" id="textMsg" maxlength="<?php echo MsgMaxLength;?>" disabled></textarea>
+						<textarea cols="60" rows="10" id="textMsg" onfocusin="cleanErr('errMsg')" maxlength="<?php echo MsgMaxLength;?>" disabled></textarea>
 					</div>
 					<br>
 					<div class="row">
