@@ -12,7 +12,6 @@
     require_once('../utils/constant.php');   
 ?>
 
-
 <html>
  	<head>
     	<?php require ('../header/header.html'); ?>
@@ -32,8 +31,19 @@
             <?php require_once("../menu/menu.php"); ?>
             <?php require_once ('../alert/alert.php'); ?>
             <div class="text-center titleSessionTesto viewSearch">
-                <h1><b>Cerca un lavoro</b></h1>
-            </div>
+				<h1><b>Cerca un lavoro</b></h1>
+				<div class="myContainer text-center">
+					<div class="jumbotron myJumbo">
+						<p><i>"Immagina di avere un conto in banca sul quale ogni mattina vengono accreditati 86400&euro;. Ogni sera la banca cancella da quello stesso conto qualsiasi cifra tu non sia 
+							riuscito a spendere durante il giorno. Cosa faresti con quei 86400&euro; giornalieri ? Non li spenderesti forse fino all'ultimo centesimo ? In realt&agrave; tu gi&agrave;
+							disponi di un conto 'bancario' simile: si chiama TEMPO. Ogni giorno ti vengo accreditati 86400 secondi. A mezzanotte in punto puoi considerare perso qualsiasi ammontare
+							tu non abbia investito saggiamente durante la giornata. Non puoi andare in rosso e non puoi accumulare pi&ugrave; tempo. Non puoi chiedere anticipi o dilazioni di 
+							pagamento. Devi vivere nel presente. Investi quegli 86400 secondi in salute, felicit&agrave; e successo. L'orologio non si ferma, va sempre avanti. <br>
+							Non sprecare il tuo tempo."</i><br><br>Lo staff di <b><i>ShareYourTime</i></b></p>
+					</div>
+				</div>
+			</div>
+
         </section>
 
         <section class="optionSearch" onClick="hideItem('menu');">
@@ -121,9 +131,7 @@
             </div>
         </div>
 
-            
         </section>
-
 
         <?php require ('../footer/footer.php'); ?>
 
@@ -132,7 +140,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     
-        
         <script type="text/javascript" src="../js/constant.js"></script>
         <script type="text/javascript" src="../js/utils.js"></script>
         <script type="text/javascript" src="../js/alert.js"></script>
@@ -141,7 +148,6 @@
         <script type="text/javascript" src="../js/bookJobs.js"></script>
         <script type="text/javascript" src="../js/searchJobs.js"></script>
         
-
         <?php require_once('googleAPIkey.html'); ?>
 		
 	</body>
