@@ -31,3 +31,9 @@ a:focus {
 .clickable {
     cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+	.myNavBar {
+		max-height: 50em;
+	}
+}
