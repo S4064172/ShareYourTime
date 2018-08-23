@@ -16,14 +16,14 @@
 
  function removeReadOnly() 
  {
-    document.getElementById("userModified").readOnly = false;
-    document.getElementById("emailModified").readOnly = false;
-    document.getElementById("pswModified").readOnly = false;
-    document.getElementById("pswConfModified").readOnly = false;
-    document.getElementById("nameModified").readOnly = false;
-    document.getElementById("surnameModified").readOnly = false;
-    document.getElementById("addressModified").readOnly = false;
-    document.getElementById("phoneModified").readOnly = false;
+    document.getElementById("userModified").disabled = false;
+    document.getElementById("emailModified").disabled = false;
+    document.getElementById("pswModified").disabled = false;
+    document.getElementById("pswConfModified").disabled = false;
+    document.getElementById("nameModified").disabled = false;
+    document.getElementById("surnameModified").disabled = false;
+    document.getElementById("addressModified").disabled = false;
+    document.getElementById("phoneModified").disabled = false;
  }
 
  /** @description
@@ -35,14 +35,14 @@
 
 function addReadOnly() 
 {
-    document.getElementById("userModified").readOnly = true;
-    document.getElementById("emailModified").readOnly = true;
-    document.getElementById("pswModified").readOnly = true;
-    document.getElementById("pswConfModified").readOnly = true;
-    document.getElementById("nameModified").readOnly = true;
-    document.getElementById("surnameModified").readOnly = true;
-    document.getElementById("addressModified").readOnly = true;
-    document.getElementById("phoneModified").readOnly = true;
+    document.getElementById("userModified").disabled = true;
+    document.getElementById("emailModified").disabled = true;
+    document.getElementById("pswModified").disabled = true;
+    document.getElementById("pswConfModified").disabled = true;
+    document.getElementById("nameModified").disabled = true;
+    document.getElementById("surnameModified").disabled = true;
+    document.getElementById("addressModified").disabled = true;
+    document.getElementById("phoneModified").disabled = true;
 }
 
 /** @description

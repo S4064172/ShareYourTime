@@ -74,7 +74,7 @@
                                     <label class="labelText"><b>Username</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkUsernameUpdate('userModified','errUserModified','<?php echo $row['User'] ?>')" onfocusin="cleanErr('errUserModified')" id="userModified" class="inputType" type="text" value="<?php echo sanitizeToHtml($row['User']) ?>" name="user" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> readonly>
+                                    <input onfocusout="checkUsernameUpdate('userModified','errUserModified','<?php echo $row['User'] ?>')" onfocusin="cleanErr('errUserModified')" id="userModified" class="inputType" type="text" value="<?php echo sanitizeToHtml($row['User']) ?>" name="user" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> disabled>
                                     <p id="errUserModified"></p> 
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                 <label class="labelText"><b>Email</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkEmailUpdate('emailModified','errEmailModified','<?php echo $row['Email'] ?>')" onfocusin="cleanErr('errEmailModified')" id="emailModified" class="inputType" type="email" value="<?php echo sanitizeToHtml($row['Email']) ?>" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> readonly>
+                                    <input onfocusout="checkEmailUpdate('emailModified','errEmailModified','<?php echo $row['Email'] ?>')" onfocusin="cleanErr('errEmailModified')" id="emailModified" class="inputType" type="email" value="<?php echo sanitizeToHtml($row['Email']) ?>" name="email" minlength=<?php echo EmailMinLength?> maxlength=<?php echo EmailMaxLength?> disabled>
                                     <p id="errEmailModified"></p>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                                     <label class="labelText"><b>Nome</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkName('nameModified','errNameModified')" onfocusin="cleanErr('errNameModified')" id="nameModified" class="inputType" type="text" value="<?php echo sanitizeToHtml($row['Name']) ?>" name="name" minlength=<?php echo NameMinLength?> maxlength=<?php echo NameMaxLength?> readonly>
+                                    <input onfocusout="checkName('nameModified','errNameModified')" onfocusin="cleanErr('errNameModified')" id="nameModified" class="inputType" type="text" value="<?php echo sanitizeToHtml($row['Name']) ?>" name="name" minlength=<?php echo NameMinLength?> maxlength=<?php echo NameMaxLength?> disabled>
                                     <p id="errNameModified"></p>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@
                                     <label class="labelText"><b>Cognome</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkSurname('surnameModified','errSurnameModified')" onfocusin="cleanErr('errSurnameModified')" id="surnameModified"  class="inputType" type="text" value="<?php echo sanitizeToHtml($row['Surname']) ?>" name="surname" minlength=<?php echo SurnameMinLength?> maxlength=<?php echo SurnameMaxLength?> readonly> 
+                                    <input onfocusout="checkSurname('surnameModified','errSurnameModified')" onfocusin="cleanErr('errSurnameModified')" id="surnameModified"  class="inputType" type="text" value="<?php echo sanitizeToHtml($row['Surname']) ?>" name="surname" minlength=<?php echo SurnameMinLength?> maxlength=<?php echo SurnameMaxLength?> disabled> 
                                     <p id="errSurnameModified"></p>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                                     <label class="labelText" ><b>Indirizzo</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkAddress('addressModified','errAddressModified')" onfocusin="cleanErr('errAddressModified')" id="addressModified" class="inputType" type="text" value="<?php echo sanitizeToHtml($row['Street']) ?>" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> readonly>
+                                    <input onfocusout="checkAddress('addressModified','errAddressModified')" onfocusin="cleanErr('errAddressModified')" id="addressModified" class="inputType" type="text" value="<?php echo sanitizeToHtml($row['Street']) ?>" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> disabled>
                                     <p id="errAddressModified"></p>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                                     <label class="labelText"><b>Telefono</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkPhoneUpdate('phoneModified','errPhoneModified','<?php echo $row['Phone'] ?>')" onfocusin="cleanErr('errPhoneModified')" id="phoneModified" class="inputType" type="tel" value="<?php echo sanitizeToHtml($row['Phone']) ?>" name="phone" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> readonly>
+                                    <input onfocusout="checkPhoneUpdate('phoneModified','errPhoneModified','<?php echo $row['Phone'] ?>')" onfocusin="cleanErr('errPhoneModified')" id="phoneModified" class="inputType" type="tel" value="<?php echo sanitizeToHtml($row['Phone']) ?>" name="phone" minlength=<?php echo PhoneLength?> maxlength=<?php echo PhoneLength?> disabled>
                                     <p id="errPhoneModified"></p>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                     <label class="labelText fieldHide" id="pswLabel"><b>Password</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkPswUpdate('pswModified','errPswModified')" onfocusin="cleanErr('errPswModified')" id="pswModified" class="inputTypePsw" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
+                                    <input onfocusout="checkPswUpdate('pswModified','errPswModified')" onfocusin="cleanErr('errPswModified')" id="pswModified" class="inputTypePsw" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" disabled>
                                     <p id="errPswModified"></p>
                                 </div>
                             </div>
@@ -144,7 +144,7 @@
                                     <label class="labelText fieldHide" id="pswConfLabel"><b>Conferma password</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onfocusout="checkConfPswUpdate('pswConfModified','errPswConfModified','pswModified')" onfocusin="cleanErr('errPswModified')" id="pswConfModified" class="inputTypePsw" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" readonly>
+                                    <input onfocusout="checkConfPswUpdate('pswConfModified','errPswConfModified','pswModified')" onfocusin="cleanErr('errPswModified')" id="pswConfModified" class="inputTypePsw" type="password" name="psw" minlength="<?php echo PasswordMinLength?>" disabled>
                                     <p id="errPswConfModified"></p>
                                 </div>
                             </div>
