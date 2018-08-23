@@ -15,11 +15,5 @@
 
 -> index.php, searchJobs.php
 	-> ricerca per utente
+	(-> ricerca per utenti migliori ?)
 	(-> ricerca per parola chiave ?)
-
--> chat e messaggi privati
-	-> responsive
-
-/*******************/
- problemi :
-    -> la navBar in homePage cambia dimensione ma non so il perchè;

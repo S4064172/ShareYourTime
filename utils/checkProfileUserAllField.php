@@ -95,15 +95,15 @@
 		//Controlli sulla foto 
 		$path = '../../profile_imgs/' . $_POST['user']. '.jpg';
 		
-		$imageFileType = strtolower(pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION));
-		
+		$imageFileType = exif_imagetype($_FILES['photo']['tmp_name']);
+
 		if ( $_FILES['photo']['size'] > 1000000 )
 			if($_POST['registration'] === '0') 
 				$result['errPhoto'] = "File troppo grosso";
 			else
 				$result['errPhotoModified'] =  "File troppo grosso";
 		else 
-			if ( $imageFileType !== 'jpg' && $imageFileType !== 'png' && $imageFileType !== 'jpeg' ) 
+			if ( $imageFileType !== IMAGETYPE_PNG && $imageFileType !== IMAGETYPE_JPEG ) 
 				if($_POST['registration'] === '0')
 					$result['errPhoto'] = 'Formato della foto non valido';
 				else
