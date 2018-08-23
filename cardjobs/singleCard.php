@@ -69,8 +69,8 @@
                     <?php if ( $_SESSION['page'] == "viewjobs" && $row['Receiver'] == null ) {
                         
                             $_SESSION['id'.$row['IdJob']]="modOrDel";
-                        ?>
-                        <button type="button" onClick="fillModalFieldJobs('modalModify_<?php echo sanitizeToHtml( $row['IdJob']) ?>')" id="modalModify_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#jobsModal">Modifica</button>
+					?>
+                        <button type="button" onClick="emptyErrorModalJobs(); fillModalFieldJobs('modalModify_<?php echo sanitizeToHtml( $row['IdJob']) ?>');" id="modalModify_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-warning mr-5" data-toggle="modal" data-target="#jobsModal">Modifica</button>
                         <button id="modalDelete_<?php echo sanitizeToHtml( $row['IdJob']) ?>" class="btn btn-danger" onClick="addEvent(<?php echo sanitizeToHtml( $row['IdJob']) ?>);" data-toggle="modal" data-target="#confirmDelete">Elimina</button>
                     <?php } ?>
                     <?php if ( $_SESSION['page'] == "searchjobs" ) {

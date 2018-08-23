@@ -30,15 +30,11 @@
 		<?php require_once('../noscript/noscript.html'); ?>
         <?php require_once("../cardjobs/showAllCard.php");?>
        
-       
-       
-
         <section class="viewJobs" onClick="hideItem('menu');">
             <?php require_once("../menu/menu.php"); ?>
             <?php require_once("../modalView/jobsView.php");?>
             <?php require_once("../modalView/confirmOperation.php"); ?>
             <?php require_once ('../alert/alert.php'); ?>
-            
 
             <div class="myContainer text-center titleSessionTesto" id="prova">
 				<h1><b class="colorTitle">I tuoi impegni</b></h1>
