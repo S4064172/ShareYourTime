@@ -6,7 +6,7 @@
                 <br>
             </div>
 		</div>
-		<form action="../contactUs/emailAdmin.php" method="POST">
+		<form action="../utils/emailAdmin.php" method="POST">
 	        <div class="row text-center">
     	        <div class="col-12 col-md-6">
         	        <textarea id="myTextArea" rows=15 name="textEmail"></textarea> 
