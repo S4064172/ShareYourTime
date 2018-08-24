@@ -6,8 +6,6 @@
 -> insertFunction.php
     -> modificare le insert coi default per i campi non necessari
 
--> oscurare le cartelle/pagine secondarie
-
 -> controlli sulle varie funzioni del db
 
 -> prenotazione lavoro
