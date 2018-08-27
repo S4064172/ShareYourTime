@@ -8,7 +8,7 @@ body, html {
 }
 
 .viewChat{
-    min-height: 100vh;
+    min-height: 65vh;
     width: auto;
 	background-image: url("../img/sfondoChat.jpg");
 	background-size: cover;
@@ -16,7 +16,7 @@ body, html {
 
 #userListView {
     margin-top: 4.5em;
-    min-height: 85vh;
+    min-height: 65vh;
     width: 300px;
     background-color: rgb(10, 10, 10, 0.6);
 }
@@ -29,7 +29,7 @@ body, html {
 
 #chatView {
     margin-top: 4.5em;
-    min-height: 80vh;
+    min-height: 65vh;
     width: 100%;
 	background-color: rgb(200, 200, 200, 0.3);
 }
