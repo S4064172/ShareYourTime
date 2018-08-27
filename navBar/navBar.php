@@ -175,6 +175,8 @@
                 
             <?php if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) {?>
                 <div class="offset-5 offset-md-0 col-md-4 collapse navbar-collapse navbarTogglerSignupLogin">
+
+                    <div class="d-none"> <i class="far fa-comments"></i> </div>
                     <form class="dimW100" action="../utils/logout.php" >
                         <button type='submit' class='btn btn-warning d-block d-sm-inline btnSize float-md-right mt-2'>
                             <i class='fa fa-sign-out-alt'></i>
@@ -185,7 +187,7 @@
             <?php }else{ ?>
                 <div class="offset-4 offset-md-0 col-md-4 collapse navbar-collapse navbarTogglerSignupLogin">
                     <div class="dimW100">
-
+                        
                         <button type='button' href='#' class='btn btn-primary mr-2 d-block d-sm-inline btnSize float-md-right' onClick='myCollapseHide()' data-toggle='modal' data-target='#signUpModalTarget'>
                             <i class='fa fa-user-plus'></i>
                             Registrati

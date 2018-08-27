@@ -89,10 +89,10 @@
                         <?php
                             require_once('../db/connection.php');
 
-                            $getJobsQuery = "SELECT Tag FROM ShareYourTagsTime ORDER BY Tag ASC;";
+                            $getTagsQuery = "SELECT Tag FROM ShareYourTagsTime ORDER BY Tag ASC;";
                             $conn = connectionToDb();
 
-                            if ( !($res = mysqli_query($conn, $getJobsQuery)) ) 
+                            if ( !($res = mysqli_query($conn, $getTagsQuery)) ) 
                                 die('Errore nella selezione dei lavori');
 
                             while( $row = mysqli_fetch_array($res) ) 
@@ -105,6 +105,40 @@
                     <p id="errOptionTag"></p>
                 </div>
             </div>
+        </div>
+
+        <div class="myContainer">
+            <div class ="row">
+                <div class="offset-md-3 col-md-3"> 
+                <select class="custom-select mySelection"  id="optionUser" name="userName">
+                        <option selected disabled>Seleziona l'utente</option>
+                        <?php
+                            require_once('../db/connection.php');
+
+                            $getUserQuery = "SELECT User FROM ShareYourUsersTime ORDER BY User ASC;";
+                            $conn = connectionToDb();
+
+                            if ( !($res = mysqli_query($conn, $getUserQuery)) ) 
+                                die('Errore nella selezione dei lavori');
+
+                            while( $row = mysqli_fetch_array($res) ){
+                                $getValuationQuery = "SELECT AVG(Evaluation) FROM ShareYourJobsTime WHERE Proposer ='".$row['User']."' AND Evaluation <> 0;";
+
+                                if ( !($res1 = mysqli_query($conn, $getValuationQuery)) ) 
+                                    die('Errore nella selezione dei lavori');
+                                $row1 = mysqli_fetch_array($res1);
+                                echo '<option>'.$row['User'].$row1[0].'</option>';
+                                mysqli_free_result($res1);
+                            }
+                                
+
+                            mysqli_free_result($res);
+                            mysqli_close($conn);                                
+                        ?>
+                    </select>
+                </div>
+
+            </div>  
         </div>
 
         <div class="myContainer">
