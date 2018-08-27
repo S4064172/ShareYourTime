@@ -53,8 +53,7 @@ function validateCheckLoginAllField(idErrField, idWait, request)
 	}
 }
 
-/*
- * @description
+/** @description
  * Questa funzione effettua un click se l'utente preme ENTER
  * sul pulsante per effettuare il login
  */

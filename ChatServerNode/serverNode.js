@@ -43,7 +43,7 @@ function prepareUserlistMessage() {
     };
 
     for (var i = 0; i < connectedUsers.length; i++)
-        msg.listOfUsers.push(connectedUsers[i].clientId);
+        msg.listOfUsers.push(connectedUsers[i].clientId + '<br>');
 
     return msg;
 }
