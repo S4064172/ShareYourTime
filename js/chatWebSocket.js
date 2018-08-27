@@ -39,7 +39,7 @@ function sendMessage() {
     textF.value = '';
 }
 
-/*
+/**
     @description: Questa funzione fa inviare un messaggio quando viene premuto ENTER (13,14)
 */
 function handleKey (e) {
@@ -48,7 +48,7 @@ function handleKey (e) {
             sendMessage();
 }
 
-/*
+/**
     @description: Questa funzione effettua la connessione al server NodeJS per
                   permettere al client di entrare a far parte della chat
 */
@@ -110,4 +110,3 @@ function connectToServer(userSYT) {
         } 
     }
 }
-
