@@ -41,7 +41,7 @@
 
 	function populateSelect($conn) 
 	{
-		$usersQuery = "SELECT User From ShareYourUsersTime WHERE User <> '".$_SESSION['user']."';";
+		$usersQuery = "SELECT User From ShareYourUsersTime WHERE User <> '".$_SESSION['user']."' ORDER BY User;";
 
 	 	if ( !($res = mysqli_query($conn, $usersQuery)) ) 
 	        die('Errore nella selezione dei lavori');
