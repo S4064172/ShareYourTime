@@ -31,7 +31,7 @@
             <?php require_once("../menu/menu.php"); ?>
             <?php require_once ('../alert/alert.php'); ?>
             <div class="text-center titleSessionTesto viewSearch">
-				<h1><b>Cerca un lavoro</b></h1>
+				<h1><b class="colorTitle">Cerca un lavoro</b></h1>
 				<div class="myContainer text-center">
 					<div class="jumbotron myJumbo">
 						<p><i>"Immagina di avere un conto in banca sul quale ogni mattina vengono accreditati 86400&euro;. Ogni sera la banca cancella da quello stesso conto qualsiasi cifra tu non sia 

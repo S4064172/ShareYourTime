@@ -53,5 +53,13 @@ function validateCheckLoginAllField(idErrField, idWait, request)
 	}
 }
 
+/*
+ * @description
+ * Questa funzione effettua un click se l'utente preme ENTER
+ * sul pulsante per effettuare il login
+ */
 
-
+function handleKey(e) {
+	if (e.keyCode === 13 || e.keyCode === 14)
+		document.getElementById('logBtn').click();
+}
