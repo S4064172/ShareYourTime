@@ -87,6 +87,7 @@ img.avatar {
     border: 1px solid #ccc;
     box-sizing: border-box;
 	font-size: 15px;
+	max-height: 35px;
 }
 
 .inputTextModal {
@@ -124,10 +125,6 @@ img.avatar {
 .animate {
     -webkit-animation: animatezoom 0.5s;
     animation: animatezoom 0.5s
-}
-
-input, select {
-	max-height: 24px;
 }
 
 @-webkit-keyframes animatezoom {
