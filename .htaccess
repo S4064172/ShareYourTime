@@ -3,3 +3,7 @@ Options -Indexes
 
 #il file di indice devi chiamarsi come scritto in questa direttiva
 DirectoryIndex index.html index.php
+
+#messaggio personalizzato nel caso di errore 404
+ErrorDocument 404 "<!DOCTYPE html><html><head><meta charset='utf-8'><title>404 PAGE NOT FOUND</title></head><body class='myImg'><style>.myImg {background-image: url('../img/c28.jpg');background-size: cover;background-repeat: no-repeat;background-position: center;width: auto;height: 80vh;}</style></body></html>"
+

@@ -5,11 +5,11 @@
 	{
 		if ( check_SESSION_IsSetAndNotEmpty('page') && $_SESSION['page'] !== $page) { ?>
 		    <div>
-				<a href="<?php echo $href; ?>">
+				<form method="GET" action="<?php echo $href; ?>">
 	            	<button class="btn buttonMenu myOver">
 						<?php echo $text; ?>
         	    	</button>
-        		</a>
+        		</form>
     		</div>
 <?php 
 		}

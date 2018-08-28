@@ -30,7 +30,7 @@
 			echo '<b id="noChat">Nessuna chat disponibile</b><br>';
 		} else {
 			for ($i = 0; $i < $rows && ($row = mysqli_fetch_array($res)); $i++) 
-					echo '<button onclick="openOldChat(\''.sanitizeToHtml($row['Sender']).'\');" class="prevChatBtn" type="submit">'.
+					echo '<button onclick="cleanErr(\'errMsg\'); openOldChat(\''.sanitizeToHtml($row['Sender']).'\');" class="prevChatBtn" type="submit">'.
 							'<span class="namesInChat">'.sanitizeToHtml($row['Sender']).'</span>&nbsp;&nbsp;'.
 							'<i id="chat_'.sanitizeToHtml($row['Sender']).'" class="fas fa-envelope'.(usrInArr($row['Sender'], $arr) ? ' redEnv' : '').'"></i>'.
 						 '</button>';
@@ -56,14 +56,14 @@
 
 	$conn = connectionToDb();
 ?>
-
-<html>
+<!DOCTYPE html>
+<html lang="it">
  	<head>
     	<?php require ('../header/header.html'); ?>
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
 		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
-		<link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
 		<link rel="stylesheet" type="text/css" href="privateMsg.css"/>
+		<link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
     </head>
 	
 	<body onclick="myCollapseHide();">
@@ -82,7 +82,7 @@
 			</div>
 			<br>	
 			<div class="row">
-				<div id="prevChat" class="col-md-2 chatSection text-center" onfocusin="cleanErr('errMsg')" onload="openChat()">
+				<div id="prevChat" class="col-md-2 chatSection text-center" onload="openChat()">
 					<h3 class="ylwText">Contatti</h3>
 					<?php
 						showOldChat($conn);
@@ -104,11 +104,11 @@
 							<b class="col-md-4 ylwText f1-3em">Oggetto &nbsp;</b>
 						</div>
 						<div class="col-md-6">
-							<input class="w100" type="text" id="obj" onfocusin="cleanErr('errMsg')" maxlength="<?php echo ObjMaxLength;?>" disabled>
+							<input class="w100" type="text" id="obj" onfocus="cleanErr('errMsg')" maxlength="<?php echo ObjMaxLength;?>" disabled>
 						</div>
 					</div>
 					<div class="row">
-						<textarea cols="60" rows="10" id="textMsg" onfocusin="cleanErr('errMsg')" maxlength="<?php echo MsgMaxLength;?>" disabled></textarea>
+						<textarea cols="60" rows="10" id="textMsg" onfocus="cleanErr('errMsg')" maxlength="<?php echo MsgMaxLength;?>" disabled></textarea>
 					</div>
 					<br>
 					<div class="row">
@@ -126,15 +126,15 @@
         <?php require ('../footer/footer.php'); ?>
 
         <!-- BOOTSTRAP -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     
         
-        <script type="text/javascript" src="../js/utils.js"></script>
-	    <script type="text/javascript" src="../js/navBar.js"></script>
-		<script type="text/javascript" src="../js/viewProfile.js"></script>
-		<script type="text/javascript" src="../js/pvtMsg.js"></script>
+        <script src="../js/utils.js"></script>
+	    <script src="../js/navBar.js"></script>
+		<script src="../js/viewProfile.js"></script>
+		<script src="../js/pvtMsg.js"></script>
         
 	</body>
 </html>

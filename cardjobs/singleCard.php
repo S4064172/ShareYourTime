@@ -11,14 +11,14 @@
         <div class="card" id="<?php echo sanitizeToHtml($row['IdJob'])?>">
             <div class="card-body cardBack">
                 <ul class="list-group list-group-flush">
-                    <i><h5 class="card-title" style="padding-top:1em;"><li class="list-group-item p-0 m-0 h3em cardBack" id="cardDescription_<?php echo sanitizeToHtml($row['IdJob'])?>" value="<?php echo sanitizeToHtml($row['Description'])?>" ><?php echo sanitizeToHtml($row['Description'])?></li></h5></i>
-                    <li class="list-group-item cardBack" id="cardCost_<?php echo sanitizeToHtml($row['IdJob'])?>" value="<?php echo sanitizeToHtml( $row['Cost']) ?>"><?php echo  "Costo  ".sanitizeToHtml($row['Cost'])." &euro;" ?></li>
-                    <li class="list-group-item cardBack" id="cardTimeStart_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['TimeStart']) ?>"><?php echo "Inizio  ".sanitizeToHtml($row['TimeStart']) ?></li>
-                    <li class="list-group-item cardBack" id="cardTimeEnd_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['TimeEnd']) ?>"><?php echo  "Fine  ".sanitizeToHtml($row['TimeEnd']) ?></li>
-					<li class="list-group-item cardBack" id="cardDistance_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['Distance']) ?>"><?php echo  "Nel raggio di ".sanitizeToHtml($row['Distance'])." Km" ?></li>
-					<li class="list-group-item cardBack" id="cardTag_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['Tag']) ?>"><?php echo "Categoria : ".sanitizeToHtml($row['Tag']) ?></li>
+                    <li class="list-group-item p-0 m-0 h3em cardBack"><h5 class="card-title" style="padding-top:1em;"><i id="cardDescription_<?php echo sanitizeToHtml($row['IdJob'])?>" ><?php echo sanitizeToHtml($row['Description'])?></i></h5></li>
+                    <li class="list-group-item cardBack"><?php echo "Costo  <i id='cardCost_".sanitizeToHtml($row['IdJob'])."'>".sanitizeToHtml($row['Cost'])."</i> &euro;" ?></li>
+                    <li class="list-group-item cardBack"><?php echo "Inizio  <i id='cardTimeStart_".sanitizeToHtml( $row['IdJob'])."'>".sanitizeToHtml($row['TimeStart']) ?></i></li>
+                    <li class="list-group-item cardBack"><?php echo  "Fine  <i id='cardTimeEnd_".sanitizeToHtml( $row['IdJob'])."'>".sanitizeToHtml($row['TimeEnd']) ?></i></li>
+					<li class="list-group-item cardBack"><?php echo  "Nel raggio di <i id='cardDistance_".sanitizeToHtml( $row['IdJob'])."'>".sanitizeToHtml($row['Distance'])."</i> Km." ?></li>
+					<li class="list-group-item cardBack"><?php echo "Categoria : <i id='cardTag_".sanitizeToHtml( $row['IdJob'])."'>".sanitizeToHtml($row['Tag']) ?></i></li>
                     <?php  if ($_SESSION['page'] != "index" && $row['TimeStart'] < date('Y-m-d H:i:s') ) {?>
-                        <li class="list-group-item h3em cardBack paddingbutton" id="cardValuation_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['Evaluation']) ?>">
+                        <li class="list-group-item h3em cardBack paddingbutton" id="cardValuation_<?php echo sanitizeToHtml( $row['IdJob']) ?>">
                             <?php 
                                 //se il lavoro non ha valutazioni si da 
                                 //la possibilità di valutare
@@ -41,7 +41,7 @@
 												<span>Valuta questo lavoro !</span>
 											</button>
                             <?php       } 
-								}else
+								} else
 										for($i = 0; $i < 5; $i++)
 											if ( $i < $row['Evaluation'] )
 												echo "<i class='fa fa-star checked' style='color: rgb(196,160,0);'></i>";
@@ -50,13 +50,13 @@
                             ?>
                         </li>
                     <?php } ?>
-                    <li class="list-group-item cardBack h5em" id="cardStreet_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['Street']) ?>"><?php echo sanitizeToHtml( $row['Street']) ?></li>
+                    <li class="list-group-item cardBack h5em"><i id="cardStreet_<?php echo sanitizeToHtml( $row['IdJob']) ?>"><?php echo sanitizeToHtml( $row['Street']) ?></i></li>
                     <?php if ( $_SESSION['page'] == "index" || $_SESSION['page'] == "viewjobsrequired" || $_SESSION['page'] == "homepage" || $_SESSION['page'] == "searchjobs" ) {?>
-                        <li class="list-group-item cardBack" id="cardProposer_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['Proposer']) ?>">Proposto da <?php echo sanitizeToHtml( $row['Proposer']) ?></li>
+                        <li class="list-group-item cardBack" id="cardProposer_<?php echo sanitizeToHtml( $row['IdJob']) ?>">Proposto da <?php echo sanitizeToHtml( $row['Proposer']) ?></li>
                     <?php } ?>
                     <?php if ( ( $_SESSION['page'] == "viewjobs" || $_SESSION['page'] == "homepage" ) ) {?>
                         <?php if ( $row['Receiver'] != null  ) {?>
-                            <li class="list-group-item h2em cardBack" id="cardReciver_<?php echo sanitizeToHtml( $row['IdJob']) ?>" value="<?php echo sanitizeToHtml( $row['Receiver']) ?>">Richiesto da <?php echo sanitizeToHtml( $row['Receiver']) ?></li>
+                            <li class="list-group-item h2em cardBack" id="cardReciver_<?php echo sanitizeToHtml( $row['IdJob']) ?>">Richiesto da <?php echo sanitizeToHtml( $row['Receiver']) ?></li>
                         <?php } else {?>
                             <li class="list-group-item h2em cardBack" id="cardReciver_<?php echo sanitizeToHtml( $row['IdJob']) ?>" >Disponibile al momento</li>
                         <?php } ?>

@@ -1,4 +1,4 @@
-<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+<div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 
@@ -7,7 +7,7 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <label><b>Inserisci la password</b></label>
-                            <input onfocusout="checkPsw('modalPswDelete', 'errModalPswDelete');" onfocusin="cleanErr('errModalPswDelete');" id="modalPswDelete" class="inputTextModal" type="password" name="psw" minlength=<?php echo PasswordMinLength?>>
+                            <input onblur="checkPsw('modalPswDelete', 'errModalPswDelete');" onfocus="cleanErr('errModalPswDelete');" id="modalPswDelete" class="inputTextModal" type="password" name="psw" minlength=<?php echo PasswordMinLength?>>
                             <p id="errModalPswDelete"></p>    
                         </div>                                                        
                     </div>

@@ -27,20 +27,20 @@ function fillModalFieldJobs(id)
 {
     var num = id.split("_");
     document.getElementById('modalDescription').value =
-        document.getElementById('cardDescription_' + num[1]).getAttribute('value');
+        document.getElementById('cardDescription_' + num[1]).innerHTML/*getAttribute('value')*/;
 
     document.getElementById('modalCost').value =
-        document.getElementById('cardCost_' + num[1]).getAttribute('value');
-    
-    var startDate = document.getElementById('cardTimeStart_' + num[1]).getAttribute('value').split(" ");
+        document.getElementById('cardCost_' + num[1]).innerHTML/*getAttribute('value')*/;
+  
+    var startDate = document.getElementById('cardTimeStart_' + num[1]).innerHTML/*getAttribute('value')*/.split(" ");
     document.getElementById('modalDateStart').value = startDate[0];
 	document.getElementById('modalDateStart').addEventListener('focusout', timeFunction(startDate[0], 'modalDateStart', num[1]));
-
+ 
     var startTime = startDate[1].split(":");
     document.getElementById('modalTimeStart').value = startTime[0] + ":" + startTime[1];
     document.getElementById('modalTimeStart').addEventListener('focusout', timeFunction(startTime[0] + ":" + startTime[1], 'modalTimeStart', num[1]));
 
-    var endDate = document.getElementById('cardTimeEnd_' + num[1]).getAttribute('value').split(" ");
+    var endDate = document.getElementById('cardTimeEnd_' + num[1])./*getAttribute('value')*/innerHTML.split(" ");
     document.getElementById('modalDateEnd').value = endDate[0];
 	document.getElementById('modalDateEnd').addEventListener('focusout', timeFunction(endDate[0], 'modalDateEnd', num[1]));
 
@@ -49,12 +49,13 @@ function fillModalFieldJobs(id)
 	document.getElementById('modalTimeEnd').addEventListener('focusout', timeFunction(endTime[0] + ":" + endTime[1], 'modalTimeEnd', num[1]));
 
     document.getElementById('modalDistance').value =
-        document.getElementById('cardDistance_' + num[1]).getAttribute('value');
+        document.getElementById('cardDistance_' + num[1])./*getAttribute('value')*/innerHTML;
+
     document.getElementById('modalStreet').value =
-        document.getElementById('cardStreet_' + num[1]).getAttribute('value');
-  
+        document.getElementById('cardStreet_' + num[1])./*getAttribute('value')*/innerHTML;
+ 
 	document.getElementById('optionModalTag').value =
-		document.getElementById('cardTag_' + num[1]).getAttribute('value');
+		document.getElementById('cardTag_' + num[1])./*getAttribute('value')*/innerHTML;
 
 	//bottone all'interno del modal
 	var button = document.getElementById('modButton');

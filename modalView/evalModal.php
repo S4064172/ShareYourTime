@@ -1,4 +1,4 @@
-<div class="modal fade" id="evalModal" tabindex="-1" role="dialog" aria-labelledby="evalModalLabel" aria-hidden="true">
+<div class="modal fade" id="evalModal" tabindex="-1" role="dialog"  aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-body">
@@ -27,7 +27,7 @@
 									</div>
 									<br>	
 									<div class="row">
-										<input id="evalOk" type="submit" value="Ok"></input>
+										<input id="evalOk" type="submit" value="Ok">
 									</div>
 								</form>
 							</div>

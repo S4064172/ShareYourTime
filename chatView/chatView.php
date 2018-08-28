@@ -12,7 +12,7 @@
 	$_SESSION['page'] = "chatview";
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="it">
  	<head>
 		<?php require ('../header/header.html'); ?>
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
@@ -28,15 +28,15 @@
 		<?php require_once('../menu/menu.php'); ?>
     
 		<section class="navbar navbar-expand-md viewChat">
-			<button class="navbar-toggler text-center" id="bntUserChat" type="button" data-toggle="collapse" data-target=".UserInChat" aria-controls="UserInChat" aria-expanded="false" aria-label="Toggle navigation">
-        		<span style="color: black;">
-                		Users
-	        	</span>
-    		</button>
+			<button class="navbar-toggler text-center" id="bntUserChat" type="button" data-toggle="collapse" data-target="#userListView" aria-controls="userListView" aria-expanded="false" aria-label="Toggle navigation">
+        	<span style="color: black;">
+                	Users
+        	</span>
+    	</button>
 			
 			<div class="myContainer">
 				<div class="row text-center">
-					<h1>Se vuoi scrivere un messaggio privato scrivi @<i>NomeUtente</i> e poi il tuo messaggio</h1>
+					<h2>Se vuoi scrivere un messaggio privato scrivi @<i>NomeUtente</i> e poi il tuo messaggio</h2>
 				</div>
 				<div class="row">		
 					<div class="col-md-2 collapse navbar-collapse" id="userListView"></div>
@@ -60,14 +60,14 @@
 		
 
 		<!-- BOOTSTRAP -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-		<script type="text/javascript" src="../js/utils.js"></script>
-		<script type="text/javascript" src="../js/navBar.js"></script>
-
-		<script type="text/javascript" src="../js/chatWebSocket.js"></script>
-				
+		<script src="../js/chatWebSocket.js"></script>
+		
+		<script src="../js/utils.js"></script>
+		<script src="../js/navBar.js"></script>
+	
     </body>
 </html>
