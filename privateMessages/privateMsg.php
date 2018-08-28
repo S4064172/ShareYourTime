@@ -22,7 +22,7 @@
 						  "SELECT DISTINCT Receiver FROM ShareYourPvtMsgTime WHERE Sender='".$_SESSION['user']."'";
 
 	 	if ( !($res = mysqli_query($conn, $prevChatsQuery)) ) 
-    		die('Errore nella selezione della chat'.mysqli_error($conn));
+    		die('Errore nella selezione della chat');
 
 		$rows = mysqli_num_rows($res);
 
@@ -44,7 +44,7 @@
 		$usersQuery = "SELECT User From ShareYourUsersTime WHERE User <> '".$_SESSION['user']."' ORDER BY User;";
 
 	 	if ( !($res = mysqli_query($conn, $usersQuery)) ) 
-	        die('Errore nella selezione dei lavori');
+	        die('Errore nella selezione degli utenti');
 
 	    $rows = mysqli_num_rows($res);
 		
@@ -64,7 +64,6 @@
 		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
 		<link rel="stylesheet" type="text/css" href="privateMsg.css"/>
-	    <!--link rel="stylesheet" type="text/css" href="../homepage/homepage.css"/--> 
     </head>
 	
 	<body onclick="myCollapseHide();">

@@ -1,23 +1,43 @@
 "use strict";
 
-/*
- * @description
+/** @description
  * Questa funzione crea un bottone per una nuova chat
  */
 function createButton(userTo)
 {
 	var prevChats = document.getElementById('prevChat');
 
-	var button = document.createElement('input');
+	var button = document.createElement('button');
+	var span = document.createElement('span');
+	var i = document.createElement('i');
+	i.setAttribute('id', 'chat_' + userTo);
+	i.setAttribute('class', 'fas fa-envelope');
+	span.innerHTML = userTo + '&nbsp;&nbsp;';
+	span.setAttribute('class', 'namesInChat');
 	button.setAttribute('class', 'prevChatBtn');
-    button.setAttribute('type', 'button');
-    button.setAttribute('value', userTo);
+    button.setAttribute('type', 'submit');
+   
+	button.appendChild(span);
+	button.appendChild(i);
+
+	button.onclick = onclickOldChat(userTo);
 
     prevChats.appendChild(button);
 }
 
-/*
+/**
  * @description
+ * Questa funzione serve per assegnare un evento
+ * onclick in fase di creazione di una nuova chat
+ */
+function onclickOldChat(userTo)
+{
+	return function () {
+		openOldChat(userTo)
+	}
+}
+
+/** @description
  * Questa funzione fa visualizzare un messaggio
  * nella sezione dedicata alla chat
  */
@@ -37,8 +57,7 @@ function createMsg(jsonObj, userTo)
 	chat.scrollTop = chat.scrollHeight;
 }
 
-/*
- * @description
+/** @description
  * Questa funzione apre per la prima volta una chat
  * quando viene selezionato un utente dall'elenco
  * oppure si accerta di non crearne una nuova 
@@ -85,8 +104,7 @@ function openChat()
 	createButton(userTo);
 }
   	
-/*
- * @description
+/** @description
  * Questa funzione si occupa di comunicare con il server
  * per gestire l'invio del messaggio con relativo
  * inserimento nel database
@@ -119,8 +137,7 @@ function sendPvtMessage()
 	document.getElementById('textMsg').value = '';
 }
 
-/*
- * @description
+/** @description
  * Questa funzione si occupa di mostrare una
  * chat che esisteva gia'
  */
@@ -143,8 +160,7 @@ function openOldChat(userTo)
 	request.send(formData);
 }
 
-/*
- * @description
+/** @description
  * Callback che si occupa di comunicare con il server
  * ed elabora la risposta
  */
