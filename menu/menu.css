@@ -1,11 +1,11 @@
-#showMenu{
+#showMenu {
     position: fixed;
     z-index: 1;
     height: 100%; 
     width: 10px;
 }
 
-#menu{
+#menu {
     position: fixed;
     display: none;
     z-index: 1;
@@ -14,17 +14,16 @@
     background-color: rgb(52, 58, 64);
 }
 
-#optionMenu{
+#optionMenu {
     height: auto;
     margin-top: 4.5em;
 }
 
-.buttonMenu{
+.buttonMenu {
     width: 100%;
     margin-top: 0.5em;
-
 }
 
-.myOver:hover{
+.myOver:hover {
     color: white;
 }

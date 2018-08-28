@@ -11,8 +11,8 @@
 
     require_once('../utils/constant.php');
 ?>
-
-<html>
+<!DOCTYPE html>
+<html lang="it">
  	<head>
     	<?php require ('../header/header.html'); ?>
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
@@ -34,7 +34,7 @@
 
         <section class="viewJobs" onClick="hideItem('menu');">
             <?php require_once("../menu/menu.php"); ?>
-            <?php require_once("../modalView/jobsView.php");?>
+            <!--?php require_once("../modalView/jobsView.php");?-->
 			<?php if ( isset($_SESSION['errorEval']) && !empty($_SESSION['errorEval']) ) { ?>
 					<div id="alertDelete" class="alert alert-danger" style="z-index:50; margin-top: 4em; position: fixed; width: 100%; font-size: 18px;" role="alert">
 						<?php echo $_SESSION['errorEval']; ?>
@@ -46,7 +46,7 @@
    					unset($_SESSION['errorEval']);	
 				} ?>
             <div class="myContainer text-center titleSessionTesto">
-				<h1><b class="colorTitle">Lavori richiesti</b></h1>
+				<h2><b class="colorTitle">Lavori richiesti</b></h2>
 				<br>	
                 <?php 
                     //tutti i lavori richiesti da user ancora validi
@@ -60,7 +60,7 @@
         <?php require_once("../menu/menu.php"); ?>
         <?php require_once("../modalView/jobsView.php");?>
             <div class="myContainer text-center titleSessionTesto">
-                <h1><b class="colorTitle">Lavori che ti sono stati fatti</b></h1>
+                <h2><b class="colorTitle">Lavori che ti sono stati fatti</b></h2>
                 <br>	
                 <?php 
                    //tutti i lavori richiesti da user non validi
@@ -72,17 +72,17 @@
         <?php require ('../footer/footer.php'); ?>
 
         <!-- BOOTSTRAP -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
 
-        <script type="text/javascript" src="../js/constant.js"></script>
-        <script type="text/javascript" src="../js/utils.js"></script>
-        <script type="text/javascript" src="../js/navBar.js"></script>
-        <script type="text/javascript" src="../js/viewJobs.js"></script>
-		<script type="text/javascript" src="../js/checkJobsField.js"></script>
-		<script type="text/javascript" src="../js/viewJobsRequired.js"></script>
+        <script src="../js/constant.js"></script>
+        <script src="../js/utils.js"></script>
+        <script src="../js/navBar.js"></script>
+        <script src="../js/viewJobs.js"></script>
+		<script src="../js/checkJobsField.js"></script>
+		<script src="../js/viewJobsRequired.js"></script>
 
     </body>
 </html>

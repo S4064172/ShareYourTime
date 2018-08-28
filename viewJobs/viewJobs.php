@@ -11,9 +11,8 @@
 
     require_once('../utils/constant.php');   
 ?>
-
-
-<html>
+<!DOCTYPE html>
+<html lang="it">
  	<head>
     	<?php require ('../header/header.html'); ?>
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
