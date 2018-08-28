@@ -45,7 +45,7 @@
             <?php require_once("../modalView/confirmOperation.php"); ?>
             <div class="myContainer titleSessionTesto">
                 <div class="wait" id="waitRegistration">
-                    <img class="imgWait" src="../img/sandclock.png">
+                    <img class="imgWait" src="../img/sandclock.png" alt="Clessidra">
                 </div>
                 <div class="row text-center">
                     <div class="col-12">

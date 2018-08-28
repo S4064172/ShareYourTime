@@ -2,7 +2,7 @@
 
 <div class="modal myModal myModal-mt fade" id="loginModalTarget" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="wait" id="waitLogin">
-            <img class="imgWait" src="../img/sandclock.png">
+            <img class="imgWait" src="../img/sandclock.png" alt="Clessidra">
     </div>
     <div class="modal-dialog" role="document">
         <div class="modal-content animate">
