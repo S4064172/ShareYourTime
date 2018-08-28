@@ -22,7 +22,7 @@
 		$big_formula = "ATAN2( (SQRT($num)) / ($den))";
 
 
-		$searchQuery =  "SELECT IdJob, Description, Cost, TimeStart, TimeEnd, Distance, Evaluation, Street, Proposer, Tag ". 
+		$searchQuery =  "SELECT IdJob, Description, Cost, TimeStart, TimeEnd, Distance, Evaluation, Street, Proposer, Tag, Latitude, Longitude ". 
 						"FROM ShareYourJobsTime ". 
 						"WHERE 	TimeStart > NOW()
 								AND  Proposer != ?
@@ -53,7 +53,7 @@
 
 			mysqli_stmt_store_result($search_prep_stmt);
 			
-			mysqli_stmt_bind_result($search_prep_stmt, $IdJob, $Description, $Cost, $TimeStart, $TimeEnd, $Distance, $Evaluation, $Street, $Proposer, $Tag);
+			mysqli_stmt_bind_result($search_prep_stmt, $IdJob, $Description, $Cost, $TimeStart, $TimeEnd, $Distance, $Evaluation, $Street, $Proposer, $Tag, $Latitude, $Longitude);
 			
 		
 			$i=0;
@@ -68,7 +68,9 @@
 				$result[$i]['Evaluation']=$Evaluation;	
 				$result[$i]['Street']=$Street;	
 				$result[$i]['Proposer']=$Proposer;	
-				$result[$i++]['Tag']=$Tag;
+				$result[$i]['Tag']=$Tag;
+				$result[$i]['Latitude']=$Latitude;
+				$result[$i++]['Longitude']=$Longitude;
 			}
 			mysqli_stmt_close($search_prep_stmt);
                 

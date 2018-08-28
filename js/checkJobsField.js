@@ -189,17 +189,31 @@ function checkAllSearchJob()
 {
     var request = getRequest();
 	request.open("POST", "../utils/checkAllSearchJob.php", true);
-	request.onreadystatechange = validateCheckJob(request);
+    
+    
+    var htmlTagUser = document.getElementById('optionUser');
 
+    if (htmlTagUser!=null)
+        request.onreadystatechange = validateCheckJob(request);
+    else{
+        var hqLocation = new google.maps.LatLng(44.403425,8.972164);
+        var mapProp = {
+            center: hqLocation,
+            zoom: 14,
+            mapTypeId: google.maps.TERRAIN
+        };
+        request.onreadystatechange = printFields(request,new google.maps.Map(document.getElementById('googleMap'),mapProp));
+    }
 	var formData = new FormData();
 
-    var htmlTagUser = document.getElementById('optionUser');
+   
 	var htmlTagAddress = document.getElementById('optionStreet');
 	var htmlTagCost = document.getElementById('optionCost');
 	var htmlTagDist = document.getElementById('optionDistance');
     var htmlTagTag = document.getElementById('optionTag');
     
-    formData.append(htmlTagUser.name, htmlTagUser.value);
+    if (htmlTagUser!=null)
+        formData.append(htmlTagUser.name, htmlTagUser.value);
     formData.append(htmlTagAddress.name, htmlTagAddress.value);
     formData.append(htmlTagDist.name, htmlTagDist.value);
     formData.append(htmlTagCost.name, htmlTagCost.value);

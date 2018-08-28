@@ -2,12 +2,10 @@
 
 
 function resetOptionSearch(){
-    cleanErr('errOptionUser');
     cleanErr('errOptionTag');
     cleanErr('errOptionCost');
     cleanErr('errOptionDistance');
     cleanErr('errOptionStreet');
-    document.getElementById("optionUser").value="Seleziona l'utente";
     document.getElementById("optionTag").value="Scegli il tag";
     document.getElementById("optionDistance").value="Seleziona la distanza";
     document.getElementById("optionCost").value="Seleziona il costo";
@@ -15,15 +13,15 @@ function resetOptionSearch(){
     
 }
 
+function resetUserOption(){
+    document.getElementById("optionUser").value="Seleziona l'utente";
+}
 
 function resetSearch(){
     resetOptionSearch();
     $("#resetResault").load(location.href + " #resetResault");
     
 }
-
-
-
 
 /*
  * @description

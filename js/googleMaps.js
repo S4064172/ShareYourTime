@@ -18,7 +18,7 @@ function printFields(request, map)
 				var infoText = [];
 				var str = '';
 
-				for (var i = 0; i < 5; i++) {
+				for (var i = 0; i < jsonObj.length; i++) {
 					str = jsonObj[i].split('@');
 								
 					//Marker dei lavori
@@ -52,7 +52,7 @@ function listenerClickMarker(infoT, map, workM)
 function showMap() 
 {
 	//Autocompletamento google maps per inserire indirizzi nell ricerca in index
-	var addrIndex = document.getElementById('optionMapStreet');
+	var addrIndex = document.getElementById('optionStreet');
 	var autocompleteIndex = new google.maps.places.Autocomplete(addrIndex, {types:['geocode']});
 
 	//Autocompletamento google maps per inserire indirizzi in fase di registrazione

@@ -13,7 +13,7 @@
 	
 	
 	//Controlli sul userName ( manca controllo use uguale al mio )
-	if (  check_POST_IsSetAndNotEmpty('userName') && $_POST['userName'] != "Seleziona l'utente" 
+	if ( $_SESSION['page'] != "index" && check_POST_IsSetAndNotEmpty('userName') && $_POST['userName'] != "Seleziona l'utente" 
 		 && (notValidString($_POST['userName'], alphaNumRegex, UserNameMinLength, UserNameMaxLength) 
 		 || !checkIfExistInDb('user', $_POST['userName']) || $_POST['userName'] == $_SESSION['user'] ) )
 	  	$result['errOptionUser'] = "L'username non &egrave; valido";
@@ -56,14 +56,27 @@
 		if(  !check_POST_IsSetAndNotEmpty('tag') || $_POST['tag'] == "Scegli il tag" )
 			$_POST['tag'] =	'';
 
-		$resQuery = searchInto_ShareYourJobsTime( $_POST['userName'], $_POST['street'], 
-												  $_POST['distance'], $_POST['cost'], 
-												  $_POST['tag'], $_SESSION['user'], 
-												  $_POST['lat'], $_POST['lon'] );
+		if( !check_SESSION_IsSetAndNotEmpty('user') )
+			$userSes='';
+		else
+			$userSes=$_SESSION['user'];
 		
-		foreach($resQuery as $singleRes)
-			showCard($singleRes);
-		return;
+		$resQuery = searchInto_ShareYourJobsTime( $_POST['userName'], $_POST['street'], 
+			$_POST['distance'], $_POST['cost'], 
+			$_POST['tag'], $userSes , 
+			$_POST['lat'], $_POST['lon'] );										  
+
+		
+		if( $_SESSION['page'] == 'searchjobs' ) {		
+				foreach($resQuery as $singleRes)
+					showCard($singleRes);
+				return;
+		}else{
+			$i=0;
+			foreach($resQuery as $singleRes)
+				$result[$i++]=$singleRes['Description']."@".$singleRes['Latitude']."@".$singleRes['Longitude'];	
+		
+		}
 	
 	}
 		

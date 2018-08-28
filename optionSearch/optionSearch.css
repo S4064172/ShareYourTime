@@ -8,19 +8,7 @@
 	text-align: center;
 }
 
-#myButtonSearchMap{
+.myButtonSearchMap{
 	width: 100%;
 	margin-top: 10px;
-}
-
-@media  screen and (max-width: 800px) {
-	.mySelection {
-		font-size: 70%;
-	}
-}
-
-@media screen and (max-width: 766px ){
-	.mySelection {
-		font-size: 80%;
-	}
 }
