@@ -3,9 +3,10 @@
 	require_once('../utils/utils.php');
 	
 	
-	function searchInto_ShareYourJobsTime($street, $distance, $cost, $tag, $user, $lat, $lon) {
+	function searchInto_ShareYourJobsTime($userFilter, $street, $distance, $cost, $tag, $user, $lat, $lon) {
 		
 		$conn = connectionToDb();
+		$userFilter = sanitizeToSql($userFilter, $conn);
 		$street = sanitizeToSql($street, $conn);
 		$distance = sanitizeToSql($distance, $conn);
 		$cost = sanitizeToSql($cost, $conn);
@@ -26,6 +27,7 @@
 						"WHERE 	TimeStart > NOW()
 								AND  Proposer != ?
 								AND  Receiver is NULL
+								AND ( ?='' OR Proposer = ? )
 								AND ( ?='' OR ?<>0  OR Street = ? ) 
 								AND ( ?=0  OR ( 
 											? >= (?*SQRT(RADIANS( ? - Latitude)*RADIANS(? - Latitude) + RADIANS( ? - Longitude)*RADIANS(? -  Longitude) ) )  
@@ -35,13 +37,14 @@
 								AND ( ?=''  OR Tag = ?);";
 		
 		if ( ($search_prep_stmt = mysqli_prepare($conn, $searchQuery)) ) {
-			if ( !mysqli_stmt_bind_param($search_prep_stmt, "ssisiiiiiiiiiiiiiiss",	$user, 
-																					$street, $distance, $street,
-																					$distance, 
-																						$distance, $earthRadius, $lat, $lat, $lon, $lon, 
-																						$earthRadius, $lat, $lat, $lon, $lon,
-																					$cost, $cost, 
-																					$tag, $tag ) )
+			if ( !mysqli_stmt_bind_param($search_prep_stmt, "ssssisiiiiiiiiiiiiiiss",	$user, 
+																						$userFilter, $userFilter,
+																						$street, $distance, $street,
+																						$distance, 
+																							$distance, $earthRadius, $lat, $lat, $lon, $lon, 
+																							$earthRadius, $lat, $lat, $lon, $lon,
+																						$cost, $cost, 
+																						$tag, $tag ) )
 				die ("Errore nell'accoppiamento dei parametri");
 			  
 			if ( !mysqli_stmt_execute($search_prep_stmt) )

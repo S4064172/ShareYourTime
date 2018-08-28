@@ -105,12 +105,10 @@
                     <p id="errOptionTag"></p>
                 </div>
             </div>
-        </div>
 
-        <div class="myContainer">
             <div class ="row">
                 <div class="offset-md-3 col-md-3"> 
-                <select class="custom-select mySelection"  id="optionUser" name="userName">
+                    <select class="custom-select mySelection"  id="optionUser" name="userName" onchange="cleanErr('errOptionUser');checkUserName('optionUser','errOptionUser');">
                         <option selected disabled>Seleziona l'utente</option>
                         <?php
                             require_once('../db/connection.php');
@@ -127,31 +125,41 @@
                                 if ( !($res1 = mysqli_query($conn, $getValuationQuery)) ) 
                                     die('Errore nella selezione dei lavori');
                                 $row1 = mysqli_fetch_array($res1);
-                                echo '<option>'.$row['User'].$row1[0].'</option>';
-                                mysqli_free_result($res1);
+                                if ($row['User'] != $_SESSION['user']){
+                                    echo '<option>'.$row['User'];
+        /*                            for ($i=0 ; $i < (int)$row1[0]; $i++)
+                                        echo "1 <i class='fa fa-star' style='color: rgb(196,160,0);'></i>";
+        */                          echo '</option>';
+                                    mysqli_free_result($res1);
+                                }
                             }
                                 
-
                             mysqli_free_result($res);
                             mysqli_close($conn);                                
                         ?>
                     </select>
+                    <p id="errOptionUser"></p>
                 </div>
 
-            </div>  
+            </div>
+
+        </div>
+
+        <div class="myContainer">
+              
         </div>
 
         <div class="myContainer">
             <div class ="row">
                 <div class="offset-md-3 col-md-3"> 
-                    <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');checkAllSearchJob()">
+                    <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionUser');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');checkAllSearchJob()">
                     <i class="fas fa-search"></i>
                     Cerca
                     </button>
                 </div>
 
                 <div class="col-md-3"> 
-                    <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');resetSearch();">
+                    <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="resetSearch();">
                     <i class="fas fa-eraser"></i>
                         Azzera ricerca
                     </button>

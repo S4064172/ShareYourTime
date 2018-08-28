@@ -8,9 +8,16 @@
         session_start();
 	}
 
-
+//userName
 	$result = array();
-    
+	
+	
+	//Controlli sul userName ( manca controllo use uguale al mio )
+	if (  check_POST_IsSetAndNotEmpty('userName') && $_POST['userName'] != "Seleziona l'utente" 
+		 && (notValidString($_POST['userName'], alphaNumRegex, UserNameMinLength, UserNameMaxLength) 
+		 || !checkIfExistInDb('user', $_POST['userName']) || $_POST['userName'] == $_SESSION['user'] ) )
+	  	$result['errOptionUser'] = "L'username non &egrave; valido";
+
 	//Controlli sul costo
 	if (  check_POST_IsSetAndNotEmpty('cost') && $_POST['cost'] != "Seleziona il costo" 
 		 && $_POST['cost'] < CostMin )
@@ -40,13 +47,19 @@
 		if(!check_POST_IsSetAndNotEmpty('distance')|| $_POST['distance'] == "Seleziona la distanza")
 			$_POST['distance'] = 0;
 
+		if(!check_POST_IsSetAndNotEmpty('userName') || $_POST['userName'] == "Seleziona l'utente")
+			$_POST['userName'] = '';
+
 		if(!check_POST_IsSetAndNotEmpty('street'))
 			$_POST['street'] = '';
 
 		if(  !check_POST_IsSetAndNotEmpty('tag') || $_POST['tag'] == "Scegli il tag" )
 			$_POST['tag'] =	'';
 
-		$resQuery = searchInto_ShareYourJobsTime($_POST['street'], $_POST['distance'], $_POST['cost'], $_POST['tag'], $_SESSION['user'], $_POST['lat'], $_POST['lon'] );
+		$resQuery = searchInto_ShareYourJobsTime( $_POST['userName'], $_POST['street'], 
+												  $_POST['distance'], $_POST['cost'], 
+												  $_POST['tag'], $_SESSION['user'], 
+												  $_POST['lat'], $_POST['lon'] );
 		
 		foreach($resQuery as $singleRes)
 			showCard($singleRes);
