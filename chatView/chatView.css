@@ -18,7 +18,7 @@ body, html {
     margin-top: 4.5em;
     min-height: 65vh;
     width: 300px;
-    background-color: rgb(10, 10, 10, 0.6);
+    background-color: rgba(10, 10, 10, 0.6);
 }
 
 #bntUserChat {
@@ -31,7 +31,7 @@ body, html {
     margin-top: 4.5em;
     min-height: 65vh;
     width: 100%;
-	background-color: rgb(200, 200, 200, 0.3);
+	background-color: rgba(200, 200, 200, 0.3);
 }
 
 .myContainer {
