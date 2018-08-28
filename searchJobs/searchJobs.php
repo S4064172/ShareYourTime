@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="col-md-3"> 
-                    <select class="custom-select mySelection" id="optionTag" name="tag" onchange="cleanErr('errOptionTag');checkTagField('optionTag','errOptionTag');">
+                    <select class="custom-select mySelection" id="optionTag" name="tag" onchange="cleanErr('errOptionTag');checkTag('optionTag','errOptionTag');">
                         <option selected disabled>Scegli il tag</option>
                         <?php
                             require_once('../db/connection.php');
@@ -96,7 +96,7 @@
                                 die('Errore nella selezione dei lavori');
 
                             while( $row = mysqli_fetch_array($res) ) 
-                                echo '<option>'.$row['Tag'].'</option>';
+                                echo '<option>'.sanitizeToHtml($row['Tag']).'</option>';
 
                             mysqli_free_result($res);
                             mysqli_close($conn);
@@ -126,7 +126,7 @@
                                     die('Errore nella selezione dei lavori');
                                 $row1 = mysqli_fetch_array($res1);
                                 if ($row['User'] != $_SESSION['user']){
-                                    echo '<option>'.$row['User'];
+                                    echo '<option>'.sanitizeToHtml($row['User']);
         /*                            for ($i=0 ; $i < (int)$row1[0]; $i++)
                                         echo "1 <i class='fa fa-star' style='color: rgb(196,160,0);'></i>";
         */                          echo '</option>';

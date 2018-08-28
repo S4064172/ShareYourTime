@@ -21,9 +21,23 @@ function checkUserName(idCheck, idErr){
         errUser.innerHTML = "UserName non valido";
         return;
     }
-    checkUserField (idCheck, idErr)
+    checkUserField (idCheck, idErr);
 }
 
+function checkTag(idCheck, idErr){
+
+    var tag = document.getElementById(idCheck);
+    var errTag = document.getElementById(idErr);
+    errTag.style.fontSize = '0.9em';
+    errTag.style.color = 'darkred';
+		
+    if( tag == null || tag.value === "" || !alphaRegex.test(tag.value)
+                     || !checkMaxLength(tag.value, TagMaxLength)) {
+        errTag.innerHTML = "Tag non valido";
+        return;
+    }
+    checkTagField(idCheck, idErr);
+}
 
 function checkDescription(idCheck, idErr)
 {   

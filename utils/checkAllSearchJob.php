@@ -36,7 +36,7 @@
 
 	//Controlli sul tag
 	if (  check_POST_IsSetAndNotEmpty('tag') && $_POST['tag'] != "Scegli il tag" 
-		 && !checkIfTagExistInDb($_POST['tag']) )
+		 && (!checkMatchRegex($_POST['tag'],alphaRegex) || !checkMaxLength($_POST['tag'], TagMaxLength) || !checkIfTagExistInDb($_POST['tag']) ) )
 		$result['errOptionTag'] = "Il tag inviato non &egrave; valido";
     
     if ( count($result) === 0 ) {
