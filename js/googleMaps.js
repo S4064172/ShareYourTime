@@ -34,7 +34,7 @@ function printFields(request, map)
 						content: str[0]
 					});
 
-					infoText[i].open(map, workMark[i]);
+					//infoText[i].open(map, workMark[i]);
 					google.maps.event.addListener(workMark[i], 'click', listenerClickMarker(infoText[i], map, workMark[i]));
 				}
 			}
