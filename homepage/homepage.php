@@ -17,7 +17,7 @@
 	$_SESSION['page'] = "homepage";
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="it">
  	<head>
 		<?php require ('../header/header.html'); ?>
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
