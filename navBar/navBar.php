@@ -30,7 +30,7 @@
                         </li>
                         <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) && ($_SESSION['page'] == "viewjobs") ) {?>
                             <li class="nav-item active">
-                                <a class="nav-link clickable " data-toggle="modal" data-target="#jobsModal" onclick="emptyErrorModalJobs(); emptyModalJobs()">
+                                <a class="nav-link clickable" data-toggle="modal" data-target="#jobsModal" onclick="emptyErrorModalJobs(); emptyModalJobs()">
                                     <i class="fas fa-plus"></i>
                                     <span>Aggiungi un lavoro</span>
                                 </a>
@@ -89,7 +89,7 @@
                 <div class="offset-4 offset-md-0 col-md-4 collapse navbar-collapse navbarTogglerSignupLogin">
                     <div class="dimW100">
                         
-                        <button type='button' href='#' class='btn btn-primary mr-2 d-block d-sm-inline btnSize float-md-right' onClick='myCollapseHide()' data-toggle='modal' data-target='#signUpModalTarget'>
+                        <button type='button' class='btn btn-primary mr-2 d-block d-sm-inline btnSize float-md-right' onClick='myCollapseHide()' data-toggle='modal' data-target='#signUpModalTarget'>
                             <i class='fa fa-user-plus'></i>
                             Registrati
                         </button>

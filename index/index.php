@@ -98,8 +98,10 @@
 							La prima piattaforma italiana di <i>Time Sharing</i> 
 						</p>
 						<a  href="#RicercaMappa" class="btn btn-scroll mb-2" id ="mapBtn" >Trova un lavoro per te !</a>
+					</div>
 				</div>
-			<div>
+			</div>
+		</div>
 	</section>
 
 
@@ -110,7 +112,7 @@
 				<br>	
 				<?php 
 					require_once('../carousel/carousel.php');
-					if (check_COOKIE_IsSetAndNotEmpty('sizeC'))
+					if ( check_COOKIE_IsSetAndNotEmpty('sizeC') )
 						showJobsCarousel("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart DESC LIMIT 9",$_COOKIE['sizeC']);
 					else
 					showJobsCarousel("SELECT * FROM ShareYourJobsTime ORDER BY TimeStart DESC LIMIT 9",3);
@@ -120,13 +122,13 @@
 	</section>
 	
 	<section id="RicercaMappa">
-		<div class="text-center" id="DettagliSitoTesto">
+		<div class="text-center">
 			<h1><b>Cerca un lavoro</b></h1>
 			<br>
 		</div>
 		<div class="myContainer">
 			
-			<?php require_once('../optionSearch/optionSearch.php')?></section>
+			<?php require_once('../optionSearch/optionSearch.php'); ?>
 
 			<div class="mb-2" id="googleMap"></div>
 		</div>

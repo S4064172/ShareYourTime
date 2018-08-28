@@ -1,8 +1,8 @@
 <?php require_once('../utils/constant.php');?>
 
-<div class="modal myModal myModal-mt fade" id="loginModalTarget" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal myModal myModal-mt fade" id="loginModalTarget" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="wait" id="waitLogin">
-            <img class="imgWait" src="../img/sandclock.png" alt="Clessidra">
+    	<img class="imgWait" src="../img/sandclock.png" alt="Clessidra">
     </div>
     <div class="modal-dialog" role="document">
         <div class="modal-content animate">
@@ -14,9 +14,9 @@
             </div> 
             <div class="myContainer-padding">
                 <label class="text-c"><b>Username</b></label>
-                <input type="text" onfocusin="cleanErr('errLogin')" placeholder="Enter Username" id="userLogin" class="inputTextModal" name="usernameLogin" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> onkeyup="handleKey(event)">
+                <input type="text" onfocus="cleanErr('errLogin')" placeholder="Enter Username" id="userLogin" class="inputTextModal" name="usernameLogin" minlength=<?php echo UserNameMinLength?> maxlength=<?php echo UserNameMaxLength?> onkeyup="handleKey(event)">
                 <label class="text-c"><b>Password</b></label>
-                <input type="password" onkeyup="handleKey(event)" onfocusin="cleanErr('errLogin')" placeholder="Enter Password" id="pwsLogin" class="inputTextModal"  name="pswLogin" minlength=<?php echo PasswordMinLength?> >
+                <input type="password" onkeyup="handleKey(event)" onfocus="cleanErr('errLogin')" placeholder="Enter Password" id="pwsLogin" class="inputTextModal"  name="pswLogin" minlength=<?php echo PasswordMinLength?> >
                 <p id="errLogin"></p>
                 <button id="logBtn" type="button" onClick="checkLoginAllField('userLogin','pwsLogin', 'errLogin', 'waitLogin')" class="btn btn-success mybutton mt-4">Login</button>
             </div>	
