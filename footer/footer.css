@@ -38,3 +38,9 @@
 .footerCenter {
 	text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+	.myFont{
+		font-size: 15px;
+	}
+}
