@@ -86,3 +86,8 @@ form .stars span {
 .text-center {
 	text-align: center;
 }
+
+#evalOk {
+	margin: auto; 
+	width: 40%;
+}

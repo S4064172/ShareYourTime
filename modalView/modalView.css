@@ -87,6 +87,7 @@ img.avatar {
     border: 1px solid #ccc;
     box-sizing: border-box;
 	font-size: 15px;
+	max-height: 35px;
 }
 
 .inputTextModal {

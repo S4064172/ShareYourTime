@@ -4,7 +4,7 @@
 			<div class="modal-body">
 				<div class="container myContainer-padding">
 						<div class="row">
-							<div class="container">
+							<div class="container text-center">
 								<h2>Come valuteresti questo lavoro ?</h2>
 							</div>
 						</div>
@@ -26,14 +26,14 @@
 										<span></span>
 									</div>
 									<br>	
-									<div>
+									<div class="row">
 										<input id="evalOk" type="submit" value="Ok"></input>
 									</div>
 								</form>
 							</div>
 						</div>
-					<div>
-    	   				<button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+					<div class="row">
+    	   				<button type="button" class="btn btn-secondary offset-md-3 col-md-6" data-dismiss="modal">Annulla</button>
 					</div>
 				</div>
 			</div>

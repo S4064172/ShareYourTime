@@ -66,6 +66,13 @@ section {
 	border-radius: 25px;
 }
 
+.colorTitle {
+	color: royalblue;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding-top: 6px;
+	padding-right: 3px;
+}
+
 @media screen and (max-width: 576px) {
 	.myJumbo {
 		font-size: 14px;

@@ -71,12 +71,13 @@
                             for( $j = 0 ; $j < $size && $row2 = mysqli_fetch_array( $res2 ); $j++ ) {
                                 showCard($row2);
                             }
-                            
+                           	 
                         echo "</div>";
                     echo "<a class='btn linkdown' href='../viewJobs/viewJobsRequired.php'>Scopri di pi&ugrave;</a>";
                 echo "</div>"; 
-        }
-
+        	}
+			mysqli_free_result($res1);
+			mysqli_free_result($res2);
         ?>
     </div> 
 </div> 
