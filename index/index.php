@@ -28,7 +28,7 @@
 		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
 		<link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
 		
-		<link rel="stylesheet" type="text/css" href="../optionMapSearch/optionMapSearch.css"/>
+		<link rel="stylesheet" type="text/css" href="../optionSearch/optionSearch.css"/>
 		<link rel="stylesheet" type="text/css" href="../cardjobs/cardCarousel.css"/>
 	</head>
 	
@@ -126,7 +126,7 @@
 		</div>
 		<div class="myContainer">
 			
-			<?php require_once('../optionMapSearch/optionMapSearch.php')?>
+			<?php require_once('../optionSearch/optionSearch.php')?>
 
 			<div class="mb-2" id="googleMap"></div>
 		</div>
@@ -151,6 +151,9 @@
 	<script type="text/javascript" src="../js/checkSearchOptionMap.js"></script>
 	
 	<script type="text/javascript" src="../js/checkProfileUserField.js"></script>
+	<script type="text/javascript" src="../js/checkJobsField.js"></script>
+	
+	<script type="text/javascript" src="../js/optionSearch.js"></script>
 	
 
 	<?php require('googleAPIkey.html') ?>

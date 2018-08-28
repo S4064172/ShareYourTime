@@ -8,9 +8,16 @@
         session_start();
 	}
 
-
+//userName
 	$result = array();
-    
+	
+	
+	//Controlli sul userName ( manca controllo use uguale al mio )
+	if ( $_SESSION['page'] != "index" && check_POST_IsSetAndNotEmpty('userName') && $_POST['userName'] != "Seleziona l'utente" 
+		 && (notValidString($_POST['userName'], alphaNumRegex, UserNameMinLength, UserNameMaxLength) 
+		 || !checkIfExistInDb('user', $_POST['userName']) || $_POST['userName'] == $_SESSION['user'] ) )
+	  	$result['errOptionUser'] = "L'username non &egrave; valido";
+
 	//Controlli sul costo
 	if (  check_POST_IsSetAndNotEmpty('cost') && $_POST['cost'] != "Seleziona il costo" 
 		 && $_POST['cost'] < CostMin )
@@ -29,7 +36,7 @@
 
 	//Controlli sul tag
 	if (  check_POST_IsSetAndNotEmpty('tag') && $_POST['tag'] != "Scegli il tag" 
-		 && !checkIfTagExistInDb($_POST['tag']) )
+		 && (!checkMatchRegex($_POST['tag'],alphaRegex) || !checkMaxLength($_POST['tag'], TagMaxLength) || !checkIfTagExistInDb($_POST['tag']) ) )
 		$result['errOptionTag'] = "Il tag inviato non &egrave; valido";
     
     if ( count($result) === 0 ) {
@@ -40,17 +47,36 @@
 		if(!check_POST_IsSetAndNotEmpty('distance')|| $_POST['distance'] == "Seleziona la distanza")
 			$_POST['distance'] = 0;
 
+		if(!check_POST_IsSetAndNotEmpty('userName') || $_POST['userName'] == "Seleziona l'utente")
+			$_POST['userName'] = '';
+
 		if(!check_POST_IsSetAndNotEmpty('street'))
 			$_POST['street'] = '';
 
 		if(  !check_POST_IsSetAndNotEmpty('tag') || $_POST['tag'] == "Scegli il tag" )
 			$_POST['tag'] =	'';
 
-		$resQuery = searchInto_ShareYourJobsTime($_POST['street'], $_POST['distance'], $_POST['cost'], $_POST['tag'], $_SESSION['user'], $_POST['lat'], $_POST['lon'] );
+		if( !check_SESSION_IsSetAndNotEmpty('user') )
+			$userSes='';
+		else
+			$userSes=$_SESSION['user'];
 		
-		foreach($resQuery as $singleRes)
-			showCard($singleRes);
-		return;
+		$resQuery = searchInto_ShareYourJobsTime( $_POST['userName'], $_POST['street'], 
+			$_POST['distance'], $_POST['cost'], 
+			$_POST['tag'], $userSes , 
+			$_POST['lat'], $_POST['lon'] );										  
+
+		
+		if( $_SESSION['page'] == 'searchjobs' ) {		
+				foreach($resQuery as $singleRes)
+					showCard($singleRes);
+				return;
+		}else{
+			$i=0;
+			foreach($resQuery as $singleRes)
+				$result[$i++]=$singleRes['Description']."@".$singleRes['Latitude']."@".$singleRes['Longitude'];	
+		
+		}
 	
 	}
 		

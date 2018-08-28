@@ -16,14 +16,14 @@ function logMsg(msg) {
     console.log((new Date()) + ' ' + msg);
 }
 
-/*
+/**
     @description: Questa funzione controlla la provenienza delle connessioni
 */
 function originIsAllowed(origin) {
     return true;
 }
 
-/*
+/**
     @description: Questa funzione restituisce un socket a partire da un client
 */
 function getClientSocketById(id) {
@@ -33,7 +33,7 @@ function getClientSocketById(id) {
     return null;
 }
 
-/*
+/**
     @description: Questa funzione prepara il messaggio della lista utenti
 */
 function prepareUserlistMessage() {
@@ -48,7 +48,7 @@ function prepareUserlistMessage() {
     return msg;
 }
 
-/*
+/**
     @description: Questa funzione comunica la lista degli utenti connessi
 */
 function pollingUserlist() {

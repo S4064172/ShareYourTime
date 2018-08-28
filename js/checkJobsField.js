@@ -8,6 +8,37 @@
 */
 
 /*********** Controlli locali ***************/
+function checkUserName(idCheck, idErr){
+
+    var user = document.getElementById(idCheck);
+    var errUser = document.getElementById(idErr);
+    errUser.style.fontSize = '0.9em';
+    errUser.style.color = 'darkred';
+		
+    if( user == null || user.value === "" || !alphaNumRegex.test(user.value) 
+                     || !checkMinLength(user.value, UserNameMinLength ) 
+                     || !checkMaxLength(user.value, UserNameMaxLength)) {
+        errUser.innerHTML = "UserName non valido";
+        return;
+    }
+    checkUserField (idCheck, idErr);
+}
+
+function checkTag(idCheck, idErr){
+
+    var tag = document.getElementById(idCheck);
+    var errTag = document.getElementById(idErr);
+    errTag.style.fontSize = '0.9em';
+    errTag.style.color = 'darkred';
+		
+    if( tag == null || tag.value === "" || !alphaRegex.test(tag.value)
+                     || !checkMaxLength(tag.value, TagMaxLength)) {
+        errTag.innerHTML = "Tag non valido";
+        return;
+    }
+    checkTagField(idCheck, idErr);
+}
+
 function checkDescription(idCheck, idErr)
 {   
     var desc = document.getElementById(idCheck);
@@ -158,15 +189,31 @@ function checkAllSearchJob()
 {
     var request = getRequest();
 	request.open("POST", "../utils/checkAllSearchJob.php", true);
-	request.onreadystatechange = validateCheckJob(request);
+    
+    
+    var htmlTagUser = document.getElementById('optionUser');
 
+    if (htmlTagUser!=null)
+        request.onreadystatechange = validateCheckJob(request);
+    else{
+        var hqLocation = new google.maps.LatLng(44.403425,8.972164);
+        var mapProp = {
+            center: hqLocation,
+            zoom: 14,
+            mapTypeId: google.maps.TERRAIN
+        };
+        request.onreadystatechange = printFields(request,new google.maps.Map(document.getElementById('googleMap'),mapProp));
+    }
 	var formData = new FormData();
 
+   
 	var htmlTagAddress = document.getElementById('optionStreet');
 	var htmlTagCost = document.getElementById('optionCost');
 	var htmlTagDist = document.getElementById('optionDistance');
     var htmlTagTag = document.getElementById('optionTag');
     
+    if (htmlTagUser!=null)
+        formData.append(htmlTagUser.name, htmlTagUser.value);
     formData.append(htmlTagAddress.name, htmlTagAddress.value);
     formData.append(htmlTagDist.name, htmlTagDist.value);
     formData.append(htmlTagCost.name, htmlTagCost.value);
@@ -263,6 +310,21 @@ function validateCheckJob(request)
 }
 
 /************** Controllo campi singoli con ajax *******************/
+function checkUserField (idUser, idErrField) 
+{
+	var formData = new FormData();
+	var request = getRequest();
+	request.open("POST", "../utils/checkJobsSingleField.php", true);
+	request.onreadystatechange = validateCheckSingleJobField(request, idErrField);
+
+	var user = document.getElementById(idUser);
+    
+	formData.append(user.name, user.value);
+	
+	request.send(formData);
+}
+
+
 function checkTagField (idTag, idErrField) 
 {
 	var formData = new FormData();
