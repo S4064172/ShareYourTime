@@ -46,6 +46,14 @@ section {
 	-webkit-animation-duration: 2s;
 }
 
+@media screen and (max-width: 600px) {
+	.myTitle{
+		font-size: 10vh;
+		padding-left: 1em; 
+	}
+}
+
+
 .titleBtn {
 	font-family: Old Standard TT;
 	color: rgb(54, 44, 34);
@@ -68,3 +76,4 @@ section {
 .titleSessionTesto {
 	padding-top: 5em;
 }
+
