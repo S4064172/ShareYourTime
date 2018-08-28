@@ -7,7 +7,7 @@
 			<h1><b class="colorTitle">Ricerca</b></h1>	 
             <div class="row">
                 <div class="col-md-3"> 
-                    <input id="optionStreet" onchange="cleanErr('errOptionStreet');checkStreetSearch('optionStreet','errOptionStreet');" class="mySelection" placeholder="Inserisci la via" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?>>
+                    <input id="optionStreet" onchange="cleanErr('errOptionStreet');cleanErr('errOptionDistance');checkStreetSearch('optionStreet','errOptionStreet');" class="mySelection" placeholder="Inserisci la via" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?>>
                     <p id="errOptionStreet"></p>
                 </div>
 
