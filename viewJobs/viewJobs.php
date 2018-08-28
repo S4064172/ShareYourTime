@@ -19,10 +19,10 @@
 	    <link rel="stylesheet" type="text/css" href="../navBar/navBar.css"/> 
 		<link rel="stylesheet" type="text/css" href="../footer/footer.css"/>
         <link rel="stylesheet" type="text/css" href="../menu/menu.css"/>
-        <link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
         <link rel="stylesheet" type="text/css" href="viewJobs.css"/>
         <link rel="stylesheet" type="text/css" href="../cardjobs/card.css"/>
         <link rel="stylesheet" type="text/css" href="../alert/alert.css"/>
+        <link rel="stylesheet" type="text/css" href="../modalView/modalView.css"/>
 	</head>
 	
 	<body onclick="myCollapseHide();">

@@ -126,6 +126,10 @@ img.avatar {
     animation: animatezoom 0.5s
 }
 
+input, select {
+	max-height: 24px;
+}
+
 @-webkit-keyframes animatezoom {
     from {
 		-webkit-transform: scale(0);
