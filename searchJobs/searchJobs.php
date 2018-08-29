@@ -47,15 +47,15 @@
 
         </section>
 
-        
+        <section class="optionSearch" onClick="hideItem('menu');">
 
-        <?php require_once('../optionSearch/optionSearch.php')?>
+            <?php require_once('../optionSearch/optionSearch.php')?>
 
-        <div class="myContainer text-center titleSessionTesto" id="resetResault">
-            <div class="card-columns" id="printCard">
+            <div class="myContainer text-center titleSessionTesto" id="resetResault">
+                <div class="card-columns" id="printCard">
 
+                </div>
             </div>
-        </div>
 
         </section>
 

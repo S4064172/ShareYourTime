@@ -127,7 +127,7 @@
 			<br>
 		</div>
 		<div class="myContainer">
-			
+		
 			<?php require_once('../optionSearch/optionSearch.php'); ?>
 
 			<div class="mb-2" id="googleMap"></div>
