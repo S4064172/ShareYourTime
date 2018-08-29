@@ -33,7 +33,7 @@
 								AND ( ?=''  OR Tag = ?);";
 		
 		if ( ($search_prep_stmt = mysqli_prepare($conn, $searchQuery)) ) {
-			if ( !mysqli_stmt_bind_param($search_prep_stmt, "ssssisiiiiiiiiiiiiiiss",	$user, 
+			if ( !mysqli_stmt_bind_param($search_prep_stmt, "ssssdsddddddddddddddss",	$user, 
 																						$userFilter, $userFilter,
 																						$street, $distance, $street,
 																						$distance, 
