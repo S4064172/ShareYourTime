@@ -101,7 +101,7 @@
 			if($_POST['registration'] === '0') 
 				$result['errPhoto'] = "File troppo grosso";
 			else
-				$result['errPhotoModified'] =  "File troppo grosso";
+				$result['errPhotoModified'] = "File troppo grosso";
 		else 
 			if ( $imageFileType !== IMAGETYPE_PNG && $imageFileType !== IMAGETYPE_JPEG ) 
 				if($_POST['registration'] === '0')
