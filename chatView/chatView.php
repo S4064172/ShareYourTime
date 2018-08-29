@@ -28,17 +28,18 @@
 		<?php require_once('../menu/menu.php'); ?>
     
 		<section class="navbar navbar-expand-md viewChat">
-		
-			<button class="navbar-toggler text-center" id="bntUserChat" type="button" data-toggle="collapse" data-target="#userListView" aria-controls="userListView" aria-expanded="false" aria-label="Toggle navigation">
-        		<span style="color: black;">
-                	Users
-        		</span>
-		   	</button>
 			
 			<div class="myContainer">
 				<div class="row text-center">
-					<h2>Se vuoi scrivere un messaggio privato scrivi @<i>NomeUtente</i> e poi il tuo messaggio</h2>
+					<h2 id="infoComando">Se vuoi scrivere un messaggio privato scrivi @<i>NomeUtente</i> e poi il tuo messaggio</h2>
 				</div>
+
+				<button class="navbar-toggler text-center" id="bntUserChat" type="button" data-toggle="collapse" data-target="#userListView" aria-controls="userListView" aria-expanded="false" aria-label="Toggle navigation">
+        			<span style="color: black;">
+                		Users
+        			</span>
+		   		</button>
+	
 				<div class="row">		
 					<div class="col-md-2 collapse navbar-collapse" id="userListView"></div>
 
