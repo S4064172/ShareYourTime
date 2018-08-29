@@ -220,7 +220,8 @@ function checkAllSearchJob()
     formData.append(htmlTagTag.name, htmlTagTag.value);
     formData.append('lat',latitude);
     formData.append('lon',longitude);
-    console.log(latitude);
+    console.log(htmlTagAddress.name + htmlTagAddress.value);
+    console.log(htmlTagDist.name + htmlTagDist.value);
     
     latitude=100;
     longitude=100;
@@ -301,7 +302,6 @@ function validateCheckJob(request)
                     }
 
                 } catch (error) {
-                    resetOptionSearch();
                     document.getElementById('printCard').innerHTML = request.responseText;
                 }
 			}		

@@ -17,11 +17,7 @@
 
 
 		$earthRadius = 6378.1;
-		$num = "POW(COS(RADIANS(Latitude)) * SIN(RADIANS($lon) - RADIANS(Longitude)), 2) + (COS(RADIANS($lat)) * SIN(RADIANS(Latitude)) - SIN(RADIANS($lat)) * COS(RADIANS(Latitude)) * COS(POW(RADIANS($lon) - RADIANS(Longitude), 2)))";
-		$den = "SIN(RADIANS($lat)) * SIN(RADIANS(Latitude)) + COS(RADIANS($lat)) * COS(RADIANS(Latitude)) * COS(RADIANS($lon) - RADIANS(Longitude))";
-		$big_formula = "ATAN2( (SQRT($num)) / ($den))";
-
-
+		
 		$searchQuery =  "SELECT IdJob, Description, Cost, TimeStart, TimeEnd, Distance, Evaluation, Street, Proposer, Tag, Latitude, Longitude ". 
 						"FROM ShareYourJobsTime ". 
 						"WHERE 	TimeStart > NOW()
@@ -46,11 +42,11 @@
 																						$cost, $cost, 
 																						$tag, $tag ) )
 				die ("Errore nell'accoppiamento dei parametri");
-			  
+			
 			if ( !mysqli_stmt_execute($search_prep_stmt) )
 				die ("Errore nell'aggiornamento nel DB");
 
-
+			
 			mysqli_stmt_store_result($search_prep_stmt);
 			
 			mysqli_stmt_bind_result($search_prep_stmt, $IdJob, $Description, $Cost, $TimeStart, $TimeEnd, $Distance, $Evaluation, $Street, $Proposer, $Tag, $Latitude, $Longitude);
@@ -73,7 +69,7 @@
 				$result[$i++]['Longitude']=$Longitude;
 			}
 			mysqli_stmt_close($search_prep_stmt);
-                
+            
 				
 		} else {
 			die ("Errore nella preparazione della query");

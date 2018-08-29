@@ -103,9 +103,9 @@
     <div class ="row">
         <div class="offset-md-3 col-md-3"> 
 <?php if( $_SESSION['page'] == 'searchjobs' ) { ?>                    
-            <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionUser');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');checkAllSearchJob()">
+            <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="checkAllSearchJob();resetUserOption();resetOptionSearch();">
 <?php }else{ ?>
-<button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="cleanErr('errOptionTag');cleanErr('errOptionCost');cleanErr('errOptionDistance');cleanErr('errOptionStreet');checkAllSearchJob()">
+<button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="checkAllSearchJob();resetUserOption();">
 <?php }?>
             <i class="fas fa-search"></i>
             Cerca
@@ -114,7 +114,7 @@
 
         <div class="col-md-3"> 
 <?php if( $_SESSION['page'] == 'searchjobs' ) { ?>                    
-<button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="resetUserOption();cleanErr('errOptionUser');resetSearch();">
+<button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="resetUserOption();resetSearch();">
 <?php }else{ ?>
 <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="resetSearch();">
 <?php }?>
