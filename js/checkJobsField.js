@@ -12,8 +12,8 @@ function checkUserName(idCheck, idErr){
 
     var user = document.getElementById(idCheck);
     var errUser = document.getElementById(idErr);
-    errUser.style.fontSize = '0.9em';
-    errUser.style.color = 'darkred';
+    errUser.style.fontSize = '1.4em';
+    errUser.style.color = 'red';
 		
     if( user == null || user.value === "" || !alphaNumRegex.test(user.value) 
                      || !checkMinLength(user.value, UserNameMinLength ) 
@@ -28,8 +28,8 @@ function checkTag(idCheck, idErr){
 
     var tag = document.getElementById(idCheck);
     var errTag = document.getElementById(idErr);
-    errTag.style.fontSize = '0.9em';
-    errTag.style.color = 'darkred';
+    errTag.style.fontSize = '1.4em';
+    errTag.style.color = 'red';
 		
     if( tag == null || tag.value === "" || !alphaRegex.test(tag.value)
                      || !checkMaxLength(tag.value, TagMaxLength)) {
@@ -43,8 +43,8 @@ function checkDescription(idCheck, idErr)
 {   
     var desc = document.getElementById(idCheck);
     var errDesc = document.getElementById(idErr);
-    errDesc.style.fontSize = '0.9em';
-    errDesc.style.color = 'darkred';
+    errDesc.style.fontSize = '1.4em';
+    errDesc.style.color = 'red';
 		
     if( desc == null || desc.value === "" || !alphaNumRegex.test(desc.value) ) {
         errDesc.innerHTML = "La descrizione non &egrave; valida";
@@ -66,8 +66,8 @@ function checkCost(idCost, idErr)
 {   
     var cost = document.getElementById(idCost);
     var errCost = document.getElementById(idErr);
-    errCost.style.fontSize = '0.9em';
-    errCost.style.color = 'darkred';
+    errCost.style.fontSize = '1.4em';
+    errCost.style.color = 'red';
     
 	if( cost == null || cost.value === "" || !checkMin(parseInt(cost.value), CostMin) || !numRegex.test(cost.value) ) {
         errCost.innerHTML = "Costo non valido";
@@ -79,8 +79,8 @@ function checkDistance(idDist, idErr)
 {   
     var dist = document.getElementById(idDist);
     var errDist = document.getElementById(idErr);
-    errDist.style.fontSize = '0.9em';
-    errDist.style.color = 'darkred';
+    errDist.style.fontSize = '1.4em';
+    errDist.style.color = 'red';
 
     if( dist == null || dist.value === "" || !checkMin(parseInt(dist.value), DistanceMin) || !numRegex.test(dist.value) ) {
         errDist.innerHTML = "Distanza non valida";
