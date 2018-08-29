@@ -17,8 +17,8 @@
 	{
 		$arr = checkNewMsg($_SESSION['user']);
 
-		$prevChatsQuery = "SELECT DISTINCT Sender FROM ShareYourPvtMsgTime WHERE Receiver='".$_SESSION['user'].
-						  "' UNION ".
+		$prevChatsQuery = "SELECT DISTINCT Sender FROM ShareYourPvtMsgTime WHERE Receiver='".$_SESSION['user']."'".
+						  " UNION ".
 						  "SELECT DISTINCT Receiver FROM ShareYourPvtMsgTime WHERE Sender='".$_SESSION['user']."'";
 
 	 	if ( !($res = mysqli_query($conn, $prevChatsQuery)) ) 
@@ -72,6 +72,7 @@
 
         <section id="viewMessages" onClick="hideItem('menu');">
 			<?php require_once("../menu/menu.php"); ?>
+<div class="myContainer">			
 			<div class="row">
 				<select id="selectContact" class="text-center offset-md-4 col-md-4 selector" onchange="cleanErr('errMsg'); openChat();">
 					<option selected disabled>Seleziona un contatto</option>
@@ -92,18 +93,18 @@
 
 				<div class="col-md-4">
 					<div class="row">
-						<div class="col-md-6">
-							<b class="col-md-4 ylwText f1-3em">Contatto &nbsp;</b>
+						<div class="col-md-4">
+							<b class="ylwText f1-3em">Contatto &nbsp;</b>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-8">
 							<input type="text" class="text-center w100" id="msgTo" disabled>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-6">
-							<b class="col-md-4 ylwText f1-3em">Oggetto &nbsp;</b>
+						<div class="col-md-4">
+							<b class="ylwText f1-3em">Oggetto &nbsp;</b>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-8">
 							<input class="w100" type="text" id="obj" onfocus="cleanErr('errMsg')" maxlength="<?php echo ObjMaxLength;?>" disabled>
 						</div>
 					</div>
@@ -121,6 +122,7 @@
 					<!-- mostra chat corrente -->
 				</div>
 			</div>
+</div>
 		</section>
 
         <?php require ('../footer/footer.php'); ?>
