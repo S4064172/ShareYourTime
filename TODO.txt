@@ -12,6 +12,6 @@
     -> problema se manometto id del lavoro
 
 -> index.php, searchJobs.php
-	-> ricerca per utente
+	
 	(-> ricerca per utenti migliori ?)
 	(-> ricerca per parola chiave ?)
