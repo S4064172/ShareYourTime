@@ -96,9 +96,9 @@ function checkDistanceSearch(idStreer, idDist, idErr)
     }
     console.log(document.getElementById(idStreer).value);
     var errDist = document.getElementById(idErr);
-    errDist.style.fontSize = '0.9em';
-    errDist.style.color = 'darkred';
-    errDist.innerHTML = "Via non settata";
+    errDist.style.fontSize = '1.4em';
+    errDist.style.color = 'red';
+    errDist.innerHTML = "Via non selezionata";
 }
 
 function checkTime(idDate1, idTime1, idDate2, idTime2, idErr, idJob)
@@ -113,8 +113,8 @@ function checkTime(idDate1, idTime1, idDate2, idTime2, idErr, idJob)
     var now = new Date();
    
 	var err = document.getElementById(idErr);
-	err.style.fontSize = '0.9em';
-    err.style.color = 'darkred';
+	err.style.fontSize = '1.4em';
+    err.style.color = 'red';
     
 	//non si possono caricare lavori nel passato
 	if ( dateStart.getTime() < now.getTime() || dateEnd.getTime() < now.getTime() ) {
@@ -153,8 +153,8 @@ function checkStreet(idCheck, idErr)
     var addr = document.getElementById(idCheck);
     
 	var errAddr = document.getElementById(idErr);
-    errAddr.style.fontSize = '0.9em';
-    errAddr.style.color = 'darkred';
+    errAddr.style.fontSize = '1.4em';
+    errAddr.style.color = 'red';
 
     if( addr == null || addr.value === "" || !addressRegex.test(addr.value) ) {
         errAddr.innerHTML = "Indirizzo non valido";
@@ -167,7 +167,7 @@ function checkStreet(idCheck, idErr)
     }
 
     if( !checkMaxLength(addr.value, StreetMaxLength) ) {
-        errAddr.innerHTML = "Strada troppo corta";
+        errAddr.innerHTML = "Indirizzo troppo lungo";
         return;
     }
 }
@@ -315,8 +315,8 @@ function validateCheckJob(request)
                     //stampa degli errori rilevati
                     for(var key in jsonObj) {
                         var notify = document.getElementById(key);
-                        notify.style.fontSize = '0.9em';
-                        notify.style.color = 'darkred';
+                        notify.style.fontSize = '1.4em';
+                        notify.style.color = 'red';
                         notify.innerHTML = jsonObj[key];		
                     }
 
@@ -369,8 +369,8 @@ function validateCheckSingleJobField(request, idErrField)
 				//stampa dell'errore sul campo
                 if ( jsonObj['code'] === -1 ) {
                     var notify = document.getElementById(idErrField);
-                    notify.style.fontSize = '0.9em';
-                    notify.style.color = 'darkred';
+                    notify.style.fontSize = '1.4em';
+                    notify.style.color = 'red';
                     notify.innerHTML = jsonObj['msg'];
                 }
 
