@@ -245,7 +245,8 @@ function checkAllSearchJob()
       
     latitude = 100;
     longitude = 100;
-    request.send(formData);
+    
+	request.send(formData);
 }
 
 
@@ -320,7 +321,6 @@ function validateCheckJob(request)
                     }
 
                 } catch (error) {
-                    resetOptionSearch();
                     document.getElementById('printCard').innerHTML = request.responseText;
                 }
 			}		

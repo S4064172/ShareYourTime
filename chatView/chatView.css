@@ -43,17 +43,24 @@ body, html {
     width: 100%;
 }
 
-#btnSendMsg{
+#btnSendMsg, #sendButton{
     width: 100%;
 }
 
-h1 {
-	font-size: 24px; 
+#infoComando{
+    font-size: 32px; 
 	color: white; 
 	padding-top: 3.5em; 
 	width: 100%
 }
 
-/*
- media query md per annulare margin-top
-*/
+@media screen and (max-width: 768px) {
+	#userListView{
+        margin-top: 1em;
+		min-height: 20px;
+    }
+
+    #chatView {
+        margin-top: 1em; 
+    }
+}

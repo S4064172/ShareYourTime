@@ -77,7 +77,7 @@
 
                 
             <?php if ( isset($_SESSION['user']) && !empty($_SESSION['user']) ) {?>
-                <div class="offset-5 offset-md-0 col-md-4 collapse navbar-collapse navbarTogglerSignupLogin">3                    
+                <div class="offset-5 offset-md-0 col-md-4 collapse navbar-collapse navbarTogglerSignupLogin">                
                     <form class="dimW100" action="../utils/logout.php" >
                         <button type='submit' class='btn btn-warning d-block d-sm-inline btnSize float-md-right mt-2'>
                             <i class='fa fa-sign-out-alt'></i>

@@ -81,7 +81,7 @@ section {
 }
 
 #DettagliSitoTesto {
-	padding-top: 6em;
+	padding-top: 5em;
 }
 
 .myDescription {
@@ -109,6 +109,7 @@ section {
 
 #RicercaMappa{
 	min-height: 100%;
+	padding-top:5em;
 }
  
 #googleMap{
