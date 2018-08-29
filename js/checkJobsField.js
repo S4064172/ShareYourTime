@@ -190,44 +190,63 @@ function checkAllSearchJob()
     var request = getRequest();
 	request.open("POST", "../utils/checkAllSearchJob.php", true);
     
-    
     var htmlTagUser = document.getElementById('optionUser');
+	var htmlTagDist = document.getElementById('optionDistance');
 
-    if (htmlTagUser!=null)
+    if (htmlTagUser != null)
         request.onreadystatechange = validateCheckJob(request);
-    else{
-        var hqLocation = new google.maps.LatLng(44.403425,8.972164);
-        var mapProp = {
-            center: hqLocation,
-            zoom: 14,
+    else {
+		if ( latitude !== 100 && longitude !== 100 ) 
+        	var usrLocation = new google.maps.LatLng(latitude, longitude);
+		else
+        	var usrLocation = new google.maps.LatLng(44.403425,8.972164);
+		
+	    
+		var mapProp = {
+    		center: usrLocation,
+        	zoom: 13,
             mapTypeId: google.maps.TERRAIN
-        };
-        request.onreadystatechange = printFields(request,new google.maps.Map(document.getElementById('googleMap'),mapProp));
+		};
+
+		var map = new google.maps.Map(document.getElementById('googleMap'), mapProp);
+
+		if ( htmlTagDist.value !== '' ) {
+			//Disegno una cerchi di raggio x
+			var circle = new google.maps.Circle({
+				center: usrLocation,
+		  		radius: 1000*htmlTagDist.value, //In metri
+				strokeColor: "#0000FF",
+				strokeOpacity: 0.8,
+				strokeWeight: 2,
+  				fillColor: "#0000FF",
+		  		fillOpacity: 0.4
+			}); 
+			circle.setMap(map);
+		}
+		
+        request.onreadystatechange = printFields(request, map);
     }
+
 	var formData = new FormData();
 
-   
 	var htmlTagAddress = document.getElementById('optionStreet');
 	var htmlTagCost = document.getElementById('optionCost');
-	var htmlTagDist = document.getElementById('optionDistance');
     var htmlTagTag = document.getElementById('optionTag');
     
-    if (htmlTagUser!=null)
-        formData.append(htmlTagUser.name, htmlTagUser.value);
+    if (htmlTagUser != null)
+    	formData.append(htmlTagUser.name, htmlTagUser.value);
+
     formData.append(htmlTagAddress.name, htmlTagAddress.value);
     formData.append(htmlTagDist.name, htmlTagDist.value);
     formData.append(htmlTagCost.name, htmlTagCost.value);
     formData.append(htmlTagTag.name, htmlTagTag.value);
-    formData.append('lat',latitude);
-    formData.append('lon',longitude);
-    console.log(latitude);
-    
-    latitude=100;
-    longitude=100;
+    formData.append('lat', latitude);
+    formData.append('lon', longitude);
+      
+    latitude = 100;
+    longitude = 100;
     request.send(formData);
 }
-
-
 
 
 function checkJobAllFields(op, id) 

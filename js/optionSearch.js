@@ -1,23 +1,25 @@
 "use strict"
 
-
-function resetOptionSearch(){
+function resetOptionSearch()
+{
     cleanErr('errOptionTag');
     cleanErr('errOptionCost');
     cleanErr('errOptionDistance');
     cleanErr('errOptionStreet');
-    document.getElementById("optionTag").value="Scegli il tag";
-    document.getElementById("optionDistance").value="Seleziona la distanza";
-    document.getElementById("optionCost").value="Seleziona il costo";
-    document.getElementById("optionStreet").value="";
+    document.getElementById("optionTag").value = "Scegli il tag";
+    document.getElementById("optionDistance").value = "Seleziona la distanza";
+    document.getElementById("optionCost").value = "Seleziona il costo";
+    document.getElementById("optionStreet").value = "";
     
 }
 
-function resetUserOption(){
-    document.getElementById("optionUser").value="Seleziona l'utente";
-}
+function resetUserOption() 
+{
+    document.getElementById("optionUser").value = "Seleziona l'utente";
+} 
 
-function resetSearch(){
+function resetSearch() 
+{
     resetOptionSearch();
     $("#resetResault").load(location.href + " #resetResault");
     
