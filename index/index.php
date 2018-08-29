@@ -45,7 +45,7 @@
 	<?php require('../noscript/noscript.html'); ?>
 	<?php require ('../navBar/navBar.php'); ?>
 	
-	<?php if ( $del=="deleted" ) { ?>
+	<?php if ( isset($del) && $del=="deleted" ) { ?>
 		<div id="alertDelete" class="alert alert-danger" style="z-index:50; margin-top: 4em; position: fixed; width: 100%; font-size: 24px;" role="alert">
 			Il tuo profilo &egrave; stato cancellato con successo!
 			<button type="button" onclick="hideItem('alertDelete')" class="close myClose" style="padding-top: 0.35em;" aria-label="Close">
