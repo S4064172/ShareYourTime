@@ -51,7 +51,7 @@
                         <li class="nav-item active ">
                             <a class="nav-link" href="../index/index.php" onClick="myCollapseHide()">
                                 <i class="fas fa-home" ></i>
-                                <span>Home</span>
+                                <span class="mydnone">Home</span>
                             </a>
                         </li>
                         <li class="nav-item active">
@@ -60,7 +60,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="#RicercaMappa" onClick="myCollapseHide()">
                                 <i class="fas fa-search"></i>
-                                Trova
+                                <span class="mydnone">Trova</span>
                             </a>
                         </li>
                     </ul>
@@ -90,7 +90,7 @@
                 <div class=" text-center col-md-4 collapse navbar-collapse navbarTogglerSignupLogin">
                     <div class="dimW100">
 <div class="float-md-right">
-                        <button type='button' class='btn btn-primary mr-2 btnSize ' onClick='myCollapseHide()' data-toggle='modal' data-target='#signUpModalTarget'>
+                        <button type='button' class='btn btn-primary mr-1 btnSize ' onClick='myCollapseHide()' data-toggle='modal' data-target='#signUpModalTarget'>
                             <i class='fa fa-user-plus'></i>
                             Registrati
                         </button>
