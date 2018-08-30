@@ -13,7 +13,7 @@
 		$conn = connectionToDb();
 
 		$usr = sanitizeToSql($usr, $conn);
-		$psw = sha1(sanitizeToSql($psw, $conn));
+		$psw = password_hash(sanitizeToSql($psw, $conn), PASSWORD_DEFAULT);
 		$name = sanitizeToSql($name, $conn);
 		$surname = sanitizeToSql($surname, $conn);
 		$phone = sanitizeToSql($phone, $conn);

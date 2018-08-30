@@ -53,7 +53,7 @@
         
 
         if( $psw != null ) {
-            $psw = sha1(sanitizeToSql($psw, $conn));
+            $psw = password_hash(sanitizeToSql($psw, $conn), PASSWORD_DEFAULT);
             $updateQuery =  "UPDATE ShareYourUsersTime SET ". 
                             "User = ? , ".
                             "Password = ? , ".

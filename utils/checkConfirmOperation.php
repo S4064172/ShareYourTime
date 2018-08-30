@@ -2,7 +2,6 @@
     require_once("../utils/utils.php");
     require_once("../utils/constant.php");
 
-
     if ( session_status() == PHP_SESSION_NONE ) {
         session_start();
 	}
@@ -20,7 +19,7 @@
         }
     }
 
-    if(checkIfUserWithPswExistInDb($_SESSION['user'],$_POST['checkPsw'])){
+    if( checkIfUserWithPswExistInDb($_SESSION['user'],$_POST['checkPsw']) ) {
         if($_SESSION['page'] == "viewjobs"){
             require_once("deleteJob.php");
         }else        
@@ -28,7 +27,3 @@
     }
     else    
         echo json_encode("La password inserita non &egrave; valida");
-      
-
-
-    

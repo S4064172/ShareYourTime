@@ -140,24 +140,26 @@
 
         $fieldSearchUser = sanitizeToSql($fieldSearchUser, $conn);
         $fieldSearchPsw = sanitizeToSql($fieldSearchPsw, $conn);
-        $fieldSearchPsw = sha1($fieldSearchPsw);
-		$querySelectUser = 	"SELECT User ".
+		
+		$querySelectUser = 	"SELECT Password ".
 							"FROM ShareYourUsersTime ".
-							"WHERE BINARY User=? AND Password=?";
+							"WHERE BINARY User=?";
 
 		if ( ($prep_stmt = mysqli_prepare($conn, $querySelectUser)) ) {
-			if ( !mysqli_stmt_bind_param($prep_stmt, "ss", $fieldSearchUser, $fieldSearchPsw) )
+			if ( !mysqli_stmt_bind_param($prep_stmt, "s", $fieldSearchUser) )
 				die ("Errore nell'accoppiamento dei parametri<br>");
 			
 			if ( !mysqli_stmt_execute($prep_stmt) )
 				die ("Errore nell'esecuzione della query<br>");
 
 			mysqli_stmt_store_result($prep_stmt);
-			$row = mysqli_stmt_num_rows($prep_stmt);
 			
-			mysqli_stmt_close($prep_stmt);
-			mysqli_close($conn);
-			return ($row == 1);
+			mysqli_stmt_bind_result($prep_stmt, $Password);
+			mysqli_stmt_fetch($prep_stmt);
+
+			$row = mysqli_stmt_num_rows($prep_stmt);
+
+			return ($row == 1 && password_verify($fieldSearchPsw, $Password));
 		}
 		die ("Errore nella preparazione della query<br>");
 	}

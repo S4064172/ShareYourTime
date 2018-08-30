@@ -3,15 +3,16 @@
     require_once('connection.php');
     require_once('../utils/utils.php');
 
+	/** @description
+	 * Questa funzione elimina un account dal database
+	 */
 
     function deleteAccount($user)
     {
         $conn = connectionToDb();
         $user = sanitizeToSql($user, $conn);
-		
 
-
-        $deleteUserQuery = "DELETE FROM ShareYourUsersTime where user=?";
+        $deleteUserQuery = "DELETE FROM ShareYourUsersTime WHERE BINARY User=?";
         
         if ( ($search_prep_stmt = mysqli_prepare($conn, $deleteUserQuery)) ) {
             if ( !mysqli_stmt_bind_param($search_prep_stmt, "s",$user ) )
@@ -30,12 +31,15 @@
         return $rows;
     }
 
+	/** @description
+	 * Questa funzione elimina un lavoro dal database
+	 */
     function deleteJob($job)
     {
         $conn = connectionToDb();
 
         $job = sanitizeToSql($job, $conn);
-        $deleteJobQuery = "DELETE FROM ShareYourJobsTime where IdJob=?";
+        $deleteJobQuery = "DELETE FROM ShareYourJobsTime WHERE IdJob=?";
         if ( ($search_prep_stmt = mysqli_prepare($conn, $deleteJobQuery)) ) {
             if ( !mysqli_stmt_bind_param($search_prep_stmt, "i", $job ) )
                 die ("Errore nell'accoppiamento dei parametri");
@@ -52,10 +56,3 @@
         mysqli_close($conn);
         return $rows;
     }
-    
-
-    
-
-        
-            
-            

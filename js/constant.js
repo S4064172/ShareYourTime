@@ -3,7 +3,7 @@
 /*******************Costanti DataBase********************/
 const UserNameMaxLength = 25;
 const UserNameMinLength = 5;
-const PasswordMaxLength = 45;
+const PasswordMaxLength = 255;
 const PasswordMinLength = 8;
 const NameMaxLength = 30;
 const NameMinLength = 2;

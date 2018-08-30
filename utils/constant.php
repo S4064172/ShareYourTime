@@ -3,7 +3,7 @@
 /*******************Costanti DataBase********************/
     define('UserNameMaxLength',25);
     define('UserNameMinLength',5);
-    define('PasswordMaxLength',45);
+    define('PasswordMaxLength',255);
     define('PasswordMinLength',8);
     define('NameMaxLength',30);
     define('NameMinLength',2);

@@ -38,6 +38,7 @@ function validateCheckLoginAllField(idErrField, idWait, request)
 		hideItem(idWait);
 		if (request.readyState === 4 && request.status === 200) {
 			if (request.responseText != null) {
+				//console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);
 				var notify = document.getElementById(idErrField);
 				if (jsonObj['code'] === -1) {
