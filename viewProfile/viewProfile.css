@@ -35,6 +35,12 @@ section {
     width: 400px;
 }
 
+@media screen and (max-width:500px){
+    .wi400 {
+        width: 300px;
+    }
+}
+
 .inputType, .inputTypePsw, .labelText {
     width: 100%;
     padding: 10px 10px;
@@ -64,7 +70,11 @@ section {
     margin-bottom: 2% !important;
 }
 
-
+@media screen and (max-width:767px){
+    #bntModify, #bntExit, #bntSave, #bntDelete {
+        width: 100%;
+    } 
+}
 
 .titleSessionTesto {
 	padding-top: 6em;

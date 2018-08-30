@@ -18,22 +18,14 @@
 	background: rgb(188, 203, 221);
 }
 
-.card-title {
-	font-size: 25px;	
-}
 
-@media (min-width: 279px) {
-	.card-title {
-		font-size: 14px;	
+@media screen and (max-width:480px){
+	.card-title{
+		font-size: 1rem;
 	}
 }
 
-@media (min-width: 630px) {
-	.card-title {
-		
-		font-size: 16px;	
-	}
-}
+
 
 @media (min-width: 100px) {
     .card-columns {
