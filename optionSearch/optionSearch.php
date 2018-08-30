@@ -105,7 +105,7 @@
 <?php if( $_SESSION['page'] == 'searchjobs' ) { ?>                    
             <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="checkAllSearchJob();resetUserOption();resetOptionSearch();">
 <?php }else{ ?>
-<button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="checkAllSearchJob();resetUserOption();">
+<button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="checkAllSearchJob();resetOptionSearch();">
 <?php }?>
             <i class="fas fa-search"></i>
             Cerca

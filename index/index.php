@@ -1,6 +1,14 @@
 <?php
 	require_once('../utils/utils.php');	
 
+	
+	if (check_COOKIE_IsSetAndNotEmpty('deleted') && $_COOKIE['deleted'] === "del") {
+		$del="deleted";
+		$cookie_name = "deleted";
+		$cookie_value = "";
+		setcookie($cookie_name, $cookie_value, time() + (-1), "/"); // 86400 = 1 day
+	}
+
 	if ( !check_COOKIE_IsSetAndNotEmpty('sizeC') ) {
 		$cookie_name = "sizeC";
 		$cookie_value = "3";
@@ -37,7 +45,7 @@
 	<?php require('../noscript/noscript.html'); ?>
 	<?php require ('../navBar/navBar.php'); ?>
 	
-	<?php if (check_COOKIE_IsSetAndNotEmpty('deleted') && $_COOKIE['deleted'] === "del") { ?>
+	<?php if ( isset($del) && $del=="deleted" ) { ?>
 		<div id="alertDelete" class="alert alert-danger" style="z-index:50; margin-top: 4em; position: fixed; width: 100%; font-size: 24px;" role="alert">
 			Il tuo profilo &egrave; stato cancellato con successo!
 			<button type="button" onclick="hideItem('alertDelete')" class="close myClose" style="padding-top: 0.35em;" aria-label="Close">
@@ -45,10 +53,7 @@
 			</button>
 		</div>
 		<?php
-			//distruggiamo il cookie
-			$cookie_name = "deleted";
-			$cookie_value = "";
-			setcookie($cookie_name, $cookie_value, time() + (-1), "/"); // 86400 = 1 day
+			$del=null;
 		} ?>
 
 	<section id="homeView">
