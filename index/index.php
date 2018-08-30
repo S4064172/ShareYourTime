@@ -155,7 +155,6 @@
 	<script src="../js/googleMaps.js"></script>
 	
 	<script src="../js/checkLoginUser.js"></script>
-	<script src="../js/checkSearchOptionMap.js"></script>
 	
 	<script src="../js/checkProfileUserField.js"></script>
 	<script src="../js/checkJobsField.js"></script>
