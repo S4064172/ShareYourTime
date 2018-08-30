@@ -14,7 +14,7 @@
 				return;
 			}
 			
-			echo json_encode(array('code' => -1, 'msg' => 'Hai gia\' un impegno in questa data.'));
+			echo json_encode(array('code' => -1, 'msg' => 'Hai gia\' un impegno in questa data'));
 			return;
 		 }
 
@@ -23,7 +23,7 @@
 			return;
 		 } 
 		
-		echo json_encode(array('code' => -1, 'msg' => 'Hai gia\' un impegno in questa data.'));
+		echo json_encode(array('code' => -1, 'msg' => 'Hai gia\' un impegno in questa data'));
 		return;
 	}
 		

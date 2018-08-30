@@ -28,14 +28,14 @@
 	
 	if ( check_POST_IsSetAndNotEmpty('insert') ) {
 		//inserimento
-		if ( $_POST['insert'] == 'true' )
+		if ( $_POST['insert'] == 'true' ) {
 			if ( !checkDatesAndTime($_POST['dateStart'].' '.$_POST['timeStart'], $_POST['dateEnd'].' '.$_POST['timeEnd'], null) )
-					$result['errTime'] = "Hai gi&agrave; un impegno in quella data1";
+					$result['errTime'] = "Hai gi&agrave; un impegno in quella data";
 		//modifica
-		else if ( $_POST['insert'] == 'false' )
+		} else if ( $_POST['insert'] == 'false' )
 			if ( check_POST_IsSetAndNotEmpty('IdJob') ) 
 				if ( !checkDatesAndTime($_POST['dateStart'].' '.$_POST['timeStart'], $_POST['dateEnd'].' '.$_POST['timeEnd'], $_POST['IdJob']) )
-					$result['errTime'] = "Hai gi&agrave; un impegno in quella data2";
+					$result['errTime'] = "Hai gi&agrave; un impegno in quella data";
 				
 	}	
 			
@@ -69,6 +69,7 @@
 												$_POST['distance'], $_POST['street'], 
 												$_POST['lat'], $_POST['long'], 
 												$_POST['tag'], $_POST['IdJob'] );
+	
 	}
 	
 	//Ritorna errori

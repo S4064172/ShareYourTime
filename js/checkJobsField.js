@@ -12,8 +12,8 @@ function checkUserName(idCheck, idErr){
 
     var user = document.getElementById(idCheck);
     var errUser = document.getElementById(idErr);
-    errUser.style.fontSize = '0.9em';
-    errUser.style.color = 'darkred';
+    errUser.style.fontSize = '1.4em';
+    errUser.style.color = 'red';
 		
     if( user == null || user.value === "" || !alphaNumRegex.test(user.value) 
                      || !checkMinLength(user.value, UserNameMinLength ) 
@@ -28,8 +28,8 @@ function checkTag(idCheck, idErr){
 
     var tag = document.getElementById(idCheck);
     var errTag = document.getElementById(idErr);
-    errTag.style.fontSize = '0.9em';
-    errTag.style.color = 'darkred';
+    errTag.style.fontSize = '1.4em';
+    errTag.style.color = 'red';
 		
     if( tag == null || tag.value === "" || !alphaRegex.test(tag.value)
                      || !checkMaxLength(tag.value, TagMaxLength)) {
@@ -43,8 +43,8 @@ function checkDescription(idCheck, idErr)
 {   
     var desc = document.getElementById(idCheck);
     var errDesc = document.getElementById(idErr);
-    errDesc.style.fontSize = '0.9em';
-    errDesc.style.color = 'darkred';
+    errDesc.style.fontSize = '1.4em';
+    errDesc.style.color = 'red';
 		
     if( desc == null || desc.value === "" || !alphaNumRegex.test(desc.value) ) {
         errDesc.innerHTML = "La descrizione non &egrave; valida";
@@ -66,8 +66,8 @@ function checkCost(idCost, idErr)
 {   
     var cost = document.getElementById(idCost);
     var errCost = document.getElementById(idErr);
-    errCost.style.fontSize = '0.9em';
-    errCost.style.color = 'darkred';
+    errCost.style.fontSize = '1.4em';
+    errCost.style.color = 'red';
     
 	if( cost == null || cost.value === "" || !checkMin(parseInt(cost.value), CostMin) || !numRegex.test(cost.value) ) {
         errCost.innerHTML = "Costo non valido";
@@ -79,8 +79,8 @@ function checkDistance(idDist, idErr)
 {   
     var dist = document.getElementById(idDist);
     var errDist = document.getElementById(idErr);
-    errDist.style.fontSize = '0.9em';
-    errDist.style.color = 'darkred';
+    errDist.style.fontSize = '1.4em';
+    errDist.style.color = 'red';
 
     if( dist == null || dist.value === "" || !checkMin(parseInt(dist.value), DistanceMin) || !numRegex.test(dist.value) ) {
         errDist.innerHTML = "Distanza non valida";
@@ -96,9 +96,9 @@ function checkDistanceSearch(idStreer, idDist, idErr)
     }
     console.log(document.getElementById(idStreer).value);
     var errDist = document.getElementById(idErr);
-    errDist.style.fontSize = '0.9em';
-    errDist.style.color = 'darkred';
-    errDist.innerHTML = "Via non settata";
+    errDist.style.fontSize = '1.4em';
+    errDist.style.color = 'red';
+    errDist.innerHTML = "Via non selezionata";
 }
 
 function checkTime(idDate1, idTime1, idDate2, idTime2, idErr, idJob)
@@ -113,8 +113,8 @@ function checkTime(idDate1, idTime1, idDate2, idTime2, idErr, idJob)
     var now = new Date();
    
 	var err = document.getElementById(idErr);
-	err.style.fontSize = '0.9em';
-    err.style.color = 'darkred';
+	err.style.fontSize = '1.4em';
+    err.style.color = 'red';
     
 	//non si possono caricare lavori nel passato
 	if ( dateStart.getTime() < now.getTime() || dateEnd.getTime() < now.getTime() ) {
@@ -153,8 +153,8 @@ function checkStreet(idCheck, idErr)
     var addr = document.getElementById(idCheck);
     
 	var errAddr = document.getElementById(idErr);
-    errAddr.style.fontSize = '0.9em';
-    errAddr.style.color = 'darkred';
+    errAddr.style.fontSize = '1.4em';
+    errAddr.style.color = 'red';
 
     if( addr == null || addr.value === "" || !addressRegex.test(addr.value) ) {
         errAddr.innerHTML = "Indirizzo non valido";
@@ -167,7 +167,7 @@ function checkStreet(idCheck, idErr)
     }
 
     if( !checkMaxLength(addr.value, StreetMaxLength) ) {
-        errAddr.innerHTML = "Strada troppo corta";
+        errAddr.innerHTML = "Indirizzo troppo lungo";
         return;
     }
 }
@@ -190,45 +190,64 @@ function checkAllSearchJob()
     var request = getRequest();
 	request.open("POST", "../utils/checkAllSearchJob.php", true);
     
-    
     var htmlTagUser = document.getElementById('optionUser');
+	var htmlTagDist = document.getElementById('optionDistance');
 
-    if (htmlTagUser!=null)
+    if (htmlTagUser != null)
         request.onreadystatechange = validateCheckJob(request);
-    else{
-        var hqLocation = new google.maps.LatLng(44.403425,8.972164);
-        var mapProp = {
-            center: hqLocation,
-            zoom: 14,
+    else {
+		if ( latitude !== 100 && longitude !== 100 ) 
+        	var usrLocation = new google.maps.LatLng(latitude, longitude);
+		else
+        	var usrLocation = new google.maps.LatLng(44.403425,8.972164);
+		
+	    
+		var mapProp = {
+    		center: usrLocation,
+        	zoom: 13,
             mapTypeId: google.maps.TERRAIN
-        };
-        request.onreadystatechange = printFields(request,new google.maps.Map(document.getElementById('googleMap'),mapProp));
+		};
+
+		var map = new google.maps.Map(document.getElementById('googleMap'), mapProp);
+
+		if ( htmlTagDist.value !== '' ) {
+			//Disegno una cerchi di raggio x
+			var circle = new google.maps.Circle({
+				center: usrLocation,
+		  		radius: 1000*htmlTagDist.value, //In metri
+				strokeColor: "#0000FF",
+				strokeOpacity: 0.8,
+				strokeWeight: 2,
+  				fillColor: "#0000FF",
+		  		fillOpacity: 0.4
+			}); 
+			circle.setMap(map);
+		}
+		
+        request.onreadystatechange = printFields(request, map);
     }
+
 	var formData = new FormData();
 
-   
 	var htmlTagAddress = document.getElementById('optionStreet');
 	var htmlTagCost = document.getElementById('optionCost');
-	var htmlTagDist = document.getElementById('optionDistance');
     var htmlTagTag = document.getElementById('optionTag');
     
-    if (htmlTagUser!=null)
-        formData.append(htmlTagUser.name, htmlTagUser.value);
+    if (htmlTagUser != null)
+    	formData.append(htmlTagUser.name, htmlTagUser.value);
+
     formData.append(htmlTagAddress.name, htmlTagAddress.value);
     formData.append(htmlTagDist.name, htmlTagDist.value);
     formData.append(htmlTagCost.name, htmlTagCost.value);
     formData.append(htmlTagTag.name, htmlTagTag.value);
-    formData.append('lat',latitude);
-    formData.append('lon',longitude);
-    console.log(htmlTagAddress.name + htmlTagAddress.value);
-    console.log(htmlTagDist.name + htmlTagDist.value);
+    formData.append('lat', latitude);
+    formData.append('lon', longitude);
+      
+    latitude = 100;
+    longitude = 100;
     
-    latitude=100;
-    longitude=100;
-    request.send(formData);
+	request.send(formData);
 }
-
-
 
 
 function checkJobAllFields(op, id) 
@@ -296,8 +315,8 @@ function validateCheckJob(request)
                     //stampa degli errori rilevati
                     for(var key in jsonObj) {
                         var notify = document.getElementById(key);
-                        notify.style.fontSize = '0.9em';
-                        notify.style.color = 'darkred';
+                        notify.style.fontSize = '1.4em';
+                        notify.style.color = 'red';
                         notify.innerHTML = jsonObj[key];		
                     }
 
@@ -350,8 +369,8 @@ function validateCheckSingleJobField(request, idErrField)
 				//stampa dell'errore sul campo
                 if ( jsonObj['code'] === -1 ) {
                     var notify = document.getElementById(idErrField);
-                    notify.style.fontSize = '0.9em';
-                    notify.style.color = 'darkred';
+                    notify.style.fontSize = '1.4em';
+                    notify.style.color = 'red';
                     notify.innerHTML = jsonObj['msg'];
                 }
 
