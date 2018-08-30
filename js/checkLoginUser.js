@@ -41,8 +41,8 @@ function validateCheckLoginAllField(idErrField, idWait, request)
 				var jsonObj = JSON.parse(request.responseText);
 				var notify = document.getElementById(idErrField);
 				if (jsonObj['code'] === -1) {
-					notify.style.fontSize = '0.9em';
-					notify.style.color = 'darkred';
+					notify.style.fontSize = '1.4em';
+					notify.style.color = 'red';
 					notify.innerHTML = jsonObj['msg'];
 					return
 				}				

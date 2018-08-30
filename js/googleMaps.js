@@ -13,7 +13,6 @@ function printFields(request, map)
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
-				console.log(request.responseText);
 				var jsonObj = JSON.parse(request.responseText);	
 
 				var workMark = [];

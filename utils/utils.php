@@ -141,12 +141,12 @@
         $fieldSearchUser = sanitizeToSql($fieldSearchUser, $conn);
         $fieldSearchPsw = sanitizeToSql($fieldSearchPsw, $conn);
         $fieldSearchPsw = sha1($fieldSearchPsw);
-		$querySelectUser = 	"SELECT user ".
+		$querySelectUser = 	"SELECT User ".
 							"FROM ShareYourUsersTime ".
-							"WHERE user=? and password=?";
+							"WHERE BINARY User=? AND Password=?";
 
 		if ( ($prep_stmt = mysqli_prepare($conn, $querySelectUser)) ) {
-			if ( !mysqli_stmt_bind_param($prep_stmt, "ss", $fieldSearchUser, $fieldSearchPsw))
+			if ( !mysqli_stmt_bind_param($prep_stmt, "ss", $fieldSearchUser, $fieldSearchPsw) )
 				die ("Errore nell'accoppiamento dei parametri<br>");
 			
 			if ( !mysqli_stmt_execute($prep_stmt) )
