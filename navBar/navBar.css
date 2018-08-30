@@ -37,3 +37,27 @@ a:focus {
 		max-height: 50em;
 	}
 }
+
+@media screen and (max-width: 1100px) {
+	.syze800px {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 836px) {
+	.mydnone {
+		display: none;
+	}
+
+	.syze800px {
+		display: inline;
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.mydnone {
+		display: inline;
+	}
+}
+

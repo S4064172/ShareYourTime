@@ -18,7 +18,7 @@
 
 <div id="showMenu" onmouseover="showItem('menu');"></div>
 
-<div id="menu" onmouseover="showItem('menu');" onmouseout="hideItem('menu');" onClick="hideItem('menu');">
+<div id="menu" onmouseover="showItem('menu');myCollapseHide()" onmouseout="hideItem('menu');" onClick="hideItem('menu');">
 	<div id="optionMenu"></div>
 	<?php 
 			createButtonInMenu('homepage', 'Home', '../homepage/homepage.php');
