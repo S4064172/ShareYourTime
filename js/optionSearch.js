@@ -1,26 +1,35 @@
 "use strict"
 
-function resetOptionSearch()
+function resetOptionSearchErrs()
 {
     cleanErr('errOptionTag');
     cleanErr('errOptionCost');
     cleanErr('errOptionDistance');
-    cleanErr('errOptionStreet');
+    cleanErr('errOptionStreet');    
+}
+
+function resetOptionSearchValues()
+{
     document.getElementById("optionTag").value = "Scegli il tag";
     document.getElementById("optionDistance").value = "Seleziona la distanza";
     document.getElementById("optionCost").value = "Seleziona il costo";
     document.getElementById("optionStreet").value = "";
-    
 }
 
-function resetUserOption() 
+function resetUserSearchErr()
+{
+    cleanErr('errOptionUser');  
+}
+
+function resetUserOptionValue() 
 {
     document.getElementById("optionUser").value = "Seleziona l'utente";
 } 
 
 function resetSearch() 
 {
-    resetOptionSearch();
+    resetOptionSearchErrs();
+    resetOptionSearchValues();
     $("#resetResault").load(location.href + " #resetResault");
     
 }
@@ -43,6 +52,7 @@ function initAddr()
                 console.log('cityLat: ' + place.geometry.location.lat());
                 console.log('cityLng: ' + place.geometry.location.lng());
 				latitude = place.geometry.location.lat();
-				longitude = place.geometry.location.lng();
+                longitude = place.geometry.location.lng();
+                checkStreetSearch('optionStreet','errOptionStreet');
     });
 }

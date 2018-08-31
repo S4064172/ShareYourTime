@@ -118,5 +118,6 @@ function listenerAutocomplete(autocomplete)
     	console.log('cityLng: ' + place.geometry.location.lng());
 		latitude = place.geometry.location.lat();
 		longitude = place.geometry.location.lng();
+		checkAddress('addressReg', 'errAddress');
 	}
 }

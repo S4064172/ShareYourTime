@@ -113,7 +113,7 @@
                                     <label class="labelText" ><b>Indirizzo</b></label>
                                 </div>
                                 <div class="col-md-6">
-                                    <input onblur="checkAddress('addressModified','errAddressModified')" onfocus="cleanErr('errAddressModified')" id="addressModified" class="inputType" type="text" value="<?php echo sanitizeToHtml($row['Street']) ?>" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> disabled>
+                                    <input onfocus="cleanErr('errAddressModified')" id="addressModified" class="inputType" type="text" value="<?php echo sanitizeToHtml($row['Street']) ?>" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> disabled>
                                     <p id="errAddressModified"></p>
                                 </div>
                             </div>

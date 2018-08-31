@@ -155,7 +155,6 @@ function checkStreet(idCheck, idErr)
 	var errAddr = document.getElementById(idErr);
     errAddr.style.fontSize = '1.4em';
     errAddr.style.color = 'red';
-    console.log("-----"+addr.value);
     if( addr == null || addr.value === "" || !addressRegex.test(addr.value) ) {
         errAddr.innerHTML = "Indirizzo non valido";
         return;
@@ -183,76 +182,121 @@ function checkStreetSearch(idCheck, idErr)
 
 
 
-
 /************ Controllo tutti i campi definitivo al submit ******************/
 function checkAllSearchJob()
 {
-    var request = getRequest();
-	request.open("POST", "../utils/checkAllSearchJob.php", true);
-    
-    var htmlTagUser = document.getElementById('optionUser');
-	var htmlTagDist = document.getElementById('optionDistance');
+    var addr = document.getElementById('optionStreet');
+	// Get geocoder instance
+	var geocoder = new google.maps.Geocoder();
 
-    if (htmlTagUser != null)
-        request.onreadystatechange = validateCheckJob(request);
-    else {
-		if ( latitude !== 100 && longitude !== 100 ) 
-        	var usrLocation = new google.maps.LatLng(latitude, longitude);
-		else
-        	var usrLocation = new google.maps.LatLng(44.403425,8.972164);
+	// Geocode the address
+	geocoder.geocode(
+		{'address': addr.value},
+	   	function(results, status) {
+            if (addr.value =="" || status === google.maps.GeocoderStatus.OK && results.length > 0) {
 		
-	    
-		var mapProp = {
-    		center: usrLocation,
-        	zoom: 13,
-            mapTypeId: google.maps.TERRAIN
-		};
+				// set it to the correct, formatted address if it's valid
+                if(addr.value !="")
+                    addr.value = results[0].formatted_address;
+				var request = getRequest();
+	            request.open("POST", "../utils/checkAllSearchJob.php", true);
+    
+                var htmlTagUser = document.getElementById('optionUser');
+                var htmlTagDist = document.getElementById('optionDistance');
 
-		var map = new google.maps.Map(document.getElementById('googleMap'), mapProp);
+                if (htmlTagUser != null){
+                    request.onreadystatechange = validateCheckJob(request);
+                }else {
+                    if ( latitude !== 100 && longitude !== 100 ){ 
+                        var usrLocation = new google.maps.LatLng(latitude, longitude);
+                    }else
+                        var usrLocation = new google.maps.LatLng(44.403425,8.972164);
+                    
+                    
+                    var mapProp = {
+                        center: usrLocation,
+                        zoom: 13,
+                        mapTypeId: google.maps.TERRAIN
+                    };
 
-		if ( htmlTagDist.value !== '' ) {
-			//Disegno una cerchi di raggio x
-			var circle = new google.maps.Circle({
-				center: usrLocation,
-		  		radius: 1000*htmlTagDist.value, //In metri
-				strokeColor: "#0000FF",
-				strokeOpacity: 0.8,
-				strokeWeight: 2,
-  				fillColor: "#0000FF",
-		  		fillOpacity: 0.4
-			}); 
-			circle.setMap(map);
+                    var map = new google.maps.Map(document.getElementById('googleMap'), mapProp);
+
+                    if ( htmlTagDist.value !== '' ) {
+                        //Disegno una cerchi di raggio x
+                        var circle = new google.maps.Circle({
+                            center: usrLocation,
+                            radius: 1000*htmlTagDist.value, //In metri
+                            strokeColor: "#0000FF",
+                            strokeOpacity: 0.8,
+                            strokeWeight: 2,
+                            fillColor: "#0000FF",
+                            fillOpacity: 0.4
+                        }); 
+                        circle.setMap(map);
+                    }
+                    
+                    request.onreadystatechange = printFields(request, map);
+                }
+
+                var formData = new FormData();
+
+                var htmlTagAddress = document.getElementById('optionStreet');
+                var htmlTagCost = document.getElementById('optionCost');
+                var htmlTagTag = document.getElementById('optionTag');
+                
+                if (htmlTagUser != null)
+                    formData.append(htmlTagUser.name, htmlTagUser.value);
+
+                formData.append(htmlTagAddress.name, htmlTagAddress.value);
+                formData.append(htmlTagDist.name, htmlTagDist.value);
+                formData.append(htmlTagCost.name, htmlTagCost.value);
+                formData.append(htmlTagTag.name, htmlTagTag.value);
+                formData.append('lat', latitude);
+                formData.append('lon', longitude);
+                
+                latitude = 100;
+                longitude = 100;
+                
+                request.send(formData);
+
+                resetOptionSearchValues();
+                if (htmlTagUser != null)
+                    resetUserOptionValue();
+                            // show an error if it's not
+			} else{
+                var notify = document.getElementById('errOptionStreet');
+                notify.style.fontSize = '0.9em';
+                notify.style.color = 'darkred';
+                notify.innerHTML = "Indirizzo non valido1";	
+			}
 		}
-		
-        request.onreadystatechange = printFields(request, map);
-    }
+	);
 
-	var formData = new FormData();
 
-	var htmlTagAddress = document.getElementById('optionStreet');
-	var htmlTagCost = document.getElementById('optionCost');
-    var htmlTagTag = document.getElementById('optionTag');
+
+
     
-    if (htmlTagUser != null)
-    	formData.append(htmlTagUser.name, htmlTagUser.value);
-
-    formData.append(htmlTagAddress.name, htmlTagAddress.value);
-    formData.append(htmlTagDist.name, htmlTagDist.value);
-    formData.append(htmlTagCost.name, htmlTagCost.value);
-    formData.append(htmlTagTag.name, htmlTagTag.value);
-    formData.append('lat', latitude);
-    formData.append('lon', longitude);
-      
-    latitude = 100;
-    longitude = 100;
-    
-	request.send(formData);
 }
+
 
 
 function checkJobAllFields(op, id) 
 {
 	return function() {
+        var addr = document.getElementById('modalStreet');
+	// Get geocoder instance
+	var geocoder = new google.maps.Geocoder();
+
+	// Geocode the address
+	geocoder.geocode(
+		{'address': addr.value},
+	   	function(results, status) {
+            if ( status === google.maps.GeocoderStatus.OK && results.length > 0) {
+		
+				// set it to the correct, formatted address if it's valid
+                addr.value = results[0].formatted_address;
+	
+        
 		var request = getRequest();
 		request.open("POST", "../utils/checkJobsAllField.php", true);
 		request.onreadystatechange = validateCheckJob(request);
@@ -290,7 +334,17 @@ function checkJobAllFields(op, id)
 		if (id != null) 
 			formData.append("IdJob", id);
 
-		request.send(formData);
+        request.send(formData);
+        
+    } else{
+        var notify = document.getElementById('errModalStreet');
+    notify.style.fontSize = '0.9em';
+    notify.style.color = 'darkred';
+    notify.innerHTML = "Indirizzo non valido";	
+    }
+}
+);
+
 	}
 }
 
@@ -322,6 +376,7 @@ function validateCheckJob(request)
 
                 } catch (error) {
                     document.getElementById('printCard').innerHTML = request.responseText;
+                    
                 }
 			}		
 		}

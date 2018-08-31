@@ -140,7 +140,8 @@ function initAddr()
                 console.log('cityLat: ' + place.geometry.location.lat());
                 console.log('cityLng: ' + place.geometry.location.lng());
 				latitude = place.geometry.location.lat();
-				longitude = place.geometry.location.lng();
+                longitude = place.geometry.location.lng();
+                checkStreet('modalStreet','errModalStreet');
     });
 }
 

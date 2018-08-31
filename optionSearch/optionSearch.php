@@ -4,7 +4,7 @@
 <?php } ?>
     <div class="row">
         <div class="col-md-3"> 
-            <input id="optionStreet" onchange="cleanErr('errOptionStreet');cleanErr('errOptionDistance');checkStreetSearch('optionStreet','errOptionStreet');" class="mySelection" placeholder="Inserisci la via" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?>>
+            <input id="optionStreet" onchange="cleanErr('errOptionStreet');cleanErr('errOptionDistance');" class="mySelection" placeholder="Inserisci la via" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?>>
             <p id="errOptionStreet"></p>
         </div>
 
@@ -103,9 +103,9 @@
     <div class ="row">
         <div class="offset-md-3 col-md-3"> 
 <?php if( $_SESSION['page'] == 'searchjobs' ) { ?>                    
-            <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="checkAllSearchJob();resetUserOption();resetOptionSearch();">
+            <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="resetOptionSearchErrs();resetUserSearchErr();checkAllSearchJob();">
 <?php }else{ ?>
-<button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="checkAllSearchJob();resetOptionSearch();">
+<button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="resetOptionSearchErrs();checkAllSearchJob();">
 <?php }?>
             <i class="fas fa-search"></i>
             Cerca
@@ -114,7 +114,7 @@
 
         <div class="col-md-3"> 
 <?php if( $_SESSION['page'] == 'searchjobs' ) { ?>                    
-<button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="resetUserOption();resetSearch();">
+<button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="resetUserSearchErr();resetUserOptionValue();resetSearch();">
 <?php }else{ ?>
 <button type="button" class="btn btn-secondary mb-2 myButtonSearchMap" onClick="resetSearch();">
 <?php }?>

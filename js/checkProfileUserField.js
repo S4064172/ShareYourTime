@@ -78,38 +78,56 @@ function validateconfirmOperation(request, idErrPsw, idJob)
 
 function checkModifiedAllField(idWait, userCheck, mailCheck, phoneCheck)
 {
-    showItem(idWait); 
-	var request = getRequest();
-    request.open("POST", "../utils/checkProfileUserAllField.php", true);	
-	request.onreadystatechange = validateCheckGenericAllField(idWait, request);
-	
-    var formData = new FormData();
-	var htmlTagUser = document.getElementById('userModified');
-    var htmlTagEmail = document.getElementById('emailModified');
-    var htmlTagPsw = document.getElementById('pswModified');
-    var htmlTagConfPsw = document.getElementById('pswConfModified');
-  	var htmlTagName = document.getElementById('nameModified');
-    var htmlTagSurname = document.getElementById('surnameModified');
-    var htmlTagAddress = document.getElementById('addressModified');
-	var htmlTagPhone = document.getElementById('phoneModified');
-	var htmlTagPhoto = document.getElementById('photoModified');
-    
-	formData.append(htmlTagPhoto.name, htmlTagPhoto.files[0]);
-	formData.append(htmlTagUser.name, htmlTagUser.value);
-    formData.append(htmlTagEmail.name, htmlTagEmail.value);
-    formData.append(htmlTagPsw.name, htmlTagPsw.value);
-    formData.append(htmlTagConfPsw.name, htmlTagConfPsw.value);
-    formData.append(htmlTagName.name, htmlTagName.value);
-    formData.append(htmlTagSurname.name, htmlTagSurname.value);
-    formData.append(htmlTagAddress.name, htmlTagAddress.value);
-    formData.append(htmlTagPhone.name, htmlTagPhone.value);
-    formData.append('checkUser', userCheck);
-    formData.append('checkEmail', mailCheck);
-    formData.append('checkPhone', phoneCheck);
-    
-    formData.append("registration", 1);
+    var geocoder = new google.maps.Geocoder();
+    var addr = document.getElementById('addressModified');
+    geocoder.geocode(  
+        {'address': addr.value }, 
+        function(results, status) {
 
-	request.send(formData);
+            if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
+                addr.value = results[0].formatted_address;
+    
+                showItem(idWait); 
+                var request = getRequest();
+                request.open("POST", "../utils/checkProfileUserAllField.php", true);	
+                request.onreadystatechange = validateCheckGenericAllField(idWait, request);
+                
+                var formData = new FormData();
+                var htmlTagUser = document.getElementById('userModified');
+                var htmlTagEmail = document.getElementById('emailModified');
+                var htmlTagPsw = document.getElementById('pswModified');
+                var htmlTagConfPsw = document.getElementById('pswConfModified');
+                var htmlTagName = document.getElementById('nameModified');
+                var htmlTagSurname = document.getElementById('surnameModified');
+                var htmlTagAddress = document.getElementById('addressModified');
+                var htmlTagPhone = document.getElementById('phoneModified');
+                var htmlTagPhoto = document.getElementById('photoModified');
+                
+                formData.append(htmlTagPhoto.name, htmlTagPhoto.files[0]);
+                formData.append(htmlTagUser.name, htmlTagUser.value);
+                formData.append(htmlTagEmail.name, htmlTagEmail.value);
+                formData.append(htmlTagPsw.name, htmlTagPsw.value);
+                formData.append(htmlTagConfPsw.name, htmlTagConfPsw.value);
+                formData.append(htmlTagName.name, htmlTagName.value);
+                formData.append(htmlTagSurname.name, htmlTagSurname.value);
+                formData.append(htmlTagAddress.name, htmlTagAddress.value);
+                formData.append(htmlTagPhone.name, htmlTagPhone.value);
+                formData.append('checkUser', userCheck);
+                formData.append('checkEmail', mailCheck);
+                formData.append('checkPhone', phoneCheck);
+                
+                formData.append("registration", 1);
+
+                request.send(formData);
+            
+            }else{
+                var notify = document.getElementById('errAddressModified');
+                notify.style.fontSize = '0.9em';
+                notify.style.color = 'darkred';
+                notify.innerHTML = "Indirizzo non valido";
+            }
+        }
+    );
 }
 
 
@@ -124,36 +142,52 @@ function checkModifiedAllField(idWait, userCheck, mailCheck, phoneCheck)
 */
 function checkRegistrationAllField(idWait)
 {
-	showItem(idWait)
-	var request = getRequest();
-	request.open("POST", "../utils/checkProfileUserAllField.php", true);	
-	request.onreadystatechange = validateCheckGenericAllField(idWait, request);
-	
-    var formData = new FormData();
 
-	var htmlTagUser = document.getElementById('usernameReg');
-    var htmlTagEmail = document.getElementById('emailReg');
-    var htmlTagPsw = document.getElementById('pswReg');
-    var htmlTagPswConf = document.getElementById('pswRegConf');
-  	var htmlTagName = document.getElementById('nameReg');
-    var htmlTagSurname = document.getElementById('surnameReg');
-    var htmlTagAddress = document.getElementById('addressReg');
-	var htmlTagPhone = document.getElementById('telephoneReg');
-	var htmlTagPhoto = document.getElementById('photoReg');
-    
-	formData.append(htmlTagPhoto.name, htmlTagPhoto.files[0]);
-	formData.append(htmlTagUser.name, htmlTagUser.value);
-    formData.append(htmlTagEmail.name, htmlTagEmail.value);
-    formData.append(htmlTagPsw.name, htmlTagPsw.value);
-    formData.append(htmlTagPswConf.name, htmlTagPswConf.value);
-    formData.append(htmlTagName.name, htmlTagName.value);
-    formData.append(htmlTagSurname.name, htmlTagSurname.value);
-    formData.append(htmlTagAddress.name, htmlTagAddress.value);
-    formData.append(htmlTagPhone.name, htmlTagPhone.value);
+    var geocoder = new google.maps.Geocoder();
+    var addr = document.getElementById('addressReg');
+    geocoder.geocode(  
+        {'address': addr.value }, 
+        function(results, status) {
 
-    formData.append("registration", 0);
-    
-	request.send(formData);
+            if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
+                addr.value = results[0].formatted_address;
+                showItem(idWait)
+                var request = getRequest();
+                request.open("POST", "../utils/checkProfileUserAllField.php", true);	
+                request.onreadystatechange = validateCheckGenericAllField(idWait, request);
+
+                var formData = new FormData();
+
+                var htmlTagUser = document.getElementById('usernameReg');
+                var htmlTagEmail = document.getElementById('emailReg');
+                var htmlTagPsw = document.getElementById('pswReg');
+                var htmlTagPswConf = document.getElementById('pswRegConf');
+                var htmlTagName = document.getElementById('nameReg');
+                var htmlTagSurname = document.getElementById('surnameReg');
+                var htmlTagAddress = document.getElementById('addressReg');
+                var htmlTagPhone = document.getElementById('telephoneReg');
+                var htmlTagPhoto = document.getElementById('photoReg');
+
+                formData.append(htmlTagPhoto.name, htmlTagPhoto.files[0]);
+                formData.append(htmlTagUser.name, htmlTagUser.value);
+                formData.append(htmlTagEmail.name, htmlTagEmail.value);
+                formData.append(htmlTagPsw.name, htmlTagPsw.value);
+                formData.append(htmlTagPswConf.name, htmlTagPswConf.value);
+                formData.append(htmlTagName.name, htmlTagName.value);
+                formData.append(htmlTagSurname.name, htmlTagSurname.value);
+                formData.append(htmlTagAddress.name, htmlTagAddress.value);
+                formData.append(htmlTagPhone.name, htmlTagPhone.value);
+
+                formData.append("registration", 0);
+                request.send(formData);
+            }else{
+                var notify = document.getElementById('errAddress');
+                notify.style.fontSize = '0.9em';
+                notify.style.color = 'darkred';
+                notify.innerHTML = "Indirizzo non valido";
+            }
+        }
+    );
 }
 
 
