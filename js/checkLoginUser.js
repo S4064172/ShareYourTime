@@ -18,11 +18,14 @@ function checkLoginAllField(idUser,IdPws,IdErrLog,idWait)
 	var request = getRequest();
 	request.open("POST", "../utils/checkLoginUser.php", true);	
 	request.onreadystatechange = validateCheckLoginAllField(IdErrLog, idWait, request);
-	request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	
+	var formData = new FormData();
 	var htmlTagUser = document.getElementById(idUser);
-    var htmlTagPws = document.getElementById(IdPws);
-    request.send(   htmlTagUser.name + "=" + htmlTagUser.value+"&"+
-                    htmlTagPws.name+ "=" +htmlTagPws.value);
+	var htmlTagPws = document.getElementById(IdPws);
+	
+	formData.append(htmlTagUser.name, htmlTagUser.value);
+	formData.append(htmlTagPws.name, htmlTagPws.value)
+    request.send(formData);
 	
 }
 

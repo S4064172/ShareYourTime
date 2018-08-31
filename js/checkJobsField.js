@@ -155,7 +155,7 @@ function checkStreet(idCheck, idErr)
 	var errAddr = document.getElementById(idErr);
     errAddr.style.fontSize = '1.4em';
     errAddr.style.color = 'red';
-
+    console.log("-----"+addr.value);
     if( addr == null || addr.value === "" || !addressRegex.test(addr.value) ) {
         errAddr.innerHTML = "Indirizzo non valido";
         return;
