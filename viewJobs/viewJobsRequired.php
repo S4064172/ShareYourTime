@@ -57,7 +57,7 @@
 
         <section class="viewJobs" onClick="hideItem('menu');">
 
-        <?php require_once("../menu/menu.php"); ?>
+ 
         <?php require_once("../modalView/jobsView.php");?>
             <div class="myContainer text-center titleSessionTesto">
                 <h2><b class="colorTitle">Lavori che ti sono stati fatti</b></h2>

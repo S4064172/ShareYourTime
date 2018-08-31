@@ -19,20 +19,20 @@
                         <li class="nav-item active">
                             <a class="nav-link clickable" onClick="showOrHideMenu('menu');myCollapseHide();">
                                 <i class="fas fa-bars"></i>
-                                <span class="mydnone">Menu</span>
+                                <span class="myDNone">Menu</span>
                             </a>
                         </li>
                         <li class="nav-item active ">
                             <a class="nav-link" href="../homepage/homepage.php" onClick="myCollapseHide();">
                                 <i class="fas fa-home"></i>
-                                <span class="mydnone" >Home</span>
+                                <span class="myDNone" >Home</span>
                             </a>
                         </li>
                         <?php if ( isset($_SESSION['page']) && !empty($_SESSION['page']) && ($_SESSION['page'] == "viewjobs") ) {?>
                             <li class="nav-item active">
                                 <a class="nav-link clickable" data-toggle="modal" data-target="#jobsModal" onclick="emptyErrorModalJobs(); emptyModalJobs()">
                                     <i class="fas fa-plus"></i>
-                                    <span class="syze800px">Aggiungi un lavoro</span>
+                                    <span class="s800pxDNone">Aggiungi un lavoro</span>
                                 </a>
                             </li>
                         <?php }
@@ -51,7 +51,7 @@
                         <li class="nav-item active ">
                             <a class="nav-link" href="../index/index.php" onClick="myCollapseHide()">
                                 <i class="fas fa-home" ></i>
-                                <span class="mydnone">Home</span>
+                                <span class="myDNoneIndex">Home</span>
                             </a>
                         </li>
                         <li class="nav-item active">
@@ -60,7 +60,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="#RicercaMappa" onClick="myCollapseHide()">
                                 <i class="fas fa-search"></i>
-                                <span class="mydnone">Trova</span>
+                                <span class="myDNoneIndex">Trova</span>
                             </a>
                         </li>
                     </ul>

@@ -40,7 +40,7 @@
           </div>
           <div class="row">  
             <div class="col-md-8 text-center">
-            	<label><b>Via</b></label>
+            	<label><b>Via&#47;Citt&agrave;</b></label>
 		        <input onblur="checkStreet('modalStreet','errModalStreet');" onfocus="cleanErr('errModalStreet')" id="modalStreet" class="inputTextModal" type="text" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> > 
             	<p id="errModalStreet"></p>
         	</div>
