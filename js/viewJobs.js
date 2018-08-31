@@ -7,12 +7,21 @@
 */
 
 
-function timeFunction(oldValue, idValue, idJob) 
+function timeFunction(  oldValueDateStart, idValueDateStart, 
+                        oldValueTimeStart, idValueTimeStart, 
+                        oldValueDateEnd, idValueDateEnd, 
+                        oldValueTimeEnd, idValueTimeEnd, idJob) 
 {
 	return function() {
-		var value = document.getElementById(idValue).value;
-	
-		if (oldValue !== value)
+        var valueDataStart = document.getElementById(idValueDateStart).value;
+        var valueTimeStart = document.getElementById(idValueTimeStart).value;
+        var valueDataEnd = document.getElementById(idValueDateEnd).value;
+        var valueTimeEnd = document.getElementById(idValueTimeEnd).value;
+        
+        if ( oldValueDateStart !== valueDataStart || 
+             oldValueTimeStart !== valueTimeStart || 
+             oldValueDateEnd !== valueDataEnd || 
+             oldValueTimeEnd !== valueTimeEnd )
 			checkTime('modalDateStart', 'modalTimeStart', 'modalDateEnd', 'modalTimeEnd', 'errTime', idJob);
 	}
 }
@@ -33,20 +42,41 @@ function fillModalFieldJobs(id)
         document.getElementById('cardCost_' + num[1]).innerHTML/*getAttribute('value')*/;
   
     var startDate = document.getElementById('cardTimeStart_' + num[1]).innerHTML/*getAttribute('value')*/.split(" ");
-    document.getElementById('modalDateStart').value = startDate[0];
-	document.getElementById('modalDateStart').addEventListener('focusout', timeFunction(startDate[0], 'modalDateStart', num[1]));
- 
     var startTime = startDate[1].split(":");
-    document.getElementById('modalTimeStart').value = startTime[0] + ":" + startTime[1];
-    document.getElementById('modalTimeStart').addEventListener('focusout', timeFunction(startTime[0] + ":" + startTime[1], 'modalTimeStart', num[1]));
-
     var endDate = document.getElementById('cardTimeEnd_' + num[1])./*getAttribute('value')*/innerHTML.split(" ");
-    document.getElementById('modalDateEnd').value = endDate[0];
-	document.getElementById('modalDateEnd').addEventListener('focusout', timeFunction(endDate[0], 'modalDateEnd', num[1]));
+    var endTime = endDate[1].split(":");    
+    
+    
+    document.getElementById('modalDateStart').value = startDate[0];
+    document.getElementById('modalDateStart').addEventListener('focusout', timeFunction(startDate[0], 'modalDateStart',
+                                                                                        startTime[0] + ":" + startTime[1], 'modalTimeStart',
+                                                                                        endDate[0], 'modalDateEnd',
+                                                                                        endTime[0] + ":" + endTime[1], 'modalTimeEnd',
+                                                                                        num[1]));
+ 
+   
+    document.getElementById('modalTimeStart').value = startTime[0] + ":" + startTime[1];
+    document.getElementById('modalTimeStart').addEventListener('focusout', timeFunction(startDate[0], 'modalDateStart',
+                                                                                        startTime[0] + ":" + startTime[1], 'modalTimeStart',
+                                                                                        endDate[0], 'modalDateEnd',
+                                                                                        endTime[0] + ":" + endTime[1], 'modalTimeEnd',
+                                                                                        num[1]));
 
-    var endTime = endDate[1].split(":")
+    
+    document.getElementById('modalDateEnd').value = endDate[0];
+    document.getElementById('modalDateEnd').addEventListener('focusout', timeFunction(  startDate[0], 'modalDateStart',
+                                                                                        startTime[0] + ":" + startTime[1], 'modalTimeStart',
+                                                                                        endDate[0], 'modalDateEnd',
+                                                                                        endTime[0] + ":" + endTime[1], 'modalTimeEnd',
+                                                                                        num[1]));
+
+    
     document.getElementById('modalTimeEnd').value = endTime[0] + ":" + endTime[1];
-	document.getElementById('modalTimeEnd').addEventListener('focusout', timeFunction(endTime[0] + ":" + endTime[1], 'modalTimeEnd', num[1]));
+    document.getElementById('modalTimeEnd').addEventListener('focusout', timeFunction(  startDate[0], 'modalDateStart',
+                                                                                        startTime[0] + ":" + startTime[1], 'modalTimeStart',
+                                                                                        endDate[0], 'modalDateEnd',
+                                                                                        endTime[0] + ":" + endTime[1], 'modalTimeEnd',                                                                                    
+                                                                                        num[1]));
 
     document.getElementById('modalDistance').value =
         document.getElementById('cardDistance_' + num[1])./*getAttribute('value')*/innerHTML;
@@ -110,7 +140,8 @@ function initAddr()
                 console.log('cityLat: ' + place.geometry.location.lat());
                 console.log('cityLng: ' + place.geometry.location.lng());
 				latitude = place.geometry.location.lat();
-				longitude = place.geometry.location.lng();
+                longitude = place.geometry.location.lng();
+                checkStreet('modalStreet','errModalStreet');
     });
 }
 

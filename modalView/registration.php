@@ -58,7 +58,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label><b>Indirizzo</b></label>
-                        <input onblur="checkAddress('addressReg','errAddress')" onfocus="cleanErr('errAddress')" id="addressReg" class="inputTextModal" type="text" placeholder="Inserisci il tuo indirizzo" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> >
+                        <input onfocus="cleanErr('errAddress')" id="addressReg" class="inputTextModal" type="text" placeholder="Inserisci il tuo indirizzo" name="address" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> >
                         <p id="errAddress"></p>
                     </div>
                     <div class="col-md-6">
@@ -69,7 +69,7 @@
                 </div>
 
                 <label>Immagine del profilo</label>&nbsp;&nbsp;&nbsp;&nbsp;
-              	<input type="file" onchange="checkPhoto('photoReg','errPhoto')" id="photoReg" name="photo" accept=".png, .jpg, .jpeg" >
+              	<input type="file" onchange="cleanErr('errPhoto');checkPhoto('photoReg','errPhoto')" id="photoReg" name="photo" accept=".png, .jpg, .jpeg" >
 				<p id="errPhoto"></p>
 
                 <button type="button" onclick="checkRegistrationAllField('waitRegistration')" class="btn btn-success mybutton mt-4">Registrati</button>

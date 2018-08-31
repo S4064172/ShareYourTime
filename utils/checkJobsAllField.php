@@ -30,12 +30,12 @@
 		//inserimento
 		if ( $_POST['insert'] == 'true' ) {
 			if ( !checkDatesAndTime($_POST['dateStart'].' '.$_POST['timeStart'], $_POST['dateEnd'].' '.$_POST['timeEnd'], null) )
-					$result['errTime'] = "Hai gi&agrave; un impegno in quella data";
+					$result['errTime'] = "Data non valida";
 		//modifica
 		} else if ( $_POST['insert'] == 'false' )
 			if ( check_POST_IsSetAndNotEmpty('IdJob') ) 
 				if ( !checkDatesAndTime($_POST['dateStart'].' '.$_POST['timeStart'], $_POST['dateEnd'].' '.$_POST['timeEnd'], $_POST['IdJob']) )
-					$result['errTime'] = "Hai gi&agrave; un impegno in quella data";
+					$result['errTime'] = "Data non valida";
 				
 	}	
 			

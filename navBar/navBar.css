@@ -39,24 +39,36 @@ a:focus {
 }
 
 @media screen and (max-width: 1100px) {
-	.syze800px {
+	.s800pxDNone {
 		display: none;
 	}
 }
 
-@media screen and (max-width: 836px) {
-	.mydnone {
+@media screen and (max-width: 853px) {
+	.myDNoneIndex {
 		display: none;
 	}
 
-	.syze800px {
+	
+}
+
+@media screen and (max-width: 836px) {
+	.myDNone {
+		display: none;
+	}
+
+	.s800pxDNone{
 		display: inline;
 		font-size: 14px;
 	}
 }
 
 @media screen and (max-width: 767px) {
-	.mydnone {
+	.myDNone {
+		display: inline;
+	}
+
+	.myDNoneIndex {
 		display: inline;
 	}
 }
