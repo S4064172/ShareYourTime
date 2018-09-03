@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-lg-4 mt-3">
 				<p class="text-center myFont"><b>Contatti</b></p>
-				<p class="myFont">Email: <i><b>share_your_time(at)gmail.com</b></i></p>
+				<p class="myFont">Email: <i><b>shareyourtime.info(at)gmail.com</b></i></p>
 				<p class="myFont">Telefono: <i><b>555-1234-4321</b></i></p>
 			</div>
 			<div class="col-lg-4 mt-3">
