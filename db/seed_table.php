@@ -21,6 +21,8 @@
 	$time7E = date('Y-m-d H:i', strtotime('-2 day +10 hour'));
 	$time8S = date('Y-m-d H:i', strtotime('+1 day +8 hour'));
 	$time8E = date('Y-m-d H:i', strtotime('+1 day +10 hour'));
+	$time9S = date('Y-m-d H:i', strtotime('-4 day +8 hour'));
+	$time9E = date('Y-m-d H:i', strtotime('-4 day +10 hour'));
 
 	insertInto_ShareYourTagsTime("INFORMATICA");
 	insertInto_ShareYourTagsTime("IDRAULICA");
@@ -39,6 +41,7 @@
 	insertInto_ShareYourUserTime("theQueen", "bohem1An/Rap", "Freddie", "Mercury", "8724689105", "brian@may.uk", "Corso Europa", "../../profile_imgs/theQueen.jpg");
 
 
+	
 	insertInto_ShareYourJobsTime("Insegno ad usare il pacchetto Office2017", 5, $time1S, $time1E, 2, "DEFAULT", "Via Fereggiano", 44.4167606, 8.961800900000071, "pippo", "INFORMATICA");
 	//updataInto_ShareYourJobsTime('Receiver','kenny' , 1);
 	
@@ -66,3 +69,20 @@
 
 	insertInto_ShareYourJobsTime("Riparo i motorini e le biciclette", 85, $time7S, $time7E, 2, "DEFAULT", "Via Casaregis", 44.4048195, 8.952552800000035, "pippo", "RIPARAZIONI");
 	updataInto_ShareYourJobsTime('Receiver', 'kenny', 11);
+
+
+
+
+
+
+	insertInto_ShareYourUserTime("br3nd3r", "123456789qQ?", "Eugenio", "Brandi", "3495855439", "brender@gmail.com", "Via Fereggiano, Genova GE, Italy", "../../profile_imgs/br3nd3r.jpg");
+	insertInto_ShareYourJobsTime("Ripetizioni DataWhereHouse", 10, $time1S, $time1E, 4, "DEFAULT", "Via Fereggiano, Genova GE, Italy", 44.416761, 8.961533700000018, "br3nd3r", "RIPETIZIONI");
+	insertInto_ShareYourJobsTime("Manutenzione orti, prati e taglio legna", 100, $time2S, $time2E, 50, "DEFAULT", "16049 La Villa GE, Italy", 44.5274689, 9.43983609999998, "br3nd3r", "FAI DA TE");
+	insertInto_ShareYourJobsTime("Abbellimento giardini privati", 25, $time3S, $time3E, 15, "DEFAULT", "Corso Alessandro de Stefanis, Genova GE, Italy", 44.4167606, 8.952091800000062, "br3nd3r", "FAI DA TE");
+	insertInto_ShareYourJobsTime("Assistenza uno personal computer", 50, $time4S, $time4E, 10, "DEFAULT", "Via Giovanni Amarena, 16143 Genova GE, Italy", 44.41349769999999, 8.95928189999995, "br3nd3r", "INFORMATICA");
+	insertInto_ShareYourJobsTime("Preparo pranzo a domicilio", 15, $time5S, $time5E, 1, "DEFAULT", "Via Armando Diaz, Genova GE, Italy", 44.4015968, 8.944812700000057, "br3nd3r", "CUCINA");
+	insertInto_ShareYourJobsTime("Lavaggio auto privati", 80, $time6S, $time6E, 100, "DEFAULT", "Genoa, Metropolitan City of Genoa, Italy", 44.44662539999999, 9.145615300000031, "br3nd3r", "LAVAGGIO");
+	insertInto_ShareYourJobsTime("Ripetizioni informatica universitarie", 70, $time7S, $time7E, 2, "DEFAULT", "Via XX Settembre, 16121 Genova GE, Italy", 44.40570270000001, 8.939600799999994, "br3nd3r", "INFORMATICA");
+	insertInto_ShareYourJobsTime("Tengo bambini", 35, $time8S, $time8E, 2, "DEFAULT", "Via Silvio Lagustena, Genova GE, Italy", 44.40664820000001, 8.976895900000045, "br3nd3r", "SITTING");
+	insertInto_ShareYourJobsTime("Accudisco cani", 55, $time9S, $time9E, 2, "DEFAULT", "Genoa, Metropolitan City of Genoa, Italy", 44.44662539999999, 9.145615300000031, "br3nd3r", "ANIMALI");
+

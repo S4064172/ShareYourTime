@@ -179,10 +179,11 @@
         
         <script src="../js/constant.js"></script>
         <script src="../js/utils.js"></script>
-	    <script src="../js/navBar.js"></script>
+        <script src="../js/navBar.js"></script>
+        <script src="../js/checkProfileUserField.js"></script>
         <script src="../js/viewProfile.js"></script>
         
-        <script src="../js/checkProfileUserField.js"></script>
+        
 	    
         <?php require_once('googleAPIkey.html'); ?>
 	</body>

@@ -195,9 +195,22 @@ function checkAllSearchJob()
 	   	function(results, status) {
             if (addr.value =="" || status === google.maps.GeocoderStatus.OK && results.length > 0) {
 		
-				// set it to the correct, formatted address if it's valid
-                if(addr.value !="")
+                if(addr.value !=""){
+                    var tempStr = addr.value.split(",");
+                   
+                    if( !results[0].formatted_address.toLowerCase().includes(tempStr[0].trim().toLowerCase())  || 
+                        !results[0].formatted_address.toLowerCase().includes(tempStr[tempStr.length-1].trim().toLowerCase()) ){
+                        var notify = document.getElementById('errOptionStreet');
+                        notify.style.fontSize = '1.4em';
+                        notify.style.color = 'red';
+                        notify.innerHTML = "Scegli un indirizzo piu preciso";
+                        return;
+                    }
+                   
+
                     addr.value = results[0].formatted_address;
+                }
+                    
 				var request = getRequest();
 	            request.open("POST", "../utils/checkAllSearchJob.php", true);
     
@@ -262,12 +275,12 @@ function checkAllSearchJob()
                 resetOptionSearchValues();
                 if (htmlTagUser != null)
                     resetUserOptionValue();
-                            // show an error if it's not
+                            
 			} else{
                 var notify = document.getElementById('errOptionStreet');
-                notify.style.fontSize = '0.9em';
-                notify.style.color = 'darkred';
-                notify.innerHTML = "Indirizzo non valido1";	
+                notify.style.fontSize = '1.4em';
+                notify.style.color = 'red';
+                notify.innerHTML = "Indirizzo non valido";	
 			}
 		}
 	);
@@ -293,7 +306,18 @@ function checkJobAllFields(op, id)
 	   	function(results, status) {
             if ( status === google.maps.GeocoderStatus.OK && results.length > 0) {
 		
-				// set it to the correct, formatted address if it's valid
+				var tempStr = addr.value.split(",");
+                   
+                    if( !results[0].formatted_address.toLowerCase().includes(tempStr[0].trim().toLowerCase())  || 
+                        !results[0].formatted_address.toLowerCase().includes(tempStr[tempStr.length-1].trim().toLowerCase()) ){
+                        var notify = document.getElementById('errModalStreet');
+                        notify.style.fontSize = '1.4em';
+                        notify.style.color = 'red';
+                        notify.innerHTML = "Scegli un indirizzo piu preciso";
+                        return;
+                    }
+                   
+
                 addr.value = results[0].formatted_address;
 	
         

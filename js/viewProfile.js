@@ -108,7 +108,7 @@ function initAddr()
                 console.log('cityLng: ' + place.geometry.location.lng());
 				latitude = place.geometry.location.lat();
                 longitude = place.geometry.location.lng();
-                checkStreet('addressModified','errAddressModified');
+                checkAddress('addressModified','errAddressModified');
     });
     
 }

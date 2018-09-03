@@ -85,8 +85,17 @@ function checkModifiedAllField(idWait, userCheck, mailCheck, phoneCheck)
         function(results, status) {
 
             if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
+                var tempStr = addr.value.split(",");
+                   console.log(results);
+                if( !results[0].formatted_address.toLowerCase().includes(tempStr[0].trim().toLowerCase())  || 
+                    !results[0].formatted_address.toLowerCase().includes(tempStr[tempStr.length-1].trim().toLowerCase()) ){
+                    var notify = document.getElementById('errAddressModified');
+                    notify.style.fontSize = '1.4em';
+                    notify.style.color = 'red';
+                    notify.innerHTML = "Scegli un indirizzo piu preciso";
+                    return;
+                }
                 addr.value = results[0].formatted_address;
-    
                 showItem(idWait); 
                 var request = getRequest();
                 request.open("POST", "../utils/checkProfileUserAllField.php", true);	
@@ -150,6 +159,18 @@ function checkRegistrationAllField(idWait)
         function(results, status) {
 
             if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
+                var tempStr = addr.value.split(",");
+                   
+                    if( !results[0].formatted_address.toLowerCase().includes(tempStr[0].trim().toLowerCase())  || 
+                        !results[0].formatted_address.toLowerCase().includes(tempStr[tempStr.length-1].trim().toLowerCase()) ){
+                        var notify = document.getElementById('errAddress');
+                        notify.style.fontSize = '1.4em';
+                        notify.style.color = 'red';
+                        notify.innerHTML = "Scegli un indirizzo piu preciso";
+                        return;
+                    }
+                   
+
                 addr.value = results[0].formatted_address;
                 showItem(idWait)
                 var request = getRequest();

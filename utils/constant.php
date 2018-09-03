@@ -26,7 +26,7 @@
 
 /*******************Costanti Regex********************/
     define( "alphaNumRegex", "/^[[:alnum:] ]+$/" );
-    define( "addressRegex", "/^[[:alpha:]]([[:alnum:],. ']|[\x{0080}-\x{FFFF}])+$/u" );
+    define( "addressRegex", "/^[[:alnum:]]([[:alnum:],. ']|[\x{0080}-\x{FFFF}])+$/u" );
 	define( "surnameRegex", "/^[[:alpha:]\']+$/" );
 	define( "alphaRegex", "/^[[:alpha:]]+$/" );
     define( "emailRegex", "/^[[:alnum:]]([[:alnum:]]?|[\w\._]*[[:alnum:]])@[a-z\.]+\.[a-z]{2,}$/" ) ;
