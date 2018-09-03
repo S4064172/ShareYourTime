@@ -89,17 +89,17 @@
             <?php }else{ ?>
                 <div class=" text-center col-md-4 collapse navbar-collapse navbarTogglerSignupLogin">
                     <div class="dimW100">
-<div class="float-md-right">
-                        <button type='button' class='btn btn-primary mr-1 btnSize ' onClick='myCollapseHide()' data-toggle='modal' data-target='#signUpModalTarget'>
-                            <i class='fa fa-user-plus'></i>
-                            Registrati
-                        </button>
+                        <div class="float-md-right">
+                            <button type='button' class='btn btn-primary mr-1 btnSize ' onClick='myCollapseHide()' data-toggle='modal' data-target='#signUpModalTarget'>
+                                <i class='fa fa-user-plus'></i>
+                                Registrati
+                            </button>
 
-                        <button type='button' class='btn btn-success btnSize' onClick='myCollapseHide()' data-toggle='modal' data-target='#loginModalTarget'>
-                            <i class='fas fa-sign-in-alt'></i>
-                            Login
-                        </button>
-</div>
+                            <button type='button' class='btn btn-success btnSize' onClick='myCollapseHide()' data-toggle='modal' data-target='#loginModalTarget'>
+                                <i class='fas fa-sign-in-alt'></i>
+                                Login
+                            </button>
+                        </div>
                     </div>
                 </div>
             <?php  }  ?> 
