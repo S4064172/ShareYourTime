@@ -21,7 +21,11 @@
 	$time7E = date('Y-m-d H:i', strtotime('-2 day +10 hour'));
 	$time8S = date('Y-m-d H:i', strtotime('+1 day +8 hour'));
 	$time8E = date('Y-m-d H:i', strtotime('+1 day +10 hour'));
-
+	$time9S = date('Y-m-d H:i', strtotime('+4 day +1 hour'));
+	$time9E = date('Y-m-d H:i', strtotime('+4 day +3 hour'));
+	$time10S = date('Y-m-d H:i', strtotime('+5 day +6 hour'));
+	$time10E = date('Y-m-d H:i', strtotime('+5 day +9 hour'));
+	
 	/* --- INSERT TAGS --- */
 	insertInto_ShareYourTagsTime("INFORMATICA");
 	insertInto_ShareYourTagsTime("IDRAULICA");
@@ -29,6 +33,7 @@
 	insertInto_ShareYourTagsTime("LAVAGGIO");
 	insertInto_ShareYourTagsTime("GIARDINAGGIO");
 	insertInto_ShareYourTagsTime("CUCINA");
+	insertInto_ShareYourTagsTime("MUSICA");
 	insertInto_ShareYourTagsTime("RIPETIZIONI");
 	insertInto_ShareYourTagsTime("FAI DA TE");
 	insertInto_ShareYourTagsTime("ANIMALI");
@@ -67,5 +72,20 @@
 
 	insertInto_ShareYourJobsTime("Riparo i motorini e le biciclette", 85, $time7S, $time7E, 2, "DEFAULT", "Via Casaregis, Genoa, Metropolitan City of Genoa, Italy", 44.4048195, 8.952552800000035, "pippo", "RIPARAZIONI");
 	updataInto_ShareYourJobsTime('Receiver', 'kenny', 11);
+
+	insertInto_ShareYourJobsTime("Affilo le spade laser", 100, $time9S, $time9E, 3, "DEFAULT", "Corso Agostino Ricci, 17100 Savona SV, Italy", 44.31313309999999, 8.47295220000009, "lastJedi", "RIPARAZIONI");
+	insertInto_ShareYourJobsTime("Insegno a cantare Bohemian Rapsody, I Want to Break Free, A Kind of Magic e Breakthru", 7, $time10S, $time10E, 3, "DEFAULT", "Piazza del Popolo, 17100 Savona SV, Italy", 44.3083352, 8.477892600000018, "theQueen", "MUSICA");
 	/* --- END JOBS --- */
 
+	/* --- INSERT CHAT --- */
+	insertInto_ShareYourPvtMsgTime('Nel lavoro che hai pubblicato "Taglio il prato e gli alberi che ostacolano la strada" il prezzo è da intendersi all\'ora o complessivo ?', "Richiesta informazioni", "kenny", "pippo", "2018-09-03 12:08:45");
+	insertInto_ShareYourPvtMsgTime('Ciao kenny, il prezzo è comprensivo di tutto il lavoro, spero di poterti essere d\'aiuto.', 'Richiesta informazioni 2', "pippo", "kenny", "2018-09-03 12:09:47");
+	insertInto_ShareYourPvtMsgTime("Ciao pippo, anche tu su ShareYourTime, che piacevole sorpresa !", "Saluti", "ironman55", "pippo", "2018-08-17 15:25:17");
+	insertInto_ShareYourPvtMsgTime("Si è un sito molto utile, trovo sempre quello che cerco, mi stupisce che ci hai messo così tanto ad iscriverti", "Ehilà!", "pippo", "ironman55", "2018-08-18 11:14:35");
+	insertInto_ShareYourPvtMsgTime("Ciao pippo hai detto che insegni ad usare office: insegni anche access? So che e' molto difficile", "Access", "kenny", "pippo", "2018-09-01 07:52:20");
+	insertInto_ShareYourPvtMsgTime("Si kenny, vedrai che con i miei insegnamenti troverai tutto piu' semplice", "EasyAccess", "pippo", "kenny", "2018-09-01 21:12:11");
+	insertInto_ShareYourPvtMsgTime("Ciao theQueen, volevo chiederti se davi lezioni di musica, in particolare canto. Fammi sapere", "Richiesta lezioni private", "lastJedi", "theQueen", "2018-07-15 16:26:58");
+	insertInto_ShareYourPvtMsgTime("Kenny ho bisogno di sapere se posso chiederti aiuto per un pranzo etnico, so che potrebbe essere un problema, dimmi se sei in grado.", "Richiesta aiuto", "theQueen", "kenny", "2018-09-02 08:44:10");
+	insertInto_ShareYourPvtMsgTime("Ehy Chuck ho saputo che hai un albero di acqua salata in giardino è vero ?", "Domanda", "lastJedi", "chuck", "2018-08-23 19:07:28");
+	insertInto_ShareYourPvtMsgTime("Si è vero, ci raccolgo i frutti di mare", "Risposta", "chuck", "lastJedi", "2018-08-23 19:37:47");
+	/* --- END CHAT --- */
