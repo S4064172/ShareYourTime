@@ -113,9 +113,7 @@ function listenerAutocomplete(autocomplete)
 {
 	return function() {
 		var place = autocomplete.getPlace();
-    	console.log(place.name);
-	    console.log('cityLat: ' + place.geometry.location.lat());
-    	console.log('cityLng: ' + place.geometry.location.lng());
+    	
 		latitude = place.geometry.location.lat();
 		longitude = place.geometry.location.lng();
 		checkAddress('addressReg', 'errAddress');

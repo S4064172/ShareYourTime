@@ -36,7 +36,7 @@ function validateconfirmOperation(request, idErrPsw, idJob)
     return function() {
         if ( request.readyState === 4 && request.status === 200 ) {
             if ( request.responseText != null ) {
-                console.log(request.responseText);
+                
                 var jsonObj = JSON.parse(request.responseText);
                 if ( jsonObj === '1' ){
                     showAlertSuccess("Lavoro rimosso con successo");
@@ -86,7 +86,7 @@ function checkModifiedAllField(idWait, userCheck, mailCheck, phoneCheck)
 
             if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
                 var tempStr = addr.value.split(",");
-                   console.log(results);
+                   
                 if( !results[0].formatted_address.toLowerCase().includes(tempStr[0].trim().toLowerCase())  || 
                     !results[0].formatted_address.toLowerCase().includes(tempStr[tempStr.length-1].trim().toLowerCase()) ){
                     var notify = document.getElementById('errAddressModified');
@@ -223,7 +223,7 @@ function validateCheckGenericAllField(idWait, request)
         hideItem(idWait)
         if ( request.readyState === 4 && request.status === 200 ) {
             if ( request.responseText != null ) {
-				console.log(request.responseText);
+				
                 var jsonObj = JSON.parse(request.responseText);
                 
                 // mi sono registrato con successo
@@ -243,7 +243,7 @@ function validateCheckGenericAllField(idWait, request)
         
                 //stampa degli errori rilevati
                 for(var key in jsonObj) {
-                    console.log(jsonObj[key]);
+                    
                     var notify = document.getElementById(key);
                     notify.style.fontSize = '0.9em';
                     notify.style.color = 'darkred';

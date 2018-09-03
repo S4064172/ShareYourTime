@@ -94,7 +94,6 @@ function checkDistanceSearch(idStreer, idDist, idErr)
         checkDistance(idDist, idErr)
         return;
     }
-    console.log(document.getElementById(idStreer).value);
     var errDist = document.getElementById(idErr);
     errDist.style.fontSize = '1.4em';
     errDist.style.color = 'red';
@@ -378,8 +377,7 @@ function validateCheckJob(request)
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
                 try {
-					//console.log(request.responseText);
-                    var jsonObj = JSON.parse(request.responseText);	
+					var jsonObj = JSON.parse(request.responseText);	
 					
                     //lavoro inserito con successo
                     if ( jsonObj == 0 )
@@ -442,7 +440,7 @@ function validateCheckSingleJobField(request, idErrField)
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
-				//console.log(request.responseText);
+				
 				var jsonObj = JSON.parse(request.responseText);	
 				
 				//stampa dell'errore sul campo
