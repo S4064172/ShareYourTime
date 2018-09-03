@@ -55,7 +55,7 @@ function handleKey (e) {
 function connectToServer(userSYT) {
 	personal_id = userSYT;
 
-    var serverUrl = "ws://" + window.location.hostname + ":" + serverPort;
+    var serverUrl = "ws://" + /*window.location.hostname*/"192.168.137.200" + ":" + serverPort;
     connection = new WebSocket(serverUrl);
     console.log(serverUrl);
 

@@ -80,15 +80,30 @@
 	insertInto_ShareYourJobsTime("Affilo le spade laser", 100, $time9S, $time9E, 3, "DEFAULT", "Corso Agostino Ricci, 17100 Savona SV, Italy", 44.31313309999999, 8.47295220000009, "lastJedi", "RIPARAZIONI");
 	insertInto_ShareYourJobsTime("Insegno a cantare Bohemian Rapsody, I Want to Break Free, A Kind of Magic e Breakthru", 7, $time10S, $time10E, 3, "DEFAULT", "Piazza del Popolo, 17100 Savona SV, Italy", 44.3083352, 8.477892600000018, "theQueen", "MUSICA");
 	
+	
+	
 	insertInto_ShareYourJobsTime("Ripetizioni DataWhereHouse", 10, $time1S, $time1E, 4, "DEFAULT", "Via Fereggiano, Genova GE, Italy", 44.416761, 8.961533700000018, "br3nd3r", "RIPETIZIONI");
+	updataInto_ShareYourJobsTime('Receiver', 'theQueen', 14);
+
 	insertInto_ShareYourJobsTime("Manutenzione orti, prati e taglio legna", 100, $time2S, $time2E, 50, "DEFAULT", "16049 La Villa GE, Italy", 44.5274689, 9.43983609999998, "br3nd3r", "FAI DA TE");
+	updataInto_ShareYourJobsTime('Receiver', 'theQueen', 14);
+
 	insertInto_ShareYourJobsTime("Abbellimento giardini privati", 25, $time3S, $time3E, 15, "DEFAULT", "Corso Alessandro de Stefanis, Genova GE, Italy", 44.4167606, 8.952091800000062, "br3nd3r", "FAI DA TE");
+	updataInto_ShareYourJobsTime('Receiver', 'chuck', 16);
+
 	insertInto_ShareYourJobsTime("Assistenza uno personal computer", 50, $time4S, $time4E, 10, "DEFAULT", "Via Giovanni Amarena, 16143 Genova GE, Italy", 44.41349769999999, 8.95928189999995, "br3nd3r", "INFORMATICA");
+	
 	insertInto_ShareYourJobsTime("Preparo pranzo a domicilio", 15, $time5S, $time5E, 1, "DEFAULT", "Via Armando Diaz, Genova GE, Italy", 44.4015968, 8.944812700000057, "br3nd3r", "CUCINA");
+	
 	insertInto_ShareYourJobsTime("Lavaggio auto privati", 80, $time6S, $time6E, 100, "DEFAULT", "Genoa, Metropolitan City of Genoa, Italy", 44.44662539999999, 9.145615300000031, "br3nd3r", "LAVAGGIO");
+	
 	insertInto_ShareYourJobsTime("Ripetizioni informatica universitarie", 70, $time7S, $time7E, 2, "DEFAULT", "Via XX Settembre, 16121 Genova GE, Italy", 44.40570270000001, 8.939600799999994, "br3nd3r", "INFORMATICA");
+	updataInto_ShareYourJobsTime('Receiver', 'kenny', 20);
+	updataInto_ShareYourJobsTime('Evaluation', 5, 20);
 	insertInto_ShareYourJobsTime("Tengo bambini", 35, $time8S, $time8E, 2, "DEFAULT", "Via Silvio Lagustena, Genova GE, Italy", 44.40664820000001, 8.976895900000045, "br3nd3r", "SITTING");
+	
 	insertInto_ShareYourJobsTime("Accudisco cani", 55, $time11S, $time11E, 2, "DEFAULT", "Genoa, Metropolitan City of Genoa, Italy", 44.44662539999999, 9.145615300000031, "br3nd3r", "ANIMALI");
+	updataInto_ShareYourJobsTime('Receiver', 'lastJedi', 22);
 	/* --- END JOBS --- */
 
 	/* --- INSERT CHAT --- */

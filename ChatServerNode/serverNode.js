@@ -100,7 +100,6 @@ serverWS_chat.on(
 
         //creo un id univoco ai fini della chat e lo comunico al client
         conn.clientId = temp_nextClientId;
-        //nextClientId++;
         
         //gestione messaggi ricevuti dal client
         conn.on(
