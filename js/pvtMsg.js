@@ -43,7 +43,6 @@ function onclickOldChat(userTo)
  */
 function createMsg(jsonObj, userTo)
 {
-	console.log(jsonObj);
 	var chat = document.getElementById('currChat');
 
 	var msg = document.createElement('p');
@@ -171,7 +170,6 @@ function sendPvtCallback(request, userTo)
 	return function() {
 		if ( request.readyState === 4 && request.status === 200 ) {
 			if ( request.responseText != null ) {
-				console.log(request.responseText);
 
 				var jsonObj = JSON.parse(request.responseText);	
 

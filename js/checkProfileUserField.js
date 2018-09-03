@@ -36,7 +36,7 @@ function validateconfirmOperation(request, idErrPsw, idJob)
     return function() {
         if ( request.readyState === 4 && request.status === 200 ) {
             if ( request.responseText != null ) {
-                console.log(request.responseText);
+                
                 var jsonObj = JSON.parse(request.responseText);
                 if ( jsonObj === '1' ){
                     showAlertSuccess("Lavoro rimosso con successo");
@@ -85,8 +85,17 @@ function checkModifiedAllField(idWait, userCheck, mailCheck, phoneCheck)
         function(results, status) {
 
             if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
+                var tempStr = addr.value.split(",");
+                   
+                if( !results[0].formatted_address.toLowerCase().includes(tempStr[0].trim().toLowerCase())  || 
+                    !results[0].formatted_address.toLowerCase().includes(tempStr[tempStr.length-1].trim().toLowerCase()) ){
+                    var notify = document.getElementById('errAddressModified');
+                    notify.style.fontSize = '1.4em';
+                    notify.style.color = 'red';
+                    notify.innerHTML = "Scegli un indirizzo piu preciso";
+                    return;
+                }
                 addr.value = results[0].formatted_address;
-    
                 showItem(idWait); 
                 var request = getRequest();
                 request.open("POST", "../utils/checkProfileUserAllField.php", true);	
@@ -150,6 +159,18 @@ function checkRegistrationAllField(idWait)
         function(results, status) {
 
             if (status === google.maps.GeocoderStatus.OK && results.length > 0) {
+                var tempStr = addr.value.split(",");
+                   
+                    if( !results[0].formatted_address.toLowerCase().includes(tempStr[0].trim().toLowerCase())  || 
+                        !results[0].formatted_address.toLowerCase().includes(tempStr[tempStr.length-1].trim().toLowerCase()) ){
+                        var notify = document.getElementById('errAddress');
+                        notify.style.fontSize = '1.4em';
+                        notify.style.color = 'red';
+                        notify.innerHTML = "Scegli un indirizzo piu preciso";
+                        return;
+                    }
+                   
+
                 addr.value = results[0].formatted_address;
                 showItem(idWait)
                 var request = getRequest();
@@ -202,7 +223,7 @@ function validateCheckGenericAllField(idWait, request)
         hideItem(idWait)
         if ( request.readyState === 4 && request.status === 200 ) {
             if ( request.responseText != null ) {
-				console.log(request.responseText);
+				
                 var jsonObj = JSON.parse(request.responseText);
                 
                 // mi sono registrato con successo
@@ -222,7 +243,7 @@ function validateCheckGenericAllField(idWait, request)
         
                 //stampa degli errori rilevati
                 for(var key in jsonObj) {
-                    console.log(jsonObj[key]);
+                    
                     var notify = document.getElementById(key);
                     notify.style.fontSize = '0.9em';
                     notify.style.color = 'darkred';

@@ -11,7 +11,6 @@
 		header('Location: ../viewJobs/viewJobsRequired.php');	
 	}
 
-	//var_dump($_POST);
 	if ( !check_POST_IsSetAndNotEmpty('star') || !check_POST_IsSetAndNotEmpty('IdJob') ) {
 		returnToPageWithError('Riscontrato errore nella valutazione');	
 		return;

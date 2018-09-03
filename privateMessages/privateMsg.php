@@ -72,57 +72,57 @@
 
         <section id="viewMessages" onClick="hideItem('menu');">
 			<?php require_once("../menu/menu.php"); ?>
-<div class="myContainer">			
-			<div class="row">
-				<select id="selectContact" class="text-center offset-md-4 col-md-4 selector" onchange="cleanErr('errMsg'); openChat();">
-					<option selected disabled>Seleziona un contatto</option>
-					<?php
-						populateSelect($conn);
-					?>
-				</select>
-			</div>
-			<br>	
-			<div class="row">
-				<div id="prevChat" class="col-md-2 chatSection text-center" onload="openChat()">
-					<h3 class="ylwText">Contatti</h3>
-					<?php
-						showOldChat($conn);
-						mysqli_close($conn);
-					?>
+			<div class="myContainer">			
+				<div class="row">
+					<select id="selectContact" class="text-center offset-md-4 col-md-4 selector" onchange="cleanErr('errMsg'); openChat();">
+						<option selected disabled>Seleziona un contatto</option>
+						<?php
+							populateSelect($conn);
+						?>
+					</select>
 				</div>
+				<br>	
+				<div class="row">
+					<div id="prevChat" class="col-md-2 chatSection text-center" onload="openChat()">
+						<h3 class="ylwText">Contatti</h3>
+						<?php
+							showOldChat($conn);
+							mysqli_close($conn);
+						?>
+					</div>
 
-				<div class="col-md-4">
-					<div class="row">
-						<div class="col-md-4">
-							<b class="ylwText f1-3em">Contatto &nbsp;</b>
+					<div class="col-md-4">
+						<div class="row">
+							<div class="col-md-4">
+								<b class="ylwText f1-3em">Contatto &nbsp;</b>
+							</div>
+							<div class="col-md-8">
+								<input type="text" class="text-center w100" id="msgTo" disabled>
+							</div>
 						</div>
-						<div class="col-md-8">
-							<input type="text" class="text-center w100" id="msgTo" disabled>
+						<div class="row">
+							<div class="col-md-4">
+								<b class="ylwText f1-3em">Oggetto &nbsp;</b>
+							</div>
+							<div class="col-md-8">
+								<input class="w100" type="text" id="obj" onfocus="cleanErr('errMsg')" maxlength="<?php echo ObjMaxLength;?>" disabled>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<b class="ylwText f1-3em">Oggetto &nbsp;</b>
+						<div class="row">
+							<textarea cols="60" rows="10" id="textMsg" onfocus="cleanErr('errMsg')" maxlength="<?php echo MsgMaxLength;?>" disabled></textarea>
 						</div>
-						<div class="col-md-8">
-							<input class="w100" type="text" id="obj" onfocus="cleanErr('errMsg')" maxlength="<?php echo ObjMaxLength;?>" disabled>
+						<br>
+						<div class="row">
+							<button id="sendPvt" class="col-md-4 offset-md-4 sendBtn" onclick="sendPvtMessage()" disabled>Invia</button>
 						</div>
+						<p class="text-center" id="errMsg"></p>
 					</div>
-					<div class="row">
-						<textarea cols="60" rows="10" id="textMsg" onfocus="cleanErr('errMsg')" maxlength="<?php echo MsgMaxLength;?>" disabled></textarea>
-					</div>
-					<br>
-					<div class="row">
-						<button id="sendPvt" class="col-md-4 offset-md-4 sendBtn" onclick="sendPvtMessage()" disabled>Invia</button>
-					</div>
-					<p class="text-center" id="errMsg"></p>
-				</div>
 
-				<div id="currChat" class="col-md-6 chatSection">
-					<!-- mostra chat corrente -->
+					<div id="currChat" class="col-md-6 chatSection">
+						<!-- mostra chat corrente -->
+					</div>
 				</div>
 			</div>
-</div>
 		</section>
 
         <?php require ('../footer/footer.php'); ?>

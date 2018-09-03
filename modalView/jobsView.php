@@ -25,53 +25,53 @@
           </div>
           <div class="row">
             <div class="col-12 text-center">
-            <label><b>Inizio Attività</b></label><br>
-			<input onfocus="cleanErr('errTime');" id="modalDateStart" class="inputTimeModal" type="date" name="dateStart">
-			<input onfocus="cleanErr('errTime');" id="modalTimeStart" class="inputTimeModal" type="time" name="timeStart">
+              <label><b>Inizio Attività</b></label><br>
+              <input onfocus="cleanErr('errTime');" id="modalDateStart" class="inputTimeModal" type="date" name="dateStart">
+              <input onfocus="cleanErr('errTime');" id="modalTimeStart" class="inputTimeModal" type="time" name="timeStart">
             </div>
           </div>
           <div class="row">
             <div class="col-12 text-center">
 	            <label><b>Fine Attività</b></label><br>
-				<input onfocus="cleanErr('errTime');" id="modalDateEnd" class="inputTimeModal" type="date" name="dateEnd">
-				<input onfocus="cleanErr('errTime');" id="modalTimeEnd" class="inputTimeModal" type="time" name="timeEnd">
+				      <input onfocus="cleanErr('errTime');" id="modalDateEnd" class="inputTimeModal" type="date" name="dateEnd">
+			        <input onfocus="cleanErr('errTime');" id="modalTimeEnd" class="inputTimeModal" type="time" name="timeEnd">
             	<p id="errTime"></p>
             </div>
           </div>
           <div class="row">  
             <div class="col-md-8 text-center">
             	<label><b>Indirizzo</b></label>
-		        <input onfocus="cleanErr('errModalStreet')" id="modalStreet" class="inputTextModal" type="text" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> > 
+		          <input onfocus="cleanErr('errModalStreet')" id="modalStreet" class="inputTextModal" type="text" name="street" minlength=<?php echo StreetMinLength?> maxlength=<?php echo StreetMaxLength?> > 
             	<p id="errModalStreet"></p>
-        	</div>
+        	  </div>
             
-			<div class="col-md-4 text-center"> 
+			      <div class="col-md-4 text-center"> 
         	    <label><b>Tag</b></label>
-				<select id="optionModalTag" onfocus="cleanErr('errModalTag')" onchange="checkTagField('optionModalTag','errModalTag')" class="inputTagModal" name="tag">
-					<option selected disabled>Scegli il tag</option>
-					<?php
-						require_once('../db/connection.php');
-	
-						$getJobsQuery = "SELECT Tag FROM ShareYourTagsTime ORDER BY Tag ASC;";
-						$conn = connectionToDb();
-				
-						if ( !($res = mysqli_query($conn, $getJobsQuery)) ) 
-							die('Errore nella selezione dei lavori');
+				      <select id="optionModalTag" onfocus="cleanErr('errModalTag')" onchange="checkTagField('optionModalTag','errModalTag')" class="inputTagModal" name="tag">
+					      <option selected disabled>Scegli il tag</option>
+                <?php
+                  require_once('../db/connection.php');
+        
+                  $getJobsQuery = "SELECT Tag FROM ShareYourTagsTime ORDER BY Tag ASC;";
+                  $conn = connectionToDb();
+              
+                  if ( !($res = mysqli_query($conn, $getJobsQuery)) ) 
+                    die('Errore nella selezione dei lavori');
 
-						while( $row = mysqli_fetch_array($res) ) 
-							echo '<option class="checkbox">'.$row['Tag'].'</option>';
+                  while( $row = mysqli_fetch_array($res) ) 
+                    echo '<option class="checkbox">'.$row['Tag'].'</option>';
 
-						mysqli_free_result($res);
-						mysqli_close($conn);
-					?>	
-				 </select>
-				 <p id="errModalTag"></p>
-			</div>
+                  mysqli_free_result($res);
+                  mysqli_close($conn);
+                ?>	
+		      	  </select>
+				      <p id="errModalTag"></p>
+			      </div>
           </div>
         </div>
       </div>  
       <div class="modal-footer">
-		<button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
         <button type="button" class="btn btn-success" id="modButton"></button>
       </div>
     </div>

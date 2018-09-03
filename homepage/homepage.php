@@ -49,8 +49,6 @@
 			</div>
 		</section>
 
-		
-
 		<section id="job" class="jobs" onClick="hideItem('menu');">
 			<div class="myContainer text-center titleSessionTesto">
 				
@@ -87,7 +85,6 @@
 	
 		<script src="../js/utils.js"></script>
 		<script src="../js/navBar.js"></script>
-	
 	
     </body>
 </html>
