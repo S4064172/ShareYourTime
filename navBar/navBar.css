@@ -1,0 +1,75 @@
+.myNavBar {
+    min-height: 4em;
+	max-height: 4em;
+}
+
+.myContainerNavBar {
+	width: 97%;
+	margin-left: 1.5%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.dimW100 {
+    width: 100%;
+}
+
+.btnSize {
+	width: auto;
+}
+
+.sizeTitle {
+	width: 5vh;
+}
+
+a:focus {
+	outline: none;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+	.myNavBar {
+		max-height: 50em;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	.s800pxDNone {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 853px) {
+	.myDNoneIndex {
+		display: none;
+	}
+
+	
+}
+
+@media screen and (max-width: 836px) {
+	.myDNone {
+		display: none;
+	}
+
+	.s800pxDNone{
+		display: inline;
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.myDNone {
+		display: inline;
+	}
+
+	.myDNoneIndex {
+		display: inline;
+	}
+}
+

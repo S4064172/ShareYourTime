@@ -1,0 +1,75 @@
+.mh4em {
+	min-height: 4em;
+}
+
+.h5em {
+    height: 5em;
+}
+
+.h3em {
+    height: 3em;
+}
+
+.h2em{
+    height: 2em;
+}
+
+.cardBack {
+	background: rgb(188, 203, 221);
+}
+
+
+@media screen and (max-width:480px){
+	.card-title{
+		font-size: 1rem;
+	}
+}
+
+
+
+@media (min-width: 100px) {
+    .card-columns {
+        column-count: 1;
+    }
+}
+
+
+@media (min-width: 700px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+
+@media (min-width: 1000px) {
+    .card-columns {
+        column-count: 3;
+    }
+	.card-title {
+		font-size: 18px;	
+	}
+}
+
+@media (min-width: 1700px) {
+    .card-columns {
+        column-count: 5;
+    }
+}
+
+.paddingbutton {
+	padding-top: 0.5em;
+}
+
+.evalbtn {
+	width: auto;
+	height: auto;
+	border-radius: 20px;
+	background-color: rgba(196,160, 0, 0.3);
+	color: black;
+}
+
+
+.card-title:hover{
+    background-color: rgb(188, 203, 221);
+    height: 6em;
+}

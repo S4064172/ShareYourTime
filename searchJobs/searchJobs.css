@@ -1,0 +1,74 @@
+body, html {
+	/*font-family: Sans-Serif;*/
+	height: 100%;
+	width: 100%;
+	scroll-behavior: smooth;
+	font-family: Old Standard TT;
+}
+
+section {
+	height: auto; 
+	width: 100%;
+}
+
+.titleSessionTesto {
+	padding-top: 6em;
+}
+
+.optionSearch{
+	display: block;
+    min-height: 100vh;
+    background-image: url("../img/optionResultSearch.jpeg");
+	background-attachment: fixed; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.myContainer {
+	width: 95%;
+	margin-left: 2.5%;
+}
+
+.viewSearch{
+	display: block;
+    min-height: 100vh;
+    background-image: url("../img/searchTime.jpg");
+	background-attachment: fixed; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.myJumbo {
+	padding: 5px;
+   	width: 50%; 
+	margin-left: auto; 
+	margin-right: 0;
+	margin-top: 2em;	
+	background-color: #caddeb; 
+	font-size: 24px; 
+	border-radius: 25px;
+}
+
+.colorTitle {
+	color: whitesmoke;
+	padding-top: 6px;
+	padding-right: 3px;
+}
+
+@media screen and (max-width: 576px) {
+	.myJumbo {
+		font-size: 14px;
+		width: 100%;
+		margin: auto;
+		margin-top: 4em;
+	}
+}
+
+@media screen and (max-width: 1400px) {
+	.myJumbo {
+		font-size: 16px;
+		margin-top: 4em;
+	}
+}

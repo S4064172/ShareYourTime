@@ -1,0 +1,17 @@
+-> controlli lato database
+
+-> checkRegistrationAllField.php, checkRegistrationSingleField,php
+    -> mancano i controlli sull'esistenza o meno dell'indirizzo
+
+-> insertFunction.php
+    -> modificare le insert coi default per i campi non necessari
+
+-> controlli sulle varie funzioni del db
+
+-> prenotazione lavoro
+    -> problema se manometto id del lavoro
+
+-> index.php, searchJobs.php
+	
+	(-> ricerca per utenti migliori ?)
+	(-> ricerca per parola chiave ?)

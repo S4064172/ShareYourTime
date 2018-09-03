@@ -1,0 +1,108 @@
+body, html {
+	height: 100%;
+	width: 100%;
+	scroll-behavior: smooth;
+	font-family: Old Standard TT;
+}
+
+section {
+	height: auto; 
+	width: 100%;
+}
+
+.card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+}
+
+#viewProfile {
+	display: block;
+    min-height: 100vh;
+    background-image: url("../img/viewProfile.jpg");
+	background-attachment: fixed; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.myContainer {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.wi400 {
+    width: 400px;
+}
+
+@media screen and (max-width:500px){
+    .wi400 {
+        width: 300px;
+    }
+}
+
+.inputType, .inputTypePsw, .labelText {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 6px 0;
+    display: inline-block;  
+	height: auto;
+	font-size: 20px;
+}
+   
+.inputType, .inputTypePsw {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.fieldHide, .inputTypePsw {
+    display: none;
+}
+
+.labelText {
+    text-align: center;	
+}
+
+#bntModify, #bntExit, #bntSave, #bntDelete {
+    text-align: center;	
+    min-width: 70%; 
+    width: auto;
+    margin-bottom: 2% !important;
+}
+
+@media screen and (max-width:767px){
+    #bntModify, #bntExit, #bntSave, #bntDelete {
+        width: 100%;
+    } 
+}
+
+.titleSessionTesto {
+	padding-top: 6em;
+}
+
+.wait {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1050; 
+}
+
+.imgWait {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 55vh;
+    
+	width: 80px;
+	-webkit-animation: rotation 2s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}

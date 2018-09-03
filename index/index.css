@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Galada');
+
+body, html {
+	/*font-family: Sans-Serif;*/
+	height: 100%;
+	width: 100%;
+	scroll-behavior: smooth;
+	font-family: Old Standard TT;
+}
+
+section {
+	height: auto; 
+	width: 100%;
+}
+
+.myContainer {
+	width: 95%;
+	margin-left: 2.5%;
+}
+
+.myContainer-padding {
+    padding: 16px;
+}
+
+/*************HOMEVIEW*******************/
+#homeView {
+	min-height: 100%;
+	background-image: url("../img/SfondoTime.jpeg");
+	background-attachment: fixed; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#myTitleContaitner{
+	height: 100vh;
+}
+
+.myTitle{
+	font-family: galada; 
+	padding-top:31.5vh;
+	font-size: 15vh;
+	color: rgb(238, 226, 200);
+    animation-name: animatezoom;
+    -webkit-animation-name: animatezoom;
+	animation-duration: 2s;
+	-webkit-animation-duration: 2s;
+}
+
+.titleBtn {
+	font-family: Old Standard TT;
+	color: rgb(54, 44, 34);
+	font-size: 0.3em;
+	border-radius: 25px;
+	background-color: rgb(238, 226, 200);
+}
+
+.titleBtn:hover, #mapBtn:hover {
+	color: rgb(238, 226, 200);
+	background-color: rgb(146, 114, 84);
+}
+
+@media screen and (max-width: 1000px) {
+	.myTitle{
+		padding-top:20.5vh;
+		font-size: 12vh;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.myTitle{
+		font-size: 10vh;
+	}
+}
+
+/*************DETTAGLISITO*******************/
+
+#DettagliSito {
+	min-height: 25%;
+	background-color: rgba(54, 44, 34,0.7);
+}
+
+#DettagliSitoTesto {
+	padding-top: 5em;
+}
+
+.myDescription {
+	font-size: 1.3em;
+	margin: 1em;
+	
+}
+
+#mapBtn{
+	font-family: Old Standard TT;
+	color: rgb(54, 44, 34);
+	font-size: 1.3em;
+	border-radius: 20px;
+	background-color: rgb(238, 226, 200);
+}
+
+/*************CAROUSEL*******************/
+
+#CarouselShowJobs {
+	min-height: 75%;
+	background-color: rgba(54, 44, 34,0.7);
+}
+
+/*************RICERCAMAPPA*******************/
+
+#RicercaMappa{
+	min-height: 100%;
+	padding-top:5em;
+}
+ 
+#googleMap{
+	width:100%;
+	height:65vh;
+}
+

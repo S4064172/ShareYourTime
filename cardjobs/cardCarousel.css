@@ -1,0 +1,38 @@
+.mh4em {
+	min-height: 4em;
+}
+
+.h5em {
+    height: 5em;
+}
+
+.h3em {
+    height: 3em;
+}
+
+.h2em {
+    height: 2em;
+}
+
+.linkdown {
+	color: rgb(196, 160, 0);
+	font-size: 14px;
+}
+
+@media (min-width: 576px) {
+    .card-columns {
+        column-count: 1;
+    }
+}
+
+@media (min-width: 800px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1600px) {
+    .card-columns {
+        column-count: 3;
+    }
+}

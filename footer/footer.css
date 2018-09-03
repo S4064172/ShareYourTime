@@ -1,0 +1,46 @@
+#myContainerFooter{
+	width: 90%;
+	margin-left: 5%;
+}
+
+.socialIconDim {
+	width: 40px;
+	height: 40px;	
+}
+
+.socialIconDim:hover {
+	opacity: 0.6;
+}
+
+.myFont {
+	color: white;
+	font-family: "Verdana";
+}
+
+.bigFont {
+	font-size: 20px;
+}
+
+.logoDim {
+	display: block;
+	margin: auto;	
+	width: 60px;
+	transition-property: transform;
+   	transition-duration: 2s;
+	transition-timing-function: linear;
+   	transition-delay: 0.1s;
+}
+
+.logoDim:hover {
+	transform: rotate(180deg);
+}
+
+.footerCenter {
+	text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+	.myFont{
+		font-size: 15px;
+	}
+}
