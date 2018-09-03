@@ -23,8 +23,15 @@
             
             mysqli_stmt_store_result($search_prep_stmt);
             $rows = mysqli_stmt_num_rows($search_prep_stmt);
-            mysqli_stmt_close($search_prep_stmt);
-        }else {
+			mysqli_stmt_close($search_prep_stmt);
+
+			//eliminamo la foto dalla directory profile_imgs
+			$photo = '../../profile_imgs/'.$user.'.jpg';
+			if (is_writable($photo))
+				unlink($photo);
+			else
+				die('Errore nell\'elilminazione della foto profilo');
+        } else {
             echo ("Errore nella preparazione della query");
         }
         mysqli_close($conn);
