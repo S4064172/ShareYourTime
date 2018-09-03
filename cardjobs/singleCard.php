@@ -11,7 +11,7 @@
         <div class="card" id="<?php echo sanitizeToHtml($row['IdJob'])?>">
             <div class="card-body cardBack">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item p-0 m-0 h3em cardBack"><h5 class="card-title"><i id="cardDescription_<?php echo sanitizeToHtml($row['IdJob'])?>" ><?php echo sanitizeToHtml($row['Description'])?></i></h5></li>
+                    <li class="list-group-item p-0 m-0 h3em cardBack"><h5 class="card-title"><i id="cardDescription_<?php echo sanitizeToHtml($row['IdJob'])?>" class="aa" ><?php echo sanitizeToHtml($row['Description'])?></i></h5></li>
                     <li class="list-group-item cardBack"><?php echo "Costo  <i id='cardCost_".sanitizeToHtml($row['IdJob'])."'>".sanitizeToHtml($row['Cost'])."</i> &euro;" ?></li>
                     <li class="list-group-item cardBack"><?php echo "Inizio  <i id='cardTimeStart_".sanitizeToHtml( $row['IdJob'])."'>".sanitizeToHtml($row['TimeStart']) ?></i></li>
                     <li class="list-group-item cardBack"><?php echo  "Fine  <i id='cardTimeEnd_".sanitizeToHtml( $row['IdJob'])."'>".sanitizeToHtml($row['TimeEnd']) ?></i></li>
