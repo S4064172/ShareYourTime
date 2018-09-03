@@ -89,10 +89,11 @@ function connectToServer(userSYT) {
                 msgContent = "(" + time + ") <b style='color:darkred'>" + msgFromServer.userWhoSentTheMsg + "</b>: <i style='color: darkred'>" + msgFromServer.msgText + "</i><br>";
                 break;
             case 'listOfUsers':
-                var user_list = "";
-                for (var i = 0; i < msgFromServer.listOfUsers.length; i++) {
+                var user_list = "<p>";
+                for (var i = 0; i < msgFromServer.listOfUsers.length; i++) 
                 	user_list += "<b style='color: white'>" + msgFromServer.listOfUsers[i] + "</b><br>";
-                }
+				user_list += "</p>"
+                
                 document.getElementById("userListView").innerHTML = user_list;
                 break;
 			case 'error':
