@@ -16,27 +16,27 @@
 				<p class="font-italic myFont"><b>Social</b></p>
 				<ul class="list-inline">
 					<li class="list-inline-item">
-						<a href="https://www.facebook.com">
+						<a href="https://www.facebook.com/bill.shareyourtime.1">
 							<img class="socialIconDim" src="../img/fb_logo.png" alt="Logo di Facebook">
 						</a>
 					</li>
 					<li class="list-inline-item">
-						<a href="https://www.github.com">
+						<a href="https://github.com/S4064172/ShareYourTime">
 							<img class="socialIconDim" src="../img/git_logo.png" alt="Logo di GitHub">
 						</a>
 					</li>
 					<li class="list-inline-item">
-						<a href="https://www.instagram.com">
+						<a href="https://www.instagram.com/shareyourtime.info/">
 							<img class="socialIconDim" src="../img/insta_logo.png" alt="Logo di Instagram">
 						</a>
 					</li>
 					<li class="list-inline-item">
-						<a href="https://www.twitter.com">
+						<a href="https://twitter.com/ShareYourTime1">
 							<img class="socialIconDim" src="../img/twitter_logo.png" alt="Logo di Twitter">
 						</a>
 					</li>
 					<li class="list-inline-item">
-						<a href="https://www.youtube.com">
+						<a href="https://www.youtube.com/watch?v=05-sVnhLLD8">
 							<img class="socialIconDim" src="../img/yt_logo.png" alt="Logo di Youtube">
 						</a>
 					</li>

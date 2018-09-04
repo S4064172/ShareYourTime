@@ -27,9 +27,20 @@
 	$time10E = date('Y-m-d H:i', strtotime('+5 day +9 hour'));
 	$time11S = date('Y-m-d H:i', strtotime('-4 day +8 hour'));
 	$time11E = date('Y-m-d H:i', strtotime('-4 day +10 hour'));
-
-	/* --- INSERT TAGS --- */
+	$time12S = date('Y-m-d H:i', strtotime('+1 day +5 hour'));
+	$time12E = date('Y-m-d H:i', strtotime('+1 day +9 hour'));
+	$time13S = date('Y-m-d H:i', strtotime('+10 day +1 hour'));
+	$time13E = date('Y-m-d H:i', strtotime('+10 day +7 hour'));
+	$time14S = date('Y-m-d H:i', strtotime('+6 day +5 hour'));
+	$time14E = date('Y-m-d H:i', strtotime('+6 day +6 hour'));
+	$time15S = date('Y-m-d H:i', strtotime('+11 day +1 hour'));
+	$time15E = date('Y-m-d H:i', strtotime('+11 day +4 hour'));
+	$time16S = date('Y-m-d H:i', strtotime('+11 day +5 hour'));
+	$time16E = date('Y-m-d H:i', strtotime('+11 day +7 hour'));
+	$time17S = date('Y-m-d H:i', strtotime('+9 day +2 hour'));
+	$time17E = date('Y-m-d H:i', strtotime('+9 day +3 hour'));
 	
+	/* --- INSERT TAGS --- */
 	insertInto_ShareYourTagsTime("INFORMATICA");
 	insertInto_ShareYourTagsTime("IDRAULICA");
 	insertInto_ShareYourTagsTime("RIPARAZIONI");
@@ -84,7 +95,7 @@
 	
 	
 	
-	insertInto_ShareYourJobsTime("Ripetizioni DataWhereHouse", 10, $time1S, $time1E, 4, "DEFAULT", "Via Fereggiano, Genova GE, Italy", 44.416761, 8.961533700000018, "br3nd3r", "RIPETIZIONI");
+	insertInto_ShareYourJobsTime("Ripetizioni DataWhareHouse", 10, $time1S, $time1E, 4, "DEFAULT", "Via Fereggiano, Genova GE, Italy", 44.416761, 8.961533700000018, "br3nd3r", "RIPETIZIONI");
 	updataInto_ShareYourJobsTime('Receiver', 'theQueen', 14);
 
 	insertInto_ShareYourJobsTime("Manutenzione orti, prati e taglio legna", 100, $time2S, $time2E, 50, "DEFAULT", "16049 La Villa GE, Italy", 44.5274689, 9.43983609999998, "br3nd3r", "FAI DA TE");
@@ -93,10 +104,8 @@
 	insertInto_ShareYourJobsTime("Abbellimento giardini privati", 25, $time3S, $time3E, 15, "DEFAULT", "Corso Alessandro de Stefanis, Genova GE, Italy", 44.4167606, 8.952091800000062, "br3nd3r", "FAI DA TE");
 	updataInto_ShareYourJobsTime('Receiver', 'chuck', 16);
 
-	insertInto_ShareYourJobsTime("Assistenza uno personal computer", 50, $time4S, $time4E, 10, "DEFAULT", "Via Giovanni Amarena, 16143 Genova GE, Italy", 44.41349769999999, 8.95928189999995, "br3nd3r", "INFORMATICA");
-	
-	insertInto_ShareYourJobsTime("Preparo pranzo a domicilio", 15, $time5S, $time5E, 1, "DEFAULT", "Via Armando Diaz, Genova GE, Italy", 44.4015968, 8.944812700000057, "br3nd3r", "CUCINA");
-	
+	insertInto_ShareYourJobsTime("Assistenza uso personal computer", 50, $time4S, $time4E, 10, "DEFAULT", "Via Giovanni Amarena, 16143 Genova GE, Italy", 44.41349769999999, 8.95928189999995, "br3nd3r", "INFORMATICA");
+	insertInto_ShareYourJobsTime("Preparo cena a domicilio", 15, $time5S, $time5E, 1, "DEFAULT", "Via Armando Diaz, Genova GE, Italy", 44.4015968, 8.944812700000057, "br3nd3r", "CUCINA");
 	insertInto_ShareYourJobsTime("Lavaggio auto privati", 80, $time6S, $time6E, 100, "DEFAULT", "Genoa, Metropolitan City of Genoa, Italy", 44.44662539999999, 9.145615300000031, "br3nd3r", "LAVAGGIO");
 	
 	insertInto_ShareYourJobsTime("Ripetizioni informatica universitarie", 70, $time7S, $time7E, 2, "DEFAULT", "Via XX Settembre, 16121 Genova GE, Italy", 44.40570270000001, 8.939600799999994, "br3nd3r", "INFORMATICA");
@@ -106,6 +115,13 @@
 	
 	insertInto_ShareYourJobsTime("Accudisco cani", 55, $time11S, $time11E, 2, "DEFAULT", "Genoa, Metropolitan City of Genoa, Italy", 44.44662539999999, 9.145615300000031, "br3nd3r", "ANIMALI");
 	updataInto_ShareYourJobsTime('Receiver', 'lastJedi', 22);
+
+	insertInto_ShareYourJobsTime("Insegno a suonare il piano", 10, $time12S, $time12E, 1, "DEFAULT", "Piazza Goffredo Mameli, 17100 Savona SV, Italy", 44.308634, 8.479398100000026, "lastJedi", "MUSICA");
+	insertInto_ShareYourJobsTime("Costruisco armature per supereroi", 3500, $time13S, $time13E, 1, "DEFAULT", "Corso Tardy e Benech, 17100 Savona SV, Italy", 44.3030838, 8.472640700000056, "ironman55", "FAI DA TE");
+	insertInto_ShareYourJobsTime("Manutenzione giardini", 45, $time14S, $time14E, 6, "DEFAULT", "Via Stalingrado, 17100 Savona SV, Italy", 44.2984926, 8.461594399999967, "theQueen", "GIARDINAGGIO");
+	insertInto_ShareYourJobsTime("Riparo finestre e infissi", 100, $time15S, $time15E, 5, "DEFAULT", "Via Venezia, 17100 Savona SV, Italy", 44.3100832, 8.476358399999981, "ironman55", "RIPARAZIONI");
+	insertInto_ShareYourJobsTime("Toilettatura animali di media e grossa taglia", 85, $time16S, $time16E, 4, "DEFAULT", "Corso Italia, 17100 Savona SV, Italy", 44.3084646, 8.480375900000013, "chuck", "ANIMALI");
+	insertInto_ShareYourJobsTime("Pranzo etnico a tema Inghilterra", 25, $time17S, $time17E, 1, "DEFAULT", "Via Torino, 17100 Savona SV, Italy", 44.31509519999999, 8.473388099999966, "chuck", "CUCINA");
 	/* --- END JOBS --- */
 
 	/* --- INSERT CHAT --- */
@@ -120,11 +136,3 @@
 	insertInto_ShareYourPvtMsgTime("Ehy Chuck ho saputo che hai un albero di acqua salata in giardino è vero ?", "Domanda", "lastJedi", "chuck", "2018-08-23 19:07:28");
 	insertInto_ShareYourPvtMsgTime("Si è vero, ci raccolgo i frutti di mare", "Risposta", "chuck", "lastJedi", "2018-08-23 19:37:47");
 	/* --- END CHAT --- */
-
-
-
-
-
-	
-	
-
