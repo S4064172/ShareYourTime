@@ -177,7 +177,7 @@ serverWS_chat.on(
                     }
                 );
                 pollingUserlist();  //aggiorna la lista degli utenti
-                console.log((new Date()) + " Peer " + connection.remoteAddress + " disconnected.");
+                console.log((new Date()) + " " + conn.clientId + " si e' disconnesso.");
             }
         );
     }
