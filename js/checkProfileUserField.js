@@ -92,7 +92,7 @@ function checkModifiedAllField(idWait, userCheck, mailCheck, phoneCheck)
                     var notify = document.getElementById('errAddressModified');
                     notify.style.fontSize = '1.4em';
                     notify.style.color = 'red';
-                    notify.innerHTML = "Scegli un indirizzo piu preciso";
+                    notify.innerHTML = "Scegli un indirizzo piu preciso, forse cercavi " +results[0].formatted_address;
                     return;
                 }
                 addr.value = results[0].formatted_address;
@@ -166,7 +166,7 @@ function checkRegistrationAllField(idWait)
                         var notify = document.getElementById('errAddress');
                         notify.style.fontSize = '1.4em';
                         notify.style.color = 'red';
-                        notify.innerHTML = "Scegli un indirizzo piu preciso";
+                        notify.innerHTML = "Scegli un indirizzo piu preciso, forse cercavi " +results[0].formatted_address;
                         return;
                     }
                    
