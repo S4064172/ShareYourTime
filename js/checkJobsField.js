@@ -197,12 +197,12 @@ function checkAllSearchJob()
                 if(addr.value !=""){
                     var tempStr = addr.value.split(",");
                    
-                    if( !results[0].formatted_address.toLowerCase().includes(tempStr[0].trim().toLowerCase())  || 
-                        !results[0].formatted_address.toLowerCase().includes(tempStr[tempStr.length-1].trim().toLowerCase()) ){
+                    if( ( !results[0].formatted_address.toLowerCase().includes(tempStr[0].trim().toLowerCase())  || 
+                          !results[0].formatted_address.toLowerCase().includes(tempStr[tempStr.length-1].trim().toLowerCase()) ) ){
                         var notify = document.getElementById('errOptionStreet');
                         notify.style.fontSize = '1.4em';
                         notify.style.color = 'red';
-                        notify.innerHTML = "Scegli un indirizzo piu preciso";
+                        notify.innerHTML = "Scegli un indirizzo piu preciso, forse cercavi " +results[0].formatted_address;
                         return;
                     }
                    
@@ -312,7 +312,7 @@ function checkJobAllFields(op, id)
                         var notify = document.getElementById('errModalStreet');
                         notify.style.fontSize = '1.4em';
                         notify.style.color = 'red';
-                        notify.innerHTML = "Scegli un indirizzo piu preciso";
+                        notify.innerHTML = "Scegli un indirizzo piu preciso, forse cercavi " +results[0].formatted_address;
                         return;
                     }
                    

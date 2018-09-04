@@ -73,15 +73,10 @@
                             die('Errore nella selezione degli utenti');
 
                         while( $row = mysqli_fetch_array($res) ){
-                            $getValuationQuery = "SELECT AVG(Evaluation) FROM ShareYourJobsTime WHERE Proposer ='".$row['User']."' AND Evaluation <> 0;";
-
-                            if ( !($res1 = mysqli_query($conn, $getValuationQuery)) ) 
-                                die('Errore nella selezione della media di un utente');
-                            $row1 = mysqli_fetch_array($res1);
+                            
                             if ($row['User'] != $_SESSION['user']){
                                 echo '<option>'.sanitizeToHtml($row['User']);
                                 echo '</option>';
-                                mysqli_free_result($res1);
                             }
                         }
                             
