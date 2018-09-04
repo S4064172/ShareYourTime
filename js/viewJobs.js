@@ -116,10 +116,27 @@ function emptyModalJobs()
 	button.innerHTML = 'Inserisci lavoro';
 	button.addEventListener('click', checkJobAllFields('insert'));
 
-	document.getElementById('modalDateStart').addEventListener('focusout', timeFunction('', 'modalDateStart', null));
-	document.getElementById('modalTimeStart').addEventListener('focusout', timeFunction('', 'modalTimeStart', null));
-	document.getElementById('modalDateEnd').addEventListener('focusout', timeFunction('', 'modalDateEnd', null));
-	document.getElementById('modalTimeEnd').addEventListener('focusout', timeFunction('', 'modalTimeEnd', null));
+    document.getElementById('modalDateStart').addEventListener('focusout', timeFunction(
+        '', 'modalDateStart',
+        '', 'modalTimeStart',
+        '', 'modalDateEnd',
+        '', 'modalTimeEnd',
+         null));
+	document.getElementById('modalTimeStart').addEventListener('focusout', timeFunction(
+        '', 'modalDateStart',
+        '', 'modalTimeStart',
+        '', 'modalDateEnd', 
+        '', 'modalTimeEnd',null));
+	document.getElementById('modalDateEnd').addEventListener('focusout', timeFunction(
+        '', 'modalDateStart',
+        '', 'modalTimeStart',
+        '', 'modalDateEnd',
+        '', 'modalTimeEnd', null));
+	document.getElementById('modalTimeEnd').addEventListener('focusout', timeFunction(
+        '', 'modalDateStart',
+        '', 'modalTimeStart',
+        '', 'modalDateEnd',
+        '', 'modalTimeEnd', null));
 }
 
 /*
