@@ -65,7 +65,7 @@
 	/* --- END USERS --- */
 
 	/* --- INSERT JOBS --- */
-	insertInto_ShareYourJobsTime("Insegno ad usare il pacchetto Office2017", 5, $time1S, $time1E, 2, "DEFAULT", "Via Fereggiano, Genoa, Metropolitan City of Genoa, Italy", 44.4167606, 8.961800900000071, "pippo", "INFORMATICA");
+	insertInto_ShareYourJobsTime("Insegno ad usare il pacchetto Office2017", 5, $time1S, $time1E, 2, "DEFAULT", "Via Fereggiano, Genova GE, Italy", 44.4167606, 8.961800900000071, "pippo", "INFORMATICA");
 	insertInto_ShareYourJobsTime("Riparo tubature e condotti idraulici tra cui impianti di irrigazione", 20, $time2S, $time2E, 4, "DEFAULT", "Via Sturla", 44.3999293, 8.978978999999981, "kenny", "IDRAULICA");
 	updataInto_ShareYourJobsTime('Receiver', 'pippo', 2);
 	
