@@ -22,12 +22,12 @@
 
 	</head>
 	
-	<body onload="connectToServer('<?php echo $_SESSION['user']?>')">
+	<body onload="connectToServer('<?php echo $_SESSION['user']?>')" onclick="myCollapseHide()">
 		<?php require('../noscript/noscript.html'); ?>
 		<?php require_once('../navBar/navBar.php'); ?>
 		<?php require_once('../menu/menu.php'); ?>
     
-		<section class="navbar navbar-expand-md viewChat">
+		<section class="navbar navbar-expand-md viewChat" onClick="hideItem('menu');">
 			
 			<div class="myContainer">
 				<div class="row text-center">
