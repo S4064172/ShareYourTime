@@ -110,7 +110,7 @@ function checkTime(idDate1, idTime1, idDate2, idTime2, idErr, idJob)
 	var dateStart = new Date(dateS + ' ' + timeS);
     var dateEnd = new Date(dateE + ' ' + timeE);
     var now = new Date();
-   
+  
 	var err = document.getElementById(idErr);
 	err.style.fontSize = '1.4em';
     err.style.color = 'red';
@@ -141,8 +141,8 @@ function checkTime(idDate1, idTime1, idDate2, idTime2, idErr, idJob)
 	if (idJob != null)
 		formData.append('sameJob', idJob);
 
-	formData.append('dateS', dateStart);
-	formData.append('dateE', dateEnd);
+	formData.append('dateS', dateS + ' ' + timeS);
+	formData.append('dateE', dateE + ' ' + timeE);
 
 	request.send(formData);
 }
@@ -283,13 +283,7 @@ function checkAllSearchJob()
 			}
 		}
 	);
-
-
-
-
-    
 }
-
 
 
 function checkJobAllFields(op, id) 
@@ -365,7 +359,7 @@ function checkJobAllFields(op, id)
     notify.style.color = 'darkred';
     notify.innerHTML = "Indirizzo non valido";	
     }
-}
+	}
 );
 
 	}

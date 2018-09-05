@@ -597,13 +597,11 @@ function checkPhotoUpdate(idPhoto, idErr)
 
 function listenerPhoto() 
 {
-		console.log("change", document.getElementById("photoModified").files[0])
+    var reader = new FileReader();
     
-    	var reader = new FileReader();
+	reader.onload = function (event) {
+        document.getElementById("imgCard").src = event.target.result;
+	};
     
-	    reader.onload = function (event) {
-    	    document.getElementById("imgCard").src = event.target.result;
-	    };
-    
-    	reader.readAsDataURL(document.getElementById("photoModified").files[0]);
+	reader.readAsDataURL(document.getElementById("photoModified").files[0]);
 }
