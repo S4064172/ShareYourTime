@@ -591,5 +591,19 @@ function checkPhotoUpdate(idPhoto, idErr)
 
     var photo = document.getElementById(idPhoto).files[0];
     var tmpPath = URL.createObjectURL(photo);
-    refreshImg(tmpPath + '?' + new Date().getTime());
+    //refreshImg(tmpPath + '?' + new Date().getTime());
+	listenerPhoto();
+}
+
+function listenerPhoto() 
+{
+		console.log("change", document.getElementById("photoModified").files[0])
+    
+    	var reader = new FileReader();
+    
+	    reader.onload = function (event) {
+    	    document.getElementById("imgCard").src = event.target.result;
+	    };
+    
+    	reader.readAsDataURL(document.getElementById("photoModified").files[0]);
 }
